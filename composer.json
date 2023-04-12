@@ -1,0 +1,43 @@
+{
+    "name": "digicademy/da-lex",
+    "type": "typo3-cms-extension",
+    "description": "Create and manage lexicographic data in TYPO3",
+    "authors": [
+        {
+            "name": "Jonatan Jalle Steller",
+            "email": "jonatan.steller@adwmainz.de",
+            "role": "Developer",
+            "homepage": "https://www.adwmainz.de"
+        }
+    ],
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-lex",
+    "support": {
+        "issues": "https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-lex/-/issues",
+        "source": "https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-lex",
+        "docs": "https://adwmainz.pages.gitlab.rlp.net/digicademy/t3xdev/da-lex"
+    },
+    "keywords": [
+        "TYPO3",
+        "Lexicographic data",
+        "Lexicon",
+        "Dictionary",
+        "Data",
+        "Research",
+        "Academia",
+        "Academic"
+    ],
+    "require": {
+        "typo3/cms-core": "^12"
+    },
+    "autoload": {
+        "psr-4": {
+            "Digicademy\\DALex\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "da_lex"
+        }
+    }
+}

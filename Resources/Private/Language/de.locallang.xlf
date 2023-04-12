@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="de" datatype="plaintext" original="EXT:da_lex/Resources/Private/Language/de.locallang.xlf" date="2023-04-11T10:48:43Z" product-name="da_lex">
+        <header/>
+        <body>
+            <!-- Doktypes -->
+            <trans-unit id="doktypes.dictionaryEntry" resname="doktypes.dictionaryEntry" approved="yes">
+                <source>Dictionary entry</source>
+                <target>Wörterbucheintrag</target>
+            </trans-unit>
+            <trans-unit id="doktypes.encyclopediaEntry" resname="doktypes.encyclopediaEntry" approved="yes">
+                <source>Encyclopedia entry</source>
+                <target>Lexikoneintrag</target>
+            </trans-unit>
+            <trans-unit id="doktypes.glossaryEntry" resname="doktypes.glossaryEntry" approved="yes">
+                <source>Glossary entry</source>
+                <target>Glossareintrag</target>
+            </trans-unit>
+            <!-- Backend layouts -->
+            <trans-unit id="backendLayouts.dictionaryEntry" resname="backendLayouts.dictionaryEntry">
+                <source>Dictionary entry</source>
+                <target>Wörterbucheintrag</target>
+            </trans-unit>
+            <trans-unit id="backendLayouts.senses" resname="backendLayouts.senses">
+                <source>Senses</source>
+                <target>Bedeutungen</target>
+            </trans-unit>
+            <trans-unit id="backendLayouts.distribution" resname="backendLayouts.distribution">
+                <source>Distribution</source>
+                <target>Verbreitung</target>
+            </trans-unit>
+            <trans-unit id="backendLayouts.otherCountries" resname="backendLayouts.otherCountries">
+                <source>Other countries</source>
+                <target>Andere Länder</target>
+            </trans-unit>
+            <trans-unit id="backendLayouts.historicalEvidence" resname="backendLayouts.historicalEvidence">
+                <source>Historical evidence</source>
+                <target>Historische Belege</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

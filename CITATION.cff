@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+title: DA Lex
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Jonatan Jalle
+    family-names: Steller
+    email: jonatan.steller@adwmainz.de
+    affiliation: Academy of Sciences and Literature Mainz
+    orcid: 'https://orcid.org/0000-0002-5101-5275'
+repository-code: >-
+  https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-lex
+abstract: >-
+  This extension provides page types and content elements
+  for lexicographic resources to be used in TYPO3. It
+  implements and adapts the DMLex data model for the
+  content management system and includes serialisations
+  such as TEI Lex-0 (XML) and OntoLex Lemon (RDF). The
+  component was originally developed as part of the
+  long-term project Digital Dictionary of Surnames in
+  Germany (DFD), but was built to be re-usable for adjacent
+  data sets and other encyclopedic or dictionary content.
+keywords:
+  - TYPO3
+  - Lexicographic data
+  - Lexicon
+  - Dictionary
+  - Data
+  - Research
+  - DMLex
+  - TEI Lex-0
+  - OntoLex Lemon
+license: GPL 3
+version: 0.0.2
+date-released: '2023-04-12'
