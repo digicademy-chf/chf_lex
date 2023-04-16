@@ -22,6 +22,9 @@
 # This copyright notice MUST APPEAR in all copies of the script!
 
 
+// Prevent script from being called directly
+defined( 'TYPO3' ) or die();
+
 // Add overrides for this extension and table
 ( function( $extKey='da_lex', $table='pages' ) {
     $lexDictionaryDoktype = 150;

@@ -22,6 +22,12 @@
 # This copyright notice MUST APPEAR in all copies of the script!
 
 
+// Use statements
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+// Prevent Script from being called directly
+defined( 'TYPO3' ) or die();
+
 // Register content for this extension
 ( function( $extKey='da_lex' ) {
     $lexDictionaryDoktype = 150;

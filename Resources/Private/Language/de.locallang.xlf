@@ -17,23 +17,23 @@
                 <target>Glossareintrag</target>
             </trans-unit>
             <!-- Backend layouts -->
-            <trans-unit id="backendLayouts.dictionaryEntry" resname="backendLayouts.dictionaryEntry">
+            <trans-unit id="backendLayouts.dictionaryEntry" resname="backendLayouts.dictionaryEntry" approved="yes">
                 <source>Dictionary entry</source>
                 <target>Wörterbucheintrag</target>
             </trans-unit>
-            <trans-unit id="backendLayouts.senses" resname="backendLayouts.senses">
+            <trans-unit id="backendLayouts.senses" resname="backendLayouts.senses" approved="yes">
                 <source>Senses</source>
                 <target>Bedeutungen</target>
             </trans-unit>
-            <trans-unit id="backendLayouts.distribution" resname="backendLayouts.distribution">
+            <trans-unit id="backendLayouts.distribution" resname="backendLayouts.distribution" approved="yes">
                 <source>Distribution</source>
                 <target>Verbreitung</target>
             </trans-unit>
-            <trans-unit id="backendLayouts.otherCountries" resname="backendLayouts.otherCountries">
+            <trans-unit id="backendLayouts.otherCountries" resname="backendLayouts.otherCountries" approved="yes">
                 <source>Other countries</source>
                 <target>Andere Länder</target>
             </trans-unit>
-            <trans-unit id="backendLayouts.historicalEvidence" resname="backendLayouts.historicalEvidence">
+            <trans-unit id="backendLayouts.historicalEvidence" resname="backendLayouts.historicalEvidence" approved="yes">
                 <source>Historical evidence</source>
                 <target>Historische Belege</target>
             </trans-unit>
