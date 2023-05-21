@@ -13,15 +13,17 @@ authors:
 repository-code: >-
   https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-lex
 abstract: >-
-  This extension provides page types and content elements
-  for lexicographic resources to be used in TYPO3. It
-  implements and adapts the DMLex data model for the
-  content management system and includes serialisations
-  such as TEI Lex-0 (XML) and OntoLex Lemon (RDF). The
-  component was originally developed as part of the
-  long-term project Digital Dictionary of Surnames in
-  Germany (DFD), but was built to be re-usable for adjacent
-  data sets and other encyclopedic or dictionary content.
+  This TYPO3 extension for lexicographic resources
+  implements the DMLex data model, version 1.0 WD1. It
+  includes the two official modules Controlled Vocabulary
+  and Linking, as well as a custom Editorial module and
+  in-line annotations. In addition to the data model, the
+  extension also provides extensible TEI Lex-0 and OntoLex
+  Lemon serialisations provided through a REST endpoint
+  based on a specification from the EU-funded Elexis
+  project. In addition to the focus on dictionary entries,
+  the extension also provides encyclopedic articles and
+  glossary entries as additional data types.
 keywords:
   - TYPO3
   - Lexicographic data

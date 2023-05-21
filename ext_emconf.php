@@ -1,7 +1,7 @@
 <?php
 
 $EM_CONF[$_EXTKEY] = [
-    'title'          => 'DA-Lex',
+    'title'          => 'DA Lex',
     'description'    => 'Create and manage lexicographic data in TYPO3',
     'category'       => 'misc',
     'author'         => 'Jonatan Jalle Steller',
