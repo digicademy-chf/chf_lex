@@ -3,6 +3,731 @@
     <file source-language="en" datatype="plaintext" original="EXT:da_lex/Resources/Private/Language/locallang.xlf" date="2023-04-11T10:48:43Z" product-name="da_lex">
         <header/>
         <body>
+            <!-- Database: LexicographicResource -->
+            <trans-unit id="database.lexicographicResource" resname="database.lexicographicResource">
+                <source>Lexicographic resource</source>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.title" resname="database.lexicographicResource.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.title.description" resname="database.lexicographicResource.title.description">
+                <source>Name of the resource</source>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.language" resname="database.lexicographicResource.language">
+                <source>Language</source>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.language.description" resname="database.lexicographicResource.language.description">
+                <source>Language of the resource</source>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.description" resname="database.lexicographicResource.description">
+                <source>Description</source>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.description.description" resname="database.lexicographicResource.description.description">
+                <source>Brief information about the resource</source>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.uri" resname="database.lexicographicResource.uri">
+                <source>URI</source>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.uri.description" resname="database.lexicographicResource.uri.description">
+                <source>Web address of the resource</source>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.sameAs" resname="database.lexicographicResource.sameAs">
+                <source>Reference URI</source>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.sameAs.description" resname="database.lexicographicResource.sameAs.description">
+                <source>External web address to identify the resource across the web</source>
+            </trans-unit>
+            <!-- Database: Tag -->
+            <trans-unit id="database.tag" resname="database.tag">
+                <source>Tag</source>
+            </trans-unit>
+            <trans-unit id="database.tag.constraints" resname="database.tag.constraints">
+                <source>Constraints</source>
+            </trans-unit>
+            <trans-unit id="database.tag.tag" resname="database.tag.tag">
+                <source>Tag</source>
+            </trans-unit>
+            <trans-unit id="database.tag.tag.description" resname="database.tag.tag.description">
+                <source>Name of the tag</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type" resname="database.tag.type">
+                <source>Type</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.description" resname="database.tag.type.description">
+                <source>Type of tag</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.language" resname="database.tag.type.language">
+                <source>Language</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.country" resname="database.tag.type.country">
+                <source>Country</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.region" resname="database.tag.type.region">
+                <source>Region</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.label" resname="database.tag.type.label">
+                <source>Label</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.relationType" resname="database.tag.type.relationType">
+                <source>Relation type</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.memberRole" resname="database.tag.type.memberRole">
+                <source>Member role</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.sourceIdentity" resname="database.tag.type.sourceIdentity">
+                <source>Source identity</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.partOfSpeech" resname="database.tag.type.partOfSpeech">
+                <source>Part of speech</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.transcriptionScheme" resname="database.tag.type.transcriptionScheme">
+                <source>Transcription scheme</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.inflectionType" resname="database.tag.type.inflectionType">
+                <source>Inflection type</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.definitionType" resname="database.tag.type.definitionType">
+                <source>Definition type</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.frequencyType" resname="database.tag.type.frequencyType">
+                <source>Frequency type</source>
+            </trans-unit>
+            <trans-unit id="database.tag.code" resname="database.tag.code">
+                <source>Code</source>
+            </trans-unit>
+            <trans-unit id="database.tag.code.description" resname="database.tag.code.description">
+                <source>Abbreviated form of the tag</source>
+            </trans-unit>
+            <trans-unit id="database.tag.description" resname="database.tag.description">
+                <source>Description</source>
+            </trans-unit>
+            <trans-unit id="database.tag.description.description" resname="database.tag.description.description">
+                <source>Brief information about the tag</source>
+            </trans-unit>
+            <trans-unit id="database.tag.sameAs" resname="database.tag.sameAs">
+                <source>Reference URI</source>
+            </trans-unit>
+            <trans-unit id="database.tag.sameAs.description" resname="database.tag.sameAs.description">
+                <source>External web address to identify the tag across the web</source>
+            </trans-unit>
+            <trans-unit id="database.tag.partOfSpeechConstraint" resname="database.tag.partOfSpeechConstraint">
+                <source>Part of speech constraint</source>
+            </trans-unit>
+            <trans-unit id="database.tag.partOfSpeechConstraint.description" resname="database.tag.partOfSpeechConstraint.description">
+                <source>List of parts of speech that this tag may be used for</source>
+            </trans-unit>
+            <trans-unit id="database.tag.scopeConstraint" resname="database.tag.scopeConstraint">
+                <source>Scope constraint</source>
+            </trans-unit>
+            <trans-unit id="database.tag.scopeConstraint.description" resname="database.tag.scopeConstraint.description">
+                <source>Indicator of how close members of this type of relation need to be</source>
+            </trans-unit>
+            <trans-unit id="database.tag.scopeConstraint.any" resname="database.tag.scopeConstraint.any">
+                <source>Any</source>
+            </trans-unit>
+            <trans-unit id="database.tag.scopeConstraint.sameResource" resname="database.tag.scopeConstraint.sameResource">
+                <source>Same lexicographic resource</source>
+            </trans-unit>
+            <trans-unit id="database.tag.scopeConstraint.sameEntry" resname="database.tag.scopeConstraint.sameEntry">
+                <source>Same entry</source>
+            </trans-unit>
+            <trans-unit id="database.tag.memberRoleConstraint" resname="database.tag.memberRoleConstraint">
+                <source>Member role constraint</source>
+            </trans-unit>
+            <trans-unit id="database.tag.memberRoleConstraint.description" resname="database.tag.memberRoleConstraint.description">
+                <source>Defines which roles members of this relation may have</source>
+            </trans-unit>
+            <trans-unit id="database.tag.memberTypeConstraint" resname="database.tag.memberTypeConstraint">
+                <source>Member type constraint</source>
+            </trans-unit>
+            <trans-unit id="database.tag.memberTypeConstraint.description" resname="database.tag.memberTypeConstraint.description">
+                <source>Defines which types of members may be part of this relation</source>
+            </trans-unit>
+            <trans-unit id="database.tag.memberTypeConstraint.any" resname="database.tag.memberTypeConstraint.any">
+                <source>Any</source>
+            </trans-unit>
+            <trans-unit id="database.tag.memberTypeConstraint.entry" resname="database.tag.memberTypeConstraint.entry">
+                <source>Entry</source>
+            </trans-unit>
+            <trans-unit id="database.tag.memberTypeConstraint.sense" resname="database.tag.memberTypeConstraint.sense">
+                <source>Sense</source>
+            </trans-unit>
+            <trans-unit id="database.tag.memberTypeConstraint.encyclopediaEntry" resname="database.tag.memberTypeConstraint.encyclopediaEntry">
+                <source>Encyclopedia entry</source>
+            </trans-unit>
+            <trans-unit id="database.tag.memberTypeConstraint.glossaryEntry" resname="database.tag.memberTypeConstraint.glossaryEntry">
+                <source>Glossary entry</source>
+            </trans-unit>
+            <trans-unit id="database.tag.min" resname="database.tag.min">
+                <source>Minimum number</source>
+            </trans-unit>
+            <trans-unit id="database.tag.min.description" resname="database.tag.min.description">
+                <source>Minimum number of members in this relation (leave empty to not set a limit)</source>
+            </trans-unit>
+            <trans-unit id="database.tag.max" resname="database.tag.max">
+                <source>Maximum number</source>
+            </trans-unit>
+            <trans-unit id="database.tag.max.description" resname="database.tag.max.description">
+                <source>Maximum number of members in this relation (leave empty to not set a limit)</source>
+            </trans-unit>
+            <trans-unit id="database.tag.action" resname="database.tag.action">
+                <source>Display action</source>
+            </trans-unit>
+            <trans-unit id="database.tag.action.description" resname="database.tag.action.description">
+                <source>Instructs machine agents what to do when they show this relation</source>
+            </trans-unit>
+            <trans-unit id="database.tag.action.embed" resname="database.tag.action.embed">
+                <source>Embed</source>
+            </trans-unit>
+            <trans-unit id="database.tag.action.navigate" resname="database.tag.action.navigate">
+                <source>Display link</source>
+            </trans-unit>
+            <trans-unit id="database.tag.action.none" resname="database.tag.action.none">
+                <source>Do not display</source>
+            </trans-unit>
+            <!-- Database: SameAs -->
+            <trans-unit id="database.sameAs" resname="database.sameAs">
+                <source>Reference URI</source>
+            </trans-unit>
+            <trans-unit id="database.sameAs.uri" resname="database.sameAs.uri">
+                <source>URI</source>
+            </trans-unit>
+            <trans-unit id="database.sameAs.uri.description" resname="database.sameAs.uri.description">
+                <source>External web address to identify an entity across the web</source>
+            </trans-unit>
+            <!-- Database: Contributor -->
+            <trans-unit id="database.contributor" resname="database.contributor">
+                <source>Contributor</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.uuid" resname="database.contributor.uuid">
+                <source>UUID</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.uuid.description" resname="database.contributor.uuid.description">
+                <source>Unique contributor identifier</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.active" resname="database.contributor.active">
+                <source>Active</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.active.description" resname="database.contributor.active.description">
+                <source>Whether the contributor should be listed above others</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.surname" resname="database.contributor.surname">
+                <source>Surname</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.surname.description" resname="database.contributor.surname.description">
+                <source>Surname of the contributor</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.forename" resname="database.contributor.forename">
+                <source>Forename</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.forename.description" resname="database.contributor.forename.description">
+                <source>Forename of the contributor</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.corporateName" resname="database.contributor.corporateName">
+                <source>Corporate name</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.corporateName.description" resname="database.contributor.corporateName.description">
+                <source>Name of a corporate body (e.g., an organisation) used instead of forename and surname</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.label" resname="database.contributor.label">
+                <source>Label</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.label.description" resname="database.contributor.label.description">
+                <source>Label to group the contributor into</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.sameAs" resname="database.contributor.sameAs">
+                <source>Reference URI</source>
+            </trans-unit>
+            <trans-unit id="database.contributor.sameAs.description" resname="database.contributor.sameAs.description">
+                <source>External web address to identify the contributor across the web</source>
+            </trans-unit>
+            <!-- Database: Example -->
+            <trans-unit id="database.example" resname="database.example">
+                <source>Example</source>
+            </trans-unit>
+            <trans-unit id="database.example.text" resname="database.example.text">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="database.example.text.description" resname="database.example.text.description">
+                <source>Sample text, e.g. a full sentence</source>
+            </trans-unit>
+            <trans-unit id="database.example.date" resname="database.example.date">
+                <source>Date</source>
+            </trans-unit>
+            <trans-unit id="database.example.date.description" resname="database.example.date.description">
+                <source>Date that the sample text is attested for</source>
+            </trans-unit>
+            <trans-unit id="database.example.location" resname="database.example.location">
+                <source>Location</source>
+            </trans-unit>
+            <trans-unit id="database.example.location.description" resname="database.example.location.description">
+                <source>Place that the sample text is attested for</source>
+            </trans-unit>
+            <trans-unit id="database.example.soundFile" resname="database.example.soundFile">
+                <source>Sound file</source>
+            </trans-unit>
+            <trans-unit id="database.example.soundFile.description" resname="database.example.soundFile.description">
+                <source>File that reads out the example text</source>
+            </trans-unit>
+            <trans-unit id="database.example.sourceIdentity" resname="database.example.sourceIdentity">
+                <source>Source identity</source>
+            </trans-unit>
+            <trans-unit id="database.example.sourceIdentity.description" resname="database.example.sourceIdentity.description">
+                <source>Token to identify a source</source>
+            </trans-unit>
+            <trans-unit id="database.example.sourceElaboration" resname="database.example.sourceElaboration">
+                <source>Source elaboration</source>
+            </trans-unit>
+            <trans-unit id="database.example.sourceElaboration.description" resname="database.example.sourceElaboration.description">
+                <source>Detailed reference, e.g., a page number</source>
+            </trans-unit>
+            <trans-unit id="database.example.source" resname="database.example.source">
+                <source>Source</source>
+            </trans-unit>
+            <trans-unit id="database.example.source.description" resname="database.example.source.description">
+                <source>Full-blown reference as a source of the example</source>
+            </trans-unit>
+            <trans-unit id="database.example.label" resname="database.example.label">
+                <source>Label</source>
+            </trans-unit>
+            <trans-unit id="database.example.label.description" resname="database.example.label.description">
+                <source>Label to group the example into</source>
+            </trans-unit>
+            <!-- Database: Definition -->
+            <trans-unit id="database.definition" resname="database.definition">
+                <source>Definition</source>
+            </trans-unit>
+            <trans-unit id="database.definition.text" resname="database.definition.text">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="database.definition.text.description" resname="database.definition.text.description">
+                <source>Definition of the headword</source>
+            </trans-unit>
+            <trans-unit id="database.definition.definitionType" resname="database.definition.definitionType">
+                <source>Definition type</source>
+            </trans-unit>
+            <trans-unit id="database.definition.definitionType.description" resname="database.definition.definitionType.description">
+                <source>May be used to differentiate between different tiers of definitions</source>
+            </trans-unit>
+            <!-- Database: Transcription -->
+            <trans-unit id="database.transcription" resname="database.transcription">
+                <source>Transcription</source>
+            </trans-unit>
+            <trans-unit id="database.transcription.text" resname="database.transcription.text">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="database.transcription.text.description" resname="database.transcription.text.description">
+                <source>Transcribed version of the pronunciation</source>
+            </trans-unit>
+            <trans-unit id="database.transcription.scheme" resname="database.transcription.scheme">
+                <source>Scheme</source>
+            </trans-unit>
+            <trans-unit id="database.transcription.scheme.description" resname="database.transcription.scheme.description">
+                <source>Transcription scheme used here</source>
+            </trans-unit>
+            <!-- Database: Pronunciation -->
+            <trans-unit id="database." resname="database.pronunciation">
+                <source>Pronunciation</source>
+            </trans-unit>
+            <trans-unit id="database.pronunciation.soundFile" resname="database.pronunciation.soundFile">
+                <source>Sound file</source>
+            </trans-unit>
+            <trans-unit id="database.pronunciation.soundFile.description" resname="database.pronunciation.soundFile.description">
+                <source>File that reads out the pronunciation</source>
+            </trans-unit>
+            <trans-unit id="database.pronunciation.transcription" resname="database.pronunciation.transcription">
+                <source>Transcription</source>
+            </trans-unit>
+            <trans-unit id="database.pronunciation.transcription.description" resname="database.pronunciation.transcription.description">
+                <source>Option to list various transcriptions of the pronuncation</source>
+            </trans-unit>
+            <trans-unit id="database.pronunciation.label" resname="database.pronunciation.label">
+                <source>Label</source>
+            </trans-unit>
+            <trans-unit id="database.pronunciation.label.description" resname="database.pronunciation.label.description">
+                <source>Label to group the pronunication into</source>
+            </trans-unit>
+            <!-- Database: InflectedForm -->
+            <trans-unit id="database.inflectedForm" resname="database.inflectedForm">
+                <source>Inflected form</source>
+            </trans-unit>
+            <trans-unit id="database.inflectedForm.text" resname="database.inflectedForm.text">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="database.inflectedForm.text.description" resname="database.inflectedForm.text.description">
+                <source>Text of the inflected form</source>
+            </trans-unit>
+            <trans-unit id="database.inflectedForm.inflectionType" resname="database.inflectedForm.inflectionType">
+                <source>inflectionType</source>
+            </trans-unit>
+            <trans-unit id="database.inflectedForm.inflectionType.description" resname="database.inflectedForm.inflectionType.description">
+                <source>Specify the type of inflection used here</source>
+            </trans-unit>
+            <trans-unit id="database.inflectedForm.pronunciation" resname="database.inflectedForm.pronunciation">
+                <source>Pronunciation</source>
+            </trans-unit>
+            <trans-unit id="database.inflectedForm.pronunciation.description" resname="database.inflectedForm.pronunciation.description">
+                <source>Define the pronunciation of the inflected form</source>
+            </trans-unit>
+            <trans-unit id="database.inflectedForm.label" resname="database.inflectedForm.label">
+                <source>Label</source>
+            </trans-unit>
+            <trans-unit id="database.inflectedForm.label.description" resname="database.inflectedForm.label.description">
+                <source>Label to group the inflected form into</source>
+            </trans-unit>
+            <!-- Database: Sense -->
+            <trans-unit id="database.sense" resname="database.sense">
+                <source>Sense</source>
+            </trans-unit>
+            <trans-unit id="database.sense.id" resname="database.sense.id">
+                <source>Identifier</source>
+            </trans-unit>
+            <trans-unit id="database.sense.id.description" resname="database.sense.id.description">
+                <source>Unique string, number, or combination of these to identify this sense</source>
+            </trans-unit>
+            <trans-unit id="database.sense.uuid" resname="database.sense.uuid">
+                <source>UUID</source>
+            </trans-unit>
+            <trans-unit id="database.sense.uuid.description" resname="database.sense.uuid.description">
+                <source>Unique sense identifier</source>
+            </trans-unit>
+            <trans-unit id="database.sense.definition" resname="database.sense.definition">
+                <source>Definition</source>
+            </trans-unit>
+            <trans-unit id="database.sense.definition.description" resname="database.sense.definition.description">
+                <source>Specific description of the sense</source>
+            </trans-unit>
+            <trans-unit id="database.sense.indicator" resname="database.sense.indicator">
+                <source>Indicator</source>
+            </trans-unit>
+            <trans-unit id="database.sense.indicator.description" resname="database.sense.indicator.description">
+                <source>Brief indicator differentiating this sense from the others</source>
+            </trans-unit>
+            <trans-unit id="database.sense.structuredIndicator" resname="database.sense.structuredIndicator">
+                <source>Structured indicator</source>
+            </trans-unit>
+            <trans-unit id="database.sense.structuredIndicator.description" resname="database.sense.structuredIndicator.description">
+                <source>Category tree to differentiate this sense from the others</source>
+            </trans-unit>
+            <trans-unit id="database.sense.example" resname="database.sense.example">
+                <source>Example</source>
+            </trans-unit>
+            <trans-unit id="database.sense.example.description" resname="database.sense.example.description">
+                <source>Contemporary or historical examples of this sense</source>
+            </trans-unit>
+            <trans-unit id="database.sense.frequency" resname="database.sense.frequency">
+                <source>Frequency</source>
+            </trans-unit>
+            <trans-unit id="database.sense.frequency.description" resname="database.sense.frequency.description">
+                <source>Frequency data for different countries or regions</source>
+            </trans-unit>
+            <trans-unit id="database.sense.label" resname="database.sense.label">
+                <source>Label</source>
+            </trans-unit>
+            <trans-unit id="database.sense.label.description" resname="database.sense.label.description">
+                <source>Label to group the sense into</source>
+            </trans-unit>
+            <trans-unit id="database.sense.sameAs" resname="database.sense.sameAs">
+                <source>Reference URI</source>
+            </trans-unit>
+            <trans-unit id="database.sense.sameAs.description" resname="database.sense.sameAs.description">
+                <source>External web address to identify the sense across the web</source>
+            </trans-unit>
+            <!-- Database: Member -->
+            <trans-unit id="database.member" resname="database.member">
+                <source>Member</source>
+            </trans-unit>
+            <trans-unit id="database.member.role" resname="database.member.role">
+                <source>Role</source>
+            </trans-unit>
+            <trans-unit id="database.member.role.description" resname="database.member.role.description">
+                <source>Role in this relation</source>
+            </trans-unit>
+            <trans-unit id="database.member.member" resname="database.member.member">
+                <source>Member</source>
+            </trans-unit>
+            <trans-unit id="database.member.member.description" resname="database.member.member.description">
+                <source>Selection of the member of this relation</source>
+            </trans-unit>
+            <!-- Database: Relation -->
+            <trans-unit id="database.relation" resname="database.relation">
+                <source>Relation</source>
+            </trans-unit>
+            <trans-unit id="database.relation.type" resname="database.relation.type">
+                <source>Type</source>
+            </trans-unit>
+            <trans-unit id="database.relation.type.description" resname="database.relation.type.description">
+                <source>Specifies the type of relation</source>
+            </trans-unit>
+            <trans-unit id="database.relation.description" resname="database.relation.description">
+                <source>Description</source>
+            </trans-unit>
+            <trans-unit id="database.relation.description.description" resname="database.relation.description.description">
+                <source>Explanation of this relation</source>
+            </trans-unit>
+            <trans-unit id="database.relation.member" resname="database.relation.member">
+                <source>Member</source>
+            </trans-unit>
+            <trans-unit id="database.relation.member.description" resname="database.relation.member.description">
+                <source>List of members in this relation</source>
+            </trans-unit>
+            <!-- Database: Entry -->
+            <trans-unit id="database.entry" resname="database.entry">
+                <source>Entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.editorial" resname="database.entry.editorial">
+                <source>Editorial</source>
+            </trans-unit>
+            <trans-unit id="database.entry.characteristics" resname="database.entry.characteristics">
+                <source>Characteristics</source>
+            </trans-unit>
+            <trans-unit id="database.entry.content" resname="database.entry.content">
+                <source>Content</source>
+            </trans-unit>
+            <trans-unit id="database.entry.distribution" resname="database.entry.distribution">
+                <source>Distribution</source>
+            </trans-unit>
+            <trans-unit id="database.entry.bibliography" resname="database.entry.bibliography">
+                <source>Bibliography</source>
+            </trans-unit>
+            <trans-unit id="database.entry.original" resname="database.entry.original">
+                <source>Original</source>
+            </trans-unit>
+            <trans-unit id="database.entry.id" resname="database.entry.id">
+                <source>Identifier</source>
+            </trans-unit>
+            <trans-unit id="database.entry.id.description" resname="database.entry.id.description">
+                <source>Simple identifier of this entry as part of a single dataset</source>
+            </trans-unit>
+            <trans-unit id="database.entry.uuid" resname="database.entry.uuid">
+                <source>UUID</source>
+            </trans-unit>
+            <trans-unit id="database.entry.uuid.description" resname="database.entry.uuid.description">
+                <source>Unique entry identifier</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type" resname="database.entry.type">
+                <source>Type</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.description" resname="database.entry.type.description">
+                <source>Type of entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.entry" resname="database.entry.type.entry">
+                <source>Dictionary entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.encyclopediaEntry" resname="database.entry.type.encyclopediaEntry">
+                <source>Encyclopedia entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.type.glossaryEntry" resname="database.entry.type.glossaryEntry">
+                <source>Glossary entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.headword" resname="database.entry.headword">
+                <source>Headword</source>
+            </trans-unit>
+            <trans-unit id="database.entry.headword.description" resname="database.entry.headword.description">
+                <source>Single lemma identifying the word discussed in the entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.homographNumber" resname="database.entry.homographNumber">
+                <source>Homograph number</source>
+            </trans-unit>
+            <trans-unit id="database.entry.homographNumber.description" resname="database.entry.homographNumber.description">
+                <source>Optional number to distinguish lemmas that are spelled the same</source>
+            </trans-unit>
+            <trans-unit id="database.entry.title" resname="database.entry.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="database.entry.title.description" resname="database.entry.title.description">
+                <source>Name of the entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.annotateStrings" resname="database.entry.annotateStrings">
+                <source>Annotate strings</source>
+            </trans-unit>
+            <trans-unit id="database.entry.annotateStrings.description" resname="database.entry.annotateStrings.description">
+                <source>List of comma-separated strings to link to this glossary entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.label" resname="database.entry.label">
+                <source>Label</source>
+            </trans-unit>
+            <trans-unit id="database.entry.label.description" resname="database.entry.label.description">
+                <source>Label to group the entry into</source>
+            </trans-unit>
+            <trans-unit id="database.entry.sameAs" resname="database.entry.sameAs">
+                <source>Reference URI</source>
+            </trans-unit>
+            <trans-unit id="database.entry.sameAs.description" resname="database.entry.sameAs.description">
+                <source>External web address to identify the entry across the web</source>
+            </trans-unit>
+            <trans-unit id="database.entry.author" resname="database.entry.author">
+                <source>Author</source>
+            </trans-unit>
+            <trans-unit id="database.entry.author.description" resname="database.entry.author.description">
+                <source>List of authors of this entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.editor" resname="database.entry.editor">
+                <source>Editor</source>
+            </trans-unit>
+            <trans-unit id="database.entry.editor.description" resname="database.entry.editor.description">
+                <source>List of editors of this entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.revisionNumber" resname="database.entry.revisionNumber">
+                <source>Revision number</source>
+            </trans-unit>
+            <trans-unit id="database.entry.revisionNumber.description" resname="database.entry.revisionNumber.description">
+                <source>Counter to increase when the entry is changed significantly</source>
+            </trans-unit>
+            <trans-unit id="database.entry.revisionDate" resname="database.entry.revisionDate">
+                <source>Revision date</source>
+            </trans-unit>
+            <trans-unit id="database.entry.revisionDate.description" resname="database.entry.revisionDate.description">
+                <source>Date when the last significant edit was made</source>
+            </trans-unit>
+            <trans-unit id="database.entry.databaseQuery" resname="database.entry.databaseQuery">
+                <source>Database query</source>
+            </trans-unit>
+            <trans-unit id="database.entry.databaseQuery.description" resname="database.entry.databaseQuery.description">
+                <source>Query that identifies a set of entries edited in a single run</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationDate" resname="database.entry.publicationDate">
+                <source>Publication date</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationDate.description" resname="database.entry.publicationDate.description">
+                <source>Date when the entry was published on the web</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationSteps" resname="database.entry.publicationSteps">
+                <source>Publication steps</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationSteps.description" resname="database.entry.publicationSteps.description">
+                <source>Indicator of the entry's publication status</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationSteps.editing" resname="database.entry.publicationSteps.editing">
+                <source>Editing</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationSteps.deferred" resname="database.entry.publicationSteps.deferred">
+                <source>Deferred</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationSteps.checking" resname="database.entry.publicationSteps.checking">
+                <source>Checking</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationSteps.revising" resname="database.entry.publicationSteps.revising">
+                <source>Revising</source>
+            </trans-unit>
+            <trans-unit id="database.entry.publicationSteps.publishing" resname="database.entry.publicationSteps.publishing">
+                <source>Publishing</source>
+            </trans-unit>
+            <trans-unit id="database.entry.editingSteps" resname="database.entry.editingSteps">
+                <source>Editing steps</source>
+            </trans-unit>
+            <trans-unit id="database.entry.editingSteps.description" resname="database.entry.editingSteps.description">
+                <source>Indicator of the steps taken in writing the entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.editingSteps.checkDatabase" resname="database.entry.editingSteps.checkDatabase">
+                <source>Check database</source>
+            </trans-unit>
+            <trans-unit id="database.entry.editingSteps.checkForeignLanguage" resname="database.entry.editingSteps.checkForeignLanguage">
+                <source>Check foreign-language dictionaries</source>
+            </trans-unit>
+            <trans-unit id="database.entry.editingSteps.checkRegional" resname="database.entry.editingSteps.checkRegional">
+                <source>Check regional dictionaries</source>
+            </trans-unit>
+            <trans-unit id="database.entry.editingSteps.checkPrevious" resname="database.entry.editingSteps.checkPrevious">
+                <source>Check preceding projects</source>
+            </trans-unit>
+            <trans-unit id="database.entry.editingSteps.checkFurther" resname="database.entry.editingSteps.checkFurther">
+                <source>Check further dictionaries</source>
+            </trans-unit>
+            <trans-unit id="database.entry.editingSteps.checkMaps" resname="database.entry.editingSteps.checkMaps">
+                <source>Check domestic and foreign maps</source>
+            </trans-unit>
+            <trans-unit id="database.entry.editingNotes" resname="database.entry.editingNotes">
+                <source>Editing notes</source>
+            </trans-unit>
+            <trans-unit id="database.entry.editingNotes.description" resname="database.entry.editingNotes.description">
+                <source>Comments that support the editorial process</source>
+            </trans-unit>
+            <trans-unit id="database.entry.classification" resname="database.entry.classification">
+                <source>Classification</source>
+            </trans-unit>
+            <trans-unit id="database.entry.classification.description" resname="database.entry.classification.description">
+                <source>Assess the entry using a given set of categories</source>
+            </trans-unit>
+            <trans-unit id="database.entry.partOfSpeech" resname="database.entry.partOfSpeech">
+                <source>Part of speech</source>
+            </trans-unit>
+            <trans-unit id="database.entry.partOfSpeech.description" resname="database.entry.partOfSpeech.description">
+                <source>Define the headword's part of speech</source>
+            </trans-unit>
+            <trans-unit id="database.entry.inflectedForm" resname="database.entry.inflectedForm">
+                <source>Inflected form</source>
+            </trans-unit>
+            <trans-unit id="database.entry.inflectedForm.description" resname="database.entry.inflectedForm.description">
+                <source>Define the headword's inflected forms</source>
+            </trans-unit>
+            <trans-unit id="database.entry.pronunciation" resname="database.entry.pronunciation">
+                <source>Pronunciation</source>
+            </trans-unit>
+            <trans-unit id="database.entry.pronunciation.description" resname="database.entry.pronunciation.description">
+                <source>Define the pronunciation of the headword</source>
+            </trans-unit>
+            <trans-unit id="database.entry.sense" resname="database.entry.sense">
+                <source>Sense</source>
+            </trans-unit>
+            <trans-unit id="database.entry.sense.description" resname="database.entry.sense.description">
+                <source>List of senses for this entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.example" resname="database.entry.example">
+                <source>Example</source>
+            </trans-unit>
+            <trans-unit id="database.entry.example.description" resname="database.entry.example.description">
+                <source>Contemporary or historical examples of this entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.contentElements" resname="database.entry.contentElements">
+                <source>Content elements</source>
+            </trans-unit>
+            <trans-unit id="database.entry.contentElements.description" resname="database.entry.contentElements.description">
+                <source>Content blocks that make up the content of this entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.distributionLanguage" resname="database.entry.distributionLanguage">
+                <source>Language</source>
+            </trans-unit>
+            <trans-unit id="database.entry.distributionLanguage.description" resname="database.entry.distributionLanguage.description">
+                <source>Languages associated with this entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.distributionCountry" resname="database.entry.distributionCountry">
+                <source>Main distribution</source>
+            </trans-unit>
+            <trans-unit id="database.entry.distributionCountry.description" resname="database.entry.distributionCountry.description">
+                <source>Countries connected to this entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.distributionRegion" resname="database.entry.distributionRegion">
+                <source>Regional distribution</source>
+            </trans-unit>
+            <trans-unit id="database.entry.distributionRegion.description" resname="database.entry.distributionRegion.description">
+                <source>Regions connected to this entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.frequency" resname="database.entry.frequency">
+                <source>Frequency</source>
+            </trans-unit>
+            <trans-unit id="database.entry.frequency.description" resname="database.entry.frequency.description">
+                <source>List of domestic and foreign frequency data</source>
+            </trans-unit>
+            <trans-unit id="database.entry.source" resname="database.entry.source">
+                <source>Reference</source>
+            </trans-unit>
+            <trans-unit id="database.entry.source.description" resname="database.entry.source.description">
+                <source>List of references for this entry</source>
+            </trans-unit>
+            <trans-unit id="database.entry.import" resname="database.entry.import">
+                <source>Imported file</source>
+            </trans-unit>
+            <trans-unit id="database.entry.import.description" resname="database.entry.import.description">
+                <source>Content of the file used to populate this record</source>
+            </trans-unit>
+
+
+
+
+
+
+
             <!-- Doktypes -->
             <trans-unit id="doktypes.dictionaryEntry" resname="doktypes.dictionaryEntry">
                 <source>Dictionary entry</source>
