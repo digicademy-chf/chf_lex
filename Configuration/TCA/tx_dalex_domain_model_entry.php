@@ -665,12 +665,12 @@ return [
             ],
         ],
         'import' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.definition.import',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.definition.import.description',
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.entry.import',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.entry.import.description',
             'config'      => [
                 'type'     => 'text',
                 'cols'     => 40,
-                'rows'     => 5,
+                'rows'     => 15,
                 'max'      => 100000,
                 'eval'     => 'trim',
                 'required' => true,

@@ -17,12 +17,12 @@
 return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.member',
-        'label'                    => 'member',
+        'label'                    => 'entryOrSense',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'member ASC',
+        'default_sortby'           => 'entryOrSense ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:da_lex/Resources/Public/Icons/Member.svg',
         'origUid'                  => 't3_origuid',
@@ -127,14 +127,14 @@ return [
                 . ' ORDER BY tag',
             ],
         ],
-        'member' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.member.member',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.member.member.description',
+        'entryOrSense' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.member.entryOrSense',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.member.entryOrSense.description',
             'config'      => [
                 'type'     => 'group',
                 'minitems' => 1,
                 'allowed'  => 'tx_dalex_domain_model_entry,tx_dalex_domain_model_sense',
-                'MM'       => 'tx_dalex_domain_model_member_entrysense_mm',
+                'MM'       => 'tx_dalex_domain_model_member_entryorsense_mm',
                 'required' => true,
             ], # TODO implement min/max values from role
         ],
@@ -142,7 +142,7 @@ return [
     'palettes' => [],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,role,member,',
+            'showitem' => 'hidden,role,entryOrSense,',
         ],
     ],
 ];

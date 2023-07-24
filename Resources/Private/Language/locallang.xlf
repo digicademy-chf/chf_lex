@@ -375,6 +375,64 @@
             <trans-unit id="database.inflectedForm.label.description" resname="database.inflectedForm.label.description">
                 <source>Label to group the inflected form into</source>
             </trans-unit>
+            <!-- Database: Frequency -->
+            <trans-unit id="database.frequency" resname="database.frequency">
+                <source>Frequency</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.type" resname="database.frequency.type">
+                <source>Type</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.type.description" resname="database.frequency.type.description">
+                <source>Type of frequency</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.tokens" resname="database.frequency.tokens">
+                <source>Tokens</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.tokens.description" resname="database.frequency.tokens.description">
+                <source>Number of occurrences</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.tokensSecondary" resname="database.frequency.tokensSecondary">
+                <source>Secondary tokens</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.tokensSecondary.description" resname="database.frequency.tokensSecondary.description">
+                <source>Occurrences in second position</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.countryOrRegion" resname="database.frequency.countryOrRegion">
+                <source>Country or region</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.countryOrRegion.description" resname="database.frequency.countryOrRegion.description">
+                <source>Place that the frequency is accounted for</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.date" resname="database.frequency.date">
+                <source>Date</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.date.description" resname="database.frequency.date.description">
+                <source>Date that the frequency is accounted for</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.sourceIdentity" resname="database.frequency.sourceIdentity">
+                <source>Source identity</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.sourceIdentity.description" resname="database.frequency.sourceIdentity.description">
+                <source>Token to identify a source</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.sourceElaboration" resname="database.frequency.sourceElaboration">
+                <source>Source elaboration</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.sourceElaboration.description" resname="database.frequency.sourceElaboration.description">
+                <source>Detailed reference, e.g., a page number</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.source" resname="database.frequency.source">
+                <source>Source</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.source.description" resname="database.frequency.source.description">
+                <source>Full-blown reference as a source of the frequency</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.geodata" resname="database.frequency.geodata">
+                <source>Geodata</source>
+            </trans-unit>
+            <trans-unit id="database.frequency.geodata.description" resname="database.frequency.geodata.description">
+                <source>Option to connect a geographical feature</source>
+            </trans-unit>
             <!-- Database: Sense -->
             <trans-unit id="database.sense" resname="database.sense">
                 <source>Sense</source>
@@ -443,11 +501,11 @@
             <trans-unit id="database.member.role.description" resname="database.member.role.description">
                 <source>Role in this relation</source>
             </trans-unit>
-            <trans-unit id="database.member.member" resname="database.member.member">
-                <source>Member</source>
+            <trans-unit id="database.member.entryOrSense" resname="database.member.entryOrSense">
+                <source>Entry or sense</source>
             </trans-unit>
-            <trans-unit id="database.member.member.description" resname="database.member.member.description">
-                <source>Selection of the member of this relation</source>
+            <trans-unit id="database.member.entryOrSense.description" resname="database.member.entryOrSense.description">
+                <source>Selection of entries or senses as members of this relation</source>
             </trans-unit>
             <!-- Database: Relation -->
             <trans-unit id="database.relation" resname="database.relation">

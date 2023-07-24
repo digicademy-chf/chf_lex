@@ -562,8 +562,8 @@
                 <target>Quelle</target>
             </trans-unit>
             <trans-unit id="database.frequency.source.description" resname="database.frequency.source.description" approved="yes">
-                <source>Full-blown reference as a source of the example</source>
-                <target>Angabe einer vollständigen Referenz als Quelle des Beispiels</target>
+                <source>Full-blown reference as a source of the frequency</source>
+                <target>Angabe einer vollständigen Referenz als Quelle der Häufigkeit</target>
             </trans-unit>
             <trans-unit id="database.frequency.geodata" resname="database.frequency.geodata" approved="yes">
                 <source>Geodata</source>
@@ -663,13 +663,13 @@
                 <source>Role in this relation</source>
                 <target>Rolle in dieser Relation</target>
             </trans-unit>
-            <trans-unit id="database.member.member" resname="database.member.member" approved="yes">
-                <source>Member</source>
-                <target>Mitglied</target>
+            <trans-unit id="database.member.entryOrSense" resname="database.member.entryOrSense" approved="yes">
+                <source>Entry or sense</source>
+                <target>Eintrag oder Bedeutung</target>
             </trans-unit>
-            <trans-unit id="database.member.member.description" resname="database.member.member.description" approved="yes">
-                <source>Selection of the member of this relation</source>
-                <target>Auswahl des Mitglieds in dieser Relation</target>
+            <trans-unit id="database.member.entryOrSense.description" resname="database.member.entryOrSense.description" approved="yes">
+                <source>Selection of entries or senses as members of this relation</source>
+                <target>Auswahl von Einträgen oder Bedeutungen als Mitglieder dieser Relation</target>
             </trans-unit>
             <!-- Database: Relation -->
             <trans-unit id="database.relation" resname="database.relation" approved="yes">
