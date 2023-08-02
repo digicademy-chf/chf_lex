@@ -8,6 +8,9 @@
             "email": "jonatan.steller@adwmainz.de",
             "role": "Developer",
             "homepage": "https://www.adwmainz.de"
+        },
+        {
+            "name": "DA Lex contributors"
         }
     ],
     "license": "GPL-2.0-or-later",
