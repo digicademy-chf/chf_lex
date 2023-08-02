@@ -1,2 +1,0 @@
-# Include all page layouts
-@import 'EXT:da_lex/Configuration/TsConfig/Page/PageLayout/*.tsconfig'
