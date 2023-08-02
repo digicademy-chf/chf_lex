@@ -1033,44 +1033,6 @@
                 <source>Content of the file used to populate this record</source>
                 <target>Inhalt der Datei, die zum Befüllen dieses Datensatzes genutzt wurde</target>
             </trans-unit>
-
-
-
-
-            <!-- Doktypes -->
-            <trans-unit id="doktypes.dictionaryEntry" resname="doktypes.dictionaryEntry" approved="yes">
-                <source>Dictionary entry</source>
-                <target>Wörterbucheintrag</target>
-            </trans-unit>
-            <trans-unit id="doktypes.encyclopediaEntry" resname="doktypes.encyclopediaEntry" approved="yes">
-                <source>Encyclopedia entry</source>
-                <target>Lexikoneintrag</target>
-            </trans-unit>
-            <trans-unit id="doktypes.glossaryEntry" resname="doktypes.glossaryEntry" approved="yes">
-                <source>Glossary entry</source>
-                <target>Glossareintrag</target>
-            </trans-unit>
-            <!-- Backend layouts -->
-            <trans-unit id="backendLayouts.dictionaryEntry" resname="backendLayouts.dictionaryEntry" approved="yes">
-                <source>Dictionary entry</source>
-                <target>Wörterbucheintrag</target>
-            </trans-unit>
-            <trans-unit id="backendLayouts.senses" resname="backendLayouts.senses" approved="yes">
-                <source>Senses</source>
-                <target>Bedeutungen</target>
-            </trans-unit>
-            <trans-unit id="backendLayouts.distribution" resname="backendLayouts.distribution" approved="yes">
-                <source>Distribution</source>
-                <target>Verbreitung</target>
-            </trans-unit>
-            <trans-unit id="backendLayouts.otherCountries" resname="backendLayouts.otherCountries" approved="yes">
-                <source>Other countries</source>
-                <target>Andere Länder</target>
-            </trans-unit>
-            <trans-unit id="backendLayouts.historicalEvidence" resname="backendLayouts.historicalEvidence" approved="yes">
-                <source>Historical evidence</source>
-                <target>Historische Belege</target>
-            </trans-unit>
         </body>
     </file>
 </xliff>

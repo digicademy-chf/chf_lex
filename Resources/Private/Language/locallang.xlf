@@ -779,39 +779,6 @@
             <trans-unit id="database.entry.import.description" resname="database.entry.import.description">
                 <source>Content of the file used to populate this record</source>
             </trans-unit>
-
-
-
-
-
-
-
-            <!-- Doktypes -->
-            <trans-unit id="doktypes.dictionaryEntry" resname="doktypes.dictionaryEntry">
-                <source>Dictionary entry</source>
-            </trans-unit>
-            <trans-unit id="doktypes.encyclopediaEntry" resname="doktypes.encyclopediaEntry">
-                <source>Encyclopedia entry</source>
-            </trans-unit>
-            <trans-unit id="doktypes.glossaryEntry" resname="doktypes.glossaryEntry">
-                <source>Glossary entry</source>
-            </trans-unit>
-            <!-- Backend layouts -->
-            <trans-unit id="backendLayouts.dictionaryEntry" resname="backendLayouts.dictionaryEntry">
-                <source>Dictionary entry</source>
-            </trans-unit>
-            <trans-unit id="backendLayouts.senses" resname="backendLayouts.senses">
-                <source>Senses</source>
-            </trans-unit>
-            <trans-unit id="backendLayouts.distribution" resname="backendLayouts.distribution">
-                <source>Distribution</source>
-            </trans-unit>
-            <trans-unit id="backendLayouts.otherCountries" resname="backendLayouts.otherCountries">
-                <source>Other countries</source>
-            </trans-unit>
-            <trans-unit id="backendLayouts.historicalEvidence" resname="backendLayouts.historicalEvidence">
-                <source>Historical evidence</source>
-            </trans-unit>
         </body>
     </file>
 </xliff>
