@@ -22,10 +22,10 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 class ExampleRepository extends Repository
 {
     protected $defaultOrderings = [
-        'sorting'  => QueryInterface::ORDER_ASCENDING,
-        'text'     => QueryInterface::ORDER_ASCENDING,
-        'date'     => QueryInterface::ORDER_ASCENDING,
-        'location' => QueryInterface::ORDER_ASCENDING,
+        'sorting'       => QueryInterface::ORDER_ASCENDING,
+        'text'          => QueryInterface::ORDER_ASCENDING,
+        'dateCirca'     => QueryInterface::ORDER_ASCENDING,
+        'locationLabel' => QueryInterface::ORDER_ASCENDING,
     ];
 }
 

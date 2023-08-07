@@ -32,7 +32,7 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'tokens,tokensSecondary,date,sourceElaboration',
+        'searchFields'             => 'tokens,tokensSecondary,dateCirca,dateStart,dateEnd,sourceElaboration',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -58,11 +58,11 @@ return [
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
             'config' => [
-                'type' => 'select',
+                'type'       => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'size' => 5,
-                'maxitems' => 20,
-                'items' => [
+                'size'       => 5,
+                'maxitems'   => 20,
+                'items'      => [
                     [
                         'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
                         'value' => -1,
@@ -100,8 +100,7 @@ return [
                     ],
                 ],
                 'foreign_table'       => 'tx_dalex_domain_model_frequency',
-                'foreign_table_where' =>
-                    'AND {#tx_dalex_domain_model_frequency}.{#pid}=###CURRENT_PID###'
+                'foreign_table_where' => 'AND {#tx_dalex_domain_model_frequency}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_dalex_domain_model_frequency}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
@@ -125,8 +124,8 @@ return [
                 'renderType'          => 'selectSingle',
                 'foreign_table'       => 'tx_dalex_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'frequencyType\''
-                . ' ORDER BY tag',
+                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'frequencyType\'',
+                'MM'                  => 'tx_dalex_domain_model_frequency_tag_type_mm',
             ],
         ],
         'tokens' => [
@@ -152,13 +151,33 @@ return [
                 'renderType'          => 'selectSingle',
                 'foreign_table'       => 'tx_dalex_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND ({#tx_dalex_domain_model_tag}.{#type}=\'country\' OR {#tx_dalex_domain_model_tag}.{#type}=\'region\')'
-                . ' ORDER BY tag',
+                    . ' AND ({#tx_dalex_domain_model_tag}.{#type}=\'country\' OR {#tx_dalex_domain_model_tag}.{#type}=\'region\')',
+                'MM'                  => 'tx_dalex_domain_model_frequency_tag_countryorregion_mm',
             ],
         ],
-        'date' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.date',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.date.description',
+        'dateCirca' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateCirca',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateCirca.description',
+            'config'      => [
+                'type' => 'input',
+                'size' => 40,
+                'max'  => 255,
+                'eval' => 'trim',
+            ],
+        ],
+        'dateStart' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateStart',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateStart.description',
+            'config'      => [
+                'type'    => 'datetime',
+                'format'  => 'date',
+                'eval'    => 'int',
+                'default' => 0,
+            ],
+        ],
+        'dateEnd' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateEnd',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateEnd.description',
             'config'      => [
                 'type'    => 'datetime',
                 'format'  => 'date',
@@ -174,8 +193,8 @@ return [
                 'renderType'          => 'selectSingle',
                 'foreign_table'       => 'tx_dalex_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'sourceIdentity\''
-                . ' ORDER BY tag',
+                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'sourceIdentity\'',
+                'MM'                  => 'tx_dalex_domain_model_frequency_tag_sourceidentity_mm',
             ],
         ],
         'sourceElaboration' => [
@@ -192,23 +211,19 @@ return [
             'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.source',
             'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.source.description',
             'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dabib_domain_model_reference',
-                'foreign_table_where' => 'ORDER BY lastChecked',
-                'MM'                  => 'tx_dalex_domain_model_frequency_reference_mm',
-                'size'                => 5,
-                'autoSizeMax'         => 10,
-                'fieldControl'        => [
-                    'editPopup'  => [
-                        'disabled' => false,
-                    ],
-                    'addRecord'  => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
+                'type'                => 'inline',
+                'foreign_table'       => 'tx_dalex_domain_model_reference',
+                'foreign_field'       => 'parent_id',
+                'foreign_table_field' => 'parent_table',
+                'appearance'          => [
+                    'collapseAll'                     => true,
+                    'expandSingle'                    => true,
+                    'newRecordLinkAddTitle'           => true,
+                    'levelLinksPosition'              => 'top',
+                    'useSortable'                     => true,
+                    'showPossibleLocalizationRecords' => true,
+                    'showAllLocalizationLink'         => true,
+                    'showSynchronizationLink'         => true,
                 ],
             ],
         ],
@@ -216,18 +231,18 @@ return [
             'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.geodata',
             'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.geodata.description',
             'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_damap_domain_model_feature',
-                'foreign_table_where' => 'ORDER BY title',
-                'MM'                  => 'tx_dalex_domain_model_frequency_feature_mm',
-                'size'                => 5,
-                'autoSizeMax'         => 10,
-                'fieldControl'        => [
-                    'editPopup'  => [
+                'type'          => 'group',
+                'allowed'       => 'tx_damap_domain_model_feature',
+                'foreign_table' => 'tx_damap_domain_model_feature', // Needed by Extbase
+                'MM'            => 'tx_dalex_domain_model_frequency_feature_geodata_mm',
+                'maxitems'      => 1,
+                'minitems'      => 0,
+                'size'          => 1,
+                'fieldControl'  => [
+                    'editPopup' => [
                         'disabled' => false,
                     ],
-                    'addRecord'  => [
+                    'addRecord' => [
                         'disabled' => false,
                     ],
                     'listModule' => [
@@ -241,8 +256,11 @@ return [
         'tokensTokensSecondary' => [
             'showitem' => 'tokens,tokensSecondary,',
         ],
-        'countryOrRegionDate' => [
-            'showitem' => 'countryOrRegion,date,',
+        'countryOrRegionDateCirca' => [
+            'showitem' => 'countryOrRegion,dateCirca,',
+        ],
+        'dateStartDateEnd' => [
+            'showitem' => 'dateStart,dateEnd,',
         ],
         'sourceIdentitySourceElaboration' => [
             'showitem' => 'sourceIdentity,sourceElaboration,',
@@ -250,7 +268,7 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,type,tokensTokensSecondary,countryOrRegionDate,sourceIdentitySourceElaboration,source,geodata,',
+            'showitem' => 'hidden,type,tokensTokensSecondary,countryOrRegionDateCirca,dateStartDateEnd,sourceIdentitySourceElaboration,source,geodata,',
         ],
     ],
 ];

@@ -55,3 +55,9 @@ This is a pre-release version. The following steps are required for the software
 
 - Add testing
 - Finish documentation
+
+**Data model conformity**
+
+- In ``Pronunciation``, either ``soundFile`` or ``transcription`` are required
+- The ``min`` and ``max`` values of ``Tag``s of the type ``memberRole`` should limit the number of members
+- The ``type`` tag of a relation should limit the types of members that may be selected

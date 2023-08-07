@@ -18,12 +18,12 @@ return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example',
         'label'                    => 'text',
-        'label_alt'                => 'date,location',
+        'label_alt'                => 'dateCirca,locationLabel',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'text ASC,date ASC,location ASC',
+        'default_sortby'           => 'text ASC,dateCirca ASC,locationLabel ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:da_lex/Resources/Public/Icons/Example.svg',
         'origUid'                  => 't3_origuid',
@@ -32,7 +32,7 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'text,date,location,sourceElaboration',
+        'searchFields'             => 'text,dateCirca,dateStart,dateEnd,locationLabel,sourceElaboration',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -58,11 +58,11 @@ return [
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
             'config' => [
-                'type' => 'select',
+                'type'       => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'size' => 5,
-                'maxitems' => 20,
-                'items' => [
+                'size'       => 5,
+                'maxitems'   => 20,
+                'items'      => [
                     [
                         'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
                         'value' => -1,
@@ -100,8 +100,7 @@ return [
                     ],
                 ],
                 'foreign_table'       => 'tx_dalex_domain_model_example',
-                'foreign_table_where' =>
-                    'AND {#tx_dalex_domain_model_example}.{#pid}=###CURRENT_PID###'
+                'foreign_table_where' => 'AND {#tx_dalex_domain_model_example}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_dalex_domain_model_example}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
@@ -129,9 +128,19 @@ return [
                 'required' => true,
             ],
         ],
-        'date' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.date',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.date.description',
+        'dateCirca' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.dateCirca',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.dateCirca.description',
+            'config'      => [
+                'type' => 'input',
+                'size' => 40,
+                'max'  => 255,
+                'eval' => 'trim',
+            ],
+        ],
+        'dateStart' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.dateStart',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.dateStart.description',
             'config'      => [
                 'type'    => 'datetime',
                 'format'  => 'date',
@@ -139,14 +148,48 @@ return [
                 'default' => 0,
             ],
         ],
-        'location' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.location',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.location.description',
+        'dateEnd' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.dateEnd',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.dateEnd.description',
+            'config'      => [
+                'type'    => 'datetime',
+                'format'  => 'date',
+                'eval'    => 'int',
+                'default' => 0,
+            ],
+        ],
+        'locationLabel' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.locationLabel',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.locationLab.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
                 'max'  => 255,
                 'eval' => 'trim',
+            ],
+        ],
+        'locationGeodata' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.locationGeodata',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.locationGeodata.description',
+            'config'      => [
+                'type'          => 'group',
+                'allowed'       => 'tx_damap_domain_model_feature',
+                'foreign_table' => 'tx_damap_domain_model_feature', // Needed by Extbase
+                'MM'            => 'tx_dalex_domain_model_example_feature_locationgeodata_mm',
+                'maxitems'      => 1,
+                'minitems'      => 0,
+                'size'          => 1,
+                'fieldControl'  => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
             ],
         ],
         'soundFile' => [
@@ -166,8 +209,8 @@ return [
                 'renderType'          => 'selectSingle',
                 'foreign_table'       => 'tx_dalex_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'sourceIdentity\''
-                . ' ORDER BY tag',
+                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'sourceIdentity\'',
+                'MM'                  => 'tx_dalex_domain_model_example_tag_sourceidentity_mm',
             ],
         ],
         'sourceElaboration' => [
@@ -184,23 +227,19 @@ return [
             'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.source',
             'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.source.description',
             'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectMultipleSideBySide',
+                'type'                => 'inline',
                 'foreign_table'       => 'tx_dabib_domain_model_reference',
-                'foreign_table_where' => 'ORDER BY lastChecked',
-                'MM'                  => 'tx_dalex_domain_model_example_reference_mm',
-                'size'                => 5,
-                'autoSizeMax'         => 10,
-                'fieldControl'        => [
-                    'editPopup'  => [
-                        'disabled' => false,
-                    ],
-                    'addRecord'  => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
+                'foreign_field'       => 'parent_id',
+                'foreign_table_field' => 'parent_table',
+                'appearance'          => [
+                    'collapseAll'                     => true,
+                    'expandSingle'                    => true,
+                    'newRecordLinkAddTitle'           => true,
+                    'levelLinksPosition'              => 'top',
+                    'useSortable'                     => true,
+                    'showPossibleLocalizationRecords' => true,
+                    'showAllLocalizationLink'         => true,
+                    'showSynchronizationLink'         => true,
                 ],
             ],
         ],
@@ -212,9 +251,8 @@ return [
                 'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dalex_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'label\''
-                . ' ORDER BY tag',
-                'MM'                  => 'tx_dalex_domain_model_contributor_label_mm',
+                . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'label\'',
+                'MM'                  => 'tx_dalex_domain_model_example_tag_label_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [
@@ -232,8 +270,14 @@ return [
         ],
     ],
     'palettes' => [
-        'dateLocation' => [
-            'showitem' => 'date,location,',
+        'textDateCirca' => [
+            'showitem' => 'text,dateCirca,',
+        ],
+        'dateStartDateEnd' => [
+            'showitem' => 'textdateStart,dateEnd,',
+        ],
+        'locationLabelLocationGeodata' => [
+            'showitem' => 'locationLabel,locationGeodata,',
         ],
         'sourceIdentitySourceElaboration' => [
             'showitem' => 'sourceIdentity,sourceElaboration,',
@@ -241,7 +285,7 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,text,dateLocation,soundFile,sourceIdentitySourceElaboration,source,label,',
+            'showitem' => 'hidden,textDateCirca,dateStartDateEnd,locationLabelLocationGeodata,soundFile,sourceIdentitySourceElaboration,source,label,',
         ],
     ],
 ];

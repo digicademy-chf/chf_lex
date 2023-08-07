@@ -32,7 +32,7 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'uuid,forename,surname,corporateName',
+        'searchFields'             => 'id,uuid,forename,surname,corporateName',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -58,11 +58,11 @@ return [
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
             'config' => [
-                'type' => 'select',
+                'type'       => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'size' => 5,
-                'maxitems' => 20,
-                'items' => [
+                'size'       => 5,
+                'maxitems'   => 20,
+                'items'      => [
                     [
                         'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
                         'value' => -1,
@@ -100,8 +100,7 @@ return [
                     ],
                 ],
                 'foreign_table'       => 'tx_dalex_domain_model_contributor',
-                'foreign_table_where' =>
-                    'AND {#tx_dalex_domain_model_contributor}.{#pid}=###CURRENT_PID###'
+                'foreign_table_where' => 'AND {#tx_dalex_domain_model_contributor}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_dalex_domain_model_contributor}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
@@ -115,6 +114,29 @@ return [
             'config' => [
                 'type'    => 'passthrough',
                 'default' => '',
+            ],
+        ],
+        'parent_id' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.parent_id',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.parent_id.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectSingle',
+                'foreign_table'       => 'tx_dalex_domain_model_lexicographic_resource',
+                'foreign_table_where' => 'AND {#tx_dabib_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###',
+                'maxitems'            => 1,
+                'required'            => true,
+            ],
+        ],
+        'id' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.id',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.id.description',
+            'config'      => [
+                'type' => 'input',
+                'size' => 40,
+                'max'  => 255,
+                'eval' => 'trim',
+                'required' => true,
             ],
         ],
         'uuid' => [
@@ -177,9 +199,8 @@ return [
                 'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dalex_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'label\''
-                . ' ORDER BY tag',
-                'MM'                  => 'tx_dalex_domain_model_contributor_label_mm',
+                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'label\'',
+                'MM'                  => 'tx_dalex_domain_model_contributor_tag_label_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [
@@ -215,10 +236,63 @@ return [
                 ],
             ],
         ],
+        'asAuthor' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.asAuthor',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.asAuthor.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectMultipleSideBySide',
+                'foreign_table'       => 'tx_dalex_domain_model_entry',
+                'foreign_table_where' => 'AND {#tx_dalex_domain_model_entry}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_dalex_domain_model_entry_contributor_author_mm',
+                'MM_opposite_field'   => 'author',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
+                    ],
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
+        'asEditor' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.asEditor',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.asEditor.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectMultipleSideBySide',
+                'foreign_table'       => 'tx_dalex_domain_model_entry',
+                'foreign_table_where' => 'AND {#tx_dalex_domain_model_entry}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_dalex_domain_model_entry_contributor_editor_mm',
+                'MM_opposite_field'   => 'editor',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
+                    ],
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
     ],
     'palettes' => [
-        'uuidActive' => [
-            'showitem' => 'uuid,active,',
+        'hiddenParentId' => [
+            'showitem' => 'hidden,parent_id,',
+        ],
+        'idUuid' => [
+            'showitem' => 'id,uuid,',
         ],
         'surnameForename' => [
             'showitem' => 'surname,forename,',
@@ -226,7 +300,8 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,uuidActive,surnameForename,corporateName,label,sameAs,',
+            'showitem' => 'hiddenParentId,idUuid,active,surnameForename,corporateName,label,sameAs,
+            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.contributions,asAuthor,asEditor,',
         ],
     ],
 ];

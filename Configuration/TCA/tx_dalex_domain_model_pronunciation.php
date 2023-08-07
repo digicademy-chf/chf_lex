@@ -56,11 +56,11 @@ return [
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
             'config' => [
-                'type' => 'select',
+                'type'       => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'size' => 5,
-                'maxitems' => 20,
-                'items' => [
+                'size'       => 5,
+                'maxitems'   => 20,
+                'items'      => [
                     [
                         'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
                         'value' => -1,
@@ -98,8 +98,7 @@ return [
                     ],
                 ],
                 'foreign_table'       => 'tx_dalex_domain_model_pronunciation',
-                'foreign_table_where' =>
-                    'AND {#tx_dalex_domain_model_pronunciation}.{#pid}=###CURRENT_PID###'
+                'foreign_table_where' => 'AND {#tx_dalex_domain_model_pronunciation}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_dalex_domain_model_pronunciation}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
@@ -152,9 +151,8 @@ return [
                 'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dalex_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'label\''
-                . ' ORDER BY tag',
-                'MM'                  => 'tx_dalex_domain_model_pronunciation_label_mm',
+                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'label\'',
+                'MM'                  => 'tx_dalex_domain_model_pronunciation_tag_label_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [
@@ -171,13 +169,10 @@ return [
             ],
         ],
     ],
-    'palettes' => [
-        'textScheme' => [
-            'showitem' => 'text,scheme,',
-        ],],
+    'palettes' => [],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,textScheme,',
+            'showitem' => 'hidden,soundFile,transcription,label,',
         ],
     ],
 ];

@@ -57,11 +57,11 @@ return [
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
             'config' => [
-                'type' => 'select',
+                'type'       => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'size' => 5,
-                'maxitems' => 20,
-                'items' => [
+                'size'       => 5,
+                'maxitems'   => 20,
+                'items'      => [
                     [
                         'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
                         'value' => -1,
@@ -99,8 +99,7 @@ return [
                     ],
                 ],
                 'foreign_table'       => 'tx_dalex_domain_model_relation',
-                'foreign_table_where' =>
-                    'AND {#tx_dalex_domain_model_relation}.{#pid}=###CURRENT_PID###'
+                'foreign_table_where' => 'AND {#tx_dalex_domain_model_relation}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_dalex_domain_model_relation}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
@@ -116,6 +115,18 @@ return [
                 'default' => '',
             ],
         ],
+        'parent_id' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.relation.parent_id',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.relation.parent_id.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectSingle',
+                'foreign_table'       => 'tx_dalex_domain_model_lexicographic_resource',
+                'foreign_table_where' => 'AND {#tx_dabib_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###',
+                'maxitems'            => 1,
+                'required'            => true,
+            ],
+        ],
         'type' => [
             'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.relation.type',
             'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.relation.type.description',
@@ -124,8 +135,8 @@ return [
                 'renderType'          => 'selectSingle',
                 'foreign_table'       => 'tx_dalex_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'relationType\''
-                . ' ORDER BY tag',
+                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'relationType\'',
+                'MM'                  => 'tx_dalex_domain_model_relation_tag_type_mm',
                 'required'            => true,
             ],
         ],
@@ -162,10 +173,14 @@ return [
             ],
         ],
     ],
-    'palettes' => [],
+    'palettes' => [
+        'hiddenParentId' => [
+            'showitem' => 'hidden,parent_id,',
+        ],
+    ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,type,description,member,',
+            'showitem' => 'hiddenParentId,type,description,member,',
         ],
     ],
 ];

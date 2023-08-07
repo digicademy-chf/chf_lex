@@ -23,7 +23,7 @@ class TagRepository extends Repository
 {
     protected $defaultOrderings = [
         'sorting' => QueryInterface::ORDER_ASCENDING,
-        'tag'     => QueryInterface::ORDER_ASCENDING,
+        'text'    => QueryInterface::ORDER_ASCENDING,
         'type'    => QueryInterface::ORDER_ASCENDING,
     ];
 }

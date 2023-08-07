@@ -56,11 +56,11 @@ return [
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
             'config' => [
-                'type' => 'select',
+                'type'       => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'size' => 5,
-                'maxitems' => 20,
-                'items' => [
+                'size'       => 5,
+                'maxitems'   => 20,
+                'items'      => [
                     [
                         'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
                         'value' => -1,
@@ -98,8 +98,7 @@ return [
                     ],
                 ],
                 'foreign_table'       => 'tx_dalex_domain_model_member',
-                'foreign_table_where' =>
-                    'AND {#tx_dalex_domain_model_member}.{#pid}=###CURRENT_PID###'
+                'foreign_table_where' => 'AND {#tx_dalex_domain_model_member}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_dalex_domain_model_member}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
@@ -123,8 +122,8 @@ return [
                 'renderType'          => 'selectSingle',
                 'foreign_table'       => 'tx_dalex_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'memberRole\''
-                . ' ORDER BY tag',
+                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'memberRole\'',
+                'MM'                  => 'tx_dalex_domain_model_member_tag_role_mm',
             ],
         ],
         'entryOrSense' => [
@@ -134,9 +133,9 @@ return [
                 'type'     => 'group',
                 'minitems' => 1,
                 'allowed'  => 'tx_dalex_domain_model_entry,tx_dalex_domain_model_sense',
-                'MM'       => 'tx_dalex_domain_model_member_entryorsense_mm',
+                'MM'       => 'tx_dalex_domain_model_member_entryorsense_entryorsense_mm',
                 'required' => true,
-            ], # TODO implement min/max values from role
+            ], # TODO enforce min/max values from role and type restrictions from parent relation
         ],
     ],
     'palettes' => [],

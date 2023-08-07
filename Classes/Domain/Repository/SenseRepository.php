@@ -24,7 +24,6 @@ class SenseRepository extends Repository
     protected $defaultOrderings = [
         'sorting'   => QueryInterface::ORDER_ASCENDING,
         'id'        => QueryInterface::ORDER_ASCENDING,
-        'uuid'      => QueryInterface::ORDER_ASCENDING,
         'indicator' => QueryInterface::ORDER_ASCENDING,
     ];
 }

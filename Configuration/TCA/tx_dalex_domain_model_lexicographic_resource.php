@@ -59,11 +59,11 @@ return [
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
             'config' => [
-                'type' => 'select',
+                'type'       => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'size' => 5,
-                'maxitems' => 20,
-                'items' => [
+                'size'       => 5,
+                'maxitems'   => 20,
+                'items'      => [
                     [
                         'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
                         'value' => -1,
@@ -101,8 +101,7 @@ return [
                     ],
                 ],
                 'foreign_table'       => 'tx_dalex_domain_model_lexicographic_resource',
-                'foreign_table_where' =>
-                    'AND {#tx_dalex_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###'
+                'foreign_table_where' => 'AND {#tx_dalex_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_dalex_domain_model_lexicographic_resource}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
@@ -183,6 +182,90 @@ return [
                 ],
             ],
         ],
+        'entry' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.entry',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.entry.description',
+            'config'      => [
+                'type'                => 'inline',
+                'foreign_table'       => 'tx_dalex_domain_model_entry',
+                'foreign_field'       => 'parent_id',
+                'foreign_table_field' => 'parent_table',
+                'foreign_sortby'      => 'sorting',
+                'appearance'          => [
+                    'collapseAll'                     => true,
+                    'expandSingle'                    => true,
+                    'newRecordLinkAddTitle'           => true,
+                    'levelLinksPosition'              => 'top',
+                    'useSortable'                     => false,
+                    'showPossibleLocalizationRecords' => true,
+                    'showAllLocalizationLink'         => true,
+                    'showSynchronizationLink'         => true,
+                ],
+            ],
+        ],
+        'contributor' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.contributor',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.contributor.description',
+            'config'      => [
+                'type'                => 'inline',
+                'foreign_table'       => 'tx_dalex_domain_model_contributor',
+                'foreign_field'       => 'parent_id',
+                'foreign_table_field' => 'parent_table',
+                'foreign_sortby'      => 'sorting',
+                'appearance'          => [
+                    'collapseAll'                     => true,
+                    'expandSingle'                    => true,
+                    'newRecordLinkAddTitle'           => true,
+                    'levelLinksPosition'              => 'top',
+                    'useSortable'                     => false,
+                    'showPossibleLocalizationRecords' => true,
+                    'showAllLocalizationLink'         => true,
+                    'showSynchronizationLink'         => true,
+                ],
+            ],
+        ],
+        'tag' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.tag',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.tag.description',
+            'config'      => [
+                'type'                => 'inline',
+                'foreign_table'       => 'tx_dalex_domain_model_tag',
+                'foreign_field'       => 'parent_id',
+                'foreign_table_field' => 'parent_table',
+                'foreign_sortby'      => 'sorting',
+                'appearance'          => [
+                    'collapseAll'                     => true,
+                    'expandSingle'                    => true,
+                    'newRecordLinkAddTitle'           => true,
+                    'levelLinksPosition'              => 'top',
+                    'useSortable'                     => false,
+                    'showPossibleLocalizationRecords' => true,
+                    'showAllLocalizationLink'         => true,
+                    'showSynchronizationLink'         => true,
+                ],
+            ],
+        ],
+        'relation' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.relation',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.relation.description',
+            'config'      => [
+                'type'                => 'inline',
+                'foreign_table'       => 'tx_dalex_domain_model_relation',
+                'foreign_field'       => 'parent_id',
+                'foreign_table_field' => 'parent_table',
+                'foreign_sortby'      => 'sorting',
+                'appearance'          => [
+                    'collapseAll'                     => true,
+                    'expandSingle'                    => true,
+                    'newRecordLinkAddTitle'           => true,
+                    'levelLinksPosition'              => 'top',
+                    'useSortable'                     => false,
+                    'showPossibleLocalizationRecords' => true,
+                    'showAllLocalizationLink'         => true,
+                    'showSynchronizationLink'         => true,
+                ],
+            ],
+        ],
     ],
     'palettes' => [
         'titleLanguage' => [
@@ -191,7 +274,8 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,titleLanguage,description,uri,sameAs,',
+            'showitem' => 'hidden,titleLanguage,description,uri,sameAs,
+            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.content,entry,contributor,tag,relation,',
         ],
     ],
 ];

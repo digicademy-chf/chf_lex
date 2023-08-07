@@ -18,12 +18,12 @@ return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense',
         'label'                    => 'id',
-        'label_alt'                => 'uuid,indicator',
+        'label_alt'                => 'indicator',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'id ASC,uuid ASC,indicator ASC',
+        'default_sortby'           => 'id ASC,indicator ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:da_lex/Resources/Public/Icons/Sense.svg',
         'origUid'                  => 't3_origuid',
@@ -32,7 +32,7 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'id,uuid,indicator,structuredIndicator',
+        'searchFields'             => 'id,uuid,indicator,classification',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -58,11 +58,11 @@ return [
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
             'config' => [
-                'type' => 'select',
+                'type'       => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'size' => 5,
-                'maxitems' => 20,
-                'items' => [
+                'size'       => 5,
+                'maxitems'   => 20,
+                'items'      => [
                     [
                         'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
                         'value' => -1,
@@ -100,8 +100,7 @@ return [
                     ],
                 ],
                 'foreign_table'       => 'tx_dalex_domain_model_sense',
-                'foreign_table_where' =>
-                    'AND {#tx_dalex_domain_model_sense}.{#pid}=###CURRENT_PID###'
+                'foreign_table_where' => 'AND {#tx_dalex_domain_model_sense}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_dalex_domain_model_sense}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
@@ -129,8 +128,8 @@ return [
             ],
         ],
         'uuid' => [
-            'label'       => 'LLL:EXT:da_ex/Resources/Private/Language/locallang.xlf:database.sense.uuid',
-            'description' => 'LLL:EXT:da_ex/Resources/Private/Language/locallang.xlf:database.sense.uuid.description',
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.uuid',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.uuid.description',
             'config'      => [
                 'type'     => 'uuid',
                 'size'     => 40,
@@ -167,9 +166,9 @@ return [
                 'eval' => 'trim',
             ],
         ],
-        'structuredIndicator' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.structuredIndicator',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.structuredIndicator.description',
+        'classification' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.classification',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.classification.description',
             'config'      => [
                 'type' => 'category',
             ],
@@ -222,9 +221,8 @@ return [
                 'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dalex_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'label\''
-                . ' ORDER BY tag',
-                'MM'                  => 'tx_dalex_domain_model_sense_label_mm',
+                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'label\'',
+                'MM'                  => 'tx_dalex_domain_model_sense_tag_label_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [
@@ -260,13 +258,38 @@ return [
                 ],
             ],
         ],
+        'asMember' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.asMember',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.asMember.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectMultipleSideBySide',
+                'foreign_table'       => 'tx_dalex_domain_model_member',
+                'foreign_table_where' => 'AND {#tx_dalex_domain_model_member}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_dalex_domain_model_member_entryorsense_entryorsense_mm',
+                'MM_opposite_field'   => 'entryOrSense',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
+                    ],
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
     ],
     'palettes' => [
         'idUuid' => [
             'showitem' => 'id,uuid,',
         ],
-        'indicatorStructuredIndicator' => [
-            'showitem' => 'indicator,structuredIndicator,',
+        'indicatorClassification' => [
+            'showitem' => 'indicator,classification,',
         ],
         'exampleFrequency' => [
             'showitem' => 'example,frequency,',
@@ -274,7 +297,8 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,idUuid,definition,indicatorStructuredIndicator,exampleFrequency,label,sameAs,',
+            'showitem' => 'hidden,idUuid,definition,indicatorClassification,exampleFrequency,label,sameAs,
+            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.relations,asMember,',
         ],
     ],
 ];

@@ -8,6 +8,10 @@
                 <source>Lexicographic resource</source>
                 <target>Lexikografische Ressource</target>
             </trans-unit>
+            <trans-unit id="database.lexicographicResource.content" resname="database.lexicographicResource.content" approved="yes">
+                <source>Content</source>
+                <target>Inhalt</target>
+            </trans-unit>
             <trans-unit id="database.lexicographicResource.title" resname="database.lexicographicResource.title" approved="yes">
                 <source>Title</source>
                 <target>Titel</target>
@@ -48,6 +52,38 @@
                 <source>External web address to identify the resource across the web</source>
                 <target>Externe Webadresse zur Identifikation der Ressource im Internet</target>
             </trans-unit>
+            <trans-unit id="database.lexicographicResource.entry" resname="database.lexicographicResource.entry" approved="yes">
+                <source>Entry</source>
+                <target>Eintrag</target>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.entry.description" resname="database.lexicographicResource.entry.description" approved="yes">
+                <source>List of all entries in this resource</source>
+                <target>Liste aller Einträge in dieser Ressource</target>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.contributor" resname="database.lexicographicResource.contributor" approved="yes">
+                <source>Contributor</source>
+                <target>Beitragende:r</target>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.contributor.description" resname="database.lexicographicResource.contributor.description" approved="yes">
+                <source>List of all contributors in this resource</source>
+                <target>Liste aller Beitragenden in dieser Ressource</target>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.tag" resname="database.lexicographicResource.tag" approved="yes">
+                <source>Tag</source>
+                <target>Schlagwort</target>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.tag.description" resname="database.lexicographicResource.tag.description" approved="yes">
+                <source>List of all tags in this resource</source>
+                <target>Liste aller Schlagworte in dieser Ressource</target>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.relation" resname="database.lexicographicResource.relation" approved="yes">
+                <source>Relation</source>
+                <target>Relation</target>
+            </trans-unit>
+            <trans-unit id="database.lexicographicResource.relation.description" resname="database.lexicographicResource.relation.description" approved="yes">
+                <source>List of all relations in this resource</source>
+                <target>Liste aller Relationen in dieser Ressource</target>
+            </trans-unit>
             <!-- Database: Tag -->
             <trans-unit id="database.tag" resname="database.tag" approved="yes">
                 <source>Tag</source>
@@ -57,11 +93,39 @@
                 <source>Constraints</source>
                 <target>Einschränkungen</target>
             </trans-unit>
-            <trans-unit id="database.tag.tag" resname="database.tag.tag" approved="yes">
-                <source>Tag</source>
-                <target>Schlagwort</target>
+            <trans-unit id="database.tag.usage" resname="database.tag.usage" approved="yes">
+                <source>Usage</source>
+                <target>Gebrauch</target>
             </trans-unit>
-            <trans-unit id="database.tag.tag.description" resname="database.tag.tag.description" approved="yes">
+            <trans-unit id="database.tag.parent_id" resname="database.tag.parent_id" approved="yes">
+                <source>Lexicographic resource</source>
+                <target>Lexicografische Ressource</target>
+            </trans-unit>
+            <trans-unit id="database.tag.parent_id.description" resname="database.tag.parent_id.description" approved="yes">
+                <source>Resource that this tag is attached to</source>
+                <target>Ressource, zu der dieses Schlagwort gehört</target>
+            </trans-unit>
+            <trans-unit id="database.tag.id" resname="database.tag.id" approved="yes">
+                <source>ID</source>
+                <target>ID</target>
+            </trans-unit>
+            <trans-unit id="database.tag.id.description" resname="database.tag.id.description" approved="yes">
+                <source>Simple identifier of this tag as part of a single dataset</source>
+                <target>Einfacher Identifikator des Schlagworts als Teil eines einzelnen Datensatzes</target>
+            </trans-unit>
+            <trans-unit id="database.tag.uuid" resname="database.tag.uuid" approved="yes">
+                <source>UUID</source>
+                <target>UUID</target>
+            </trans-unit>
+            <trans-unit id="database.tag.uuid.description" resname="database.tag.uuid.description" approved="yes">
+                <source>Unique identifier of the tag</source>
+                <target>Einzigartiger Identifikator des Schlagworts</target>
+            </trans-unit>
+            <trans-unit id="database.tag.text" resname="database.tag.text" approved="yes">
+                <source>Text</source>
+                <target>Text</target>
+            </trans-unit>
+            <trans-unit id="database.tag.text.description" resname="database.tag.text.description" approved="yes">
                 <source>Name of the tag</source>
                 <target>Bezeichnung des Schlagworts</target>
             </trans-unit>
@@ -89,9 +153,13 @@
                 <source>Label</source>
                 <target>Label</target>
             </trans-unit>
+            <trans-unit id="database.tag.type.labelType" resname="database.tag.type.labelType" approved="yes">
+                <source>Label type</source>
+                <target>Labelart</target>
+            </trans-unit>
             <trans-unit id="database.tag.type.relationType" resname="database.tag.type.relationType" approved="yes">
                 <source>Relation type</source>
-                <target>Beziehungsart</target>
+                <target>Relationsart</target>
             </trans-unit>
             <trans-unit id="database.tag.type.memberRole" resname="database.tag.type.memberRole" approved="yes">
                 <source>Member role</source>
@@ -109,7 +177,7 @@
                 <source>Transcription scheme</source>
                 <target>Transkriptionsschema</target>
             </trans-unit>
-            <trans-unit id="database.tag.type.inflectionType" resname="database.tag.type.inflectionType" approved="yes">
+            <trans-unit id="database.tag.type.inflectedForm" resname="database.tag.type.inflectedForm" approved="yes">
                 <source>Inflection type</source>
                 <target>Beugungsart</target>
             </trans-unit>
@@ -120,14 +188,6 @@
             <trans-unit id="database.tag.type.frequencyType" resname="database.tag.type.frequencyType" approved="yes">
                 <source>Frequency type</source>
                 <target>Häufigkeitsart</target>
-            </trans-unit>
-            <trans-unit id="database.tag.code" resname="database.tag.code" approved="yes">
-                <source>Code</source>
-                <target>Code</target>
-            </trans-unit>
-            <trans-unit id="database.tag.code.description" resname="database.tag.code.description" approved="yes">
-                <source>Abbreviated form of the tag</source>
-                <target>Kürzel des Schlagworts</target>
             </trans-unit>
             <trans-unit id="database.tag.description" resname="database.tag.description" approved="yes">
                 <source>Description</source>
@@ -145,67 +205,71 @@
                 <source>External web address to identify the tag across the web</source>
                 <target>Externe Webadresse zur Identifikation des Schlagworts im Internet</target>
             </trans-unit>
-            <trans-unit id="database.tag.partOfSpeechConstraint" resname="database.tag.partOfSpeechConstraint" approved="yes">
-                <source>Part of speech constraint</source>
-                <target>Einschränkung der Wortart</target>
+            <trans-unit id="database.tag.forPartOfSpeech" resname="database.tag.forPartOfSpeech" approved="yes">
+                <source>For part of speech</source>
+                <target>Für Wortart</target>
             </trans-unit>
-            <trans-unit id="database.tag.partOfSpeechConstraint.description" resname="database.tag.partOfSpeechConstraint.description" approved="yes">
+            <trans-unit id="database.tag.forPartOfSpeech.description" resname="database.tag.forPartOfSpeech.description" approved="yes">
                 <source>List of parts of speech that this tag may be used for</source>
                 <target>Liste der Wortarten, bei denen dieses Schlagwort verwendet werden kann</target>
             </trans-unit>
-            <trans-unit id="database.tag.scopeConstraint" resname="database.tag.scopeConstraint" approved="yes">
-                <source>Scope constraint</source>
-                <target>Einschränkung des Anwendungsfelds</target>
+            <trans-unit id="database.tag.scope" resname="database.tag.scope" approved="yes">
+                <source>Scope</source>
+                <target>Anwendungsfeld</target>
             </trans-unit>
-            <trans-unit id="database.tag.scopeConstraint.description" resname="database.tag.scopeConstraint.description" approved="yes">
+            <trans-unit id="database.tag.scope.description" resname="database.tag.scope.description" approved="yes">
                 <source>Indicator of how close members of this type of relation need to be</source>
                 <target>Angabe wie ähnlich Mitglieder einer Relation dieser Art sein sollen</target>
             </trans-unit>
-            <trans-unit id="database.tag.scopeConstraint.any" resname="database.tag.scopeConstraint.any" approved="yes">
+            <trans-unit id="database.tag.scope.any" resname="database.tag.scope.any" approved="yes">
                 <source>Any</source>
                 <target>Beliebig</target>
             </trans-unit>
-            <trans-unit id="database.tag.scopeConstraint.sameResource" resname="database.tag.scopeConstraint.sameResource" approved="yes">
+            <trans-unit id="database.tag.scope.sameResource" resname="database.tag.scope.sameResource" approved="yes">
                 <source>Same lexicographic resource</source>
                 <target>Dieselbe lexikografische Ressource</target>
             </trans-unit>
-            <trans-unit id="database.tag.scopeConstraint.sameEntry" resname="database.tag.scopeConstraint.sameEntry" approved="yes">
+            <trans-unit id="database.tag.scope.sameEntry" resname="database.tag.scope.sameEntry" approved="yes">
                 <source>Same entry</source>
                 <target>Derselbe Eintrag</target>
             </trans-unit>
-            <trans-unit id="database.tag.memberRoleConstraint" resname="database.tag.memberRoleConstraint" approved="yes">
-                <source>Member role constraint</source>
-                <target>Einschränkung der Mitgliederrollen</target>
+            <trans-unit id="database.tag.memberRole" resname="database.tag.memberRole" approved="yes">
+                <source>Member role</source>
+                <target>Mitgliederrollen</target>
             </trans-unit>
-            <trans-unit id="database.tag.memberRoleConstraint.description" resname="database.tag.memberRoleConstraint.description" approved="yes">
+            <trans-unit id="database.tag.memberRole.description" resname="database.tag.memberRole.description" approved="yes">
                 <source>Defines which roles members of this relation may have</source>
                 <target>Legt fest, welche Rollen Mitglieder dieser Relation haben können</target>
             </trans-unit>
-            <trans-unit id="database.tag.memberTypeConstraint" resname="database.tag.memberTypeConstraint" approved="yes">
-                <source>Member type constraint</source>
-                <target>Einschränkung der Mitgliedsarten</target>
+            <trans-unit id="database.tag.memberType" resname="database.tag.memberType" approved="yes">
+                <source>Member type</source>
+                <target>Mitgliedsarten</target>
             </trans-unit>
-            <trans-unit id="database.tag.memberTypeConstraint.description" resname="database.tag.memberTypeConstraint.description" approved="yes">
+            <trans-unit id="database.tag.labelType" resname="database.tag.labelType" approved="yes">
+                <source>Label type</source>
+                <target>Labelart</target>
+            </trans-unit>
+            <trans-unit id="database.tag.memberType.description" resname="database.tag.memberType.description" approved="yes">
                 <source>Defines which types of members may be part of this relation</source>
                 <target>Schränkt ein, welche Art Mitglieder Teil dieser Relation sein dürfen</target>
             </trans-unit>
-            <trans-unit id="database.tag.memberTypeConstraint.any" resname="database.tag.memberTypeConstraint.any" approved="yes">
+            <trans-unit id="database.tag.memberType.any" resname="database.tag.memberType.any" approved="yes">
                 <source>Any</source>
                 <target>Beliebig</target>
             </trans-unit>
-            <trans-unit id="database.tag.memberTypeConstraint.entry" resname="database.tag.memberTypeConstraint.entry" approved="yes">
+            <trans-unit id="database.tag.memberType.entry" resname="database.tag.memberType.entry" approved="yes">
                 <source>Entry</source>
                 <target>Eintrag</target>
             </trans-unit>
-            <trans-unit id="database.tag.memberTypeConstraint.sense" resname="database.tag.memberTypeConstraint.sense" approved="yes">
+            <trans-unit id="database.tag.memberType.sense" resname="database.tag.memberType.sense" approved="yes">
                 <source>Sense</source>
                 <target>Bedeutung</target>
             </trans-unit>
-            <trans-unit id="database.tag.memberTypeConstraint.encyclopediaEntry" resname="database.tag.memberTypeConstraint.encyclopediaEntry" approved="yes">
+            <trans-unit id="database.tag.memberType.encyclopediaEntry" resname="database.tag.memberType.encyclopediaEntry" approved="yes">
                 <source>Encyclopedia entry</source>
                 <target>Lexikoneintrag</target>
             </trans-unit>
-            <trans-unit id="database.tag.memberTypeConstraint.glossaryEntry" resname="database.tag.memberTypeConstraint.glossaryEntry" approved="yes">
+            <trans-unit id="database.tag.memberType.glossaryEntry" resname="database.tag.memberType.glossaryEntry" approved="yes">
                 <source>Glossary entry</source>
                 <target>Glossareintrag</target>
             </trans-unit>
@@ -245,6 +309,174 @@
                 <source>Do not display</source>
                 <target>Nicht anzeigen</target>
             </trans-unit>
+            <trans-unit id="database.tag.asForPartOfSpeechOfTag" resname="database.tag.asForPartOfSpeechOfTag" approved="yes">
+                <source>As part-of-speech constraint</source>
+                <target>Als Einschränkung der Wortart</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asForPartOfSpeechOfTag.description" resname="database.tag.asForPartOfSpeechOfTag.description" approved="yes">
+                <source>List of tags with this part of speech as a constraint</source>
+                <target>Liste der Schlagworte mit dieser Wortart als Einschränkung</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asLabelOfEntry" resname="database.tag.asLabelOfEntry" approved="yes">
+                <source>As label of entries</source>
+                <target>Als Label für Einträge</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asLabelOfEntry.description" resname="database.tag.asLabelOfEntry.description" approved="yes">
+                <source>List of entries with this label</source>
+                <target>Liste der Einträge mit diesem Label</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asLabelOfContributor" resname="database.tag.asLabelOfContributor" approved="yes">
+                <source>As label of contributors</source>
+                <target>Als Label für Beitragende</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asLabelOfContributor.description" resname="database.tag.asLabelOfContributor.description" approved="yes">
+                <source>List of contributors with this label</source>
+                <target>Liste der Beitragenden mit diesem Label</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asLabelOfSense" resname="database.tag.asLabelOfSense" approved="yes">
+                <source>As label of senses</source>
+                <target>Als Label für Bedeutungen</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asLabelOfSense.description" resname="database.tag.asLabelOfSense.description" approved="yes">
+                <source>List of senses with this label</source>
+                <target>Liste der Bedeutungen mit diesem Label</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asLabelOfExample" resname="database.tag.asLabelOfExample" approved="yes">
+                <source>As label of examples</source>
+                <target>Als Label für Beispiele</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asLabelOfExample.description" resname="database.tag.asLabelOfExample.description" approved="yes">
+                <source>List of examples with this label</source>
+                <target>Liste der Beispiele mit diesem Label</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asLabelOfInflectedForm" resname="database.tag.asLabelOfInflectedForm" approved="yes">
+                <source>As label of inflected forms</source>
+                <target>Als Label für gebeugte Formen</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asLabelOfInflectedForm.description" resname="database.tag.asLabelOfInflectedForm.description" approved="yes">
+                <source>List of inflected forms with this label</source>
+                <target>Liste der gebeugten Formen mit diesem Label</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asLabelOfPronunciation" resname="database.tag.asLabelOfPronunciation" approved="yes">
+                <source>As label of pronunciations</source>
+                <target>Als Label für Aussprachen</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asLabelOfPronunciation.description" resname="database.tag.asLabelOfPronunciation.description" approved="yes">
+                <source>List of pronunciations with this label</source>
+                <target>Liste der Aussprachen mit diesem Label</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asCountryOrRegionOfFrequency" resname="database.tag.asCountryOrRegionOfFrequency" approved="yes">
+                <source>As country or region of frequencies</source>
+                <target>Als Land oder Region bei Häufigkeiten</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asCountryOrRegionOfFrequency.description" resname="database.tag.asCountryOrRegionOfFrequency.description" approved="yes">
+                <source>List of frequencies with this country or region</source>
+                <target>Liste der Häufigkeiten mit diesem Land oder dieser Region</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asDistributionLanguageOfEntry" resname="database.tag.asDistributionLanguageOfEntry" approved="yes">
+                <source>As language of entries</source>
+                <target>Als Sprachvorkommen bei Einträgen</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asDistributionLanguageOfEntry.description" resname="database.tag.asDistributionLanguageOfEntry.description" approved="yes">
+                <source>List of entries annotated with this language</source>
+                <target>Liste der Einträge mit dieser Angabe zum Sprachvorkommen</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asDistributionCountryOfEntry" resname="database.tag.asDistributionCountryOfEntry" approved="yes">
+                <source>As main distribution of entries</source>
+                <target>Als Hauptverbreitung bei Einträgen</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asDistributionCountryOfEntry.description" resname="database.tag.asDistributionCountryOfEntry.description" approved="yes">
+                <source>List of entries with this main distribution</source>
+                <target>Liste der Einträge mit dieser Hauptverbreitung</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asDistributionRegionOfEntry" resname="database.tag.asDistributionRegionOfEntry" approved="yes">
+                <source>As regional distribution of entries</source>
+                <target>Als regionale Verbreitung bei Einträgen</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asDistributionRegionOfEntry.description" resname="database.tag.asDistributionRegionOfEntry.description" approved="yes">
+                <source>List of entries with this regional distribution</source>
+                <target>Liste der Einträge mit dieser regionalen Verbreitung</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asTypeOfLabel" resname="database.tag.asTypeOfLabel" approved="yes">
+                <source>As type of label</source>
+                <target>Als Art bei Labels</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asTypeOfLabel.description" resname="database.tag.asTypeOfLabel.description" approved="yes">
+                <source>List of labels of this type</source>
+                <target>Liste der Labels dieser Art</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asTypeOfDefinition" resname="database.tag.asTypeOfDefinition" approved="yes">
+                <source>As type of definitions</source>
+                <target>Als Art bei Definitionen</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asTypeOfDefinition.description" resname="database.tag.asTypeOfDefinition.description" approved="yes">
+                <source>List of definitions of this type</source>
+                <target>Liste der Definitionen dieser Art</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asTypeOfInflectedForm" resname="database.tag.asTypeOfInflectedForm" approved="yes">
+                <source>As type of inflected forms</source>
+                <target>Als Art bei gebeugten Formen</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asTypeOfInflectedForm.description" resname="database.tag.asTypeOfInflectedForm.description" approved="yes">
+                <source>List of inflected forms of this type</source>
+                <target>Liste der gebeugten Formen dieser Art</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asTypeOfFrequency" resname="database.tag.asTypeOfFrequency" approved="yes">
+                <source>As type of frequencies</source>
+                <target>Als Art bei Häufigkeiten</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asTypeOfFrequency.description" resname="database.tag.asTypeOfFrequency.description" approved="yes">
+                <source>List of frequencies of this type</source>
+                <target>Liste der Häufigkeiten dieser Art</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asTypeOfRelation" resname="database.tag.asTypeOfRelation" approved="yes">
+                <source>As type of relations</source>
+                <target>Als Art bei Relationen</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asTypeOfRelation.description" resname="database.tag.asTypeOfRelation.description" approved="yes">
+                <source>List of relations of this type</source>
+                <target>Liste der Relationen dieser Art</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asSchemeOfTranscription" resname="database.tag.asSchemeOfTranscription" approved="yes">
+                <source>As scheme of transcriptions</source>
+                <target>Als Schema bei Transkriptionen</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asSchemeOfTranscription.description" resname="database.tag.asSchemeOfTranscription.description" approved="yes">
+                <source>List of transcriptions with this scheme</source>
+                <target>Liste der Transkriptionen mit diesem Schema</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asSourceIdentityOfFrequency" resname="database.tag.asSourceIdentityOfFrequency" approved="yes">
+                <source>As source identity of frequencies</source>
+                <target>Als Quellen-ID bei Häufigkeiten</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asSourceIdentityOfFrequency.description" resname="database.tag.asSourceIdentityOfFrequency.description" approved="yes">
+                <source>List of frequencies with this source identity</source>
+                <target>Liste der Häufigkeiten mit dieser Quellen-ID</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asSourceIdentityOfExample" resname="database.tag.asSourceIdentityOfExample" approved="yes">
+                <source>As source identity of examples</source>
+                <target>Als Quellen-ID bei Häufigkeiten</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asSourceIdentityOfExample.description" resname="database.tag.asSourceIdentityOfExample.description" approved="yes">
+                <source>List of examples with this source identity</source>
+                <target>Liste der Beispiele mit dieser Quellen-ID</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asPartOfSpeechOfEntry" resname="database.tag.asPartOfSpeechOfEntry" approved="yes">
+                <source>As part of speech of entries</source>
+                <target>Als Wortart von Einträgen</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asPartOfSpeechOfEntry.description" resname="database.tag.asPartOfSpeechOfEntry.description" approved="yes">
+                <source>List of entries annotated with this part of speech</source>
+                <target>Liste der Einträge, die mit dieser Wortart ausgezeichnet wurden</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asRoleOfMember" resname="database.tag.asRoleOfMember" approved="yes">
+                <source>As role of members</source>
+                <target>Als Rolle bei Mitgliedern</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asRoleOfMember.description" resname="database.tag.asRoleOfMember.description" approved="yes">
+                <source>List of relation members with this role</source>
+                <target>Liste der Relationsmitglieder mit dieser Rolle</target>
+            </trans-unit>
             <!-- Database: SameAs -->
             <trans-unit id="database.sameAs" resname="database.sameAs" approved="yes">
                 <source>Reference URI</source>
@@ -263,12 +495,32 @@
                 <source>Contributor</source>
                 <target>Beitragende:r</target>
             </trans-unit>
+            <trans-unit id="database.contributor.contributions" resname="database.contributor.contributions" approved="yes">
+                <source>Contributions</source>
+                <target>Beiträge</target>
+            </trans-unit>
+            <trans-unit id="database.contributor.parent_id" resname="database.contributor.parent_id" approved="yes">
+                <source>Lexicographic resource</source>
+                <target>Lexicografische Ressource</target>
+            </trans-unit>
+            <trans-unit id="database.contributor.parent_id.description" resname="database.contributor.parent_id.description" approved="yes">
+                <source>Resource that this contributor is attached to</source>
+                <target>Ressource, zu der diese:r Beitragende gehört</target>
+            </trans-unit>
+            <trans-unit id="database.contributor.id" resname="database.contributor.id" approved="yes">
+                <source>ID</source>
+                <target>ID</target>
+            </trans-unit>
+            <trans-unit id="database.contributor.id.description" resname="database.contributor.id.description" approved="yes">
+                <source>Simple identifier of this contributor as part of a single dataset</source>
+                <target>Einfacher Identifikator der oder des Beitragenden als Teil eines einzelnen Datensatzes</target>
+            </trans-unit>
             <trans-unit id="database.contributor.uuid" resname="database.contributor.uuid" approved="yes">
                 <source>UUID</source>
                 <target>UUID</target>
             </trans-unit>
             <trans-unit id="database.contributor.uuid.description" resname="database.contributor.uuid.description" approved="yes">
-                <source>Unique contributor identifier</source>
+                <source>Unique identifier of the contributor</source>
                 <target>Einzigartiger Identifikator der oder des Beitragenden</target>
             </trans-unit>
             <trans-unit id="database.contributor.active" resname="database.contributor.active" approved="yes">
@@ -319,6 +571,22 @@
                 <source>External web address to identify the contributor across the web</source>
                 <target>Externe Webadresse zur Identifikation der oder des Beitragenden im Internet</target>
             </trans-unit>
+            <trans-unit id="database.contributor.asAuthor" resname="database.contributor.asAuthor" approved="yes">
+                <source>As author</source>
+                <target>Als Autor:in</target>
+            </trans-unit>
+            <trans-unit id="database.contributor.asAuthor.description" resname="database.contributor.asAuthor.description" approved="yes">
+                <source>List of contributions as an author</source>
+                <target>Liste der Beiträge als Autor:in</target>
+            </trans-unit>
+            <trans-unit id="database.contributor.asEditor" resname="database.contributor.asEditor" approved="yes">
+                <source>As editor</source>
+                <target>Als Redakteur:in</target>
+            </trans-unit>
+            <trans-unit id="database.contributor.asEditor.description" resname="database.contributor.asEditor.description" approved="yes">
+                <source>List of contributions as an editor</source>
+                <target>Liste der Beiträge als Redakteur:in</target>
+            </trans-unit>
             <!-- Database: Example -->
             <trans-unit id="database.example" resname="database.example" approved="yes">
                 <source>Example</source>
@@ -332,21 +600,45 @@
                 <source>Sample text, e.g. a full sentence</source>
                 <target>Beispieltext, z.B. ein vollständiger Satz</target>
             </trans-unit>
-            <trans-unit id="database.example.date" resname="database.example.date" approved="yes">
+            <trans-unit id="database.example.dateCirca" resname="database.example.dateCirca" approved="yes">
                 <source>Date</source>
                 <target>Datumsangabe</target>
             </trans-unit>
-            <trans-unit id="database.example.date.description" resname="database.example.date.description" approved="yes">
-                <source>Date that the sample text is attested for</source>
-                <target>Datum, an dem der Beispieltext nachgewiesen ist</target>
+            <trans-unit id="database.example.dateCirca.description" resname="database.example.dateCirca.description" approved="yes">
+                <source>Approximate date that the sample text is attested for</source>
+                <target>Grobes Datum, an dem der Beispieltext nachgewiesen ist</target>
             </trans-unit>
-            <trans-unit id="database.example.location" resname="database.example.location" approved="yes">
+            <trans-unit id="database.example.dateStart" resname="database.example.dateStart" approved="yes">
+                <source>Start of the date period</source>
+                <target>Beginn des Datumszeitraums</target>
+            </trans-unit>
+            <trans-unit id="database.example.dateStart.description" resname="database.example.dateStart.description" approved="yes">
+                <source>Exact onset of the period that the sample text is attested for</source>
+                <target>Genaues Anfangsdatum des Zeitraums, für den der Beispieltext nachgewiesen ist</target>
+            </trans-unit>
+            <trans-unit id="database.example.dateEnd" resname="database.example.dateEnd" approved="yes">
+                <source>End of the date period</source>
+                <target>Ende des Datumszeitraums</target>
+            </trans-unit>
+            <trans-unit id="database.example.dateEnd.description" resname="database.example.dateEnd.description" approved="yes">
+                <source>Exact ending of the period that the sample text is attested for</source>
+                <target>Genaues Enddatum des Zeitraums, für den der Beispieltext nachgewiesen ist</target>
+            </trans-unit>
+            <trans-unit id="database.example.locationLabel" resname="database.example.locationLabel" approved="yes">
                 <source>Location</source>
                 <target>Ortsangabe</target>
             </trans-unit>
-            <trans-unit id="database.example.location.description" resname="database.example.location.description" approved="yes">
+            <trans-unit id="database.example.locationLabel.description" resname="database.example.locationLabel.description" approved="yes">
                 <source>Place that the sample text is attested for</source>
                 <target>Ort, an dem der Beispieltext nachgewiesen ist</target>
+            </trans-unit>
+            <trans-unit id="database.example.locationGeodata" resname="database.example.locationGeodata" approved="yes">
+                <source>Location geodata</source>
+                <target>Geodaten zur Ortsangabe</target>
+            </trans-unit>
+            <trans-unit id="database.example.locationGeodata.description" resname="database.example.locationGeodata.description" approved="yes">
+                <source>Geodata for place that the sample text is attested for</source>
+                <target>Geodaten für den Ort, an dem der Beispieltext nachgewiesen ist</target>
             </trans-unit>
             <trans-unit id="database.example.soundFile" resname="database.example.soundFile" approved="yes">
                 <source>Sound file</source>
@@ -533,13 +825,29 @@
                 <source>Place that the frequency is accounted for</source>
                 <target>Ort, für den die Häufigkeit bestimmt wurde</target>
             </trans-unit>
-            <trans-unit id="database.frequency.date" resname="database.frequency.date" approved="yes">
+            <trans-unit id="database.frequency.dateCirca" resname="database.frequency.dateCirca" approved="yes">
                 <source>Date</source>
                 <target>Datumsangabe</target>
             </trans-unit>
-            <trans-unit id="database.frequency.date.description" resname="database.frequency.date.description" approved="yes">
-                <source>Date that the frequency is accounted for</source>
-                <target>Datum, zu dem die Häufigkeit bestimmt wurde</target>
+            <trans-unit id="database.frequency.dateCirca.description" resname="database.frequency.dateCirca.description" approved="yes">
+                <source>Approximate date that the frequency is accounted for</source>
+                <target>Grobes Datum, zu dem die Häufigkeit bestimmt wurde</target>
+            </trans-unit>
+            <trans-unit id="database.frequency.dateStart" resname="database.frequency.dateStart" approved="yes">
+                <source>Start of the date period</source>
+                <target>Beginn des Datumszeitraums</target>
+            </trans-unit>
+            <trans-unit id="database.frequency.dateStart.description" resname="database.frequency.dateStart.description" approved="yes">
+                <source>Exact onset of the period that the frequency is accounted for</source>
+                <target>Genaues Anfangsdatum des Zeitraums, für den die Häufigkeit bestimmt wurde</target>
+            </trans-unit>
+            <trans-unit id="database.frequency.dateEnd" resname="database.frequency.dateEnd" approved="yes">
+                <source>End of the date period</source>
+                <target>Ende des Datumszeitraums</target>
+            </trans-unit>
+            <trans-unit id="database.frequency.dateEnd.description" resname="database.frequency.dateEnd.description" approved="yes">
+                <source>Exact ending of the period that the frequency is accounted for</source>
+                <target>Genaues Enddatum des Zeitraums, für den die Häufigkeit bestimmt wurde</target>
             </trans-unit>
             <trans-unit id="database.frequency.sourceIdentity" resname="database.frequency.sourceIdentity" approved="yes">
                 <source>Source identity</source>
@@ -578,20 +886,24 @@
                 <source>Sense</source>
                 <target>Bedeutung</target>
             </trans-unit>
+            <trans-unit id="database.sense.relations" resname="database.sense.relations" approved="yes">
+                <source>Relations</source>
+                <target>Relationen</target>
+            </trans-unit>
             <trans-unit id="database.sense.id" resname="database.sense.id" approved="yes">
-                <source>Identifier</source>
-                <target>Identifikator</target>
+                <source>ID</source>
+                <target>ID</target>
             </trans-unit>
             <trans-unit id="database.sense.id.description" resname="database.sense.id.description" approved="yes">
-                <source>Unique string, number, or combination of these to identify this sense</source>
-                <target>Einzigartige Zeichenkette, Nummer, oder Kombination zur Identifikation dieser Bedeutung</target>
+                <source>Simple identifier of this sense as part of a single dataset</source>
+                <target>Einfacher Identifikator der Bedeutung als Teil eines einzelnen Datensatzes</target>
             </trans-unit>
             <trans-unit id="database.sense.uuid" resname="database.sense.uuid" approved="yes">
                 <source>UUID</source>
                 <target>UUID</target>
             </trans-unit>
             <trans-unit id="database.sense.uuid.description" resname="database.sense.uuid.description" approved="yes">
-                <source>Unique sense identifier</source>
+                <source>Unique identifier of the sense</source>
                 <target>Einzigartiger Identifikator der Bedeutung</target>
             </trans-unit>
             <trans-unit id="database.sense.definition" resname="database.sense.definition" approved="yes">
@@ -610,13 +922,13 @@
                 <source>Brief indicator differentiating this sense from the others</source>
                 <target>Kurze Angabe, wie sich diese Bedeutung von den anderen unterscheidet</target>
             </trans-unit>
-            <trans-unit id="database.sense.structuredIndicator" resname="database.sense.structuredIndicator" approved="yes">
-                <source>Structured indicator</source>
-                <target>Strukturierter Indikator</target>
+            <trans-unit id="database.sense.classification" resname="database.sense.classification" approved="yes">
+                <source>Classification</source>
+                <target>Einstufung</target>
             </trans-unit>
-            <trans-unit id="database.sense.structuredIndicator.description" resname="database.sense.structuredIndicator.description" approved="yes">
-                <source>Category tree to differentiate this sense from the others</source>
-                <target>Kategorienbaum zur Abgrenzung dieser Bedeutung von den anderen</target>
+            <trans-unit id="database.sense.classification.description" resname="database.sense.classification.description" approved="yes">
+                <source>Assess the sense using a given set of categories</source>
+                <target>Angaben zur Klassifikation der Bedeutung</target>
             </trans-unit>
             <trans-unit id="database.sense.example" resname="database.sense.example" approved="yes">
                 <source>Example</source>
@@ -650,6 +962,14 @@
                 <source>External web address to identify the sense across the web</source>
                 <target>Externe Webadresse zur Identifikation der Bedeutung im Internet</target>
             </trans-unit>
+            <trans-unit id="database.sense.asMember" resname="database.sense.asMember" approved="yes">
+                <source>As member</source>
+                <target>Als Mitglied</target>
+            </trans-unit>
+            <trans-unit id="database.sense.asMember.description" resname="database.sense.asMember.description" approved="yes">
+                <source>List of memberships in a relation</source>
+                <target>Liste der Mitgliedschaften in Relationen</target>
+            </trans-unit>
             <!-- Database: Member -->
             <trans-unit id="database.member" resname="database.member" approved="yes">
                 <source>Member</source>
@@ -675,6 +995,14 @@
             <trans-unit id="database.relation" resname="database.relation" approved="yes">
                 <source>Relation</source>
                 <target>Relation</target>
+            </trans-unit>
+            <trans-unit id="database.relation.parent_id" resname="database.relation.parent_id" approved="yes">
+                <source>Lexicographic resource</source>
+                <target>Lexicografische Ressource</target>
+            </trans-unit>
+            <trans-unit id="database.relation.parent_id.description" resname="database.relation.parent_id.description" approved="yes">
+                <source>Resource that this relation is attached to</source>
+                <target>Ressource, zu der diese Relation gehört</target>
             </trans-unit>
             <trans-unit id="database.relation.type" resname="database.relation.type" approved="yes">
                 <source>Type</source>
@@ -729,9 +1057,21 @@
                 <source>Original</source>
                 <target>Original</target>
             </trans-unit>
+            <trans-unit id="database.entry.relations" resname="database.entry.relations" approved="yes">
+                <source>Relations</source>
+                <target>Relationen</target>
+            </trans-unit>
+            <trans-unit id="database.entry.parent_id" resname="database.entry.parent_id" approved="yes">
+                <source>Lexicographic resource</source>
+                <target>Lexicografische Ressource</target>
+            </trans-unit>
+            <trans-unit id="database.entry.parent_id.description" resname="database.entry.parent_id.description" approved="yes">
+                <source>Resource that this entry is attached to</source>
+                <target>Ressource, zu der dieser Eintrag gehört</target>
+            </trans-unit>
             <trans-unit id="database.entry.id" resname="database.entry.id" approved="yes">
-                <source>Identifier</source>
-                <target>Identifikator</target>
+                <source>ID</source>
+                <target>ID</target>
             </trans-unit>
             <trans-unit id="database.entry.id.description" resname="database.entry.id.description" approved="yes">
                 <source>Simple identifier of this entry as part of a single dataset</source>
@@ -742,7 +1082,7 @@
                 <target>UUID</target>
             </trans-unit>
             <trans-unit id="database.entry.uuid.description" resname="database.entry.uuid.description" approved="yes">
-                <source>Unique entry identifier</source>
+                <source>Unique identifier of the entry</source>
                 <target>Einzigartiger Identifikator des Eintrags</target>
             </trans-unit>
             <trans-unit id="database.entry.type" resname="database.entry.type" approved="yes">
@@ -985,6 +1325,22 @@
                 <source>Content blocks that make up the content of this entry</source>
                 <target>Inhaltliche Abschnitte, die den Inhalt des Eintrag ausmachen</target>
             </trans-unit>
+            <trans-unit id="database.entry.image" resname="database.entry.image" approved="yes">
+                <source>Image</source>
+                <target>Bild</target>
+            </trans-unit>
+            <trans-unit id="database.entry.image.description" resname="database.entry.image.description" approved="yes">
+                <source>Images depicting the entry</source>
+                <target>Bilder, die den Eintrag darstellen</target>
+            </trans-unit>
+            <trans-unit id="database.entry.file" resname="database.entry.file" approved="yes">
+                <source>File</source>
+                <target>Datei</target>
+            </trans-unit>
+            <trans-unit id="database.entry.file.description" resname="database.entry.file.description" approved="yes">
+                <source>Files that contains, for example, content of the entry</source>
+                <target>Dateien, die beispielsweise Inhalte des Eintrags enthalten</target>
+            </trans-unit>
             <trans-unit id="database.entry.distributionLanguage" resname="database.entry.distributionLanguage" approved="yes">
                 <source>Language</source>
                 <target>Sprachvorkommen</target>
@@ -1032,6 +1388,14 @@
             <trans-unit id="database.entry.import.description" resname="database.entry.import.description" approved="yes">
                 <source>Content of the file used to populate this record</source>
                 <target>Inhalt der Datei, die zum Befüllen dieses Datensatzes genutzt wurde</target>
+            </trans-unit>
+            <trans-unit id="database.entry.asMember" resname="database.entry.asMember" approved="yes">
+                <source>As member</source>
+                <target>Als Mitglied</target>
+            </trans-unit>
+            <trans-unit id="database.entry.asMember.description" resname="database.entry.asMember.description" approved="yes">
+                <source>List of memberships in a relation</source>
+                <target>Liste der Mitgliedschaften in Relationen</target>
             </trans-unit>
         </body>
     </file>
