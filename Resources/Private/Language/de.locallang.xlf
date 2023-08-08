@@ -157,6 +157,14 @@
                 <source>Label type</source>
                 <target>Labelart</target>
             </trans-unit>
+            <trans-unit id="database.tag.type.classificationEntry" resname="database.tag.type.classificationEntry" approved="yes">
+                <source>Entry classification</source>
+                <target>Einstufung für Einträge</target>
+            </trans-unit>
+            <trans-unit id="database.tag.type.classificationSense" resname="database.tag.type.classificationSense" approved="yes">
+                <source>Sense classification</source>
+                <target>Einstufung für Bedeutungen</target>
+            </trans-unit>
             <trans-unit id="database.tag.type.relationType" resname="database.tag.type.relationType" approved="yes">
                 <source>Relation type</source>
                 <target>Relationsart</target>
@@ -196,6 +204,22 @@
             <trans-unit id="database.tag.description.description" resname="database.tag.description.description" approved="yes">
                 <source>Brief information about the tag</source>
                 <target>Kurze Erläuterung des Schlagworts</target>
+            </trans-unit>
+            <trans-unit id="database.tag.parent" resname="database.tag.parent" approved="yes">
+                <source>Parent element</source>
+                <target>Elternelement</target>
+            </trans-unit>
+            <trans-unit id="database.tag.parent.description" resname="database.tag.parent.description" approved="yes">
+                <source>Tag on the parent level</source>
+                <target>Schlagwort auf der Elternebene</target>
+            </trans-unit>
+            <trans-unit id="database.tag.child" resname="database.tag.child" approved="yes">
+                <source>Child elements</source>
+                <target>Kindelemente</target>
+            </trans-unit>
+            <trans-unit id="database.tag.child.description" resname="database.tag.child.description" approved="yes">
+                <source>List of tags on the child level</source>
+                <target>Liste der Schlagworte auf der Kindebene</target>
             </trans-unit>
             <trans-unit id="database.tag.sameAs" resname="database.tag.sameAs" approved="yes">
                 <source>Reference URI</source>
@@ -484,6 +508,22 @@
             <trans-unit id="database.tag.asRoleOfMember.description" resname="database.tag.asRoleOfMember.description" approved="yes">
                 <source>List of relation members with this role</source>
                 <target>Liste der Relationsmitglieder mit dieser Rolle</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asClassificationOfEntry" resname="database.tag.asClassificationOfEntry" approved="yes">
+                <source>As classification of entries</source>
+                <target>Als Einstufung von Einträgen</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asClassificationOfEntry.description" resname="database.tag.asClassificationOfEntry.description" approved="yes">
+                <source>List of entries with this classification</source>
+                <target>Liste der Einträge mit dieser Einstufung</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asClassificationOfEntry" resname="database.tag.asClassificationOfEntry" approved="yes">
+                <source>As classification of senses</source>
+                <target>Als Einstufung von Bedeutungen</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asClassificationOfEntry.description" resname="database.tag.asClassificationOfEntry.description" approved="yes">
+                <source>List of senses with this classification</source>
+                <target>Liste der Bedeutungen mit dieser Einstufung</target>
             </trans-unit>
             <!-- Database: SameAs -->
             <trans-unit id="database.sameAs" resname="database.sameAs" approved="yes">

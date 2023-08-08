@@ -189,6 +189,14 @@ return [
                         'value' => 'labelType',
                     ],
                     [
+                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.classificationEntry',
+                        'value' => 'classificationEntry',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.classificationSense',
+                        'value' => 'classificationSense',
+                    ],
+                    [
                         'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.relationType',
                         'value' => 'relationType',
                     ],
@@ -233,6 +241,56 @@ return [
                 'rows' => 5,
                 'max'  => 2000,
                 'eval' => 'trim',
+            ],
+        ],
+        'parent' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.parent',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.parent.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectSingle',
+                'foreign_table'       => 'tx_dalex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_dabib_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###'
+                    . ' AND ({#tx_dalex_domain_model_tag}.{#type}=\'classificationEntry\' OR {#tx_dalex_domain_model_tag}.{#type}=\'classificationSense\')',
+                'maxitems'            => 1,
+                'required'            => true,
+            ],
+        ],
+        'child' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.child',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.child.description',
+            'config'      => [
+                'type'                => 'inline',
+                'foreign_table'       => 'tx_dalex_domain_model_tag',
+                'foreign_field'       => 'parent',
+                'appearance'          => [
+                    'collapseAll'                     => true,
+                    'expandSingle'                    => true,
+                    'newRecordLinkAddTitle'           => true,
+                    'levelLinksPosition'              => 'top',
+                    'useSortable'                     => true,
+                    'showPossibleLocalizationRecords' => true,
+                    'showAllLocalizationLink'         => true,
+                    'showSynchronizationLink'         => true,
+                ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'type' => [
+                            'config' => [
+                                'items' => [
+                                    [
+                                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.classificationEntry',
+                                        'value' => 'classificationEntry',
+                                    ],
+                                    [
+                                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.classificationSense',
+                                        'value' => 'classificationSense',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
             ],
         ],
         'sameAs' => [
@@ -958,6 +1016,56 @@ return [
                 ],
             ],
         ],
+        'asClassificationOfEntry' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asClassificationOfEntry',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asClassificationOfEntry.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectMultipleSideBySide',
+                'foreign_table'       => 'tx_dalex_domain_model_entry',
+                'foreign_table_where' => 'AND {#tx_dalex_domain_model_entry}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_dalex_domain_model_entry_tag_classification_mm',
+                'MM_opposite_field'   => 'classification',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
+                    ],
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
+        'asClassificationOfSense' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asClassificationOfSense',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asClassificationOfSense.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectMultipleSideBySide',
+                'foreign_table'       => 'tx_dalex_domain_model_sense',
+                'foreign_table_where' => 'AND {#tx_dalex_domain_model_sense}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_dalex_domain_model_sense_tag_classification_mm',
+                'MM_opposite_field'   => 'classification',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
+                    ],
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
     ],
     'palettes' => [
         'hiddenParentId' => [
@@ -968,6 +1076,9 @@ return [
         ],
         'textType' => [
             'showitem' => 'text,type,',
+        ],
+        'parentChild' => [
+            'showitem' => 'parent,child,',
         ],
         'minMax' => [
             'showitem' => 'min,max,',
@@ -994,6 +1105,14 @@ return [
         'labelType' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
             --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asTypeOfLabel,',
+        ],
+        'classificationEntry' => [
+            'showitem' => 'hiddenParentId,idUuid,textType,description,parentChild,sameAs,
+            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asClassificationOfEntry,',
+        ],
+        'classificationSense' => [
+            'showitem' => 'hiddenParentId,idUuid,textType,description,parentChild,sameAs,
+            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asClassificationOfSense,',
         ],
         'relationType' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,

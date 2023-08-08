@@ -421,7 +421,20 @@ return [
             'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.entry.classification',
             'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.entry.classification.description',
             'config'      => [
-                'type' => 'category',
+                'type'                => 'select',
+                'renderType'          => 'selectTree',
+                'foreign_table'       => 'tx_dalex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'classificationEntry\'',
+                'MM'                  => 'tx_dalex_domain_model_entry_tag_classification_mm',
+                'size'                => 20,
+                'treeConfig'          => [
+                    'parentField' => 'parent_id',
+                    'appearance'  => [
+                        'showHeader' => true,
+                        'expandAll'  => true,
+                    ],
+                ],
             ],
         ],
         'partOfSpeech' => [

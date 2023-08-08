@@ -119,6 +119,12 @@
             <trans-unit id="database.tag.type.labelType" resname="database.tag.type.labelType">
                 <source>Label type</source>
             </trans-unit>
+            <trans-unit id="database.tag.type.classificationEntry" resname="database.tag.type.classificationEntry">
+                <source>Entry classification</source>
+            </trans-unit>
+            <trans-unit id="database.tag.type.classificationSense" resname="database.tag.type.classificationSense">
+                <source>Sense classification</source>
+            </trans-unit>
             <trans-unit id="database.tag.type.relationType" resname="database.tag.type.relationType">
                 <source>Relation type</source>
             </trans-unit>
@@ -148,6 +154,18 @@
             </trans-unit>
             <trans-unit id="database.tag.description.description" resname="database.tag.description.description">
                 <source>Brief information about the tag</source>
+            </trans-unit>
+            <trans-unit id="database.tag.parent" resname="database.tag.parent">
+                <source>Parent element</source>
+            </trans-unit>
+            <trans-unit id="database.tag.parent.description" resname="database.tag.parent.description">
+                <source>Tag on the parent level</source>
+            </trans-unit>
+            <trans-unit id="database.tag.child" resname="database.tag.child">
+                <source>Child elements</source>
+            </trans-unit>
+            <trans-unit id="database.tag.child.description" resname="database.tag.child.description">
+                <source>List of tags on the child level</source>
             </trans-unit>
             <trans-unit id="database.tag.sameAs" resname="database.tag.sameAs">
                 <source>Reference URI</source>
@@ -364,6 +382,18 @@
             </trans-unit>
             <trans-unit id="database.tag.asRoleOfMember.description" resname="database.tag.asRoleOfMember.description">
                 <source>List of relation members with this role</source>
+            </trans-unit>
+            <trans-unit id="database.tag.asClassificationOfEntry" resname="database.tag.asClassificationOfEntry">
+                <source>As classification of entries</source>
+            </trans-unit>
+            <trans-unit id="database.tag.asClassificationOfEntry.description" resname="database.tag.asClassificationOfEntry.description">
+                <source>List of entries with this classification</source>
+            </trans-unit>
+            <trans-unit id="database.tag.asClassificationOfEntry" resname="database.tag.asClassificationOfEntry">
+                <source>As classification of senses</source>
+            </trans-unit>
+            <trans-unit id="database.tag.asClassificationOfEntry.description" resname="database.tag.asClassificationOfEntry.description">
+                <source>List of senses with this classification</source>
             </trans-unit>
             <!-- Database: SameAs -->
             <trans-unit id="database.sameAs" resname="database.sameAs">
