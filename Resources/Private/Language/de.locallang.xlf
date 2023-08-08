@@ -235,7 +235,7 @@
             </trans-unit>
             <trans-unit id="database.tag.memberRole" resname="database.tag.memberRole" approved="yes">
                 <source>Member role</source>
-                <target>Mitgliederrollen</target>
+                <target>Mitgliedsrolle</target>
             </trans-unit>
             <trans-unit id="database.tag.memberRole.description" resname="database.tag.memberRole.description" approved="yes">
                 <source>Defines which roles members of this relation may have</source>
@@ -243,7 +243,7 @@
             </trans-unit>
             <trans-unit id="database.tag.memberType" resname="database.tag.memberType" approved="yes">
                 <source>Member type</source>
-                <target>Mitgliedsarten</target>
+                <target>Mitgliedsart</target>
             </trans-unit>
             <trans-unit id="database.tag.labelType" resname="database.tag.labelType" approved="yes">
                 <source>Label type</source>
@@ -316,6 +316,14 @@
             <trans-unit id="database.tag.asForPartOfSpeechOfTag.description" resname="database.tag.asForPartOfSpeechOfTag.description" approved="yes">
                 <source>List of tags with this part of speech as a constraint</source>
                 <target>Liste der Schlagworte mit dieser Wortart als Einschränkung</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asMemberRoleOfTag" resname="database.tag.asMemberRoleOfTag" approved="yes">
+                <source>As member role of tags</source>
+                <target>Als Mitgliedsart für Schlagwörter</target>
+            </trans-unit>
+            <trans-unit id="database.tag.asMemberRoleOfTag.description" resname="database.tag.asMemberRoleOfTag.description" approved="yes">
+                <source>List of tags with this member role</source>
+                <target>Liste der Schlagworte mit dieser Mitgliedsart</target>
             </trans-unit>
             <trans-unit id="database.tag.asLabelOfEntry" resname="database.tag.asLabelOfEntry" approved="yes">
                 <source>As label of entries</source>

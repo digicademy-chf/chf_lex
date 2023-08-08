@@ -306,29 +306,24 @@ return [
             'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.memberRole',
             'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.memberRole.description',
             'config'      => [
-                'type'                => 'inline',
+                'type'                => 'select',
+                'renderType'          => 'selectMultipleSideBySide',
                 'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_field'       => 'parent_id',
-                'foreign_table_field' => 'parent_table',
-                'overrideChildTca' => [
-                    'columns' => [
-                       'type' => [
-                          'config' => [
-                             'default'  => 'memberRole',
-                             'readOnly' => true,
-                          ],
-                       ],
+                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'memberRole\'',
+                'MM'                  => 'tx_dalex_domain_model_tag_tag_memberrole_mm',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
                     ],
-                 ],
-                'appearance'          => [
-                    'collapseAll'                     => true,
-                    'expandSingle'                    => true,
-                    'newRecordLinkAddTitle'           => true,
-                    'levelLinksPosition'              => 'top',
-                    'useSortable'                     => true,
-                    'showPossibleLocalizationRecords' => true,
-                    'showAllLocalizationLink'         => true,
-                    'showSynchronizationLink'         => true,
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
                 ],
             ],
         ],
@@ -421,6 +416,32 @@ return [
                     . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'label\'',
                 'MM'                  => 'tx_dalex_domain_model_tag_tag_forpartofspeech_mm',
                 'MM_opposite_field'   => 'forPartOfSpeech',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
+                    ],
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+            ],
+        ],
+        'asMemberRoleOfTag' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asMemberRoleOfTag',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asMemberRoleOfTag.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectMultipleSideBySide',
+                'foreign_table'       => 'tx_dalex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'relationType\'',
+                'MM'                  => 'tx_dalex_domain_model_tag_tag_memberrole_mm',
+                'MM_opposite_field'   => 'memberRole',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [
@@ -982,7 +1003,7 @@ return [
         'memberRole' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
             --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.constraints,memberType,minMax,action,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asRoleOfMember,',
+            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asMemberRoleOfTag,asRoleOfMember,',
         ],
         'sourceIdentity' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,

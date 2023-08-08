@@ -239,6 +239,12 @@
             <trans-unit id="database.tag.asForPartOfSpeechOfTag.description" resname="database.tag.asForPartOfSpeechOfTag.description">
                 <source>List of tags with this part of speech as a constraint</source>
             </trans-unit>
+            <trans-unit id="database.tag.asMemberRoleOfTag" resname="database.tag.asMemberRoleOfTag">
+                <source>As member role of tags</source>
+            </trans-unit>
+            <trans-unit id="database.tag.asMemberRoleOfTag.description" resname="database.tag.asMemberRoleOfTag.description">
+                <source>List of tags with this member role</source>
+            </trans-unit>
             <trans-unit id="database.tag.asLabelOfEntry" resname="database.tag.asLabelOfEntry">
                 <source>As label of entries</source>
             </trans-unit>
