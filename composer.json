@@ -14,11 +14,11 @@
         }
     ],
     "license": "GPL-2.0-or-later",
-    "homepage": "https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-lex",
+    "homepage": "https://extensions.typo3.org/extension/da-lex/",
     "support": {
-        "issues": "https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-lex/-/issues",
-        "source": "https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-lex",
-        "docs": "https://adwmainz.pages.gitlab.rlp.net/digicademy/t3xdev/da-lex"
+        "issues": "https://github.com/digicademy/da-lex/issues",
+        "source": "https://github.com/digicademy/da-lex",
+        "docs": "https://docs.typo3.org/p/da-lex/main/en-us/"
     },
     "keywords": [
         "TYPO3",

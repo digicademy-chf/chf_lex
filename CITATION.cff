@@ -11,7 +11,7 @@ authors:
     affiliation: Academy of Sciences and Literature Mainz
     orcid: 'https://orcid.org/0000-0002-5101-5275'
 repository-code: >-
-  https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-lex
+  https://github.com/digicademy/da-lex
 abstract: >-
   This TYPO3 extension for lexicographic resources
   implements the DMLex data model, version 1.0 WD1. It
@@ -36,4 +36,4 @@ keywords:
   - OntoLex Lemon
 license: GPL 3
 version: 0.5.0
-date-released: '2023-08-02'
+date-released: '2023-08-09'

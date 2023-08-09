@@ -26,7 +26,7 @@ Elexis project. In addition to the focus on dictionary entries, the extension
 also provides encyclopedic articles and glossary entries as additional data
 types.
 
-:Repository:  https://gitlab.rlp.net/adwmainz/digicademy/t3xdev/da-lex
+:Repository:  https://github.com/digicademy/da-lex
 :Read online: https://docs.typo3.org/p/da-lex/main/en-us/
 :TER:         https://extensions.typo3.org/extension/da-lex/
 
