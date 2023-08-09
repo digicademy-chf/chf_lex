@@ -20,15 +20,15 @@ includes the two official modules Controlled Vocabulary and Linking, as well
 as a custom Editorial module and in-line annotations. In addition to the data
 model, the extension also provides extensible `TEI Lex-0
 <https://dariah-eric.github.io/lexicalresources/pages/TEILex0/TEILex0.html>`__
-and `OntoLex Lemon <https://www.w3.org/2019/09/lexicog/>`__ serialisations
+and `OntoLex Lemon <https://www.w3.org/2019/09/lexicog>`__ serialisations
 provided through a REST endpoint based on a specification from the EU-funded
 Elexis project. In addition to the focus on dictionary entries, the extension
 also provides encyclopedic articles and glossary entries as additional data
 types.
 
 :Repository:  https://github.com/digicademy/da-lex
-:Read online: https://docs.typo3.org/p/da-lex/main/en-us/
-:TER:         https://extensions.typo3.org/extension/da-lex/
+:Read online: https://docs.typo3.org/p/da-lex/main/en-us
+:TER:         https://extensions.typo3.org/extension/da-lex
 
 Roadmap
 =======

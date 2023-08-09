@@ -14,11 +14,11 @@
         }
     ],
     "license": "GPL-2.0-or-later",
-    "homepage": "https://extensions.typo3.org/extension/da-lex/",
+    "homepage": "https://extensions.typo3.org/extension/da-lex",
     "support": {
         "issues": "https://github.com/digicademy/da-lex/issues",
         "source": "https://github.com/digicademy/da-lex",
-        "docs": "https://docs.typo3.org/p/da-lex/main/en-us/"
+        "docs": "https://docs.typo3.org/p/da-lex/main/en-us"
     },
     "keywords": [
         "TYPO3",
