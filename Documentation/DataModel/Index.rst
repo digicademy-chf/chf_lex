@@ -32,7 +32,7 @@ how entries of all types interconnect, including lemmatisation, the class
 many ``Member``s as you like.
 
 In addition, the model knows flexible ``Tag``s and ``SameAs`` classes, which
-can be used to group entries andor contributors via labels, to add various
+can be used to group entries and/or contributors via labels, to add various
 types across the previous classes, and to connect entities to Linked Open Data.
 
 For further information on the data model (without the additions specific to
