@@ -12,6 +12,7 @@ namespace Digicademy\DALex\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -25,39 +26,59 @@ class InflectedForm extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'minimum' => 1,
+            'maximum' => 255,
+        ],
+    ])]
     protected string $text = '';
 
-    #[Lazy()]
     /**
      * Specify the type of inflection used here
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $inflectionType;
-
     #[Lazy()]
-    #[Cascade('remove')]
+    protected ObjectStorage $inflectionType;
+
     /**
      * Define the pronunciation of the inflected form
      * 
      * @var ObjectStorage<Pronunciation>
      */
+    #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
     protected $pronunciation;
 
-    #[Lazy()]
     /**
      * Label to group the inflected form into
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $label;
+    #[Lazy()]
+    protected ObjectStorage $label;
+
+    /**
+     * Construct object
+     *
+     * @param string $text
+     * @return InflectedForm
+     */
+    public function __construct(string $text)
+    {
+        $this->initializeObject();
+
+        $this->setText($text);
+    }
 
     /**
      * Initialize object
-     *
-     * @return InflectedForm
      */
-    public function __construct()
+    public function initializeObject(): void
     {
         $this->inflectionType = new ObjectStorage();
         $this->pronunciation  = new ObjectStorage();
@@ -87,9 +108,9 @@ class InflectedForm extends AbstractEntity
     /**
      * Get inflection type
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getInflectionType(): ?ObjectStorage
+    public function getInflectionType(): ObjectStorage
     {
         return $this->inflectionType;
     }
@@ -97,9 +118,9 @@ class InflectedForm extends AbstractEntity
     /**
      * Set inflection type
      *
-     * @param ObjectStorage $inflectionType
+     * @param ObjectStorage<Tag> $inflectionType
      */
-    public function setInflectionType($inflectionType): void
+    public function setInflectionType(ObjectStorage $inflectionType): void
     {
         $this->inflectionType = $inflectionType;
     }
@@ -125,11 +146,20 @@ class InflectedForm extends AbstractEntity
     }
 
     /**
+     * Remove all inflection types
+     */
+    public function removeAllInflectionTypes(): void
+    {
+        $inflectionType = clone $this->inflectionType;
+        $this->inflectionType->removeAll($inflectionType);
+    }
+
+    /**
      * Get pronunciation
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Pronunciation>
      */
-    public function getPronunciation(): ?ObjectStorage
+    public function getPronunciation(): ObjectStorage
     {
         return $this->pronunciation;
     }
@@ -137,9 +167,9 @@ class InflectedForm extends AbstractEntity
     /**
      * Set pronunciation
      *
-     * @param ObjectStorage $pronunciation
+     * @param ObjectStorage<Pronunciation> $pronunciation
      */
-    public function setPronunciation($pronunciation): void
+    public function setPronunciation(ObjectStorage $pronunciation): void
     {
         $this->pronunciation = $pronunciation;
     }
@@ -165,11 +195,20 @@ class InflectedForm extends AbstractEntity
     }
 
     /**
+     * Remove all pronunciations
+     */
+    public function removeAllPronunciations(): void
+    {
+        $pronunciation = clone $this->pronunciation;
+        $this->pronunciation->removeAll($pronunciation);
+    }
+
+    /**
      * Get label
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getLabel(): ?ObjectStorage
+    public function getLabel(): ObjectStorage
     {
         return $this->label;
     }
@@ -177,9 +216,9 @@ class InflectedForm extends AbstractEntity
     /**
      * Set label
      *
-     * @param ObjectStorage $label
+     * @param ObjectStorage<Tag> $label
      */
-    public function setLabel($label): void
+    public function setLabel(ObjectStorage $label): void
     {
         $this->label = $label;
     }
@@ -202,6 +241,15 @@ class InflectedForm extends AbstractEntity
     public function removeLabel(Tag $label): void
     {
         $this->label->detach($label);
+    }
+
+    /**
+     * Remove all labels
+     */
+    public function removeAllLabels(): void
+    {
+        $label = clone $this->label;
+        $this->label->removeAll($label);
     }
 }
 

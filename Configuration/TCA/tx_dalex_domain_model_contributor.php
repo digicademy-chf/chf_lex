@@ -135,7 +135,7 @@ return [
                 'type' => 'input',
                 'size' => 40,
                 'max'  => 255,
-                'eval' => 'trim',
+                'eval' => 'trim,uniqueInPid',
                 'required' => true,
             ],
         ],

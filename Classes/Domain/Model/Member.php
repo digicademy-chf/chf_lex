@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Digicademy\DALex\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
-use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -20,40 +20,83 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Member extends AbstractEntity
 {
+    /**
+     * Relation that this member is attached to
+     * 
+     * @var LazyLoadingProxy|Relation
+     */
     #[Lazy()]
+    protected LazyLoadingProxy|Relation $parent_id;
+
     /**
      * Role in this relation
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $role;
-
     #[Lazy()]
-    #[Cascade('remove')]
+    protected ObjectStorage $role;
+
     /**
      * Selection of entries or senses as members of this relation
      * 
      * @var ObjectStorage<Entry|Sense>
      */
-    protected $entryOrSense;
+    #[Lazy()]
+    protected ObjectStorage $entryOrSense;
+
+    /**
+     * Construct object
+     *
+     * @param Relation $parent_id
+     * @param Entry|Sense $entryOrSense
+     * @return Member
+     */
+    public function __construct(Relation $parent_id, Entry|Sense $entryOrSense)
+    {
+        $this->initializeObject();
+
+        $this->setParentId($parent_id);
+        $this->addEntryOrSense($entryOrSense);
+    }
 
     /**
      * Initialize object
-     *
-     * @return Member
      */
-    public function __construct()
+    public function initializeObject(): void
     {
         $this->role         = new ObjectStorage();
         $this->entryOrSense = new ObjectStorage();
     }
 
     /**
+     * Get parent ID
+     * 
+     * @return Relation
+     */
+    public function getParentId(): Relation
+    {
+        if ($this->parent_id instanceof LazyLoadingProxy) {
+            $this->parent_id->_loadRealInstance();
+        }
+        return $this->parent_id;
+    }
+
+    /**
+     * Set parent ID
+     * 
+     * @param Relation $parent_id
+     */
+    public function setParentId(Relation $parent_id): void
+    {
+        $this->parent_id = $parent_id;
+    }
+
+    /**
      * Get role
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getRole(): ?ObjectStorage
+    public function getRole(): ObjectStorage
     {
         return $this->role;
     }
@@ -61,9 +104,9 @@ class Member extends AbstractEntity
     /**
      * Set role
      *
-     * @param ObjectStorage $role
+     * @param ObjectStorage<Tag> $role
      */
-    public function setRole($role): void
+    public function setRole(ObjectStorage $role): void
     {
         $this->role = $role;
     }
@@ -89,11 +132,20 @@ class Member extends AbstractEntity
     }
 
     /**
+     * Remove all roles
+     */
+    public function removeAllRoles(): void
+    {
+        $role = clone $this->role;
+        $this->role->removeAll($role);
+    }
+
+    /**
      * Get entry or sense
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Entry|Sense>
      */
-    public function getEntryOrSense(): ?ObjectStorage
+    public function getEntryOrSense(): ObjectStorage
     {
         return $this->entryOrSense;
     }
@@ -101,9 +153,9 @@ class Member extends AbstractEntity
     /**
      * Set entry or sense
      *
-     * @param ObjectStorage $entryOrSense
+     * @param ObjectStorage<Entry|Sense> $entryOrSense
      */
-    public function setEntryOrSense($entryOrSense): void
+    public function setEntryOrSense(ObjectStorage $entryOrSense): void
     {
         $this->entryOrSense = $entryOrSense;
     }
@@ -126,6 +178,15 @@ class Member extends AbstractEntity
     public function removeEntryOrSense(Entry|Sense $entryOrSense): void
     {
         $this->entryOrSense->detach($entryOrSense);
+    }
+
+    /**
+     * Remove all entries or senses
+     */
+    public function removeAllEntriesOrSenses(): void
+    {
+        $entryOrSense = clone $this->entryOrSense;
+        $this->entryOrSense->removeAll($entryOrSense);
     }
 }
 

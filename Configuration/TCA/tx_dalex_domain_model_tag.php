@@ -137,7 +137,7 @@ return [
                 'type' => 'input',
                 'size' => 40,
                 'max'  => 255,
-                'eval' => 'trim',
+                'eval' => 'trim,uniqueInPid',
                 'required' => true,
             ],
         ],
@@ -243,26 +243,14 @@ return [
                 'eval' => 'trim',
             ],
         ],
-        'parent' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.parent',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.parent.description',
-            'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###'
-                    . ' AND ({#tx_dalex_domain_model_tag}.{#type}=\'classificationEntry\' OR {#tx_dalex_domain_model_tag}.{#type}=\'classificationSense\')',
-                'maxitems'            => 1,
-                'required'            => true,
-            ],
-        ],
         'child' => [
             'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.child',
             'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.child.description',
             'config'      => [
                 'type'                => 'inline',
                 'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_field'       => 'parent',
+                'foreign_field'       => 'parent_id',
+                'foreign_table_field' => 'parent_table',
                 'appearance'          => [
                     'collapseAll'                     => true,
                     'expandSingle'                    => true,
@@ -765,9 +753,9 @@ return [
                 ],
             ],
         ],
-        'asTypeOfLabel' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfLabel',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfLabel.description',
+        'asLabelTypeOfTag' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelTypeOfTag',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelTypeOfTag.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
@@ -1077,9 +1065,6 @@ return [
         'textType' => [
             'showitem' => 'text,type,',
         ],
-        'parentChild' => [
-            'showitem' => 'parent,child,',
-        ],
         'minMax' => [
             'showitem' => 'min,max,',
         ],
@@ -1104,14 +1089,14 @@ return [
         ],
         'labelType' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asTypeOfLabel,',
+            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asLabelTypeOfTag,',
         ],
         'classificationEntry' => [
-            'showitem' => 'hiddenParentId,idUuid,textType,description,parentChild,sameAs,
+            'showitem' => 'hiddenParentId,idUuid,textType,description,child,sameAs,
             --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asClassificationOfEntry,',
         ],
         'classificationSense' => [
-            'showitem' => 'hiddenParentId,idUuid,textType,description,parentChild,sameAs,
+            'showitem' => 'hiddenParentId,idUuid,textType,description,child,sameAs,
             --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asClassificationOfSense,',
         ],
         'relationType' => [

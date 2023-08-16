@@ -12,7 +12,9 @@ namespace Digicademy\DALex\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
@@ -21,24 +23,62 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Contributor extends AbstractEntity
 {
     /**
-     * Unique contributor identifier
+     * Resource that this contributor is attached to
+     * 
+     * @var LazyLoadingProxy|LexicographicResource
+     */
+    #[Lazy()]
+    protected LazyLoadingProxy|LexicographicResource $parent_id;
+
+    /**
+     * Simple identifier of this contributor as part of a single dataset
      * 
      * @var string
      */
-    protected string $uuid;
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'minimum' => 1,
+            'maximum' => 255,
+        ],
+    ])]
+    protected string $id = '';
 
     /**
-     * Whether the contributor should be listed above others
+     * Unique identifier of the contributor
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => 'RegularExpression',
+        'options'   => [
+            'regularExpression' => '^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$',
+            'errorMessage'      => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:validator.regularExpression.noUuid',
+        ],
+    ])]
+    protected string $uuid = '';
+
+    /**
+     * Whether the contributor should be listed above non-active ones
      * 
      * @var bool
      */
-    protected string $active;
+    #[Validate([
+        'validator' => 'Boolean',
+    ])]
+    protected bool $active = true;
 
     /**
      * Surname of the contributor
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
     protected string $surname = '';
 
     /**
@@ -46,6 +86,12 @@ class Contributor extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
     protected string $forename = '';
 
     /**
@@ -53,34 +99,118 @@ class Contributor extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
     protected string $corporateName = '';
 
-    #[Lazy()]
     /**
      * Label to group the contributor into
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $label;
-
     #[Lazy()]
-    #[Cascade('remove')]
+    protected ObjectStorage $label;
+
     /**
      * External web address to identify the contributor across the web
      * 
      * @var ObjectStorage<SameAs>
      */
-    protected $sameAs;
+    #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $sameAs;
+
+    /**
+     * List of contributions as an author
+     * 
+     * @var ObjectStorage<Entry>
+     */
+    #[Lazy()]
+    protected ObjectStorage $asAuthor;
+
+    /**
+     * List of contributions as an editor
+     * 
+     * @var ObjectStorage<Entry>
+     */
+    #[Lazy()]
+    protected ObjectStorage $asEditor;
+
+    /**
+     * Construct object
+     *
+     * @param LexicographicResource $parent_id
+     * @param string $id
+     * @param string $uuid
+     * @return Contributor
+     */
+    public function __construct(LexicographicResource $parent_id, string $id, string $uuid)
+    {
+        $this->initializeObject();
+
+        $this->setParentId($parent_id);
+        $this->setId($id);
+        $this->setUuid($uuid);
+    }
 
     /**
      * Initialize object
-     *
-     * @return Contributor
      */
-    public function __construct()
+    public function initializeObject(): void
     {
-        $this->label  = new ObjectStorage();
-        $this->sameAs = new ObjectStorage();
+        $this->label    = new ObjectStorage();
+        $this->sameAs   = new ObjectStorage();
+        $this->asAuthor = new ObjectStorage();
+        $this->asEditor = new ObjectStorage();
+    }
+
+    /**
+     * Get parent ID
+     * 
+     * @return LexicographicResource
+     */
+    public function getParentId(): LexicographicResource
+    {
+        if ($this->parent_id instanceof LazyLoadingProxy) {
+            $this->parent_id->_loadRealInstance();
+        }
+        return $this->parent_id;
+    }
+
+    /**
+     * Set parent ID
+     * 
+     * @param LexicographicResource $parent_id
+     */
+    public function setParentId(LexicographicResource $parent_id): void
+    {
+        $this->parent_id = $parent_id;
+    }
+
+    /**
+     * Get ID
+     *
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set ID
+     *
+     * @param string $id
+     */
+    public function setId(string $id): void
+    {
+        $this->id = $id;
     }
 
     /**
@@ -124,26 +254,6 @@ class Contributor extends AbstractEntity
     }
 
     /**
-     * Get forename
-     *
-     * @return string
-     */
-    public function getForename(): string
-    {
-        return $this->forename;
-    }
-
-    /**
-     * Set forename
-     *
-     * @param string $forename
-     */
-    public function setForename(string $forename): void
-    {
-        $this->forename = $forename;
-    }
-
-    /**
      * Get surname
      *
      * @return string
@@ -161,6 +271,26 @@ class Contributor extends AbstractEntity
     public function setSurname(string $surname): void
     {
         $this->surname = $surname;
+    }
+
+    /**
+     * Get forename
+     *
+     * @return string
+     */
+    public function getForename(): string
+    {
+        return $this->forename;
+    }
+
+    /**
+     * Set forename
+     *
+     * @param string $forename
+     */
+    public function setForename(string $forename): void
+    {
+        $this->forename = $forename;
     }
 
     /**
@@ -186,9 +316,9 @@ class Contributor extends AbstractEntity
     /**
      * Get label
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getLabel(): ?ObjectStorage
+    public function getLabel(): ObjectStorage
     {
         return $this->label;
     }
@@ -196,9 +326,9 @@ class Contributor extends AbstractEntity
     /**
      * Set label
      *
-     * @param ObjectStorage $label
+     * @param ObjectStorage<Tag> $label
      */
-    public function setLabel($label): void
+    public function setLabel(ObjectStorage $label): void
     {
         $this->label = $label;
     }
@@ -224,11 +354,20 @@ class Contributor extends AbstractEntity
     }
 
     /**
+     * Remove all labels
+     */
+    public function removeAllLabels(): void
+    {
+        $label = clone $this->label;
+        $this->label->removeAll($label);
+    }
+
+    /**
      * Get same as
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<SameAs>
      */
-    public function getSameAs(): ?ObjectStorage
+    public function getSameAs(): ObjectStorage
     {
         return $this->sameAs;
     }
@@ -236,9 +375,9 @@ class Contributor extends AbstractEntity
     /**
      * Set same as
      *
-     * @param ObjectStorage $sameAs
+     * @param ObjectStorage<SameAs> $sameAs
      */
-    public function setSameAs($sameAs): void
+    public function setSameAs(ObjectStorage $sameAs): void
     {
         $this->sameAs = $sameAs;
     }
@@ -261,6 +400,113 @@ class Contributor extends AbstractEntity
     public function removeSameAs(SameAs $sameAs): void
     {
         $this->sameAs->detach($sameAs);
+    }
+
+    /**
+     * Remove all same as
+     */
+    public function removeAllSameAs(): void
+    {
+        $sameAs = clone $this->sameAs;
+        $this->sameAs->removeAll($sameAs);
+    }
+
+    /**
+     * Get as author
+     *
+     * @return ObjectStorage<Entry>
+     */
+    public function getAsAuthor(): ObjectStorage
+    {
+        return $this->asAuthor;
+    }
+
+    /**
+     * Set as author
+     *
+     * @param ObjectStorage<Entry> $asAuthor
+     */
+    public function setAsAuthor(ObjectStorage $asAuthor): void
+    {
+        $this->asAuthor = $asAuthor;
+    }
+
+    /**
+     * Add as author
+     *
+     * @param Entry $asAuthor
+     */
+    public function addAsAuthor(Entry $asAuthor): void
+    {
+        $this->asAuthor->attach($asAuthor);
+    }
+
+    /**
+     * Remove as author
+     *
+     * @param Entry $asAuthor
+     */
+    public function removeAsAuthor(Entry $asAuthor): void
+    {
+        $this->asAuthor->detach($asAuthor);
+    }
+
+    /**
+     * Remove all as authors
+     */
+    public function removeAllAsAuthors(): void
+    {
+        $asAuthor = clone $this->asAuthor;
+        $this->asAuthor->removeAll($asAuthor);
+    }
+
+    /**
+     * Get as editor
+     *
+     * @return ObjectStorage<Entry>
+     */
+    public function getAsEditor(): ObjectStorage
+    {
+        return $this->asEditor;
+    }
+
+    /**
+     * Set as editor
+     *
+     * @param ObjectStorage<Entry> $asEditor
+     */
+    public function setAsEditor(ObjectStorage $asEditor): void
+    {
+        $this->asEditor = $asEditor;
+    }
+
+    /**
+     * Add as editor
+     *
+     * @param Entry $asEditor
+     */
+    public function addAsEditor(Entry $asEditor): void
+    {
+        $this->asEditor->attach($asEditor);
+    }
+
+    /**
+     * Remove as editor
+     *
+     * @param Entry $asEditor
+     */
+    public function removeAsEditor(Entry $asEditor): void
+    {
+        $this->asEditor->detach($asEditor);
+    }
+
+    /**
+     * Remove all as editors
+     */
+    public function removeAllAsEditors(): void
+    {
+        $asEditor = clone $this->asEditor;
+        $this->asEditor->removeAll($asEditor);
     }
 }
 

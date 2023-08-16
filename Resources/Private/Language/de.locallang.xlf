@@ -205,20 +205,12 @@
                 <source>Brief information about the tag</source>
                 <target>Kurze Erläuterung des Schlagworts</target>
             </trans-unit>
-            <trans-unit id="database.tag.parent" resname="database.tag.parent" approved="yes">
-                <source>Parent element</source>
-                <target>Elternelement</target>
-            </trans-unit>
-            <trans-unit id="database.tag.parent.description" resname="database.tag.parent.description" approved="yes">
-                <source>Tag on the parent level</source>
-                <target>Schlagwort auf der Elternebene</target>
-            </trans-unit>
             <trans-unit id="database.tag.child" resname="database.tag.child" approved="yes">
                 <source>Child elements</source>
                 <target>Kindelemente</target>
             </trans-unit>
             <trans-unit id="database.tag.child.description" resname="database.tag.child.description" approved="yes">
-                <source>List of tags on the child level</source>
+                <source>List of tags on the child level of this tag</source>
                 <target>Liste der Schlagworte auf der Kindebene</target>
             </trans-unit>
             <trans-unit id="database.tag.sameAs" resname="database.tag.sameAs" approved="yes">
@@ -269,10 +261,6 @@
                 <source>Member type</source>
                 <target>Mitgliedsart</target>
             </trans-unit>
-            <trans-unit id="database.tag.labelType" resname="database.tag.labelType" approved="yes">
-                <source>Label type</source>
-                <target>Labelart</target>
-            </trans-unit>
             <trans-unit id="database.tag.memberType.description" resname="database.tag.memberType.description" approved="yes">
                 <source>Defines which types of members may be part of this relation</source>
                 <target>Schränkt ein, welche Art Mitglieder Teil dieser Relation sein dürfen</target>
@@ -296,6 +284,14 @@
             <trans-unit id="database.tag.memberType.glossaryEntry" resname="database.tag.memberType.glossaryEntry" approved="yes">
                 <source>Glossary entry</source>
                 <target>Glossareintrag</target>
+            </trans-unit>
+            <trans-unit id="database.tag.labelType" resname="database.tag.labelType" approved="yes">
+                <source>Label type</source>
+                <target>Labelart</target>
+            </trans-unit>
+            <trans-unit id="database.tag.labelType.description" resname="database.tag.labelType.description" approved="yes">
+                <source>Option to group various kinds of labels together</source>
+                <target>Option zum Gruppieren verschiedener Arten von Labels</target>
             </trans-unit>
             <trans-unit id="database.tag.min" resname="database.tag.min" approved="yes">
                 <source>Minimum number</source>
@@ -429,11 +425,11 @@
                 <source>List of entries with this regional distribution</source>
                 <target>Liste der Einträge mit dieser regionalen Verbreitung</target>
             </trans-unit>
-            <trans-unit id="database.tag.asTypeOfLabel" resname="database.tag.asTypeOfLabel" approved="yes">
+            <trans-unit id="database.tag.asLabelTypeOfTag" resname="database.tag.asLabelTypeOfTag" approved="yes">
                 <source>As type of label</source>
                 <target>Als Art bei Labels</target>
             </trans-unit>
-            <trans-unit id="database.tag.asTypeOfLabel.description" resname="database.tag.asTypeOfLabel.description" approved="yes">
+            <trans-unit id="database.tag.asLabelTypeOfTag.description" resname="database.tag.asLabelTypeOfTag.description" approved="yes">
                 <source>List of labels of this type</source>
                 <target>Liste der Labels dieser Art</target>
             </trans-unit>
@@ -576,8 +572,8 @@
                 <target>Aktiv</target>
             </trans-unit>
             <trans-unit id="database.contributor.active.description" resname="database.contributor.active.description" approved="yes">
-                <source>Whether the contributor should be listed above others</source>
-                <target>Ob ein:e Beitragende:r bevorzugt gelistet werden soll</target>
+                <source>Whether the contributor should be listed above non-active ones</source>
+                <target>Ob ein:e Beitragende:r vor älteren Beitragenden gelistet werden soll</target>
             </trans-unit>
             <trans-unit id="database.contributor.surname" resname="database.contributor.surname" approved="yes">
                 <source>Surname</source>
@@ -685,7 +681,7 @@
                 <target>Geodaten zur Ortsangabe</target>
             </trans-unit>
             <trans-unit id="database.example.locationGeodata.description" resname="database.example.locationGeodata.description" approved="yes">
-                <source>Geodata for place that the sample text is attested for</source>
+                <source>Geodata for the place that the sample text is attested for</source>
                 <target>Geodaten für den Ort, an dem der Beispieltext nachgewiesen ist</target>
             </trans-unit>
             <trans-unit id="database.example.soundFile" resname="database.example.soundFile" approved="yes">
@@ -693,7 +689,7 @@
                 <target>Audiodatei</target>
             </trans-unit>
             <trans-unit id="database.example.soundFile.description" resname="database.example.soundFile.description" approved="yes">
-                <source>File that reads out the example text</source>
+                <source>File that reads out the sample text</source>
                 <target>Datei, in der der Beispieltext vorgelesen wird</target>
             </trans-unit>
             <trans-unit id="database.example.sourceIdentity" resname="database.example.sourceIdentity" approved="yes">
@@ -1022,6 +1018,14 @@
             <trans-unit id="database.member" resname="database.member" approved="yes">
                 <source>Member</source>
                 <target>Mitglied</target>
+            </trans-unit>
+            <trans-unit id="database.member.parent_id" resname="database.member.parent_id" approved="yes">
+                <source>Relation</source>
+                <target>Relation</target>
+            </trans-unit>
+            <trans-unit id="database.member.parent_id.description" resname="database.member.parent_id.description" approved="yes">
+                <source>Relation that this member is attached to</source>
+                <target>Relation, zu der dieses Mitglied gehört</target>
             </trans-unit>
             <trans-unit id="database.member.role" resname="database.member.role" approved="yes">
                 <source>Role</source>
@@ -1444,6 +1448,24 @@
             <trans-unit id="database.entry.asMember.description" resname="database.entry.asMember.description" approved="yes">
                 <source>List of memberships in a relation</source>
                 <target>Liste der Mitgliedschaften in Relationen</target>
+            </trans-unit>
+            <!-- Validator: StringOptionsValidator -->
+            <trans-unit id="validator.stringOptions.validator.stringOptions.allowedStringInvalid" resname="validator.stringOptions.allowedStringInvalid" approved="yes">
+                <source>One of the allowed options is not a string in the StringOptionsValidator.</source>
+                <target>Eine der erlaubten Optionen im StringOptionsValidator ist kein String.</target>
+            </trans-unit>
+            <trans-unit id="validator.stringOptions.invalidString" resname="validator.stringOptions.invalidString" approved="yes">
+                <source>The given value was not a valid string.</source>
+                <target>Der Wert war kein richtiger String.</target>
+            </trans-unit>
+            <trans-unit id="validator.stringOptions.notAllowedValue" resname="validator.stringOptions.notAllowedValue" approved="yes">
+                <source>The given value was not in the list of allowed values.</source>
+                <target>Der Wert war nicht in der Liste erlaubter Werte.</target>
+            </trans-unit>
+            <!-- Validator: RegularExpressionValidator -->
+            <trans-unit id="validator.regularExpression.noUuid" resname="validator.regularExpression.noUuid" approved="yes">
+                <source>The given value was not a UUID.</source>
+                <target>Der Wert war keine UUID.</target>
             </trans-unit>
         </body>
     </file>

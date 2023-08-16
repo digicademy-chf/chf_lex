@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Digicademy\DALex\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -24,22 +25,36 @@ class Definition extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'String',
+    ])]
     protected string $text = '';
 
-    #[Lazy()]
     /**
      * May be used to differentiate between different tiers of definitions
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $definitionType;
+    #[Lazy()]
+    protected ObjectStorage $definitionType;
+
+    /**
+     * Construct object
+     *
+     * @param string $text
+     * @return Definition
+     */
+    public function __construct(string $text)
+    {
+        $this->initializeObject();
+
+        $this->setText($text);
+    }
 
     /**
      * Initialize object
-     *
-     * @return Definition
      */
-    public function __construct()
+    public function initializeObject(): void
     {
         $this->definitionType = new ObjectStorage();
     }
@@ -67,9 +82,9 @@ class Definition extends AbstractEntity
     /**
      * Get definition type
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getDefinitionType(): ?ObjectStorage
+    public function getDefinitionType(): ObjectStorage
     {
         return $this->definitionType;
     }
@@ -77,9 +92,9 @@ class Definition extends AbstractEntity
     /**
      * Set definition type
      *
-     * @param ObjectStorage $definitionType
+     * @param ObjectStorage<Tag> $definitionType
      */
-    public function setDefinitionType($definitionType): void
+    public function setDefinitionType(ObjectStorage $definitionType): void
     {
         $this->definitionType = $definitionType;
     }
@@ -102,6 +117,15 @@ class Definition extends AbstractEntity
     public function removeDefinitionType(Tag $definitionType): void
     {
         $this->definitionType->detach($definitionType);
+    }
+
+    /**
+     * Remove all definition types
+     */
+    public function removeAllDefinitionTypes(): void
+    {
+        $definitionType = clone $this->definitionType;
+        $this->definitionType->removeAll($definitionType);
     }
 }
 

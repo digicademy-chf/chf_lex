@@ -12,9 +12,13 @@ namespace Digicademy\DALex\Domain\Model;
 
 use DateTime;
 use Digicademy\DABib\Domain\Reference;
+use Digicademy\DALex\Domain\Validator\StringOptionsValidator;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
+use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
@@ -23,17 +27,39 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Entry extends AbstractEntity
 {
     /**
+     * Resource that this entry is attached to
+     * 
+     * @var LazyLoadingProxy|LexicographicResource
+     */
+    #[Lazy()]
+    protected LazyLoadingProxy|LexicographicResource $parent_id;
+
+    /**
      * Simple identifier of this entry as part of a single dataset
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'minimum' => 1,
+            'maximum' => 255,
+        ],
+    ])]
     protected string $id = '';
 
     /**
-     * Unique entry identifier
+     * Unique identifier of the entry
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'RegularExpression',
+        'options'   => [
+            'regularExpression' => '^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$',
+            'errorMessage'      => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:validator.regularExpression.noUuid',
+        ],
+    ])]
     protected string $uuid = '';
 
     /**
@@ -41,6 +67,16 @@ class Entry extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => StringOptionsValidator::class,
+        'options'   => [
+            'allowed' => [
+                'entry',
+                'encyclopediaEntry',
+                'glossaryEntry',
+            ],
+        ],
+    ])]
     protected string $type = '';
 
     /**
@@ -48,20 +84,37 @@ class Entry extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'minimum' => 1,
+            'maximum' => 255,
+        ],
+    ])]
     protected string $headword = '';
 
     /**
      * Optional number to distinguish lemmas that are spelled the same
      * 
-     * @var int
+     * @var int|null
      */
-    protected string $homographNumber;
+    #[Validate([
+        'validator' => 'Number',
+    ])]
+    protected ?int $homographNumber = null;
 
     /**
      * Name of the entry
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'minimum' => 1,
+            'maximum' => 255,
+        ],
+    ])]
     protected string $title = '';
 
     /**
@@ -69,74 +122,100 @@ class Entry extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
     protected string $annotateStrings = '';
 
-    #[Lazy()]
     /**
      * Label to group the entry into
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $label;
-
     #[Lazy()]
-    #[Cascade('remove')]
+    protected ObjectStorage $label;
+
     /**
      * External web address to identify the entry across the web
      * 
      * @var ObjectStorage<SameAs>
      */
-    protected $sameAs;
-
     #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $sameAs;
+
     /**
      * List of authors of this entry
      * 
      * @var ObjectStorage<Contributor>
      */
-    protected $author;
-
     #[Lazy()]
+    protected ObjectStorage $author;
+
     /**
      * List of editors of this entry
      * 
      * @var ObjectStorage<Contributor>
      */
-    protected $editor;
+    #[Lazy()]
+    protected ObjectStorage $editor;
 
     /**
      * Counter to increase when the entry is changed significantly
      * 
-     * @var int
+     * @var int|null
      */
-    protected string $revisionNumber;
+    #[Validate([
+        'validator' => 'Number',
+    ])]
+    protected ?int $revisionNumber = null;
 
     /**
      * Date when the last significant edit was made
      * 
-     * @var DateTime
+     * @var DateTime|null
      */
-    protected $revisionDate;
+    #[Validate([
+        'validator' => 'DateTime',
+    ])]
+    protected ?DateTime $revisionDate = null;
 
     /**
      * Query that identifies a set of entries edited in a single run
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
     protected string $databaseQuery = '';
 
     /**
      * Date when the entry was published on the web
      * 
-     * @var DateTime
+     * @var DateTime|null
      */
-    protected $publicationDate;
+    #[Validate([
+        'validator' => 'DateTime',
+    ])]
+    protected ?DateTime $publicationDate = null;
 
     /**
      * Indicator of the entry's publication status
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'String', # Generic validator because this may contain comma-separated values
+    ])]
     protected string $publicationSteps = '';
 
     /**
@@ -144,6 +223,9 @@ class Entry extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'String', # Generic validator because this may contain comma-separated values
+    ])]
     protected string $editingSteps = '';
 
     /**
@@ -151,139 +233,244 @@ class Entry extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 2000,
+        ],
+    ])]
     protected string $editingNotes = '';
 
     /**
      * Assess the entry using a given set of categories
      * 
-     * @var string
+     * @var ObjectStorage<Tag>
      */
-    protected string $classification = '';
-
     #[Lazy()]
+    protected ObjectStorage $classification;
+
     /**
      * Define the headword's part of speech
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $partOfSpeech;
-
     #[Lazy()]
-    #[Cascade('remove')]
+    protected ObjectStorage $partOfSpeech;
+
     /**
      * Define the headword's inflected forms
      * 
      * @var ObjectStorage<InflectedForm>
      */
-    protected $inflectedForm;
-
     #[Lazy()]
-    #[Cascade('remove')]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $inflectedForm;
+
     /**
      * Define the pronunciation of the headword
      * 
      * @var ObjectStorage<Pronunciation>
      */
-    protected $pronunciation;
-
     #[Lazy()]
-    #[Cascade('remove')]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $pronunciation;
+
     /**
      * List of senses for this entry
      * 
      * @var ObjectStorage<Sense>
      */
-    protected $sense;
-
     #[Lazy()]
-    #[Cascade('remove')]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $sense;
+
     /**
      * Contemporary or historical examples of this entry
      * 
      * @var ObjectStorage<Example>
      */
-    protected $example;
-
     #[Lazy()]
-    #[Cascade('remove')]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $example;
+
     /**
      * Content blocks that make up the content of this entry
      * 
-     * @var ObjectStorage<TtContent>
+     * @var ObjectStorage<Content>
      */
-    protected $contentElements;
-
     #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $contentElements;
+
+    /**
+     * Images depicting the entry
+     * 
+     * @var ObjectStorage<FileReference>
+     */
+    #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $image;
+
+    /**
+     * Files that contains, for example, content of the entry
+     * 
+     * @var ObjectStorage<FileReference>
+     */
+    #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $file;
+
     /**
      * Languages associated with this entry
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $distributionLanguage;
-
     #[Lazy()]
+    protected ObjectStorage $distributionLanguage;
+
     /**
      * Countries connected to this entry
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $distributionCountry;
-
     #[Lazy()]
+    protected ObjectStorage $distributionCountry;
+
     /**
      * Regions connected to this entry
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $distributionRegion;
-
     #[Lazy()]
-    #[Cascade('remove')]
+    protected ObjectStorage $distributionRegion;
+
     /**
      * List of domestic and foreign frequency data
      * 
      * @var ObjectStorage<Frequency>
      */
-    protected $frequency;
-
     #[Lazy()]
-    #[Cascade('remove')]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $frequency;
+
     /**
      * List of references for this entry
      * 
      * @var ObjectStorage<Reference>
      */
-    protected $source;
+    #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $source;
 
     /**
      * Content of the file used to populate this record
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 100000,
+        ],
+    ])]
     protected string $import = '';
 
     /**
-     * Initialize object
+     * List of memberships in a relation
+     * 
+     * @var ObjectStorage<Member>
+     */
+    #[Lazy()]
+    protected ObjectStorage $asMember;
+
+    /**
+     * Construct object
      *
+     * @param LexicographicResource $parent_id
+     * @param string $id
+     * @param string $uuid
+     * @param string $type
+     * @param string $headword
+     * @param string $title
      * @return Entry
      */
-    public function __construct()
+    public function __construct(LexicographicResource $parent_id, string $id, string $uuid, string $type, string $headword, string $title)
+    {
+        $this->initializeObject();
+
+        $this->setParentId($parent_id);
+        $this->setId($id);
+        $this->setUuid($uuid);
+        $this->setType($type);
+        $this->setHeadword($headword);
+        $this->setTitle($title);
+    }
+
+    /**
+     * Initialize object
+     */
+    public function initializeObject(): void
     {
         $this->label                = new ObjectStorage();
         $this->sameAs               = new ObjectStorage();
         $this->author               = new ObjectStorage();
         $this->editor               = new ObjectStorage();
+        $this->classification       = new ObjectStorage();
         $this->partOfSpeech         = new ObjectStorage();
         $this->inflectedForm        = new ObjectStorage();
         $this->pronunciation        = new ObjectStorage();
         $this->sense                = new ObjectStorage();
         $this->example              = new ObjectStorage();
         $this->contentElements      = new ObjectStorage();
+        $this->image                = new ObjectStorage();
+        $this->file                 = new ObjectStorage();
         $this->distributionLanguage = new ObjectStorage();
         $this->distributionCountry  = new ObjectStorage();
         $this->distributionRegion   = new ObjectStorage();
         $this->frequency            = new ObjectStorage();
         $this->source               = new ObjectStorage();
+        $this->asMember             = new ObjectStorage();
+    }
+
+    /**
+     * Get parent ID
+     * 
+     * @return LexicographicResource
+     */
+    public function getParentId(): LexicographicResource
+    {
+        if ($this->parent_id instanceof LazyLoadingProxy) {
+            $this->parent_id->_loadRealInstance();
+        }
+        return $this->parent_id;
+    }
+
+    /**
+     * Set parent ID
+     * 
+     * @param LexicographicResource $parent_id
+     */
+    public function setParentId(LexicographicResource $parent_id): void
+    {
+        $this->parent_id = $parent_id;
     }
 
     /**
@@ -429,9 +616,9 @@ class Entry extends AbstractEntity
     /**
      * Get label
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getLabel(): ?ObjectStorage
+    public function getLabel(): ObjectStorage
     {
         return $this->label;
     }
@@ -439,9 +626,9 @@ class Entry extends AbstractEntity
     /**
      * Set label
      *
-     * @param ObjectStorage $label
+     * @param ObjectStorage<Tag> $label
      */
-    public function setLabel($label): void
+    public function setLabel(ObjectStorage $label): void
     {
         $this->label = $label;
     }
@@ -467,11 +654,20 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all labels
+     */
+    public function removeAllLabels(): void
+    {
+        $label = clone $this->label;
+        $this->label->removeAll($label);
+    }
+
+    /**
      * Get same as
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<SameAs>
      */
-    public function getSameAs(): ?ObjectStorage
+    public function getSameAs(): ObjectStorage
     {
         return $this->sameAs;
     }
@@ -479,9 +675,9 @@ class Entry extends AbstractEntity
     /**
      * Set same as
      *
-     * @param ObjectStorage $sameAs
+     * @param ObjectStorage<SameAs> $sameAs
      */
-    public function setSameAs($sameAs): void
+    public function setSameAs(ObjectStorage $sameAs): void
     {
         $this->sameAs = $sameAs;
     }
@@ -507,11 +703,20 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all same as
+     */
+    public function removeAllSameAs(): void
+    {
+        $sameAs = clone $this->sameAs;
+        $this->sameAs->removeAll($sameAs);
+    }
+
+    /**
      * Get author
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Contributor>
      */
-    public function getAuthor(): ?ObjectStorage
+    public function getAuthor(): ObjectStorage
     {
         return $this->author;
     }
@@ -519,9 +724,9 @@ class Entry extends AbstractEntity
     /**
      * Set author
      *
-     * @param ObjectStorage $author
+     * @param ObjectStorage<Contributor> $author
      */
-    public function setAuthor($author): void
+    public function setAuthor(ObjectStorage $author): void
     {
         $this->author = $author;
     }
@@ -547,11 +752,20 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all authors
+     */
+    public function removeAllAuthors(): void
+    {
+        $author = clone $this->author;
+        $this->author->removeAll($author);
+    }
+
+    /**
      * Get editor
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Contributor>
      */
-    public function getEditor(): ?ObjectStorage
+    public function getEditor(): ObjectStorage
     {
         return $this->editor;
     }
@@ -559,9 +773,9 @@ class Entry extends AbstractEntity
     /**
      * Set editor
      *
-     * @param ObjectStorage $editor
+     * @param ObjectStorage<Contributor> $editor
      */
-    public function setEditor($editor): void
+    public function setEditor(ObjectStorage $editor): void
     {
         $this->editor = $editor;
     }
@@ -584,6 +798,15 @@ class Entry extends AbstractEntity
     public function removeEditor(Contributor $editor): void
     {
         $this->editor->detach($editor);
+    }
+
+    /**
+     * Remove all editors
+     */
+    public function removeAllEditors(): void
+    {
+        $editor = clone $this->editor;
+        $this->editor->removeAll($editor);
     }
 
     /**
@@ -729,9 +952,9 @@ class Entry extends AbstractEntity
     /**
      * Get classification
      *
-     * @return string
+     * @return ObjectStorage<Tag>
      */
-    public function getClassification(): string
+    public function getClassification(): ObjectStorage
     {
         return $this->classification;
     }
@@ -739,19 +962,48 @@ class Entry extends AbstractEntity
     /**
      * Set classification
      *
-     * @param string $classification
+     * @param ObjectStorage<Tag> $classification
      */
-    public function setClassification(string $classification): void
+    public function setClassification(ObjectStorage $classification): void
     {
         $this->classification = $classification;
     }
 
     /**
+     * Add classification
+     *
+     * @param Tag $classification
+     */
+    public function addClassification(Tag $classification): void
+    {
+        $this->classification->attach($classification);
+    }
+
+    /**
+     * Remove classification
+     *
+     * @param Tag $classification
+     */
+    public function removeClassification(Tag $classification): void
+    {
+        $this->classification->detach($classification);
+    }
+
+    /**
+     * Remove all classifications
+     */
+    public function removeAllClassifications(): void
+    {
+        $classification = clone $this->classification;
+        $this->classification->removeAll($classification);
+    }
+
+    /**
      * Get part of speech
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getPartOfSpeech(): ?ObjectStorage
+    public function getPartOfSpeech(): ObjectStorage
     {
         return $this->partOfSpeech;
     }
@@ -759,9 +1011,9 @@ class Entry extends AbstractEntity
     /**
      * Set part of speech
      *
-     * @param ObjectStorage $partOfSpeech
+     * @param ObjectStorage<Tag> $partOfSpeech
      */
-    public function setPartOfSpeech($partOfSpeech): void
+    public function setPartOfSpeech(ObjectStorage $partOfSpeech): void
     {
         $this->partOfSpeech = $partOfSpeech;
     }
@@ -787,11 +1039,20 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all parts of speech
+     */
+    public function removeAllPartsOfSpeech(): void
+    {
+        $partOfSpeech = clone $this->partOfSpeech;
+        $this->partOfSpeech->removeAll($partOfSpeech);
+    }
+
+    /**
      * Get inflected form
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<InflectedForm>
      */
-    public function getInflectedForm(): ?ObjectStorage
+    public function getInflectedForm(): ObjectStorage
     {
         return $this->inflectedForm;
     }
@@ -799,9 +1060,9 @@ class Entry extends AbstractEntity
     /**
      * Set inflected form
      *
-     * @param ObjectStorage $inflectedForm
+     * @param ObjectStorage<InflectedForm> $inflectedForm
      */
-    public function setInflectedForm($inflectedForm): void
+    public function setInflectedForm(ObjectStorage $inflectedForm): void
     {
         $this->inflectedForm = $inflectedForm;
     }
@@ -827,11 +1088,20 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all inflected forms
+     */
+    public function removeAllInflectedForms(): void
+    {
+        $inflectedForm = clone $this->inflectedForm;
+        $this->inflectedForm->removeAll($inflectedForm);
+    }
+
+    /**
      * Get pronunciation
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Pronunciation>
      */
-    public function getPronunciation(): ?ObjectStorage
+    public function getPronunciation(): ObjectStorage
     {
         return $this->pronunciation;
     }
@@ -839,9 +1109,9 @@ class Entry extends AbstractEntity
     /**
      * Set pronunciation
      *
-     * @param ObjectStorage $pronunciation
+     * @param ObjectStorage<Pronunciation> $pronunciation
      */
-    public function setPronunciation($pronunciation): void
+    public function setPronunciation(ObjectStorage $pronunciation): void
     {
         $this->pronunciation = $pronunciation;
     }
@@ -867,11 +1137,20 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all pronunciations
+     */
+    public function removeAllPronunciations(): void
+    {
+        $pronunciation = clone $this->pronunciation;
+        $this->pronunciation->removeAll($pronunciation);
+    }
+
+    /**
      * Get sense
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Sense>
      */
-    public function getSense(): ?ObjectStorage
+    public function getSense(): ObjectStorage
     {
         return $this->sense;
     }
@@ -879,9 +1158,9 @@ class Entry extends AbstractEntity
     /**
      * Set sense
      *
-     * @param ObjectStorage $sense
+     * @param ObjectStorage<Sense> $sense
      */
-    public function setSense($sense): void
+    public function setSense(ObjectStorage $sense): void
     {
         $this->sense = $sense;
     }
@@ -907,11 +1186,20 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all senses
+     */
+    public function removeAllSenses(): void
+    {
+        $sense = clone $this->sense;
+        $this->sense->removeAll($sense);
+    }
+
+    /**
      * Get example
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Example>
      */
-    public function getExample(): ?ObjectStorage
+    public function getExample(): ObjectStorage
     {
         return $this->example;
     }
@@ -919,9 +1207,9 @@ class Entry extends AbstractEntity
     /**
      * Set example
      *
-     * @param ObjectStorage $example
+     * @param ObjectStorage<Example> $example
      */
-    public function setExample($example): void
+    public function setExample(ObjectStorage $example): void
     {
         $this->example = $example;
     }
@@ -947,11 +1235,20 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all examples
+     */
+    public function removeAllExamples(): void
+    {
+        $example = clone $this->example;
+        $this->example->removeAll($example);
+    }
+
+    /**
      * Get content elements
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Content>
      */
-    public function getContentElements(): ?ObjectStorage
+    public function getContentElements(): ObjectStorage
     {
         return $this->contentElements;
     }
@@ -959,9 +1256,9 @@ class Entry extends AbstractEntity
     /**
      * Set content elements
      *
-     * @param ObjectStorage $contentElements
+     * @param ObjectStorage<Content> $contentElements
      */
-    public function setContentElements($contentElements): void
+    public function setContentElements(ObjectStorage $contentElements): void
     {
         $this->contentElements = $contentElements;
     }
@@ -969,9 +1266,9 @@ class Entry extends AbstractEntity
     /**
      * Add content elements
      *
-     * @param TtContent $contentElements
+     * @param Content $contentElements
      */
-    public function addContentElements(TtContent $contentElements): void
+    public function addContentElements(Content $contentElements): void
     {
         $this->contentElements->attach($contentElements);
     }
@@ -979,19 +1276,126 @@ class Entry extends AbstractEntity
     /**
      * Remove content elements
      *
-     * @param TtContent $contentElements
+     * @param Content $contentElements
      */
-    public function removeContentElements(TtContent $contentElements): void
+    public function removeContentElements(Content $contentElements): void
     {
         $this->contentElements->detach($contentElements);
     }
 
     /**
+     * Remove all content elements
+     */
+    public function removeAllContentElements(): void
+    {
+        $contentElements = clone $this->contentElements;
+        $this->contentElements->removeAll($contentElements);
+    }
+
+    /**
+     * Get image
+     *
+     * @return ObjectStorage<FileReference>
+     */
+    public function getImage(): ObjectStorage
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set image
+     *
+     * @param ObjectStorage<FileReference> $image
+     */
+    public function setImage(ObjectStorage $image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * Add image
+     *
+     * @param FileReference $image
+     */
+    public function addImage(FileReference $image): void
+    {
+        $this->image->attach($image);
+    }
+
+    /**
+     * Remove image
+     *
+     * @param FileReference $image
+     */
+    public function removeImage(FileReference $image): void
+    {
+        $this->image->detach($image);
+    }
+
+    /**
+     * Remove all images
+     */
+    public function removeAllImages(): void
+    {
+        $image = clone $this->image;
+        $this->image->removeAll($image);
+    }
+
+    /**
+     * Get file
+     *
+     * @return ObjectStorage<FileReference>
+     */
+    public function getFile(): ObjectStorage
+    {
+        return $this->file;
+    }
+
+    /**
+     * Set file
+     *
+     * @param ObjectStorage<FileReference> $file
+     */
+    public function setFile(ObjectStorage $file): void
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * Add file
+     *
+     * @param FileReference $file
+     */
+    public function addFile(FileReference $file): void
+    {
+        $this->file->attach($file);
+    }
+
+    /**
+     * Remove file
+     *
+     * @param FileReference $file
+     */
+    public function removeFile(FileReference $file): void
+    {
+        $this->file->detach($file);
+    }
+
+    /**
+     * Remove all files
+     */
+    public function removeAllFiles(): void
+    {
+        $file = clone $this->file;
+        $this->file->removeAll($file);
+    }
+
+    /**
      * Get distribution language
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getDistributionLanguage(): ?ObjectStorage
+    public function getDistributionLanguage(): ObjectStorage
     {
         return $this->distributionLanguage;
     }
@@ -999,9 +1403,9 @@ class Entry extends AbstractEntity
     /**
      * Set distribution language
      *
-     * @param ObjectStorage $distributionLanguage
+     * @param ObjectStorage<Tag> $distributionLanguage
      */
-    public function setDistributionLanguage($distributionLanguage): void
+    public function setDistributionLanguage(ObjectStorage $distributionLanguage): void
     {
         $this->distributionLanguage = $distributionLanguage;
     }
@@ -1027,11 +1431,20 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all distribution languages
+     */
+    public function removeAllDistributionLanguages(): void
+    {
+        $distributionLanguage = clone $this->distributionLanguage;
+        $this->distributionLanguage->removeAll($distributionLanguage);
+    }
+
+    /**
      * Get distribution country
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getDistributionCountry(): ?ObjectStorage
+    public function getDistributionCountry(): ObjectStorage
     {
         return $this->distributionCountry;
     }
@@ -1039,9 +1452,9 @@ class Entry extends AbstractEntity
     /**
      * Set distribution country
      *
-     * @param ObjectStorage $distributionCountry
+     * @param ObjectStorage<Tag> $distributionCountry
      */
-    public function setDistributionCountry($distributionCountry): void
+    public function setDistributionCountry(ObjectStorage $distributionCountry): void
     {
         $this->distributionCountry = $distributionCountry;
     }
@@ -1067,11 +1480,20 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all distribution countries
+     */
+    public function removeAllDistributionCountries(): void
+    {
+        $distributionCountry = clone $this->distributionCountry;
+        $this->distributionCountry->removeAll($distributionCountry);
+    }
+
+    /**
      * Get distribution region
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getDistributionRegion(): ?ObjectStorage
+    public function getDistributionRegion(): ObjectStorage
     {
         return $this->distributionRegion;
     }
@@ -1079,9 +1501,9 @@ class Entry extends AbstractEntity
     /**
      * Set distribution region
      *
-     * @param ObjectStorage $distributionRegion
+     * @param ObjectStorage<Tag> $distributionRegion
      */
-    public function setDistributionRegion($distributionRegion): void
+    public function setDistributionRegion(ObjectStorage $distributionRegion): void
     {
         $this->distributionRegion = $distributionRegion;
     }
@@ -1107,11 +1529,20 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all distribution regions
+     */
+    public function removeAllDistributionRegions(): void
+    {
+        $distributionRegion = clone $this->distributionRegion;
+        $this->distributionRegion->removeAll($distributionRegion);
+    }
+
+    /**
      * Get frequency
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Frequency>
      */
-    public function getFrequency(): ?ObjectStorage
+    public function getFrequency(): ObjectStorage
     {
         return $this->frequency;
     }
@@ -1119,9 +1550,9 @@ class Entry extends AbstractEntity
     /**
      * Set frequency
      *
-     * @param ObjectStorage $frequency
+     * @param ObjectStorage<Frequency> $frequency
      */
-    public function setFrequency($frequency): void
+    public function setFrequency(ObjectStorage $frequency): void
     {
         $this->frequency = $frequency;
     }
@@ -1147,11 +1578,20 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all frequencies
+     */
+    public function removeAllFrequencies(): void
+    {
+        $frequency = clone $this->frequency;
+        $this->frequency->removeAll($frequency);
+    }
+
+    /**
      * Get source
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Reference>
      */
-    public function getSource(): ?ObjectStorage
+    public function getSource(): ObjectStorage
     {
         return $this->source;
     }
@@ -1159,9 +1599,9 @@ class Entry extends AbstractEntity
     /**
      * Set source
      *
-     * @param ObjectStorage $source
+     * @param ObjectStorage<Reference> $source
      */
-    public function setSource($source): void
+    public function setSource(ObjectStorage $source): void
     {
         $this->source = $source;
     }
@@ -1187,6 +1627,15 @@ class Entry extends AbstractEntity
     }
 
     /**
+     * Remove all sources
+     */
+    public function removeAllSources(): void
+    {
+        $source = clone $this->source;
+        $this->source->removeAll($source);
+    }
+
+    /**
      * Get import
      *
      * @return string
@@ -1204,6 +1653,55 @@ class Entry extends AbstractEntity
     public function setImport(string $import): void
     {
         $this->import = $import;
+    }
+
+    /**
+     * Get as member
+     *
+     * @return ObjectStorage<Member>
+     */
+    public function getAsMember(): ObjectStorage
+    {
+        return $this->asMember;
+    }
+
+    /**
+     * Set as member
+     *
+     * @param ObjectStorage<Member> $asMember
+     */
+    public function setAsMember(ObjectStorage $asMember): void
+    {
+        $this->asMember = $asMember;
+    }
+
+    /**
+     * Add as member
+     *
+     * @param Member $asMember
+     */
+    public function addAsMember(Member $asMember): void
+    {
+        $this->asMember->attach($asMember);
+    }
+
+    /**
+     * Remove as member
+     *
+     * @param Member $asMember
+     */
+    public function removeAsMember(Member $asMember): void
+    {
+        $this->asMember->detach($asMember);
+    }
+
+    /**
+     * Remove all as members
+     */
+    public function removeAllAsMembers(): void
+    {
+        $asMember = clone $this->asMember;
+        $this->asMember->removeAll($asMember);
     }
 }
 

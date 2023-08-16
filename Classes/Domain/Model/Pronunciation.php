@@ -15,45 +15,58 @@ use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 
 /**
  * Model for pronunciations
  */
 class Pronunciation extends AbstractEntity
 {
-    #[Lazy()]
     /**
      * File that reads out the pronunciation
      * 
-     * @var FileReference
+     * @var ObjectStorage<FileReference>
      */
-    protected $soundFile;
-
     #[Lazy()]
-    #[Cascade('remove')]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $soundFile;
+
     /**
      * Option to list various transcriptions of the pronuncation
      * 
      * @var ObjectStorage<Transcription>
      */
-    protected $transcription;
-
     #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $transcription;
+
     /**
      * Label to group the pronunication into
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $label;
+    #[Lazy()]
+    protected ObjectStorage $label;
 
     /**
-     * Initialize object
+     * Construct object
      *
      * @return Pronunciation
      */
     public function __construct()
     {
+        $this->initializeObject();
+    }
+
+    /**
+     * Initialize object
+     */
+    public function initializeObject(): void
+    {
+        $this->soundFile     = new ObjectStorage();
         $this->transcription = new ObjectStorage();
         $this->label         = new ObjectStorage();
     }
@@ -61,33 +74,58 @@ class Pronunciation extends AbstractEntity
     /**
      * Get sound file
      *
-     * @return FileReference|null
+     * @return ObjectStorage<FileReference>
      */
-    public function getSoundFile(): ?FileReference
+    public function getSoundFile(): ObjectStorage
     {
-        if ($this->soundFile instanceof LazyLoadingProxy) {
-            $soundFile = $this->soundFile->_loadRealInstance();
-            $this->soundFile = $soundFile;
-        }
         return $this->soundFile;
     }
 
     /**
      * Set sound file
      *
-     * @param FileReference $soundFile
+     * @param ObjectStorage<FileReference> $soundFile
      */
-    public function setSoundFile(FileReference $soundFile): void
+    public function setSoundFile(ObjectStorage $soundFile): void
     {
         $this->soundFile = $soundFile;
     }
 
     /**
+     * Add sound file
+     *
+     * @param FileReference $soundFile
+     */
+    public function addSoundFile(FileReference $soundFile): void
+    {
+        $this->soundFile->attach($soundFile);
+    }
+
+    /**
+     * Remove sound file
+     *
+     * @param FileReference $soundFile
+     */
+    public function removeSoundFile(FileReference $soundFile): void
+    {
+        $this->soundFile->detach($soundFile);
+    }
+
+    /**
+     * Remove all sound files
+     */
+    public function removeAllSoundFiles(): void
+    {
+        $soundFile = clone $this->soundFile;
+        $this->soundFile->removeAll($soundFile);
+    }
+
+    /**
      * Get transcription
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Transcription>
      */
-    public function getTranscription(): ?ObjectStorage
+    public function getTranscription(): ObjectStorage
     {
         return $this->transcription;
     }
@@ -95,9 +133,9 @@ class Pronunciation extends AbstractEntity
     /**
      * Set transcription
      *
-     * @param ObjectStorage $transcription
+     * @param ObjectStorage<Transcription> $transcription
      */
-    public function setTranscription($transcription): void
+    public function setTranscription(ObjectStorage $transcription): void
     {
         $this->transcription = $transcription;
     }
@@ -123,11 +161,20 @@ class Pronunciation extends AbstractEntity
     }
 
     /**
+     * Remove all transcriptions
+     */
+    public function removeAllTranscriptions(): void
+    {
+        $transcription = clone $this->transcription;
+        $this->transcription->removeAll($transcription);
+    }
+
+    /**
      * Get label
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getLabel(): ?ObjectStorage
+    public function getLabel(): ObjectStorage
     {
         return $this->label;
     }
@@ -135,9 +182,9 @@ class Pronunciation extends AbstractEntity
     /**
      * Set label
      *
-     * @param ObjectStorage $label
+     * @param ObjectStorage<Tag> $label
      */
-    public function setLabel($label): void
+    public function setLabel(ObjectStorage $label): void
     {
         $this->label = $label;
     }
@@ -160,6 +207,15 @@ class Pronunciation extends AbstractEntity
     public function removeLabel(Tag $label): void
     {
         $this->label->detach($label);
+    }
+
+    /**
+     * Remove all labels
+     */
+    public function removeAllLabels(): void
+    {
+        $label = clone $this->label;
+        $this->label->removeAll($label);
     }
 }
 

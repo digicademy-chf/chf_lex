@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Digicademy\DALex\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -24,24 +25,42 @@ class Transcription extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'minimum' => 1,
+            'maximum' => 255,
+        ],
+    ])]
     protected string $text = '';
 
-    #[Lazy()]
     /**
      * Transcription scheme used here
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $schema;
+    #[Lazy()]
+    protected ObjectStorage $scheme;
+
+    /**
+     * Construct object
+     *
+     * @param string $text
+     * @return Transcription
+     */
+    public function __construct(string $text)
+    {
+        $this->initializeObject();
+
+        $this->setText($text);
+    }
 
     /**
      * Initialize object
-     *
-     * @return Transcription
      */
-    public function __construct()
+    public function initializeObject(): void
     {
-        $this->schema = new ObjectStorage();
+        $this->scheme = new ObjectStorage();
     }
 
     /**
@@ -65,43 +84,52 @@ class Transcription extends AbstractEntity
     }
 
     /**
-     * Get schema
+     * Get scheme
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getSchema(): ?ObjectStorage
+    public function getScheme(): ObjectStorage
     {
-        return $this->schema;
+        return $this->scheme;
     }
 
     /**
-     * Set schema
+     * Set scheme
      *
-     * @param ObjectStorage $schema
+     * @param ObjectStorage<Tag> $scheme
      */
-    public function setSchema($schema): void
+    public function setScheme(ObjectStorage $scheme): void
     {
-        $this->schema = $schema;
+        $this->scheme = $scheme;
     }
 
     /**
-     * Add schema
+     * Add scheme
      *
-     * @param Tag $schema
+     * @param Tag $scheme
      */
-    public function addSchema(Tag $schema): void
+    public function addScheme(Tag $scheme): void
     {
-        $this->schema->attach($schema);
+        $this->scheme->attach($scheme);
     }
 
     /**
-     * Remove schema
+     * Remove scheme
      *
-     * @param Tag $schema
+     * @param Tag $scheme
      */
-    public function removeSchema(Tag $schema): void
+    public function removeScheme(Tag $scheme): void
     {
-        $this->schema->detach($schema);
+        $this->scheme->detach($scheme);
+    }
+
+    /**
+     * Remove all schemes
+     */
+    public function removeAllSchemes(): void
+    {
+        $scheme = clone $this->scheme;
+        $this->scheme->removeAll($scheme);
     }
 }
 

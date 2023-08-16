@@ -11,10 +11,11 @@ declare(strict_types=1);
 namespace Digicademy\DALex\Domain\Model;
 
 use DateTime;
-use Digicademy\DABib\Domain\Reference;
-use Digicademy\DAMap\Domain\Feature;
+use Digicademy\DABib\Domain\Model\Reference;
+use Digicademy\DAMap\Domain\Model\Feature;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -23,81 +24,132 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Frequency extends AbstractEntity
 {
-    #[Lazy()]
     /**
      * Type of frequency
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $type;
+    #[Lazy()]
+    protected ObjectStorage $type;
 
     /**
      * Number of occurrences
      * 
-     * @var int
+     * @var int|null
      */
-    protected int $tokens;
+    #[Validate([
+        'validator' => 'Number',
+    ])]
+    protected ?int $tokens = null;
 
     /**
      * Occurrences in second position
      * 
-     * @var int
+     * @var int|null
      */
-    protected int $tokensSecondary;
+    #[Validate([
+        'validator' => 'Number',
+    ])]
+    protected ?int $tokensSecondary = null;
 
-    #[Lazy()]
     /**
      * Place that the frequency is accounted for
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $countryOrRegion;
+    #[Lazy()]
+    protected ObjectStorage $countryOrRegion;
 
     /**
-     * Date that the frequency is accounted for
+     * Approximate date that the frequency is accounted for
      * 
-     * @var DateTime
+     * @var string
      */
-    protected $date;
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
+    protected string $dateCirca = '';
 
-    #[Lazy()]
+    /**
+     * Exact onset of the period that the frequency is accounted for
+     * 
+     * @var DateTime|null
+     */
+    #[Validate([
+        'validator' => 'DateTime',
+    ])]
+    protected ?DateTime $dateStart = null;
+
+    /**
+     * Exact ending of the period that the frequency is accounted for
+     * 
+     * @var DateTime|null
+     */
+    #[Validate([
+        'validator' => 'DateTime',
+    ])]
+    protected ?DateTime $dateEnd = null;
+
     /**
      * Token to identify a source
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $sourceIdentity;
+    #[Lazy()]
+    protected ObjectStorage $sourceIdentity;
 
     /**
      * Detailed reference, e.g., a page number
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
     protected string $sourceElaboration = '';
 
-    #[Lazy()]
-    #[Cascade('remove')]
     /**
-     * Full-blown reference as a source of the example
+     * Full-blown reference as a source of the frequency
      * 
      * @var ObjectStorage<Reference>
      */
-    protected $source;
-
     #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $source;
+
     /**
      * Option to connect a geographical feature
      * 
      * @var ObjectStorage<Feature>
      */
-    protected $geodata;
+    #[Lazy()]
+    protected ObjectStorage $geodata;
+
+    /**
+     * Construct object
+     *
+     * @param int $tokens
+     * @return Frequency
+     */
+    public function __construct(int $tokens)
+    {
+        $this->initializeObject();
+
+        $this->setTokens($tokens);
+    }
 
     /**
      * Initialize object
-     *
-     * @return Frequency
      */
-    public function __construct()
+    public function initializeObject(): void
     {
         $this->type            = new ObjectStorage();
         $this->countryOrRegion = new ObjectStorage();
@@ -109,9 +161,9 @@ class Frequency extends AbstractEntity
     /**
      * Get type
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getType(): ?ObjectStorage
+    public function getType(): ObjectStorage
     {
         return $this->type;
     }
@@ -119,9 +171,9 @@ class Frequency extends AbstractEntity
     /**
      * Set type
      *
-     * @param ObjectStorage $type
+     * @param ObjectStorage<Tag> $type
      */
-    public function setType($type): void
+    public function setType(ObjectStorage $type): void
     {
         $this->type = $type;
     }
@@ -144,6 +196,15 @@ class Frequency extends AbstractEntity
     public function removeType(Tag $type): void
     {
         $this->type->detach($type);
+    }
+
+    /**
+     * Remove all types
+     */
+    public function removeAllTypes(): void
+    {
+        $type = clone $this->type;
+        $this->type->removeAll($type);
     }
 
     /**
@@ -189,9 +250,9 @@ class Frequency extends AbstractEntity
     /**
      * Get country or region
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getCountryOrRegion(): ?ObjectStorage
+    public function getCountryOrRegion(): ObjectStorage
     {
         return $this->countryOrRegion;
     }
@@ -199,9 +260,9 @@ class Frequency extends AbstractEntity
     /**
      * Set country or region
      *
-     * @param ObjectStorage $countryOrRegion
+     * @param ObjectStorage<Tag> $countryOrRegion
      */
-    public function setCountryOrRegion($countryOrRegion): void
+    public function setCountryOrRegion(ObjectStorage $countryOrRegion): void
     {
         $this->countryOrRegion = $countryOrRegion;
     }
@@ -227,31 +288,80 @@ class Frequency extends AbstractEntity
     }
 
     /**
-     * Get date
-     *
-     * @return DateTime
+     * Remove all countries or regions
      */
-    public function getDate(): DateTime
+    public function removeAllCountriesOrRegions(): void
     {
-        return $this->date;
+        $countryOrRegion = clone $this->countryOrRegion;
+        $this->countryOrRegion->removeAll($countryOrRegion);
     }
 
     /**
-     * Set date
+     * Get date circa
      *
-     * @param DateTime $date
+     * @return string
      */
-    public function setDate(DateTime $date): void
+    public function getDateCirca(): string
     {
-        $this->date = $date;
+        return $this->dateCirca;
+    }
+
+    /**
+     * Set date circa
+     *
+     * @param string $dateCirca
+     */
+    public function setDateCirca(string $dateCirca): void
+    {
+        $this->dateCirca = $dateCirca;
+    }
+
+    /**
+     * Get date start
+     *
+     * @return DateTime
+     */
+    public function getDateStart(): DateTime
+    {
+        return $this->dateStart;
+    }
+
+    /**
+     * Set date start
+     *
+     * @param DateTime $dateStart
+     */
+    public function setDateStart(DateTime $dateStart): void
+    {
+        $this->dateStart = $dateStart;
+    }
+
+    /**
+     * Get date end
+     *
+     * @return DateTime
+     */
+    public function getDateEnd(): DateTime
+    {
+        return $this->dateEnd;
+    }
+
+    /**
+     * Set date end
+     *
+     * @param DateTime $dateEnd
+     */
+    public function setDateEnd(DateTime $dateEnd): void
+    {
+        $this->dateEnd = $dateEnd;
     }
 
     /**
      * Get source identity
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getSourceIdentity(): ?ObjectStorage
+    public function getSourceIdentity(): ObjectStorage
     {
         return $this->sourceIdentity;
     }
@@ -259,9 +369,9 @@ class Frequency extends AbstractEntity
     /**
      * Set source identity
      *
-     * @param ObjectStorage $sourceIdentity
+     * @param ObjectStorage<Tag> $sourceIdentity
      */
-    public function setSourceIdentity($sourceIdentity): void
+    public function setSourceIdentity(ObjectStorage $sourceIdentity): void
     {
         $this->sourceIdentity = $sourceIdentity;
     }
@@ -287,6 +397,15 @@ class Frequency extends AbstractEntity
     }
 
     /**
+     * Remove all source identities
+     */
+    public function removeAllSourceIdentities(): void
+    {
+        $sourceIdentity = clone $this->sourceIdentity;
+        $this->sourceIdentity->removeAll($sourceIdentity);
+    }
+
+    /**
      * Get source elaboration
      *
      * @return string
@@ -309,9 +428,9 @@ class Frequency extends AbstractEntity
     /**
      * Get source
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Reference>
      */
-    public function getSource(): ?ObjectStorage
+    public function getSource(): ObjectStorage
     {
         return $this->source;
     }
@@ -319,9 +438,9 @@ class Frequency extends AbstractEntity
     /**
      * Set source
      *
-     * @param ObjectStorage $source
+     * @param ObjectStorage<Reference> $source
      */
-    public function setSource($source): void
+    public function setSource(ObjectStorage $source): void
     {
         $this->source = $source;
     }
@@ -347,11 +466,20 @@ class Frequency extends AbstractEntity
     }
 
     /**
+     * Remove all sources
+     */
+    public function removeAllSources(): void
+    {
+        $source = clone $this->source;
+        $this->source->removeAll($source);
+    }
+
+    /**
      * Get geodata
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Feature>
      */
-    public function getLabel(): ?ObjectStorage
+    public function getGeodata(): ObjectStorage
     {
         return $this->geodata;
     }
@@ -359,9 +487,9 @@ class Frequency extends AbstractEntity
     /**
      * Set geodata
      *
-     * @param ObjectStorage $geodata
+     * @param ObjectStorage<Feature> $geodata
      */
-    public function setLabel($geodata): void
+    public function setGeodata(ObjectStorage $geodata): void
     {
         $this->geodata = $geodata;
     }
@@ -371,7 +499,7 @@ class Frequency extends AbstractEntity
      *
      * @param Feature $geodata
      */
-    public function addLabel(Feature $geodata): void
+    public function addGeodata(Feature $geodata): void
     {
         $this->geodata->attach($geodata);
     }
@@ -381,9 +509,18 @@ class Frequency extends AbstractEntity
      *
      * @param Feature $geodata
      */
-    public function removeLabel(Feature $geodata): void
+    public function removeGeodata(Feature $geodata): void
     {
         $this->geodata->detach($geodata);
+    }
+
+    /**
+     * Remove all geodatas
+     */
+    public function removeAllGeodatas(): void
+    {
+        $geodata = clone $this->geodata;
+        $this->geodata->removeAll($geodata);
     }
 }
 

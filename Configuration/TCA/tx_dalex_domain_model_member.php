@@ -114,6 +114,18 @@ return [
                 'default' => '',
             ],
         ],
+        'parent_id' => [
+            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.member.parent_id',
+            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.member.parent_id.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectSingle',
+                'foreign_table'       => 'tx_dalex_domain_model_relation',
+                'foreign_table_where' => 'AND {#tx_dabib_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###',
+                'maxitems'            => 1,
+                'required'            => true,
+            ],
+        ],
         'role' => [
             'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.member.role',
             'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.member.role.description',
@@ -138,10 +150,14 @@ return [
             ], # TODO enforce min/max values from role and type restrictions from parent relation
         ],
     ],
-    'palettes' => [],
+    'palettes' => [
+        'hiddenParentId' => [
+            'showitem' => 'hidden,parent_id,',
+        ],
+    ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,role,entryOrSense,',
+            'showitem' => 'hiddenParentId,role,entryOrSense,',
         ],
     ],
 ];

@@ -212,7 +212,7 @@ return [
             'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.source.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dalex_domain_model_reference',
+                'foreign_table'       => 'tx_dabib_domain_model_reference',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'appearance'          => [

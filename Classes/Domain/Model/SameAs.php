@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Digicademy\DALex\Domain\Model;
 
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
@@ -22,7 +23,21 @@ class SameAs extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'Url',
+    ])]
     protected string $uri = '';
+
+    /**
+     * Construct object
+     *
+     * @param string $uri
+     * @return SameAs
+     */
+    public function __construct(string $uri)
+    {
+        $this->setUri($uri);
+    }
 
     /**
      * Get URI

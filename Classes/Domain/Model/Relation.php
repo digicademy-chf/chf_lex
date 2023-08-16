@@ -12,6 +12,8 @@ namespace Digicademy\DALex\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
+use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -20,47 +22,101 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Relation extends AbstractEntity
 {
+    /**
+     * Resource that this relation is attached to
+     * 
+     * @var LazyLoadingProxy|LexicographicResource
+     */
     #[Lazy()]
+    protected LazyLoadingProxy|LexicographicResource $parent_id;
+
     /**
      * Specifies the type of relation
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $type;
+    #[Lazy()]
+    protected ObjectStorage $type;
 
     /**
      * Explanation of this relation
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 2000,
+        ],
+    ])]
     protected string $description = '';
 
-    #[Lazy()]
-    #[Cascade('remove')]
     /**
      * List of members in this relation
      * 
      * @var ObjectStorage<Member>
      */
-    protected $member;
+    #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $member;
+
+    /**
+     * Construct object
+     *
+     * @param LexicographicResource $parent_id
+     * @param Tag $type
+     * @param Member $member
+     * @return Relation
+     */
+    public function __construct(LexicographicResource $parent_id, Tag $type, Member $member)
+    {
+        $this->initializeObject();
+
+        $this->setParentId($parent_id);
+        $this->addType($type);
+        $this->addMember($member);
+    }
 
     /**
      * Initialize object
-     *
-     * @return Relation
      */
-    public function __construct()
+    public function initializeObject(): void
     {
         $this->type   = new ObjectStorage();
         $this->member = new ObjectStorage();
     }
 
     /**
+     * Get parent ID
+     * 
+     * @return LexicographicResource
+     */
+    public function getParentId(): LexicographicResource
+    {
+        if ($this->parent_id instanceof LazyLoadingProxy) {
+            $this->parent_id->_loadRealInstance();
+        }
+        return $this->parent_id;
+    }
+
+    /**
+     * Set parent ID
+     * 
+     * @param LexicographicResource $parent_id
+     */
+    public function setParentId(LexicographicResource $parent_id): void
+    {
+        $this->parent_id = $parent_id;
+    }
+
+    /**
      * Get type
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getType(): ?ObjectStorage
+    public function getType(): ObjectStorage
     {
         return $this->type;
     }
@@ -68,9 +124,9 @@ class Relation extends AbstractEntity
     /**
      * Set type
      *
-     * @param ObjectStorage $type
+     * @param ObjectStorage<Tag> $type
      */
-    public function setType($type): void
+    public function setType(ObjectStorage $type): void
     {
         $this->type = $type;
     }
@@ -96,6 +152,15 @@ class Relation extends AbstractEntity
     }
 
     /**
+     * Remove all types
+     */
+    public function removeAllTypes(): void
+    {
+        $type = clone $this->type;
+        $this->type->removeAll($type);
+    }
+
+    /**
      * Get description
      *
      * @return string
@@ -118,9 +183,9 @@ class Relation extends AbstractEntity
     /**
      * Get member
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Member>
      */
-    public function getMember(): ?ObjectStorage
+    public function getMember(): ObjectStorage
     {
         return $this->member;
     }
@@ -128,9 +193,9 @@ class Relation extends AbstractEntity
     /**
      * Set member
      *
-     * @param ObjectStorage $member
+     * @param ObjectStorage<Member> $member
      */
-    public function setMember($member): void
+    public function setMember(ObjectStorage $member): void
     {
         $this->member = $member;
     }
@@ -153,6 +218,15 @@ class Relation extends AbstractEntity
     public function removeMember(Member $member): void
     {
         $this->member->detach($member);
+    }
+
+    /**
+     * Remove all members
+     */
+    public function removeAllMembers(): void
+    {
+        $member = clone $this->member;
+        $this->member->removeAll($member);
     }
 }
 

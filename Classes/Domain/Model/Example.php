@@ -11,13 +11,14 @@ declare(strict_types=1);
 namespace Digicademy\DALex\Domain\Model;
 
 use DateTime;
-use Digicademy\DABib\Domain\Reference;
+use Digicademy\DABib\Domain\Model\Reference;
+use Digicademy\DAMap\Domain\Model\Feature;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 
 /**
  * Model for examples
@@ -29,72 +30,139 @@ class Example extends AbstractEntity
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'String',
+    ])]
     protected string $text = '';
 
     /**
-     * Date that the sample text is attested for
+     * Approximate date that the sample text is attested for
      * 
-     * @var DateTime
+     * @var string
      */
-    protected $date;
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
+    protected string $dateCirca = '';
+
+    /**
+     * Exact onset of the period that the sample text is attested for
+     * 
+     * @var DateTime|null
+     */
+    #[Validate([
+        'validator' => 'DateTime',
+    ])]
+    protected ?DateTime $dateStart = null;
+
+    /**
+     * Exact ending of the period that the sample text is attested for
+     * 
+     * @var DateTime|null
+     */
+    #[Validate([
+        'validator' => 'DateTime',
+    ])]
+    protected ?DateTime $dateEnd = null;
 
     /**
      * Place that the sample text is attested for
      * 
      * @var string
      */
-    protected string $location = '';
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
+    protected string $locationLabel = '';
 
-    #[Lazy()]
     /**
-     * File that reads out the pronunciation
+     * Geodata for the place that the sample text is attested for
      * 
-     * @var FileReference
+     * @var ObjectStorage<Feature>
      */
-    protected $soundFile;
-
     #[Lazy()]
+    protected ObjectStorage $locationGeodata;
+
+    /**
+     * File that reads out the sample text
+     * 
+     * @var ObjectStorage<FileReference>
+     */
+    #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $soundFile;
+
     /**
      * Token to identify a source
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $sourceIdentity;
+    #[Lazy()]
+    protected ObjectStorage $sourceIdentity;
 
     /**
      * Detailed reference, e.g., a page number
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
     protected string $sourceElaboration = '';
 
-    #[Lazy()]
-    #[Cascade('remove')]
     /**
      * Full-blown reference as a source of the example
      * 
      * @var ObjectStorage<Reference>
      */
-    protected $source;
-
     #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $source;
+
     /**
      * Label to group the example into
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $label;
+    #[Lazy()]
+    protected ObjectStorage $label;
+
+    /**
+     * Construct object
+     *
+     * @param string $text
+     * @return Example
+     */
+    public function __construct(string $text)
+    {
+        $this->initializeObject();
+
+        $this->setText($text);
+    }
 
     /**
      * Initialize object
-     *
-     * @return Example
      */
-    public function __construct()
+    public function initializeObject(): void
     {
-        $this->sourceIdentity = new ObjectStorage();
-        $this->source         = new ObjectStorage();
-        $this->label          = new ObjectStorage();
+        $this->locationGeodata = new ObjectStorage();
+        $this->soundFile       = new ObjectStorage();
+        $this->sourceIdentity  = new ObjectStorage();
+        $this->source          = new ObjectStorage();
+        $this->label           = new ObjectStorage();
     }
 
     /**
@@ -102,7 +170,7 @@ class Example extends AbstractEntity
      *
      * @return string
      */
-    public function getId(): string
+    public function getText(): string
     {
         return $this->text;
     }
@@ -112,81 +180,195 @@ class Example extends AbstractEntity
      *
      * @param string $text
      */
-    public function setId(string $text): void
+    public function setText(string $text): void
     {
         $this->text = $text;
     }
 
     /**
-     * Get date
-     *
-     * @return DateTime
-     */
-    public function getDate(): DateTime
-    {
-        return $this->date;
-    }
-
-    /**
-     * Set date
-     *
-     * @param DateTime $date
-     */
-    public function setDate(DateTime $date): void
-    {
-        $this->date = $date;
-    }
-
-    /**
-     * Get location
+     * Get date circa
      *
      * @return string
      */
-    public function getLocation(): string
+    public function getDateCirca(): string
     {
-        return $this->location;
+        return $this->dateCirca;
     }
 
     /**
-     * Set location
+     * Set date circa
      *
-     * @param string $location
+     * @param string $dateCirca
      */
-    public function setLocation(string $location): void
+    public function setDateCirca(string $dateCirca): void
     {
-        $this->location = $location;
+        $this->dateCirca = $dateCirca;
+    }
+
+    /**
+     * Get date start
+     *
+     * @return DateTime
+     */
+    public function getDateStart(): DateTime
+    {
+        return $this->dateStart;
+    }
+
+    /**
+     * Set date start
+     *
+     * @param DateTime $dateStart
+     */
+    public function setDateStart(DateTime $dateStart): void
+    {
+        $this->dateStart = $dateStart;
+    }
+
+    /**
+     * Get date end
+     *
+     * @return DateTime
+     */
+    public function getDateEnd(): DateTime
+    {
+        return $this->dateEnd;
+    }
+
+    /**
+     * Set date end
+     *
+     * @param DateTime $dateEnd
+     */
+    public function setDateEnd(DateTime $dateEnd): void
+    {
+        $this->dateEnd = $dateEnd;
+    }
+
+    /**
+     * Get location label
+     *
+     * @return string
+     */
+    public function getLocationLabel(): string
+    {
+        return $this->locationLabel;
+    }
+
+    /**
+     * Set location label
+     *
+     * @param string $locationLabel
+     */
+    public function setLocationLabel(string $locationLabel): void
+    {
+        $this->locationLabel = $locationLabel;
+    }
+
+    /**
+     * Get location geodata
+     *
+     * @return ObjectStorage<Feature>
+     */
+    public function getLocationGeodata(): ObjectStorage
+    {
+        return $this->locationGeodata;
+    }
+
+    /**
+     * Set location geodata
+     *
+     * @param ObjectStorage<Feature> $locationGeodata
+     */
+    public function setLocationGeodata(ObjectStorage $locationGeodata): void
+    {
+        $this->locationGeodata = $locationGeodata;
+    }
+
+    /**
+     * Add location geodata
+     *
+     * @param Feature $locationGeodata
+     */
+    public function addLocationGeodata(Feature $locationGeodata): void
+    {
+        $this->locationGeodata->attach($locationGeodata);
+    }
+
+    /**
+     * Remove location geodata
+     *
+     * @param Feature $locationGeodata
+     */
+    public function removeLocationGeodata(Feature $locationGeodata): void
+    {
+        $this->locationGeodata->detach($locationGeodata);
+    }
+
+    /**
+     * Remove all location geodatas
+     */
+    public function removeAllLocationGeodatas(): void
+    {
+        $locationGeodata = clone $this->locationGeodata;
+        $this->locationGeodata->removeAll($locationGeodata);
     }
 
     /**
      * Get sound file
      *
-     * @return FileReference|null
+     * @return ObjectStorage<FileReference>
      */
-    public function getSoundFile(): ?FileReference
+    public function getSoundFile(): ObjectStorage
     {
-        if ($this->soundFile instanceof LazyLoadingProxy) {
-            $soundFile = $this->soundFile->_loadRealInstance();
-            $this->soundFile = $soundFile;
-        }
         return $this->soundFile;
     }
 
     /**
      * Set sound file
      *
-     * @param FileReference $soundFile
+     * @param ObjectStorage<FileReference> $soundFile
      */
-    public function setSoundFile(FileReference $soundFile): void
+    public function setSoundFile(ObjectStorage $soundFile): void
     {
         $this->soundFile = $soundFile;
     }
 
     /**
+     * Add sound file
+     *
+     * @param FileReference $soundFile
+     */
+    public function addSoundFile(FileReference $soundFile): void
+    {
+        $this->soundFile->attach($soundFile);
+    }
+
+    /**
+     * Remove sound file
+     *
+     * @param FileReference $soundFile
+     */
+    public function removeSoundFile(FileReference $soundFile): void
+    {
+        $this->soundFile->detach($soundFile);
+    }
+
+    /**
+     * Remove all sound files
+     */
+    public function removeAllSoundFiles(): void
+    {
+        $soundFile = clone $this->soundFile;
+        $this->soundFile->removeAll($soundFile);
+    }
+
+    /**
      * Get source identity
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getSourceIdentity(): ?ObjectStorage
+    public function getSourceIdentity(): ObjectStorage
     {
         return $this->sourceIdentity;
     }
@@ -194,9 +376,9 @@ class Example extends AbstractEntity
     /**
      * Set source identity
      *
-     * @param ObjectStorage $sourceIdentity
+     * @param ObjectStorage<Tag> $sourceIdentity
      */
-    public function setSourceIdentity($sourceIdentity): void
+    public function setSourceIdentity(ObjectStorage $sourceIdentity): void
     {
         $this->sourceIdentity = $sourceIdentity;
     }
@@ -222,6 +404,15 @@ class Example extends AbstractEntity
     }
 
     /**
+     * Remove all source identities
+     */
+    public function removeAllSourceIdentities(): void
+    {
+        $sourceIdentity = clone $this->sourceIdentity;
+        $this->sourceIdentity->removeAll($sourceIdentity);
+    }
+
+    /**
      * Get source elaboration
      *
      * @return string
@@ -244,9 +435,9 @@ class Example extends AbstractEntity
     /**
      * Get source
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Reference>
      */
-    public function getSource(): ?ObjectStorage
+    public function getSource(): ObjectStorage
     {
         return $this->source;
     }
@@ -254,9 +445,9 @@ class Example extends AbstractEntity
     /**
      * Set source
      *
-     * @param ObjectStorage $source
+     * @param ObjectStorage<Reference> $source
      */
-    public function setSource($source): void
+    public function setSource(ObjectStorage $source): void
     {
         $this->source = $source;
     }
@@ -282,11 +473,20 @@ class Example extends AbstractEntity
     }
 
     /**
+     * Remove all sources
+     */
+    public function removeAllSources(): void
+    {
+        $source = clone $this->source;
+        $this->source->removeAll($source);
+    }
+
+    /**
      * Get label
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getLabel(): ?ObjectStorage
+    public function getLabel(): ObjectStorage
     {
         return $this->label;
     }
@@ -294,9 +494,9 @@ class Example extends AbstractEntity
     /**
      * Set label
      *
-     * @param ObjectStorage $label
+     * @param ObjectStorage<Tag> $label
      */
-    public function setLabel($label): void
+    public function setLabel(ObjectStorage $label): void
     {
         $this->label = $label;
     }
@@ -319,6 +519,15 @@ class Example extends AbstractEntity
     public function removeLabel(Tag $label): void
     {
         $this->label->detach($label);
+    }
+
+    /**
+     * Remove all labels
+     */
+    public function removeAllLabels(): void
+    {
+        $label = clone $this->label;
+        $this->label->removeAll($label);
     }
 }
 

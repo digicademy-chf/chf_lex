@@ -12,6 +12,7 @@ namespace Digicademy\DALex\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -21,89 +22,141 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Sense extends AbstractEntity
 {
     /**
-     * Unique string, number, or combination of these to identify this sense
+     * Simple identifier of this sense as part of a single dataset
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'minimum' => 1,
+            'maximum' => 255,
+        ],
+    ])]
     protected string $id = '';
 
     /**
-     * Unique sense identifier
+     * Unique identifier of the sense
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'RegularExpression',
+        'options'   => [
+            'regularExpression' => '^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$',
+            'errorMessage'      => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:validator.regularExpression.noUuid',
+        ],
+    ])]
     protected string $uuid = '';
 
-    #[Lazy()]
-    #[Cascade('remove')]
     /**
      * Specific description of the sense
      * 
      * @var ObjectStorage<Definition>
      */
-    protected $definition;
+    #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $definition;
 
     /**
      * Brief indicator differentiating this sense from the others
      * 
      * @var string
      */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
     protected string $indicator = '';
 
     /**
-     * Category tree to differentiate this sense from the others
+     * Assess the sense using a given set of categories
      * 
-     * @var string
+     * @var ObjectStorage<Tag>
      */
-    protected string $structuredIndicator = '';
-
     #[Lazy()]
-    #[Cascade('remove')]
+    protected ObjectStorage $classification;
+
     /**
      * Contemporary or historical examples of this sense
      * 
      * @var ObjectStorage<Example>
      */
-    protected $example;
-
     #[Lazy()]
-    #[Cascade('remove')]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $example;
+
     /**
      * Frequency data for different countries or regions
      * 
      * @var ObjectStorage<Frequency>
      */
-    protected $frequency;
-
     #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $frequency;
+
     /**
      * Label to group the sense into
      * 
      * @var ObjectStorage<Tag>
      */
-    protected $label;
-
     #[Lazy()]
-    #[Cascade('remove')]
+    protected ObjectStorage $label;
+
     /**
      * External web address to identify the sense across the web
      * 
      * @var ObjectStorage<SameAs>
      */
-    protected $sameAs;
+    #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ObjectStorage $sameAs;
+
+    /**
+     * List of memberships in a relation
+     * 
+     * @var ObjectStorage<Member>
+     */
+    #[Lazy()]
+    protected ObjectStorage $asMember;
+
+    /**
+     * Construct object
+     *
+     * @param string $id
+     * @param string $uuid
+     * @return Sense
+     */
+    public function __construct(string $id, string $uuid)
+    {
+        $this->initializeObject();
+
+        $this->setId($id);
+        $this->setUuid($uuid);
+    }
 
     /**
      * Initialize object
-     *
-     * @return Sense
      */
-    public function __construct()
+    public function initializeObject(): void
     {
-        $this->definition = new ObjectStorage();
-        $this->example    = new ObjectStorage();
-        $this->frequency  = new ObjectStorage();
-        $this->label      = new ObjectStorage();
-        $this->sameAs     = new ObjectStorage();
+        $this->definition     = new ObjectStorage();
+        $this->classification = new ObjectStorage();
+        $this->example        = new ObjectStorage();
+        $this->frequency      = new ObjectStorage();
+        $this->label          = new ObjectStorage();
+        $this->sameAs         = new ObjectStorage();
+        $this->asMember       = new ObjectStorage();
     }
 
     /**
@@ -149,9 +202,9 @@ class Sense extends AbstractEntity
     /**
      * Get definition
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Definition>
      */
-    public function getDefinition(): ?ObjectStorage
+    public function getDefinition(): ObjectStorage
     {
         return $this->definition;
     }
@@ -159,9 +212,9 @@ class Sense extends AbstractEntity
     /**
      * Set definition
      *
-     * @param ObjectStorage $definition
+     * @param ObjectStorage<Definition> $definition
      */
-    public function setDefinition($definition): void
+    public function setDefinition(ObjectStorage $definition): void
     {
         $this->definition = $definition;
     }
@@ -187,6 +240,15 @@ class Sense extends AbstractEntity
     }
 
     /**
+     * Remove all definitions
+     */
+    public function removeAllDefinitions(): void
+    {
+        $definition = clone $this->definition;
+        $this->definition->removeAll($definition);
+    }
+
+    /**
      * Get indicator
      *
      * @return string
@@ -207,31 +269,60 @@ class Sense extends AbstractEntity
     }
 
     /**
-     * Get structured indicator
+     * Get classification
      *
-     * @return string
+     * @return ObjectStorage<Tag>
      */
-    public function getStructuredIndicator(): string
+    public function getClassification(): ObjectStorage
     {
-        return $this->structuredIndicator;
+        return $this->classification;
     }
 
     /**
-     * Set structured indicator
+     * Set classification
      *
-     * @param string $structuredIndicator
+     * @param ObjectStorage<Tag> $classification
      */
-    public function setStructuredIndicator(string $structuredIndicator): void
+    public function setClassification(ObjectStorage $classification): void
     {
-        $this->structuredIndicator = $structuredIndicator;
+        $this->classification = $classification;
+    }
+
+    /**
+     * Add classification
+     *
+     * @param Tag $classification
+     */
+    public function addClassification(Tag $classification): void
+    {
+        $this->classification->attach($classification);
+    }
+
+    /**
+     * Remove classification
+     *
+     * @param Tag $classification
+     */
+    public function removeClassification(Tag $classification): void
+    {
+        $this->classification->detach($classification);
+    }
+
+    /**
+     * Remove all classifications
+     */
+    public function removeAllClassifications(): void
+    {
+        $classification = clone $this->classification;
+        $this->classification->removeAll($classification);
     }
 
     /**
      * Get example
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Example>
      */
-    public function getExample(): ?ObjectStorage
+    public function getExample(): ObjectStorage
     {
         return $this->example;
     }
@@ -239,9 +330,9 @@ class Sense extends AbstractEntity
     /**
      * Set example
      *
-     * @param ObjectStorage $example
+     * @param ObjectStorage<Example> $example
      */
-    public function setExample($example): void
+    public function setExample(ObjectStorage $example): void
     {
         $this->example = $example;
     }
@@ -267,11 +358,20 @@ class Sense extends AbstractEntity
     }
 
     /**
+     * Remove all examples
+     */
+    public function removeAllExamples(): void
+    {
+        $example = clone $this->example;
+        $this->example->removeAll($example);
+    }
+
+    /**
      * Get frequency
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Frequency>
      */
-    public function getFrequency(): ?ObjectStorage
+    public function getFrequency(): ObjectStorage
     {
         return $this->frequency;
     }
@@ -279,9 +379,9 @@ class Sense extends AbstractEntity
     /**
      * Set frequency
      *
-     * @param ObjectStorage $frequency
+     * @param ObjectStorage<Frequency> $frequency
      */
-    public function setFrequency($frequency): void
+    public function setFrequency(ObjectStorage $frequency): void
     {
         $this->frequency = $frequency;
     }
@@ -307,11 +407,20 @@ class Sense extends AbstractEntity
     }
 
     /**
+     * Remove all frequencies
+     */
+    public function removeAllFrequencies(): void
+    {
+        $frequency = clone $this->frequency;
+        $this->frequency->removeAll($frequency);
+    }
+
+    /**
      * Get label
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<Tag>
      */
-    public function getLabel(): ?ObjectStorage
+    public function getLabel(): ObjectStorage
     {
         return $this->label;
     }
@@ -319,9 +428,9 @@ class Sense extends AbstractEntity
     /**
      * Set label
      *
-     * @param ObjectStorage $label
+     * @param ObjectStorage<Tag> $label
      */
-    public function setLabel($label): void
+    public function setLabel(ObjectStorage $label): void
     {
         $this->label = $label;
     }
@@ -347,11 +456,20 @@ class Sense extends AbstractEntity
     }
 
     /**
+     * Remove all labels
+     */
+    public function removeAllLabels(): void
+    {
+        $label = clone $this->label;
+        $this->label->removeAll($label);
+    }
+
+    /**
      * Get same as
      *
-     * @return ObjectStorage|null
+     * @return ObjectStorage<SameAs>
      */
-    public function getSameAs(): ?ObjectStorage
+    public function getSameAs(): ObjectStorage
     {
         return $this->sameAs;
     }
@@ -359,9 +477,9 @@ class Sense extends AbstractEntity
     /**
      * Set same as
      *
-     * @param ObjectStorage $sameAs
+     * @param ObjectStorage<SameAs> $sameAs
      */
-    public function setSameAs($sameAs): void
+    public function setSameAs(ObjectStorage $sameAs): void
     {
         $this->sameAs = $sameAs;
     }
@@ -384,6 +502,64 @@ class Sense extends AbstractEntity
     public function removeSameAs(SameAs $sameAs): void
     {
         $this->sameAs->detach($sameAs);
+    }
+
+    /**
+     * Remove all same as
+     */
+    public function removeAllSameAs(): void
+    {
+        $sameAs = clone $this->sameAs;
+        $this->sameAs->removeAll($sameAs);
+    }
+
+    /**
+     * Get as member
+     *
+     * @return ObjectStorage<Member>
+     */
+    public function getAsMember(): ObjectStorage
+    {
+        return $this->asMember;
+    }
+
+    /**
+     * Set as member
+     *
+     * @param ObjectStorage<Member> $asMember
+     */
+    public function setAsMember(ObjectStorage $asMember): void
+    {
+        $this->asMember = $asMember;
+    }
+
+    /**
+     * Add as member
+     *
+     * @param Member $asMember
+     */
+    public function addAsMember(Member $asMember): void
+    {
+        $this->asMember->attach($asMember);
+    }
+
+    /**
+     * Remove as member
+     *
+     * @param Member $asMember
+     */
+    public function removeAsMember(Member $asMember): void
+    {
+        $this->asMember->detach($asMember);
+    }
+
+    /**
+     * Remove all as members
+     */
+    public function removeAllAsMembers(): void
+    {
+        $asMember = clone $this->asMember;
+        $this->asMember->removeAll($asMember);
     }
 }
 
