@@ -11,29 +11,29 @@ declare(strict_types=1);
 namespace Digicademy\DALex\Controller;
 
 use Psr\Http\Message\ResponseInterface;
-use Digicademy\DALex\Domain\Model\Entry;
-use Digicademy\DALex\Domain\Repository\EntryRepository;
+use Digicademy\DALex\Domain\Model\AbstractEntry;
+use Digicademy\DALex\Domain\Repository\AbstractEntryRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * Controller for entries
  */
-class EntryController extends ActionController
+class AbstractEntryController extends ActionController
 {
-    private EntryRepository $entryRepository;
+    private AbstractEntryRepository $abstractEntryRepository;
 
-    public function injectEntryRepository(EntryRepository $entryRepository): void
+    public function injectAbstractEntryRepository(AbstractEntryRepository $abstractEntryRepository): void
     {
-        $this->entryRepository = $entryRepository;
+        $this->abstractEntryRepository = $abstractEntryRepository;
     }
 
     public function indexAction(): ResponseInterface
     {
-        $this->view->assign('entries', $this->entryRepository->findAll());
+        $this->view->assign('entries', $this->abstractEntryRepository->findAll());
         return $this->htmlResponse();
     }
 
-    public function showAction(Entry $entry): ResponseInterface
+    public function showAction(AbstractEntry $entry): ResponseInterface
     {
         $this->view->assign('entry', $entry);
         return $this->htmlResponse();

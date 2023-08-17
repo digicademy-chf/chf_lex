@@ -129,7 +129,7 @@ class Contributor extends AbstractEntity
     /**
      * List of contributions as an author
      * 
-     * @var ObjectStorage<Entry>
+     * @var ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry>
      */
     #[Lazy()]
     protected ObjectStorage $asAuthor;
@@ -137,7 +137,7 @@ class Contributor extends AbstractEntity
     /**
      * List of contributions as an editor
      * 
-     * @var ObjectStorage<Entry>
+     * @var ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry>
      */
     #[Lazy()]
     protected ObjectStorage $asEditor;
@@ -414,7 +414,7 @@ class Contributor extends AbstractEntity
     /**
      * Get as author
      *
-     * @return ObjectStorage<Entry>
+     * @return ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry>
      */
     public function getAsAuthor(): ObjectStorage
     {
@@ -424,7 +424,7 @@ class Contributor extends AbstractEntity
     /**
      * Set as author
      *
-     * @param ObjectStorage<Entry> $asAuthor
+     * @param ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry> $asAuthor
      */
     public function setAsAuthor(ObjectStorage $asAuthor): void
     {
@@ -434,9 +434,9 @@ class Contributor extends AbstractEntity
     /**
      * Add as author
      *
-     * @param Entry $asAuthor
+     * @param Entry|EncyclopediaEntry|GlossaryEntry $asAuthor
      */
-    public function addAsAuthor(Entry $asAuthor): void
+    public function addAsAuthor(Entry|EncyclopediaEntry|GlossaryEntry $asAuthor): void
     {
         $this->asAuthor->attach($asAuthor);
     }
@@ -444,9 +444,9 @@ class Contributor extends AbstractEntity
     /**
      * Remove as author
      *
-     * @param Entry $asAuthor
+     * @param Entry|EncyclopediaEntry|GlossaryEntry $asAuthor
      */
-    public function removeAsAuthor(Entry $asAuthor): void
+    public function removeAsAuthor(Entry|EncyclopediaEntry|GlossaryEntry $asAuthor): void
     {
         $this->asAuthor->detach($asAuthor);
     }
@@ -463,7 +463,7 @@ class Contributor extends AbstractEntity
     /**
      * Get as editor
      *
-     * @return ObjectStorage<Entry>
+     * @return ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry>
      */
     public function getAsEditor(): ObjectStorage
     {
@@ -473,7 +473,7 @@ class Contributor extends AbstractEntity
     /**
      * Set as editor
      *
-     * @param ObjectStorage<Entry> $asEditor
+     * @param ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry> $asEditor
      */
     public function setAsEditor(ObjectStorage $asEditor): void
     {
@@ -483,9 +483,9 @@ class Contributor extends AbstractEntity
     /**
      * Add as editor
      *
-     * @param Entry $asEditor
+     * @param Entry|EncyclopediaEntry|GlossaryEntry $asEditor
      */
-    public function addAsEditor(Entry $asEditor): void
+    public function addAsEditor(Entry|EncyclopediaEntry|GlossaryEntry $asEditor): void
     {
         $this->asEditor->attach($asEditor);
     }
@@ -493,9 +493,9 @@ class Contributor extends AbstractEntity
     /**
      * Remove as editor
      *
-     * @param Entry $asEditor
+     * @param Entry|EncyclopediaEntry|GlossaryEntry $asEditor
      */
-    public function removeAsEditor(Entry $asEditor): void
+    public function removeAsEditor(Entry|EncyclopediaEntry|GlossaryEntry $asEditor): void
     {
         $this->asEditor->detach($asEditor);
     }

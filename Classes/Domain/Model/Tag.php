@@ -253,7 +253,7 @@ class Tag extends AbstractEntity
     /**
      * List of entries with this label
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry>
      */
     #[Lazy()]
     protected ObjectStorage $asLabelOfEntry;
@@ -261,7 +261,7 @@ class Tag extends AbstractEntity
     /**
      * List of contributors with this label
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Contributor>
      */
     #[Lazy()]
     protected ObjectStorage $asLabelOfContributor;
@@ -269,7 +269,7 @@ class Tag extends AbstractEntity
     /**
      * List of senses with this label
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Sense>
      */
     #[Lazy()]
     protected ObjectStorage $asLabelOfSense;
@@ -277,7 +277,7 @@ class Tag extends AbstractEntity
     /**
      * List of examples with this label
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Example>
      */
     #[Lazy()]
     protected ObjectStorage $asLabelOfExample;
@@ -285,7 +285,7 @@ class Tag extends AbstractEntity
     /**
      * List of inflected forms with this label
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<InflectedForm>
      */
     #[Lazy()]
     protected ObjectStorage $asLabelOfInflectedForm;
@@ -293,7 +293,7 @@ class Tag extends AbstractEntity
     /**
      * List of pronunciations with this label
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Pronunciation>
      */
     #[Lazy()]
     protected ObjectStorage $asLabelOfPronunciation;
@@ -301,7 +301,7 @@ class Tag extends AbstractEntity
     /**
      * List of frequencies with this country or region
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Frequency>
      */
     #[Lazy()]
     protected ObjectStorage $asCountryOrRegionOfFrequency;
@@ -309,7 +309,7 @@ class Tag extends AbstractEntity
     /**
      * List of entries annotated with this language
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Entry>
      */
     #[Lazy()]
     protected ObjectStorage $asDistributionLanguageOfEntry;
@@ -317,7 +317,7 @@ class Tag extends AbstractEntity
     /**
      * List of entries with this main distribution
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Entry>
      */
     #[Lazy()]
     protected ObjectStorage $asDistributionCountryOfEntry;
@@ -325,7 +325,7 @@ class Tag extends AbstractEntity
     /**
      * List of entries with this regional distribution
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Entry>
      */
     #[Lazy()]
     protected ObjectStorage $asDistributionRegionOfEntry;
@@ -341,7 +341,7 @@ class Tag extends AbstractEntity
     /**
      * List of definitions of this type
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Definition>
      */
     #[Lazy()]
     protected ObjectStorage $asTypeOfDefinition;
@@ -349,7 +349,7 @@ class Tag extends AbstractEntity
     /**
      * List of inflected forms of this type
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<InflectedForm>
      */
     #[Lazy()]
     protected ObjectStorage $asTypeOfInflectedForm;
@@ -357,7 +357,7 @@ class Tag extends AbstractEntity
     /**
      * List of frequencies of this type
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Frequency>
      */
     #[Lazy()]
     protected ObjectStorage $asTypeOfFrequency;
@@ -365,7 +365,7 @@ class Tag extends AbstractEntity
     /**
      * List of relations of this type
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Relation>
      */
     #[Lazy()]
     protected ObjectStorage $asTypeOfRelation;
@@ -373,7 +373,7 @@ class Tag extends AbstractEntity
     /**
      * List of transcriptions with this scheme
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Transcription>
      */
     #[Lazy()]
     protected ObjectStorage $asSchemeOfTranscription;
@@ -381,7 +381,7 @@ class Tag extends AbstractEntity
     /**
      * List of frequencies with this source identity
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Frequency>
      */
     #[Lazy()]
     protected ObjectStorage $asSourceIdentityOfFrequency;
@@ -389,7 +389,7 @@ class Tag extends AbstractEntity
     /**
      * List of examples with this source identity
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Example>
      */
     #[Lazy()]
     protected ObjectStorage $asSourceIdentityOfExample;
@@ -397,7 +397,7 @@ class Tag extends AbstractEntity
     /**
      * List of entries annotated with this part of speech
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Entry>
      */
     #[Lazy()]
     protected ObjectStorage $asPartOfSpeechOfEntry;
@@ -405,7 +405,7 @@ class Tag extends AbstractEntity
     /**
      * List of relation members with this role
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Member>
      */
     #[Lazy()]
     protected ObjectStorage $asRoleOfMember;
@@ -413,7 +413,7 @@ class Tag extends AbstractEntity
     /**
      * List of entries with this classification
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Entry>
      */
     #[Lazy()]
     protected ObjectStorage $asClassificationOfEntry;
@@ -421,7 +421,7 @@ class Tag extends AbstractEntity
     /**
      * List of senses with this classification
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<Sense>
      */
     #[Lazy()]
     protected ObjectStorage $asClassificationOfSense;
@@ -1054,7 +1054,7 @@ class Tag extends AbstractEntity
     /**
      * Get as label of entry
      *
-     * @return ObjectStorage<Entry>
+     * @return ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry>
      */
     public function getAsLabelOfEntry(): ObjectStorage
     {
@@ -1064,7 +1064,7 @@ class Tag extends AbstractEntity
     /**
      * Set as label of entry
      *
-     * @param ObjectStorage<Entry> $asLabelOfEntry
+     * @param ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry> $asLabelOfEntry
      */
     public function setAsLabelOfEntry(ObjectStorage $asLabelOfEntry): void
     {
@@ -1074,9 +1074,9 @@ class Tag extends AbstractEntity
     /**
      * Add as label of entry
      *
-     * @param Entry $asLabelOfEntry
+     * @param Entry|EncyclopediaEntry|GlossaryEntry $asLabelOfEntry
      */
-    public function addAsLabelOfEntry(Entry $asLabelOfEntry): void
+    public function addAsLabelOfEntry(Entry|EncyclopediaEntry|GlossaryEntry $asLabelOfEntry): void
     {
         $this->asLabelOfEntry->attach($asLabelOfEntry);
     }
@@ -1084,9 +1084,9 @@ class Tag extends AbstractEntity
     /**
      * Remove as label of entry
      *
-     * @param Entry $asLabelOfEntry
+     * @param Entry|EncyclopediaEntry|GlossaryEntry $asLabelOfEntry
      */
-    public function removeAsLabelOfEntry(Entry $asLabelOfEntry): void
+    public function removeAsLabelOfEntry(Entry|EncyclopediaEntry|GlossaryEntry $asLabelOfEntry): void
     {
         $this->asLabelOfEntry->detach($asLabelOfEntry);
     }

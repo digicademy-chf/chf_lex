@@ -754,6 +754,14 @@ return [
         ],
     ],
     'types' => [
+        'abstractEntry' => [
+            'showitem' => 'hiddenParentId,idUuid,type,label,sameAs,
+            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.entry.editorial,author,editor,revisionNumberRevisionDate,publicationDate,publicationStepsEditingSteps,editingNotes,
+            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.entry.content,image,file,
+            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.entry.bibliography,source,
+            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.entry.original,import,
+            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.entry.relations,asMember,',
+        ],
         'entry' => [
             'showitem' => 'hiddenParentId,idUuid,type,headwordHomographNumber,label,sameAs,
             --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.entry.editorial,author,editor,revisionNumberRevisionDate,databaseQueryPublicationDate,publicationStepsEditingSteps,editingNotes,

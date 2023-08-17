@@ -84,7 +84,7 @@ class LexicographicResource extends AbstractEntity
     /**
      * List of all entries in this resource
      * 
-     * @var ObjectStorage<Entry>
+     * @var ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry>
      */
     #[Lazy()]
     #[Cascade([
@@ -282,7 +282,7 @@ class LexicographicResource extends AbstractEntity
     /**
      * Get entry
      *
-     * @return ObjectStorage<Entry>
+     * @return ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry>
      */
     public function getEntry(): ObjectStorage
     {
@@ -292,7 +292,7 @@ class LexicographicResource extends AbstractEntity
     /**
      * Set entry
      *
-     * @param ObjectStorage<Entry> $entry
+     * @param ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry> $entry
      */
     public function setEntry(ObjectStorage $entry): void
     {
@@ -302,9 +302,9 @@ class LexicographicResource extends AbstractEntity
     /**
      * Add entry
      *
-     * @param Entry $entry
+     * @param Entry|EncyclopediaEntry|GlossaryEntry $entry
      */
-    public function addEntry(Entry $entry): void
+    public function addEntry(Entry|EncyclopediaEntry|GlossaryEntry $entry): void
     {
         $this->entry->attach($entry);
     }
@@ -312,9 +312,9 @@ class LexicographicResource extends AbstractEntity
     /**
      * Remove entry
      *
-     * @param Entry $entry
+     * @param Entry|EncyclopediaEntry|GlossaryEntry $entry
      */
-    public function removeEntry(Entry $entry): void
+    public function removeEntry(Entry|EncyclopediaEntry|GlossaryEntry $entry): void
     {
         $this->entry->detach($entry);
     }

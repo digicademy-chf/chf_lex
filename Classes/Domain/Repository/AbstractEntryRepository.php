@@ -10,16 +10,16 @@ declare(strict_types=1);
 
 namespace Digicademy\DALex\Domain\Repository;
 
-use Digicademy\DALex\Domain\Model\Entry;
+use Digicademy\DALex\Domain\Model\AbstractEntry;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * Repository for entries
  * 
- * @extends Repository<Entry>
+ * @extends Repository<AbstractEntry>
  */
-class EntryRepository extends Repository
+class AbstractEntryRepository extends Repository
 {
     protected $defaultOrderings = [
         'sorting'  => QueryInterface::ORDER_ASCENDING,

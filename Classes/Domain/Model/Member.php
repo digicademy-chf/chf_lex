@@ -39,7 +39,7 @@ class Member extends AbstractEntity
     /**
      * Selection of entries or senses as members of this relation
      * 
-     * @var ObjectStorage<Entry|Sense>
+     * @var ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry|Sense>
      */
     #[Lazy()]
     protected ObjectStorage $entryOrSense;
@@ -48,10 +48,10 @@ class Member extends AbstractEntity
      * Construct object
      *
      * @param Relation $parent_id
-     * @param Entry|Sense $entryOrSense
+     * @param Entry|EncyclopediaEntry|GlossaryEntry|Sense $entryOrSense
      * @return Member
      */
-    public function __construct(Relation $parent_id, Entry|Sense $entryOrSense)
+    public function __construct(Relation $parent_id, Entry|EncyclopediaEntry|GlossaryEntry|Sense $entryOrSense)
     {
         $this->initializeObject();
 
@@ -143,7 +143,7 @@ class Member extends AbstractEntity
     /**
      * Get entry or sense
      *
-     * @return ObjectStorage<Entry|Sense>
+     * @return ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry|Sense>
      */
     public function getEntryOrSense(): ObjectStorage
     {
@@ -153,7 +153,7 @@ class Member extends AbstractEntity
     /**
      * Set entry or sense
      *
-     * @param ObjectStorage<Entry|Sense> $entryOrSense
+     * @param ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry|Sense> $entryOrSense
      */
     public function setEntryOrSense(ObjectStorage $entryOrSense): void
     {
@@ -163,9 +163,9 @@ class Member extends AbstractEntity
     /**
      * Add entry or sense
      *
-     * @param Entry|Sense $entryOrSense
+     * @param Entry|EncyclopediaEntry|GlossaryEntry|Sense $entryOrSense
      */
-    public function addEntryOrSense(Entry|Sense $entryOrSense): void
+    public function addEntryOrSense(Entry|EncyclopediaEntry|GlossaryEntry|Sense $entryOrSense): void
     {
         $this->entryOrSense->attach($entryOrSense);
     }
@@ -173,9 +173,9 @@ class Member extends AbstractEntity
     /**
      * Remove entry or sense
      *
-     * @param Entry|Sense $entryOrSense
+     * @param Entry|EncyclopediaEntry|GlossaryEntry|Sense $entryOrSense
      */
-    public function removeEntryOrSense(Entry|Sense $entryOrSense): void
+    public function removeEntryOrSense(Entry|EncyclopediaEntry|GlossaryEntry|Sense $entryOrSense): void
     {
         $this->entryOrSense->detach($entryOrSense);
     }
