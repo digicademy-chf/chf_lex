@@ -103,7 +103,7 @@ class Example extends AbstractEntity
     /**
      * Token to identify a source
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<SourceIdentityTag>
      */
     #[Lazy()]
     protected ObjectStorage $sourceIdentity;
@@ -135,7 +135,7 @@ class Example extends AbstractEntity
     /**
      * Label to group the example into
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<LabelTag>
      */
     #[Lazy()]
     protected ObjectStorage $label;
@@ -366,7 +366,7 @@ class Example extends AbstractEntity
     /**
      * Get source identity
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<SourceIdentityTag>
      */
     public function getSourceIdentity(): ObjectStorage
     {
@@ -376,7 +376,7 @@ class Example extends AbstractEntity
     /**
      * Set source identity
      *
-     * @param ObjectStorage<Tag> $sourceIdentity
+     * @param ObjectStorage<SourceIdentityTag> $sourceIdentity
      */
     public function setSourceIdentity(ObjectStorage $sourceIdentity): void
     {
@@ -386,9 +386,9 @@ class Example extends AbstractEntity
     /**
      * Add source identity
      *
-     * @param Tag $sourceIdentity
+     * @param SourceIdentityTag $sourceIdentity
      */
-    public function addSourceIdentity(Tag $sourceIdentity): void
+    public function addSourceIdentity(SourceIdentityTag $sourceIdentity): void
     {
         $this->sourceIdentity->attach($sourceIdentity);
     }
@@ -396,9 +396,9 @@ class Example extends AbstractEntity
     /**
      * Remove source identity
      *
-     * @param Tag $sourceIdentity
+     * @param SourceIdentityTag $sourceIdentity
      */
-    public function removeSourceIdentity(Tag $sourceIdentity): void
+    public function removeSourceIdentity(SourceIdentityTag $sourceIdentity): void
     {
         $this->sourceIdentity->detach($sourceIdentity);
     }
@@ -484,7 +484,7 @@ class Example extends AbstractEntity
     /**
      * Get label
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<LabelTag>
      */
     public function getLabel(): ObjectStorage
     {
@@ -494,7 +494,7 @@ class Example extends AbstractEntity
     /**
      * Set label
      *
-     * @param ObjectStorage<Tag> $label
+     * @param ObjectStorage<LabelTag> $label
      */
     public function setLabel(ObjectStorage $label): void
     {
@@ -504,9 +504,9 @@ class Example extends AbstractEntity
     /**
      * Add label
      *
-     * @param Tag $label
+     * @param LabelTag $label
      */
-    public function addLabel(Tag $label): void
+    public function addLabel(LabelTag $label): void
     {
         $this->label->attach($label);
     }
@@ -514,9 +514,9 @@ class Example extends AbstractEntity
     /**
      * Remove label
      *
-     * @param Tag $label
+     * @param LabelTag $label
      */
-    public function removeLabel(Tag $label): void
+    public function removeLabel(LabelTag $label): void
     {
         $this->label->detach($label);
     }

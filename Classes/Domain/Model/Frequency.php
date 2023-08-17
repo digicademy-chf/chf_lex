@@ -27,7 +27,7 @@ class Frequency extends AbstractEntity
     /**
      * Type of frequency
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<FrequencyTypeTag>
      */
     #[Lazy()]
     protected ObjectStorage $type;
@@ -55,7 +55,7 @@ class Frequency extends AbstractEntity
     /**
      * Place that the frequency is accounted for
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<CountryTag|RegionTag>
      */
     #[Lazy()]
     protected ObjectStorage $countryOrRegion;
@@ -96,7 +96,7 @@ class Frequency extends AbstractEntity
     /**
      * Token to identify a source
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<SourceIdentityTag>
      */
     #[Lazy()]
     protected ObjectStorage $sourceIdentity;
@@ -161,7 +161,7 @@ class Frequency extends AbstractEntity
     /**
      * Get type
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<FrequencyTypeTag>
      */
     public function getType(): ObjectStorage
     {
@@ -171,7 +171,7 @@ class Frequency extends AbstractEntity
     /**
      * Set type
      *
-     * @param ObjectStorage<Tag> $type
+     * @param ObjectStorage<FrequencyTypeTag> $type
      */
     public function setType(ObjectStorage $type): void
     {
@@ -181,9 +181,9 @@ class Frequency extends AbstractEntity
     /**
      * Add type
      *
-     * @param Tag $type
+     * @param FrequencyTypeTag $type
      */
-    public function addType(Tag $type): void
+    public function addType(FrequencyTypeTag $type): void
     {
         $this->type->attach($type);
     }
@@ -191,9 +191,9 @@ class Frequency extends AbstractEntity
     /**
      * Remove type
      *
-     * @param Tag $type
+     * @param FrequencyTypeTag $type
      */
-    public function removeType(Tag $type): void
+    public function removeType(FrequencyTypeTag $type): void
     {
         $this->type->detach($type);
     }
@@ -250,7 +250,7 @@ class Frequency extends AbstractEntity
     /**
      * Get country or region
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<CountryTag|RegionTag>
      */
     public function getCountryOrRegion(): ObjectStorage
     {
@@ -260,7 +260,7 @@ class Frequency extends AbstractEntity
     /**
      * Set country or region
      *
-     * @param ObjectStorage<Tag> $countryOrRegion
+     * @param ObjectStorage<CountryTag|RegionTag> $countryOrRegion
      */
     public function setCountryOrRegion(ObjectStorage $countryOrRegion): void
     {
@@ -270,9 +270,9 @@ class Frequency extends AbstractEntity
     /**
      * Add country or region
      *
-     * @param Tag $countryOrRegion
+     * @param CountryTag|RegionTag $countryOrRegion
      */
-    public function addCountryOrRegion(Tag $countryOrRegion): void
+    public function addCountryOrRegion(CountryTag|RegionTag $countryOrRegion): void
     {
         $this->countryOrRegion->attach($countryOrRegion);
     }
@@ -280,9 +280,9 @@ class Frequency extends AbstractEntity
     /**
      * Remove country or region
      *
-     * @param Tag $countryOrRegion
+     * @param CountryTag|RegionTag $countryOrRegion
      */
-    public function removeCountryOrRegion(Tag $countryOrRegion): void
+    public function removeCountryOrRegion(CountryTag|RegionTag $countryOrRegion): void
     {
         $this->countryOrRegion->detach($countryOrRegion);
     }
@@ -359,7 +359,7 @@ class Frequency extends AbstractEntity
     /**
      * Get source identity
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<SourceIdentityTag>
      */
     public function getSourceIdentity(): ObjectStorage
     {
@@ -369,7 +369,7 @@ class Frequency extends AbstractEntity
     /**
      * Set source identity
      *
-     * @param ObjectStorage<Tag> $sourceIdentity
+     * @param ObjectStorage<SourceIdentityTag> $sourceIdentity
      */
     public function setSourceIdentity(ObjectStorage $sourceIdentity): void
     {
@@ -379,9 +379,9 @@ class Frequency extends AbstractEntity
     /**
      * Add source identity
      *
-     * @param Tag $sourceIdentity
+     * @param SourceIdentityTag $sourceIdentity
      */
-    public function addSourceIdentity(Tag $sourceIdentity): void
+    public function addSourceIdentity(SourceIdentityTag $sourceIdentity): void
     {
         $this->sourceIdentity->attach($sourceIdentity);
     }
@@ -389,9 +389,9 @@ class Frequency extends AbstractEntity
     /**
      * Remove source identity
      *
-     * @param Tag $sourceIdentity
+     * @param SourceIdentityTag $sourceIdentity
      */
-    public function removeSourceIdentity(Tag $sourceIdentity): void
+    public function removeSourceIdentity(SourceIdentityTag $sourceIdentity): void
     {
         $this->sourceIdentity->detach($sourceIdentity);
     }

@@ -31,7 +31,7 @@ class Member extends AbstractEntity
     /**
      * Role in this relation
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<MemberRoleTag>
      */
     #[Lazy()]
     protected ObjectStorage $role;
@@ -94,7 +94,7 @@ class Member extends AbstractEntity
     /**
      * Get role
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<MemberRoleTag>
      */
     public function getRole(): ObjectStorage
     {
@@ -104,7 +104,7 @@ class Member extends AbstractEntity
     /**
      * Set role
      *
-     * @param ObjectStorage<Tag> $role
+     * @param ObjectStorage<MemberRoleTag> $role
      */
     public function setRole(ObjectStorage $role): void
     {
@@ -114,9 +114,9 @@ class Member extends AbstractEntity
     /**
      * Add role
      *
-     * @param Tag $role
+     * @param MemberRoleTag $role
      */
-    public function addRole(Tag $role): void
+    public function addRole(MemberRoleTag $role): void
     {
         $this->role->attach($role);
     }
@@ -124,9 +124,9 @@ class Member extends AbstractEntity
     /**
      * Remove role
      *
-     * @param Tag $role
+     * @param MemberRoleTag $role
      */
-    public function removeRole(Tag $role): void
+    public function removeRole(MemberRoleTag $role): void
     {
         $this->role->detach($role);
     }

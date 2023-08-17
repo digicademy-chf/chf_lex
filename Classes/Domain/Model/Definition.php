@@ -33,7 +33,7 @@ class Definition extends AbstractEntity
     /**
      * May be used to differentiate between different tiers of definitions
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<DefinitionTypeTag>
      */
     #[Lazy()]
     protected ObjectStorage $definitionType;
@@ -82,7 +82,7 @@ class Definition extends AbstractEntity
     /**
      * Get definition type
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<DefinitionTypeTag>
      */
     public function getDefinitionType(): ObjectStorage
     {
@@ -92,7 +92,7 @@ class Definition extends AbstractEntity
     /**
      * Set definition type
      *
-     * @param ObjectStorage<Tag> $definitionType
+     * @param ObjectStorage<DefinitionTypeTag> $definitionType
      */
     public function setDefinitionType(ObjectStorage $definitionType): void
     {
@@ -102,9 +102,9 @@ class Definition extends AbstractEntity
     /**
      * Add definition type
      *
-     * @param Tag $definitionType
+     * @param DefinitionTypeTag $definitionType
      */
-    public function addDefinitionType(Tag $definitionType): void
+    public function addDefinitionType(DefinitionTypeTag $definitionType): void
     {
         $this->definitionType->attach($definitionType);
     }
@@ -112,9 +112,9 @@ class Definition extends AbstractEntity
     /**
      * Remove definition type
      *
-     * @param Tag $definitionType
+     * @param DefinitionTypeTag $definitionType
      */
-    public function removeDefinitionType(Tag $definitionType): void
+    public function removeDefinitionType(DefinitionTypeTag $definitionType): void
     {
         $this->definitionType->detach($definitionType);
     }

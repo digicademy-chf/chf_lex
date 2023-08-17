@@ -11,29 +11,29 @@ declare(strict_types=1);
 namespace Digicademy\DALex\Controller;
 
 use Psr\Http\Message\ResponseInterface;
-use Digicademy\DALex\Domain\Model\Tag;
-use Digicademy\DALex\Domain\Repository\TagRepository;
+use Digicademy\DALex\Domain\Model\AbstractTag;
+use Digicademy\DALex\Domain\Repository\AbstractTagRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * Controller for tags
  */
-class TagController extends ActionController
+class AbstractTagController extends ActionController
 {
-    private TagRepository $tagRepository;
+    private AbstractTagRepository $abstractTagRepository;
 
-    public function injectTagRepository(TagRepository $tagRepository): void
+    public function injectAbstractTagRepository(AbstractTagRepository $abstractTagRepository): void
     {
-        $this->tagRepository = $tagRepository;
+        $this->abstractTagRepository = $abstractTagRepository;
     }
 
     public function indexAction(): ResponseInterface
     {
-        $this->view->assign('tags', $this->tagRepository->findAll());
+        $this->view->assign('tags', $this->abstractTagRepository->findAll());
         return $this->htmlResponse();
     }
 
-    public function showAction(Tag $tag): ResponseInterface
+    public function showAction(AbstractTag $tag): ResponseInterface
     {
         $this->view->assign('tag', $tag);
         return $this->htmlResponse();

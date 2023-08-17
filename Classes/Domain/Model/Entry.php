@@ -60,7 +60,7 @@ class Entry extends AbstractEntry
     /**
      * Assess the entry using a given set of categories
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<ClassificationEntryTag>
      */
     #[Lazy()]
     protected ObjectStorage $classification;
@@ -68,7 +68,7 @@ class Entry extends AbstractEntry
     /**
      * Define the headword's part of speech
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<PartOfSpeechTag>
      */
     #[Lazy()]
     protected ObjectStorage $partOfSpeech;
@@ -120,7 +120,7 @@ class Entry extends AbstractEntry
     /**
      * Languages associated with this entry
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<LanguageTag>
      */
     #[Lazy()]
     protected ObjectStorage $distributionLanguage;
@@ -128,7 +128,7 @@ class Entry extends AbstractEntry
     /**
      * Countries connected to this entry
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<CountryTag>
      */
     #[Lazy()]
     protected ObjectStorage $distributionCountry;
@@ -136,7 +136,7 @@ class Entry extends AbstractEntry
     /**
      * Regions connected to this entry
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<RegionTag>
      */
     #[Lazy()]
     protected ObjectStorage $distributionRegion;
@@ -158,18 +158,17 @@ class Entry extends AbstractEntry
      * @param LexicographicResource $parent_id
      * @param string $id
      * @param string $uuid
-     * @param string $type
      * @param string $headword
      * @return Entry
      */
-    public function __construct(LexicographicResource $parent_id, string $id, string $uuid, string $type, string $headword)
+    public function __construct(LexicographicResource $parent_id, string $id, string $uuid, string $headword)
     {
         $this->initializeObject();
 
         $this->setParentId($parent_id);
         $this->setId($id);
         $this->setUuid($uuid);
-        $this->setType($type);
+        $this->setType('entry');
         $this->setHeadword($headword);
     }
 
@@ -255,7 +254,7 @@ class Entry extends AbstractEntry
     /**
      * Get classification
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<ClassificationEntryTag>
      */
     public function getClassification(): ObjectStorage
     {
@@ -265,7 +264,7 @@ class Entry extends AbstractEntry
     /**
      * Set classification
      *
-     * @param ObjectStorage<Tag> $classification
+     * @param ObjectStorage<ClassificationEntryTag> $classification
      */
     public function setClassification(ObjectStorage $classification): void
     {
@@ -275,9 +274,9 @@ class Entry extends AbstractEntry
     /**
      * Add classification
      *
-     * @param Tag $classification
+     * @param ClassificationEntryTag $classification
      */
-    public function addClassification(Tag $classification): void
+    public function addClassification(ClassificationEntryTag $classification): void
     {
         $this->classification->attach($classification);
     }
@@ -285,9 +284,9 @@ class Entry extends AbstractEntry
     /**
      * Remove classification
      *
-     * @param Tag $classification
+     * @param ClassificationEntryTag $classification
      */
-    public function removeClassification(Tag $classification): void
+    public function removeClassification(ClassificationEntryTag $classification): void
     {
         $this->classification->detach($classification);
     }
@@ -304,7 +303,7 @@ class Entry extends AbstractEntry
     /**
      * Get part of speech
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<PartOfSpeechTag>
      */
     public function getPartOfSpeech(): ObjectStorage
     {
@@ -314,7 +313,7 @@ class Entry extends AbstractEntry
     /**
      * Set part of speech
      *
-     * @param ObjectStorage<Tag> $partOfSpeech
+     * @param ObjectStorage<PartOfSpeechTag> $partOfSpeech
      */
     public function setPartOfSpeech(ObjectStorage $partOfSpeech): void
     {
@@ -324,9 +323,9 @@ class Entry extends AbstractEntry
     /**
      * Add part of speech
      *
-     * @param Tag $partOfSpeech
+     * @param PartOfSpeechTag $partOfSpeech
      */
-    public function addPartOfSpeech(Tag $partOfSpeech): void
+    public function addPartOfSpeech(PartOfSpeechTag $partOfSpeech): void
     {
         $this->partOfSpeech->attach($partOfSpeech);
     }
@@ -334,9 +333,9 @@ class Entry extends AbstractEntry
     /**
      * Remove part of speech
      *
-     * @param Tag $partOfSpeech
+     * @param PartOfSpeechTag $partOfSpeech
      */
-    public function removePartOfSpeech(Tag $partOfSpeech): void
+    public function removePartOfSpeech(PartOfSpeechTag $partOfSpeech): void
     {
         $this->partOfSpeech->detach($partOfSpeech);
     }
@@ -549,7 +548,7 @@ class Entry extends AbstractEntry
     /**
      * Get distribution language
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<LanguageTag>
      */
     public function getDistributionLanguage(): ObjectStorage
     {
@@ -559,7 +558,7 @@ class Entry extends AbstractEntry
     /**
      * Set distribution language
      *
-     * @param ObjectStorage<Tag> $distributionLanguage
+     * @param ObjectStorage<LanguageTag> $distributionLanguage
      */
     public function setDistributionLanguage(ObjectStorage $distributionLanguage): void
     {
@@ -569,9 +568,9 @@ class Entry extends AbstractEntry
     /**
      * Add distribution language
      *
-     * @param Tag $distributionLanguage
+     * @param LanguageTag $distributionLanguage
      */
-    public function addDistributionLanguage(Tag $distributionLanguage): void
+    public function addDistributionLanguage(LanguageTag $distributionLanguage): void
     {
         $this->distributionLanguage->attach($distributionLanguage);
     }
@@ -579,9 +578,9 @@ class Entry extends AbstractEntry
     /**
      * Remove distribution language
      *
-     * @param Tag $distributionLanguage
+     * @param LanguageTag $distributionLanguage
      */
-    public function removeDistributionLanguage(Tag $distributionLanguage): void
+    public function removeDistributionLanguage(LanguageTag $distributionLanguage): void
     {
         $this->distributionLanguage->detach($distributionLanguage);
     }
@@ -598,7 +597,7 @@ class Entry extends AbstractEntry
     /**
      * Get distribution country
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<CountryTag>
      */
     public function getDistributionCountry(): ObjectStorage
     {
@@ -608,7 +607,7 @@ class Entry extends AbstractEntry
     /**
      * Set distribution country
      *
-     * @param ObjectStorage<Tag> $distributionCountry
+     * @param ObjectStorage<CountryTag> $distributionCountry
      */
     public function setDistributionCountry(ObjectStorage $distributionCountry): void
     {
@@ -618,9 +617,9 @@ class Entry extends AbstractEntry
     /**
      * Add distribution country
      *
-     * @param Tag $distributionCountry
+     * @param CountryTag $distributionCountry
      */
-    public function addDistributionCountry(Tag $distributionCountry): void
+    public function addDistributionCountry(CountryTag $distributionCountry): void
     {
         $this->distributionCountry->attach($distributionCountry);
     }
@@ -628,9 +627,9 @@ class Entry extends AbstractEntry
     /**
      * Remove distribution country
      *
-     * @param Tag $distributionCountry
+     * @param CountryTag $distributionCountry
      */
-    public function removeDistributionCountry(Tag $distributionCountry): void
+    public function removeDistributionCountry(CountryTag $distributionCountry): void
     {
         $this->distributionCountry->detach($distributionCountry);
     }
@@ -647,7 +646,7 @@ class Entry extends AbstractEntry
     /**
      * Get distribution region
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<RegionTag>
      */
     public function getDistributionRegion(): ObjectStorage
     {
@@ -657,7 +656,7 @@ class Entry extends AbstractEntry
     /**
      * Set distribution region
      *
-     * @param ObjectStorage<Tag> $distributionRegion
+     * @param ObjectStorage<RegionTag> $distributionRegion
      */
     public function setDistributionRegion(ObjectStorage $distributionRegion): void
     {
@@ -667,9 +666,9 @@ class Entry extends AbstractEntry
     /**
      * Add distribution region
      *
-     * @param Tag $distributionRegion
+     * @param RegionTag $distributionRegion
      */
-    public function addDistributionRegion(Tag $distributionRegion): void
+    public function addDistributionRegion(RegionTag $distributionRegion): void
     {
         $this->distributionRegion->attach($distributionRegion);
     }
@@ -677,9 +676,9 @@ class Entry extends AbstractEntry
     /**
      * Remove distribution region
      *
-     * @param Tag $distributionRegion
+     * @param RegionTag $distributionRegion
      */
-    public function removeDistributionRegion(Tag $distributionRegion): void
+    public function removeDistributionRegion(RegionTag $distributionRegion): void
     {
         $this->distributionRegion->detach($distributionRegion);
     }

@@ -76,7 +76,7 @@ class Sense extends AbstractEntity
     /**
      * Assess the sense using a given set of categories
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<ClassificationSenseTag>
      */
     #[Lazy()]
     protected ObjectStorage $classification;
@@ -106,7 +106,7 @@ class Sense extends AbstractEntity
     /**
      * Label to group the sense into
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<LabelTag>
      */
     #[Lazy()]
     protected ObjectStorage $label;
@@ -271,7 +271,7 @@ class Sense extends AbstractEntity
     /**
      * Get classification
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<ClassificationSenseTag>
      */
     public function getClassification(): ObjectStorage
     {
@@ -281,7 +281,7 @@ class Sense extends AbstractEntity
     /**
      * Set classification
      *
-     * @param ObjectStorage<Tag> $classification
+     * @param ObjectStorage<ClassificationSenseTag> $classification
      */
     public function setClassification(ObjectStorage $classification): void
     {
@@ -291,9 +291,9 @@ class Sense extends AbstractEntity
     /**
      * Add classification
      *
-     * @param Tag $classification
+     * @param ClassificationSenseTag $classification
      */
-    public function addClassification(Tag $classification): void
+    public function addClassification(ClassificationSenseTag $classification): void
     {
         $this->classification->attach($classification);
     }
@@ -301,9 +301,9 @@ class Sense extends AbstractEntity
     /**
      * Remove classification
      *
-     * @param Tag $classification
+     * @param ClassificationSenseTag $classification
      */
-    public function removeClassification(Tag $classification): void
+    public function removeClassification(ClassificationSenseTag $classification): void
     {
         $this->classification->detach($classification);
     }
@@ -418,7 +418,7 @@ class Sense extends AbstractEntity
     /**
      * Get label
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<LabelTag>
      */
     public function getLabel(): ObjectStorage
     {
@@ -428,7 +428,7 @@ class Sense extends AbstractEntity
     /**
      * Set label
      *
-     * @param ObjectStorage<Tag> $label
+     * @param ObjectStorage<LabelTag> $label
      */
     public function setLabel(ObjectStorage $label): void
     {
@@ -438,9 +438,9 @@ class Sense extends AbstractEntity
     /**
      * Add label
      *
-     * @param Tag $label
+     * @param LabelTag $label
      */
-    public function addLabel(Tag $label): void
+    public function addLabel(LabelTag $label): void
     {
         $this->label->attach($label);
     }
@@ -448,9 +448,9 @@ class Sense extends AbstractEntity
     /**
      * Remove label
      *
-     * @param Tag $label
+     * @param LabelTag $label
      */
-    public function removeLabel(Tag $label): void
+    public function removeLabel(LabelTag $label): void
     {
         $this->label->detach($label);
     }

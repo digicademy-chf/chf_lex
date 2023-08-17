@@ -106,7 +106,7 @@ class LexicographicResource extends AbstractEntity
     /**
      * List of all tags in this resource
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<LanguageTag|CountryTag|RegionTag|LabelTag|LabelTypeTag|ClassificationEntryTag|ClassificationSenseTag|RelationTypeTag|MemberRoleTag|SourceIdentityTag|PartOfSpeechTag|TranscriptionSchemeTag|InflectedFormTag|DefinitionTypeTag|FrequencyTypeTag>
      */
     #[Lazy()]
     #[Cascade([
@@ -380,7 +380,7 @@ class LexicographicResource extends AbstractEntity
     /**
      * Get tag
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<LanguageTag|CountryTag|RegionTag|LabelTag|LabelTypeTag|ClassificationEntryTag|ClassificationSenseTag|RelationTypeTag|MemberRoleTag|SourceIdentityTag|PartOfSpeechTag|TranscriptionSchemeTag|InflectedFormTag|DefinitionTypeTag|FrequencyTypeTag>
      */
     public function getTag(): ObjectStorage
     {
@@ -390,7 +390,7 @@ class LexicographicResource extends AbstractEntity
     /**
      * Set tag
      *
-     * @param ObjectStorage<Tag> $tag
+     * @param ObjectStorage<LanguageTag|CountryTag|RegionTag|LabelTag|LabelTypeTag|ClassificationEntryTag|ClassificationSenseTag|RelationTypeTag|MemberRoleTag|SourceIdentityTag|PartOfSpeechTag|TranscriptionSchemeTag|InflectedFormTag|DefinitionTypeTag|FrequencyTypeTag> $tag
      */
     public function setTag(ObjectStorage $tag): void
     {
@@ -400,9 +400,9 @@ class LexicographicResource extends AbstractEntity
     /**
      * Add tag
      *
-     * @param Tag $tag
+     * @param LanguageTag|CountryTag|RegionTag|LabelTag|LabelTypeTag|ClassificationEntryTag|ClassificationSenseTag|RelationTypeTag|MemberRoleTag|SourceIdentityTag|PartOfSpeechTag|TranscriptionSchemeTag|InflectedFormTag|DefinitionTypeTag|FrequencyTypeTag $tag
      */
-    public function addTag(Tag $tag): void
+    public function addTag(LanguageTag|CountryTag|RegionTag|LabelTag|LabelTypeTag|ClassificationEntryTag|ClassificationSenseTag|RelationTypeTag|MemberRoleTag|SourceIdentityTag|PartOfSpeechTag|TranscriptionSchemeTag|InflectedFormTag|DefinitionTypeTag|FrequencyTypeTag $tag): void
     {
         $this->tag->attach($tag);
     }
@@ -410,9 +410,9 @@ class LexicographicResource extends AbstractEntity
     /**
      * Remove tag
      *
-     * @param Tag $tag
+     * @param LanguageTag|CountryTag|RegionTag|LabelTag|LabelTypeTag|ClassificationEntryTag|ClassificationSenseTag|RelationTypeTag|MemberRoleTag|SourceIdentityTag|PartOfSpeechTag|TranscriptionSchemeTag|InflectedFormTag|DefinitionTypeTag|FrequencyTypeTag $tag
      */
-    public function removeTag(Tag $tag): void
+    public function removeTag(LanguageTag|CountryTag|RegionTag|LabelTag|LabelTypeTag|ClassificationEntryTag|ClassificationSenseTag|RelationTypeTag|MemberRoleTag|SourceIdentityTag|PartOfSpeechTag|TranscriptionSchemeTag|InflectedFormTag|DefinitionTypeTag|FrequencyTypeTag $tag): void
     {
         $this->tag->detach($tag);
     }

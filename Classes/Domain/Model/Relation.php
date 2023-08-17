@@ -33,7 +33,7 @@ class Relation extends AbstractEntity
     /**
      * Specifies the type of relation
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<RelationTypeTag>
      */
     #[Lazy()]
     protected ObjectStorage $type;
@@ -66,11 +66,11 @@ class Relation extends AbstractEntity
      * Construct object
      *
      * @param LexicographicResource $parent_id
-     * @param Tag $type
+     * @param RelationTypeTag $type
      * @param Member $member
      * @return Relation
      */
-    public function __construct(LexicographicResource $parent_id, Tag $type, Member $member)
+    public function __construct(LexicographicResource $parent_id, RelationTypeTag $type, Member $member)
     {
         $this->initializeObject();
 
@@ -114,7 +114,7 @@ class Relation extends AbstractEntity
     /**
      * Get type
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<RelationTypeTag>
      */
     public function getType(): ObjectStorage
     {
@@ -124,7 +124,7 @@ class Relation extends AbstractEntity
     /**
      * Set type
      *
-     * @param ObjectStorage<Tag> $type
+     * @param ObjectStorage<RelationTypeTag> $type
      */
     public function setType(ObjectStorage $type): void
     {
@@ -134,9 +134,9 @@ class Relation extends AbstractEntity
     /**
      * Add type
      *
-     * @param Tag $type
+     * @param RelationTypeTag $type
      */
-    public function addType(Tag $type): void
+    public function addType(RelationTypeTag $type): void
     {
         $this->type->attach($type);
     }
@@ -144,9 +144,9 @@ class Relation extends AbstractEntity
     /**
      * Remove type
      *
-     * @param Tag $type
+     * @param RelationTypeTag $type
      */
-    public function removeType(Tag $type): void
+    public function removeType(RelationTypeTag $type): void
     {
         $this->type->detach($type);
     }

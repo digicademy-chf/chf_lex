@@ -37,7 +37,7 @@ class Transcription extends AbstractEntity
     /**
      * Transcription scheme used here
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<TranscriptionSchemeTag>
      */
     #[Lazy()]
     protected ObjectStorage $scheme;
@@ -86,7 +86,7 @@ class Transcription extends AbstractEntity
     /**
      * Get scheme
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<TranscriptionSchemeTag>
      */
     public function getScheme(): ObjectStorage
     {
@@ -96,7 +96,7 @@ class Transcription extends AbstractEntity
     /**
      * Set scheme
      *
-     * @param ObjectStorage<Tag> $scheme
+     * @param ObjectStorage<TranscriptionSchemeTag> $scheme
      */
     public function setScheme(ObjectStorage $scheme): void
     {
@@ -106,9 +106,9 @@ class Transcription extends AbstractEntity
     /**
      * Add scheme
      *
-     * @param Tag $scheme
+     * @param TranscriptionSchemeTag $scheme
      */
-    public function addScheme(Tag $scheme): void
+    public function addScheme(TranscriptionSchemeTag $scheme): void
     {
         $this->scheme->attach($scheme);
     }
@@ -116,9 +116,9 @@ class Transcription extends AbstractEntity
     /**
      * Remove scheme
      *
-     * @param Tag $scheme
+     * @param TranscriptionSchemeTag $scheme
      */
-    public function removeScheme(Tag $scheme): void
+    public function removeScheme(TranscriptionSchemeTag $scheme): void
     {
         $this->scheme->detach($scheme);
     }

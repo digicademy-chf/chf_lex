@@ -10,16 +10,16 @@ declare(strict_types=1);
 
 namespace Digicademy\DALex\Domain\Repository;
 
-use Digicademy\DALex\Domain\Model\Tag;
+use Digicademy\DALex\Domain\Model\AbstractTag;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * Repository for tags
  * 
- * @extends Repository<Tag>
+ * @extends Repository<AbstractTag>
  */
-class TagRepository extends Repository
+class AbstractTagRepository extends Repository
 {
     protected $defaultOrderings = [
         'sorting' => QueryInterface::ORDER_ASCENDING,

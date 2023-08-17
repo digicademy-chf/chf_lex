@@ -64,18 +64,17 @@ class GlossaryEntry extends AbstractEntry
      * @param LexicographicResource $parent_id
      * @param string $id
      * @param string $uuid
-     * @param string $type
      * @param string $title
      * @return GlossaryEntry
      */
-    public function __construct(LexicographicResource $parent_id, string $id, string $uuid, string $type, string $title)
+    public function __construct(LexicographicResource $parent_id, string $id, string $uuid, string $title)
     {
         $this->initializeObject();
 
         $this->setParentId($parent_id);
         $this->setId($id);
         $this->setUuid($uuid);
-        $this->setType($type);
+        $this->setType('glossaryEntry');
         $this->setTitle($title);
     }
 

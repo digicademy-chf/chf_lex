@@ -38,7 +38,7 @@ class InflectedForm extends AbstractEntity
     /**
      * Specify the type of inflection used here
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<InflectedFormTag>
      */
     #[Lazy()]
     protected ObjectStorage $inflectionType;
@@ -57,7 +57,7 @@ class InflectedForm extends AbstractEntity
     /**
      * Label to group the inflected form into
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<LabelTag>
      */
     #[Lazy()]
     protected ObjectStorage $label;
@@ -108,7 +108,7 @@ class InflectedForm extends AbstractEntity
     /**
      * Get inflection type
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<InflectedFormTag>
      */
     public function getInflectionType(): ObjectStorage
     {
@@ -118,7 +118,7 @@ class InflectedForm extends AbstractEntity
     /**
      * Set inflection type
      *
-     * @param ObjectStorage<Tag> $inflectionType
+     * @param ObjectStorage<InflectedFormTag> $inflectionType
      */
     public function setInflectionType(ObjectStorage $inflectionType): void
     {
@@ -128,9 +128,9 @@ class InflectedForm extends AbstractEntity
     /**
      * Add inflection type
      *
-     * @param Tag $inflectionType
+     * @param InflectedFormTag $inflectionType
      */
-    public function addInflectionType(Tag $inflectionType): void
+    public function addInflectionType(InflectedFormTag $inflectionType): void
     {
         $this->inflectionType->attach($inflectionType);
     }
@@ -138,9 +138,9 @@ class InflectedForm extends AbstractEntity
     /**
      * Remove inflection type
      *
-     * @param Tag $inflectionType
+     * @param InflectedFormTag $inflectionType
      */
-    public function removeInflectionType(Tag $inflectionType): void
+    public function removeInflectionType(InflectedFormTag $inflectionType): void
     {
         $this->inflectionType->detach($inflectionType);
     }
@@ -206,7 +206,7 @@ class InflectedForm extends AbstractEntity
     /**
      * Get label
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<LabelTag>
      */
     public function getLabel(): ObjectStorage
     {
@@ -216,7 +216,7 @@ class InflectedForm extends AbstractEntity
     /**
      * Set label
      *
-     * @param ObjectStorage<Tag> $label
+     * @param ObjectStorage<LabelTag> $label
      */
     public function setLabel(ObjectStorage $label): void
     {
@@ -226,9 +226,9 @@ class InflectedForm extends AbstractEntity
     /**
      * Add label
      *
-     * @param Tag $label
+     * @param LabelTag $label
      */
-    public function addLabel(Tag $label): void
+    public function addLabel(LabelTag $label): void
     {
         $this->label->attach($label);
     }
@@ -236,9 +236,9 @@ class InflectedForm extends AbstractEntity
     /**
      * Remove label
      *
-     * @param Tag $label
+     * @param LabelTag $label
      */
-    public function removeLabel(Tag $label): void
+    public function removeLabel(LabelTag $label): void
     {
         $this->label->detach($label);
     }

@@ -1070,6 +1070,9 @@ return [
         ],
     ],
     'types' => [
+        'abstractTag' => [
+            'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,',
+        ],
         'language' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
             --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asDistributionLanguageOfEntry,',

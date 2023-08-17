@@ -82,7 +82,7 @@ class AbstractEntry extends AbstractEntity
     /**
      * Label to group the entry into
      * 
-     * @var ObjectStorage<Tag>
+     * @var ObjectStorage<LabelTag>
      */
     #[Lazy()]
     protected ObjectStorage $label;
@@ -351,7 +351,7 @@ class AbstractEntry extends AbstractEntity
     /**
      * Get label
      *
-     * @return ObjectStorage<Tag>
+     * @return ObjectStorage<LabelTag>
      */
     public function getLabel(): ObjectStorage
     {
@@ -361,7 +361,7 @@ class AbstractEntry extends AbstractEntity
     /**
      * Set label
      *
-     * @param ObjectStorage<Tag> $label
+     * @param ObjectStorage<LabelTag> $label
      */
     public function setLabel(ObjectStorage $label): void
     {
@@ -371,9 +371,9 @@ class AbstractEntry extends AbstractEntity
     /**
      * Add label
      *
-     * @param Tag $label
+     * @param LabelTag $label
      */
-    public function addLabel(Tag $label): void
+    public function addLabel(LabelTag $label): void
     {
         $this->label->attach($label);
     }
@@ -381,9 +381,9 @@ class AbstractEntry extends AbstractEntity
     /**
      * Remove label
      *
-     * @param Tag $label
+     * @param LabelTag $label
      */
-    public function removeLabel(Tag $label): void
+    public function removeLabel(LabelTag $label): void
     {
         $this->label->detach($label);
     }
