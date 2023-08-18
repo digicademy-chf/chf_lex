@@ -1,0 +1,23 @@
+# Load default processing options
+imports:
+    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Processing.yaml' }
+    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml' }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+# Lexicography-focused TEI annotations for the editor
+editor:
+  config:
+    toolbar:
+      items:
+        - bold
+        - italic
+        - subscript
+        - superscript
+        - '|'
+        - clipboard
+        - undo
+        - redo
+
+# Support for TEI annotations
+  importModules:
+    - '@digicademy/da-lex/ckeditor-tei-elements.js'

@@ -120,9 +120,10 @@ return [
             'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.text',
             'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.text.description',
             'config'      => [
-                'type'           => 'text',
-                'enableRichtext' => true,
-                'required'       => true,
+                'type'                  => 'text',
+                'enableRichtext'        => true,
+                'richtextConfiguration' => 'da_lex_text',
+                'required'              => true,
             ],
         ],
         'dateCirca' => [
