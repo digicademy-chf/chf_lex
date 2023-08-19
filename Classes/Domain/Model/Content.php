@@ -19,6 +19,16 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 class Content extends AbstractEntity
 {
     /**
+     * Whether the record should be visisible or not
+     * 
+     * @var bool
+     */
+    #[Validate([
+        'validator' => 'Boolean',
+    ])]
+    protected bool $hidden = false;
+
+    /**
      * Name of the content element
      * 
      * @var string
@@ -49,6 +59,26 @@ class Content extends AbstractEntity
     {
         $this->setHeader($header);
         $this->setBodytext($bodytext);
+    }
+
+    /**
+     * Get hidden
+     *
+     * @return bool
+     */
+    public function getHidden(): bool
+    {
+        return $this->hidden;
+    }
+
+    /**
+     * Set hidden
+     *
+     * @param bool $hidden
+     */
+    public function setHidden(bool $hidden): void
+    {
+        $this->hidden = $hidden;
     }
 
     /**

@@ -26,6 +26,16 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Example extends AbstractEntity
 {
     /**
+     * Whether the record should be visisible or not
+     * 
+     * @var bool
+     */
+    #[Validate([
+        'validator' => 'Boolean',
+    ])]
+    protected bool $hidden = false;
+
+    /**
      * Sample text, e.g. a full sentence
      * 
      * @var string
@@ -163,6 +173,26 @@ class Example extends AbstractEntity
         $this->sourceIdentity  = new ObjectStorage();
         $this->source          = new ObjectStorage();
         $this->label           = new ObjectStorage();
+    }
+
+    /**
+     * Get hidden
+     *
+     * @return bool
+     */
+    public function getHidden(): bool
+    {
+        return $this->hidden;
+    }
+
+    /**
+     * Set hidden
+     *
+     * @param bool $hidden
+     */
+    public function setHidden(bool $hidden): void
+    {
+        $this->hidden = $hidden;
     }
 
     /**

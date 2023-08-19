@@ -22,6 +22,16 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Sense extends AbstractEntity
 {
     /**
+     * Whether the record should be visisible or not
+     * 
+     * @var bool
+     */
+    #[Validate([
+        'validator' => 'Boolean',
+    ])]
+    protected bool $hidden = false;
+
+    /**
      * Simple identifier of this sense as part of a single dataset
      * 
      * @var string
@@ -157,6 +167,26 @@ class Sense extends AbstractEntity
         $this->label          = new ObjectStorage();
         $this->sameAs         = new ObjectStorage();
         $this->asMember       = new ObjectStorage();
+    }
+
+    /**
+     * Get hidden
+     *
+     * @return bool
+     */
+    public function getHidden(): bool
+    {
+        return $this->hidden;
+    }
+
+    /**
+     * Set hidden
+     *
+     * @param bool $hidden
+     */
+    public function setHidden(bool $hidden): void
+    {
+        $this->hidden = $hidden;
     }
 
     /**

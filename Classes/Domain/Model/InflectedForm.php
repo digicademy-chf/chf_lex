@@ -22,6 +22,16 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class InflectedForm extends AbstractEntity
 {
     /**
+     * Whether the record should be visisible or not
+     * 
+     * @var bool
+     */
+    #[Validate([
+        'validator' => 'Boolean',
+    ])]
+    protected bool $hidden = false;
+
+    /**
      * Text of the inflected form
      * 
      * @var string
@@ -83,6 +93,26 @@ class InflectedForm extends AbstractEntity
         $this->inflectionType = new ObjectStorage();
         $this->pronunciation  = new ObjectStorage();
         $this->label          = new ObjectStorage();
+    }
+
+    /**
+     * Get hidden
+     *
+     * @return bool
+     */
+    public function getHidden(): bool
+    {
+        return $this->hidden;
+    }
+
+    /**
+     * Set hidden
+     *
+     * @param bool $hidden
+     */
+    public function setHidden(bool $hidden): void
+    {
+        $this->hidden = $hidden;
     }
 
     /**

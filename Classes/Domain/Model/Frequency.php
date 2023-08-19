@@ -25,6 +25,16 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Frequency extends AbstractEntity
 {
     /**
+     * Whether the record should be visisible or not
+     * 
+     * @var bool
+     */
+    #[Validate([
+        'validator' => 'Boolean',
+    ])]
+    protected bool $hidden = false;
+
+    /**
      * Type of frequency
      * 
      * @var ObjectStorage<FrequencyTypeTag>
@@ -156,6 +166,26 @@ class Frequency extends AbstractEntity
         $this->sourceIdentity  = new ObjectStorage();
         $this->source          = new ObjectStorage();
         $this->geodata         = new ObjectStorage();
+    }
+
+    /**
+     * Get hidden
+     *
+     * @return bool
+     */
+    public function getHidden(): bool
+    {
+        return $this->hidden;
+    }
+
+    /**
+     * Set hidden
+     *
+     * @param bool $hidden
+     */
+    public function setHidden(bool $hidden): void
+    {
+        $this->hidden = $hidden;
     }
 
     /**

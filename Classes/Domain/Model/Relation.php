@@ -23,6 +23,16 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Relation extends AbstractEntity
 {
     /**
+     * Whether the record should be visisible or not
+     * 
+     * @var bool
+     */
+    #[Validate([
+        'validator' => 'Boolean',
+    ])]
+    protected bool $hidden = false;
+
+    /**
      * Resource that this relation is attached to
      * 
      * @var LazyLoadingProxy|LexicographicResource
@@ -86,6 +96,26 @@ class Relation extends AbstractEntity
     {
         $this->type   = new ObjectStorage();
         $this->member = new ObjectStorage();
+    }
+
+    /**
+     * Get hidden
+     *
+     * @return bool
+     */
+    public function getHidden(): bool
+    {
+        return $this->hidden;
+    }
+
+    /**
+     * Set hidden
+     *
+     * @param bool $hidden
+     */
+    public function setHidden(bool $hidden): void
+    {
+        $this->hidden = $hidden;
     }
 
     /**
