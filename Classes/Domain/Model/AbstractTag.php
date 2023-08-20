@@ -229,6 +229,26 @@ class AbstractTag extends AbstractEntity
     }
 
     /**
+     * Get tag (alias of ID for DMLex conformity)
+     *
+     * @return string
+     */
+    public function getTag(): string
+    {
+        return $this->getId();
+    }
+
+    /**
+     * Set tag (alias of ID for DMLex conformity)
+     *
+     * @param string $tag
+     */
+    public function setTag(string $tag): void
+    {
+        $this->setId($tag);
+    }
+
+    /**
      * Get UUID
      *
      * @return string

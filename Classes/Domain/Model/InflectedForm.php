@@ -185,6 +185,54 @@ class InflectedForm extends AbstractEntity
     }
 
     /**
+     * Get tag (alias of inflection type for DMLex conformity)
+     *
+     * @return ObjectStorage<InflectedFormTag>
+     */
+    public function getTag(): ObjectStorage
+    {
+        return $this->getInflectionType();
+    }
+
+    /**
+     * Set tag (alias of inflection type for DMLex conformity)
+     *
+     * @param ObjectStorage<InflectedFormTag> $tag
+     */
+    public function setTag(ObjectStorage $tag): void
+    {
+        $this->setInflectionType($tag);
+    }
+
+    /**
+     * Add tag (alias of inflection type for DMLex conformity)
+     *
+     * @param InflectedFormTag $tag
+     */
+    public function addTag(InflectedFormTag $tag): void
+    {
+        $this->addInflectionType($tag);
+    }
+
+    /**
+     * Remove tag (alias of inflection type for DMLex conformity)
+     *
+     * @param InflectedFormTag $tag
+     */
+    public function removeTag(InflectedFormTag $tag): void
+    {
+        $this->removeInflectionType($tag);
+    }
+
+    /**
+     * Remove all tags (alias of inflection type for DMLex conformity)
+     */
+    public function removeAllTags(): void
+    {
+        $this->removeAllInflectionTypes();
+    }
+
+    /**
      * Get pronunciation
      *
      * @return ObjectStorage<Pronunciation>

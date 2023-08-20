@@ -126,6 +126,26 @@ class MemberRoleTag extends AbstractTag
     }
 
     /**
+     * Get role (alias of text for DMLex conformity)
+     *
+     * @return string
+     */
+    public function getRole(): string
+    {
+        return $this->getText();
+    }
+
+    /**
+     * Set role (alias of text for DMLex conformity)
+     *
+     * @param string $role
+     */
+    public function setRole(string $role): void
+    {
+        $this->setText($role);
+    }
+
+    /**
      * Get member type
      *
      * @return string
@@ -303,5 +323,10 @@ class MemberRoleTag extends AbstractTag
         $this->asRoleOfMember->removeAll($asRoleOfMember);
     }
 }
+
+/**
+ * Alias for DALex conformity since the class above is implemented as a type of tag
+ */
+class_alias('MemberRoleTag', 'MemberType');
 
 ?>

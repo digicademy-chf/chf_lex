@@ -219,6 +219,54 @@ class Member extends AbstractEntity
         $entryOrSense = clone $this->entryOrSense;
         $this->entryOrSense->removeAll($entryOrSense);
     }
+
+    /**
+     * Get member ID (alias of entryOrSense for DMLex conformity)
+     *
+     * @return ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry|Sense>
+     */
+    public function getMemberID(): ObjectStorage
+    {
+        return $this->getEntryOrSense();
+    }
+
+    /**
+     * Set member ID (alias of entryOrSense for DMLex conformity)
+     *
+     * @param ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry|Sense> $memberID
+     */
+    public function setMemberID(ObjectStorage $memberID): void
+    {
+        $this->setEntryOrSense($memberID);
+    }
+
+    /**
+     * Add member ID (alias of entryOrSense for DMLex conformity)
+     *
+     * @param Entry|EncyclopediaEntry|GlossaryEntry|Sense $memberID
+     */
+    public function addMemberID(Entry|EncyclopediaEntry|GlossaryEntry|Sense $memberID): void
+    {
+        $this->addEntryOrSense($memberID);
+    }
+
+    /**
+     * Remove member ID (alias of entryOrSense for DMLex conformity)
+     *
+     * @param Entry|EncyclopediaEntry|GlossaryEntry|Sense $memberID
+     */
+    public function removeMemberID(Entry|EncyclopediaEntry|GlossaryEntry|Sense $memberID): void
+    {
+        $this->removeEntryOrSense($memberID);
+    }
+
+    /**
+     * Remove member ID (alias of entryOrSense for DMLex conformity)
+     */
+    public function removeAllMemberIDs(): void
+    {
+        $this->removeAllEntriesOrSenses();
+    }
 }
 
 ?>

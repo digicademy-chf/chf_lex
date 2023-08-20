@@ -85,6 +85,26 @@ class RelationTypeTag extends AbstractTag
     }
 
     /**
+     * Get alt type (alias of text for DMLex conformity)
+     *
+     * @return string
+     */
+    public function getAltType(): string
+    {
+        return $this->getText();
+    }
+
+    /**
+     * Set alt type (alias of text for DMLex conformity)
+     *
+     * @param string $altType
+     */
+    public function setAltType(string $altType): void
+    {
+        $this->setText($altType);
+    }
+
+    /**
      * Get scope
      *
      * @return string
@@ -154,6 +174,54 @@ class RelationTypeTag extends AbstractTag
     }
 
     /**
+     * Get alt member type (alias of member role for DMLex conformity)
+     *
+     * @return ObjectStorage<MemberRoleTag>
+     */
+    public function getAltMemberType(): ObjectStorage
+    {
+        return $this->getMemberRole();
+    }
+
+    /**
+     * Set alt member type (alias of member role for DMLex conformity)
+     *
+     * @param ObjectStorage<MemberRoleTag> $altMemberType
+     */
+    public function setAltMemberType(ObjectStorage $altMemberType): void
+    {
+        $this->setMemberRole($altMemberType);
+    }
+
+    /**
+     * Add alt member type (alias of member role for DMLex conformity)
+     *
+     * @param MemberRoleTag $altMemberType
+     */
+    public function addAltMemberType(MemberRoleTag $altMemberType): void
+    {
+        $this->addMemberRole($altMemberType);
+    }
+
+    /**
+     * Remove alt member type (alias of member role for DMLex conformity)
+     *
+     * @param MemberRoleTag $altMemberType
+     */
+    public function removeAltMemberType(MemberRoleTag $altMemberType): void
+    {
+        $this->removeMemberRole($altMemberType);
+    }
+
+    /**
+     * Remove all alt member types (alias of member role for DMLex conformity)
+     */
+    public function removeAltMemberTypes(): void
+    {
+        $this->removeAllMemberRoles();
+    }
+
+    /**
      * Get as type of relation
      *
      * @return ObjectStorage<Relation>
@@ -202,5 +270,10 @@ class RelationTypeTag extends AbstractTag
         $this->asTypeOfRelation->removeAll($asTypeOfRelation);
     }
 }
+
+/**
+ * Alias for DALex conformity since the class above is implemented as a type of tag
+ */
+class_alias('RelationTypeTag', 'RelationType');
 
 ?>

@@ -218,6 +218,54 @@ class LabelTag extends AbstractTag
     }
 
     /**
+     * Get label tag (alias of label type for DMLex conformity)
+     *
+     * @return ObjectStorage<LabelTypeTag>
+     */
+    public function getLabelTag(): ObjectStorage
+    {
+        return $this->getLabelType();
+    }
+
+    /**
+     * Set label tag (alias of label type for DMLex conformity)
+     *
+     * @param ObjectStorage<LabelTypeTag> $labelTag
+     */
+    public function setLabelTag(ObjectStorage $labelTag): void
+    {
+        $this->setLabelType($labelTag);
+    }
+
+    /**
+     * Add label tag (alias of label type for DMLex conformity)
+     *
+     * @param LabelTypeTag $labelTag
+     */
+    public function addLabelTag(LabelTypeTag $labelTag): void
+    {
+        $this->addLabelType($labelTag);
+    }
+
+    /**
+     * Remove label tag (alias of label type for DMLex conformity)
+     *
+     * @param LabelTypeTag $labelTag
+     */
+    public function removeLabelTag(LabelTypeTag $labelTag): void
+    {
+        $this->removeLabelType($labelTag);
+    }
+
+    /**
+     * Remove all label tags (alias of label type for DMLex conformity)
+     */
+    public function removeAllLabelTags(): void
+    {
+        $this->removeAllLabelTypes();
+    }
+
+    /**
      * Get as label of entry
      *
      * @return ObjectStorage<Entry|EncyclopediaEntry|GlossaryEntry>
