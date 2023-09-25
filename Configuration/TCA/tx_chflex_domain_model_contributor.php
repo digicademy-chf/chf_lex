@@ -1,6 +1,6 @@
 <?php
 
-# This file is part of the extension DA Lex for TYPO3.
+# This file is part of the extension CHF Lex for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
@@ -16,7 +16,7 @@
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor',
+        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor',
         'label'                    => 'surname',
         'label_alt'                => 'forename,corporateName',
         'tstamp'                   => 'tstamp',
@@ -25,7 +25,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'surname ASC,forename ASC,corporateName ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:da_lex/Resources/Public/Icons/Contributor.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/Contributor.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
@@ -99,9 +99,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_dalex_domain_model_contributor',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_contributor}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_contributor}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table'       => 'tx_chflex_domain_model_contributor',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_contributor}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_contributor}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
         ],
@@ -117,20 +117,20 @@ return [
             ],
         ],
         'parent_id' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.parent_id',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.parent_id.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.parent_id',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.parent_id.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dalex_domain_model_lexicographic_resource',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###',
+                'foreign_table'       => 'tx_chflex_domain_model_lexicographic_resource',
+                'foreign_table_where' => 'AND {#tx_chfbib_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###',
                 'maxitems'            => 1,
                 'required'            => true,
             ],
         ],
         'id' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.id',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.id.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.id',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.id.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -140,8 +140,8 @@ return [
             ],
         ],
         'uuid' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.uuid',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.uuid.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.uuid',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.uuid.description',
             'config'      => [
                 'type'     => 'uuid',
                 'size'     => 40,
@@ -149,8 +149,8 @@ return [
             ],
         ],
         'active' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.active',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.active.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.active',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.active.description',
             'config'      => [
                 'type'       => 'check',
                 'renderType' => 'checkboxToggle',
@@ -162,8 +162,8 @@ return [
             ]
         ],
         'surname' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.surname',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.surname.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.surname',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.surname.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -172,8 +172,8 @@ return [
             ],
         ],
         'forename' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.forename',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.forename.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.forename',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.forename.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -182,8 +182,8 @@ return [
             ],
         ],
         'corporateName' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.corporateName',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.corporateName.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.corporateName',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.corporateName.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -192,15 +192,15 @@ return [
             ],
         ],
         'label' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.label',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.label.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.label',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.label.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'label\'',
-                'MM'                  => 'tx_dalex_domain_model_contributor_tag_label_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'label\'',
+                'MM'                  => 'tx_chflex_domain_model_contributor_tag_label_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [
@@ -217,11 +217,11 @@ return [
             ],
         ],
         'sameAs' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.sameAs',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.sameAs.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.sameAs',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.sameAs.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dalex_domain_model_same_as',
+                'foreign_table'       => 'tx_chflex_domain_model_same_as',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'appearance'          => [
@@ -237,14 +237,14 @@ return [
             ],
         ],
         'asAuthor' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.asAuthor',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.asAuthor.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.asAuthor',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.asAuthor.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_entry',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_entry}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_entry_contributor_author_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_entry}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_entry_contributor_author_mm',
                 'MM_opposite_field'   => 'author',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -262,14 +262,14 @@ return [
             ],
         ],
         'asEditor' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.asEditor',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.asEditor.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.asEditor',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.asEditor.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_entry',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_entry}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_entry_contributor_editor_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_entry}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_entry_contributor_editor_mm',
                 'MM_opposite_field'   => 'editor',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -301,7 +301,7 @@ return [
     'types' => [
         '0' => [
             'showitem' => 'hiddenParentId,idUuid,active,surnameForename,corporateName,label,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.contributor.contributions,asAuthor,asEditor,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.contributor.contributions,asAuthor,asEditor,',
         ],
     ],
 ];

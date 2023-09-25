@@ -1,13 +1,13 @@
 <?php
 
-# This file is part of the extension DA Lex for TYPO3.
+# This file is part of the extension CHF Lex for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
 
 
 /**
- * Definition and its properties
+ * Pronunciation and its properties
  * 
  * Configuration of a database table and its editing interface in the
  * TYPO3 backend. This also serves as the basis for the Extbase
@@ -16,22 +16,21 @@
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.definition',
-        'label'                    => 'text',
+        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.pronunciation',
+        'label'                    => 'soundFile',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'text ASC',
+        'default_sortby'           => 'soundFile ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:da_lex/Resources/Public/Icons/Definition.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/Pronunciation.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'text',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -98,9 +97,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_dalex_domain_model_definition',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_definition}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_definition}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table'       => 'tx_chflex_domain_model_pronunciation',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_pronunciation}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_pronunciation}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
         ],
@@ -115,33 +114,65 @@ return [
                 'default' => '',
             ],
         ],
-        'text' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.definition.text',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.definition.text.description',
+        'soundFile' => [
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.pronunciation.soundFile',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.pronunciation.soundFile.description',
             'config'      => [
-                'type'                  => 'text',
-                'enableRichtext'        => true,
-                'richtextConfiguration' => 'da_lex_annotation',
-                'required'              => true,
+                'type'     => 'file',
+                'maxitems' => 1,
+                'allowed'  => 'common-media-types'
             ],
         ],
-        'definitionType' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.definition.definitionType',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.definition.definitionType.description',
+        'transcription' => [
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.pronunciation.transcription',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.pronunciation.transcription.description',
+            'config'      => [
+                'type'                => 'inline',
+                'foreign_table'       => 'tx_chflex_domain_model_transcription',
+                'foreign_field'       => 'parent_id',
+                'foreign_table_field' => 'parent_table',
+                'appearance'          => [
+                    'collapseAll'                     => true,
+                    'expandSingle'                    => true,
+                    'newRecordLinkAddTitle'           => true,
+                    'levelLinksPosition'              => 'top',
+                    'useSortable'                     => true,
+                    'showPossibleLocalizationRecords' => true,
+                    'showAllLocalizationLink'         => true,
+                    'showSynchronizationLink'         => true,
+                ],
+            ],
+        ],
+        'label' => [
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.pronunciation.label',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.pronunciation.label.description',
             'config'      => [
                 'type'                => 'select',
-                'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'definitionType\'',
-                'MM'                  => 'tx_dalex_domain_model_definition_tag_definitiontype_mm',
+                'renderType'          => 'selectMultipleSideBySide',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'label\'',
+                'MM'                  => 'tx_chflex_domain_model_pronunciation_tag_label_mm',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
+                    ],
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
             ],
         ],
     ],
     'palettes' => [],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,text,definitionType,',
+            'showitem' => 'hidden,soundFile,transcription,label,',
         ],
     ],
 ];

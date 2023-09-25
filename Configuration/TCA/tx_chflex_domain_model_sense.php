@@ -1,6 +1,6 @@
 <?php
 
-# This file is part of the extension DA Lex for TYPO3.
+# This file is part of the extension CHF Lex for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
@@ -16,7 +16,7 @@
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense',
+        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense',
         'label'                    => 'id',
         'label_alt'                => 'indicator',
         'tstamp'                   => 'tstamp',
@@ -25,7 +25,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'id ASC,indicator ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:da_lex/Resources/Public/Icons/Sense.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/Sense.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
@@ -99,9 +99,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_dalex_domain_model_sense',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_sense}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_sense}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table'       => 'tx_chflex_domain_model_sense',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_sense}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_sense}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
         ],
@@ -117,8 +117,8 @@ return [
             ],
         ],
         'id' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.id',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.id.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.id',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.id.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -128,8 +128,8 @@ return [
             ],
         ],
         'uuid' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.uuid',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.uuid.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.uuid',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.uuid.description',
             'config'      => [
                 'type'     => 'uuid',
                 'size'     => 40,
@@ -137,11 +137,11 @@ return [
             ],
         ],
         'definition' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.definition',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.definition.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.definition',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.definition.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dalex_domain_model_definition',
+                'foreign_table'       => 'tx_chflex_domain_model_definition',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'appearance'          => [
@@ -157,8 +157,8 @@ return [
             ],
         ],
         'indicator' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.indicator',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.indicator.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.indicator',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.indicator.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -167,15 +167,15 @@ return [
             ],
         ],
         'classification' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.classification',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.classification.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.classification',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.classification.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectTree',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'classificationSense\'',
-                'MM'                  => 'tx_dalex_domain_model_sense_tag_classification_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'classificationSense\'',
+                'MM'                  => 'tx_chflex_domain_model_sense_tag_classification_mm',
                 'size'                => 20,
                 'treeConfig'          => [
                     'parentField' => 'parent_id',
@@ -187,11 +187,11 @@ return [
             ],
         ],
         'example' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.example',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.example.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.example',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.example.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dalex_domain_model_example',
+                'foreign_table'       => 'tx_chflex_domain_model_example',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'appearance'          => [
@@ -207,11 +207,11 @@ return [
             ],
         ],
         'frequency' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.frequency',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.frequency.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.frequency',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.frequency.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dalex_domain_model_frequency',
+                'foreign_table'       => 'tx_chflex_domain_model_frequency',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'appearance'          => [
@@ -227,15 +227,15 @@ return [
             ],
         ],
         'label' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.label',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.label.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.label',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.label.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'label\'',
-                'MM'                  => 'tx_dalex_domain_model_sense_tag_label_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'label\'',
+                'MM'                  => 'tx_chflex_domain_model_sense_tag_label_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [
@@ -252,11 +252,11 @@ return [
             ],
         ],
         'sameAs' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.sameAs',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.sameAs.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.sameAs',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.sameAs.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dalex_domain_model_same_as',
+                'foreign_table'       => 'tx_chflex_domain_model_same_as',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'appearance'          => [
@@ -272,14 +272,14 @@ return [
             ],
         ],
         'asMember' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.asMember',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.asMember.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.asMember',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.asMember.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_member',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_member}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_member_entryorsense_entryorsense_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_member',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_member}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_member_entryorsense_entryorsense_mm',
                 'MM_opposite_field'   => 'entryOrSense',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -311,7 +311,7 @@ return [
     'types' => [
         '0' => [
             'showitem' => 'hidden,idUuid,definition,indicatorClassification,exampleFrequency,label,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sense.relations,asMember,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.sense.relations,asMember,',
         ],
     ],
 ];

@@ -1,13 +1,13 @@
 <?php
 
-# This file is part of the extension DA Lex for TYPO3.
+# This file is part of the extension CHF Lex for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
 
 
 /**
- * SameAs and its properties
+ * Definition and its properties
  * 
  * Configuration of a database table and its editing interface in the
  * TYPO3 backend. This also serves as the basis for the Extbase
@@ -16,22 +16,22 @@
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sameAs',
-        'label'                    => 'uri',
+        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.definition',
+        'label'                    => 'text',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'uri ASC',
+        'default_sortby'           => 'text ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:da_lex/Resources/Public/Icons/SameAs.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/Definition.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'uri',
+        'searchFields'             => 'text',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -98,9 +98,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_dalex_domain_model_same_as',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_same_as}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_same_as}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table'       => 'tx_chflex_domain_model_definition',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_definition}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_definition}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
         ],
@@ -115,28 +115,33 @@ return [
                 'default' => '',
             ],
         ],
-        'uri' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sameAs.uri',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.sameAs.uri.description',
-            'config' => [
-                'type'           => 'link',
-                'allowedTypes'   => ['url'],
-                'allowedOptions' => [],
-                'mode'           => 'prepend',
-                'valuePicker'    => [
-                   'items' => [
-                      ['HTTPS', 'https://'],
-                      ['HTTP', 'http://'],
-                   ],
-                ],
-                'required' => true,
+        'text' => [
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.definition.text',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.definition.text.description',
+            'config'      => [
+                'type'                  => 'text',
+                'enableRichtext'        => true,
+                'richtextConfiguration' => 'chf_lex_annotation',
+                'required'              => true,
+            ],
+        ],
+        'definitionType' => [
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.definition.definitionType',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.definition.definitionType.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectSingle',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'definitionType\'',
+                'MM'                  => 'tx_chflex_domain_model_definition_tag_definitiontype_mm',
             ],
         ],
     ],
     'palettes' => [],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,uri,',
+            'showitem' => 'hidden,text,definitionType,',
         ],
     ],
 ];

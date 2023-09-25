@@ -1,13 +1,13 @@
 <?php
 
-# This file is part of the extension DA Lex for TYPO3.
+# This file is part of the extension CHF Lex for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
 
 
 /**
- * Member and its properties
+ * Transcription and its properties
  * 
  * Configuration of a database table and its editing interface in the
  * TYPO3 backend. This also serves as the basis for the Extbase
@@ -16,21 +16,22 @@
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.member',
-        'label'                    => 'entryOrSense',
+        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.transcription',
+        'label'                    => 'text',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'entryOrSense ASC',
+        'default_sortby'           => 'text ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:da_lex/Resources/Public/Icons/Member.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/Transcription.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
+        'searchFields'             => 'text',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
@@ -97,9 +98,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_dalex_domain_model_member',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_member}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_member}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table'       => 'tx_chflex_domain_model_transcription',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_transcription}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_transcription}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
         ],
@@ -114,50 +115,37 @@ return [
                 'default' => '',
             ],
         ],
-        'parent_id' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.member.parent_id',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.member.parent_id.description',
+        'text' => [
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.transcription.text',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.transcription.text.description',
             'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dalex_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###',
-                'maxitems'            => 1,
-                'required'            => true,
-            ],
-        ],
-        'role' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.member.role',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.member.role.description',
-            'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'memberRole\'',
-                'MM'                  => 'tx_dalex_domain_model_member_tag_role_mm',
-            ],
-        ],
-        'entryOrSense' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.member.entryOrSense',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.member.entryOrSense.description',
-            'config'      => [
-                'type'     => 'group',
-                'minitems' => 1,
-                'allowed'  => 'tx_dalex_domain_model_entry,tx_dalex_domain_model_sense',
-                'MM'       => 'tx_dalex_domain_model_member_entryorsense_entryorsense_mm',
+                'type'     => 'input',
+                'size'     => 40,
+                'max'      => 255,
+                'eval'     => 'trim',
                 'required' => true,
-            ], # TODO enforce min/max values from role and type restrictions from parent relation
+            ],
+        ],
+        'scheme' => [
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.transcription.scheme',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.transcription.scheme.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectSingle',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'transcriptionScheme\'',
+                'MM'                  => 'tx_chflex_domain_model_transcription_tag_scheme_mm',
+            ],
         ],
     ],
     'palettes' => [
-        'hiddenParentId' => [
-            'showitem' => 'hidden,parent_id,',
-        ],
-    ],
+        'textScheme' => [
+            'showitem' => 'text,scheme,',
+        ],],
     'types' => [
         '0' => [
-            'showitem' => 'hiddenParentId,role,entryOrSense,',
+            'showitem' => 'hidden,textScheme,',
         ],
     ],
 ];

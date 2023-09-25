@@ -1,6 +1,6 @@
 <?php
 
-# This file is part of the extension DA Lex for TYPO3.
+# This file is part of the extension CHF Lex for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
@@ -16,7 +16,7 @@
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag',
+        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag',
         'label'                    => 'text',
         'label_alt'                => 'type',
         'descriptionColumn'        => 'description',
@@ -26,7 +26,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'text ASC,type ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:da_lex/Resources/Public/Icons/Tag.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/Tag.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
@@ -101,9 +101,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
         ],
@@ -119,20 +119,20 @@ return [
             ],
         ],
         'parent_id' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.parent_id',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.parent_id.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.parent_id',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.parent_id.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dalex_domain_model_lexicographic_resource',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###',
+                'foreign_table'       => 'tx_chflex_domain_model_lexicographic_resource',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###',
                 'maxitems'            => 1,
                 'required'            => true,
             ],
         ],
         'id' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.id',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.id.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.id',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.id.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -142,8 +142,8 @@ return [
             ],
         ],
         'uuid' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.uuid',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.uuid.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.uuid',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.uuid.description',
             'config'      => [
                 'type'     => 'uuid',
                 'size'     => 40,
@@ -151,8 +151,8 @@ return [
             ],
         ],
         'text' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.text',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.text.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.text',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.text.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -162,70 +162,70 @@ return [
             ],
         ],
         'type' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.type',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.type.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.description',
             'config'      => [
                 'type'       => 'select',
                 'renderType' => 'selectSingle',
                 'items'      => [
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.language',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.language',
                         'value' => 'language',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.country',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.country',
                         'value' => 'country',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.region',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.region',
                         'value' => 'region',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.label',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.label',
                         'value' => 'label',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.labelType',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.labelType',
                         'value' => 'labelType',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.classificationEntry',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.classificationEntry',
                         'value' => 'classificationEntry',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.classificationSense',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.classificationSense',
                         'value' => 'classificationSense',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.relationType',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.relationType',
                         'value' => 'relationType',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.memberRole',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.memberRole',
                         'value' => 'memberRole',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.sourceIdentity',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.sourceIdentity',
                         'value' => 'sourceIdentity',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.partOfSpeech',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.partOfSpeech',
                         'value' => 'partOfSpeech',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.transcriptionScheme',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.transcriptionScheme',
                         'value' => 'transcriptionScheme',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.inflectedForm',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.inflectedForm',
                         'value' => 'inflectedForm',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.definitionType',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.definitionType',
                         'value' => 'definitionType',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.frequencyType',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.frequencyType',
                         'value' => 'frequencyType',
                     ],
                 ],
@@ -233,8 +233,8 @@ return [
             ],
         ],
         'description' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.description',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.description.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.description',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.description.description',
             'config'      => [
                 'type' => 'text',
                 'cols' => 40,
@@ -244,11 +244,11 @@ return [
             ],
         ],
         'child' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.child',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.child.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.child',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.child.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'appearance'          => [
@@ -267,11 +267,11 @@ return [
                             'config' => [
                                 'items' => [
                                     [
-                                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.classificationEntry',
+                                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.classificationEntry',
                                         'value' => 'classificationEntry',
                                     ],
                                     [
-                                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.type.classificationSense',
+                                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.type.classificationSense',
                                         'value' => 'classificationSense',
                                     ],
                                 ],
@@ -282,11 +282,11 @@ return [
             ],
         ],
         'sameAs' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.sameAs',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.sameAs.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.sameAs',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.sameAs.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dalex_domain_model_same_as',
+                'foreign_table'       => 'tx_chflex_domain_model_same_as',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'appearance'          => [
@@ -302,15 +302,15 @@ return [
             ],
         ],
         'forPartOfSpeech' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.forPartOfSpeech',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.forPartOfSpeech.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.forPartOfSpeech',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.forPartOfSpeech.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'partOfSpeech\'',
-                'MM'                  => 'tx_dalex_domain_model_tag_tag_forpartofspeech_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'partOfSpeech\'',
+                'MM'                  => 'tx_chflex_domain_model_tag_tag_forpartofspeech_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [
@@ -327,37 +327,37 @@ return [
             ],
         ],
         'scope' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.scope',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.scope.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.scope',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.scope.description',
             'config'      => [
                 'type'       => 'select',
                 'renderType' => 'selectSingle',
                 'items'      => [
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.scope.any',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.scope.any',
                         'value' => 'any',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.scope.sameResource',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.scope.sameResource',
                         'value' => 'sameResource',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.scope.sameEntry',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.scope.sameEntry',
                         'value' => 'sameEntry',
                     ],
                 ],
             ],
         ],
         'memberRole' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.memberRole',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.memberRole.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.memberRole',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.memberRole.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'memberRole\'',
-                'MM'                  => 'tx_dalex_domain_model_tag_tag_memberrole_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'memberRole\'',
+                'MM'                  => 'tx_chflex_domain_model_tag_tag_memberrole_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [
@@ -374,93 +374,93 @@ return [
             ],
         ],
         'memberType' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.memberType',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.memberType.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.memberType',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.memberType.description',
             'config'      => [
                 'type'       => 'select',
                 'renderType' => 'selectSingle',
                 'items'      => [
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.memberType.any',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.memberType.any',
                         'value' => 'any',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.memberType.entry',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.memberType.entry',
                         'value' => 'entry',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.memberType.sense',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.memberType.sense',
                         'value' => 'sense',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.memberType.encyclopediaEntry',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.memberType.encyclopediaEntry',
                         'value' => 'encyclopediaEntry',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.memberType.glossaryEntry',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.memberType.glossaryEntry',
                         'value' => 'glossaryEntry',
                     ],
                 ],
             ],
         ],
         'labelType' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.labelType',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.labelType.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.labelType',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.labelType.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'labelType\'',
-                'MM'                  => 'tx_dalex_domain_model_tag_tag_labeltype_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'labelType\'',
+                'MM'                  => 'tx_chflex_domain_model_tag_tag_labeltype_mm',
             ],
         ],
         'min' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.min',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.min.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.min',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.min.description',
             'config'      => [
                 'type'       => 'number',
             ],
         ],
         'max' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.max',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.max.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.max',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.max.description',
             'config'      => [
                 'type'       => 'number',
             ],
         ],
         'action' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.action',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.action.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.action',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.action.description',
             'config'      => [
                 'type'       => 'select',
                 'renderType' => 'selectSingle',
                 'items'      => [
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.action.embed',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.action.embed',
                         'value' => 'embed',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.action.navigate',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.action.navigate',
                         'value' => 'navigate',
                     ],
                     [
-                        'label' => 'LLL:EXT:da_map/Resources/Private/Language/locallang.xlf:database.tag.action.none',
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.action.none',
                         'value' => 'none',
                     ],
                 ],
             ],
         ],
         'asForPartOfSpeechOfTag' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asForPartOfSpeechOfTag',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asForPartOfSpeechOfTag.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asForPartOfSpeechOfTag',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asForPartOfSpeechOfTag.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'label\'',
-                'MM'                  => 'tx_dalex_domain_model_tag_tag_forpartofspeech_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'label\'',
+                'MM'                  => 'tx_chflex_domain_model_tag_tag_forpartofspeech_mm',
                 'MM_opposite_field'   => 'forPartOfSpeech',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -478,15 +478,15 @@ return [
             ],
         ],
         'asMemberRoleOfTag' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asMemberRoleOfTag',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asMemberRoleOfTag.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asMemberRoleOfTag',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asMemberRoleOfTag.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'relationType\'',
-                'MM'                  => 'tx_dalex_domain_model_tag_tag_memberrole_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'relationType\'',
+                'MM'                  => 'tx_chflex_domain_model_tag_tag_memberrole_mm',
                 'MM_opposite_field'   => 'memberRole',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -504,14 +504,14 @@ return [
             ],
         ],
         'asLabelOfEntry' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfEntry',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfEntry.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfEntry',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfEntry.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_entry',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_entry}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_entry_tag_label_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_entry}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_entry_tag_label_mm',
                 'MM_opposite_field'   => 'label',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -529,14 +529,14 @@ return [
             ],
         ],
         'asLabelOfContributor' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfContributor',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfContributor.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfContributor',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfContributor.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_contributor',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_contributor}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_contributor_tag_label_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_contributor',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_contributor}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_contributor_tag_label_mm',
                 'MM_opposite_field'   => 'label',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -554,14 +554,14 @@ return [
             ],
         ],
         'asLabelOfSense' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfSense',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfSense.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfSense',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfSense.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_sense',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_sense}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_sense_tag_label_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_sense',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_sense}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_sense_tag_label_mm',
                 'MM_opposite_field'   => 'label',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -579,14 +579,14 @@ return [
             ],
         ],
         'asLabelOfExample' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfExample',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfExample.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfExample',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfExample.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_example',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_example}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_example_tag_label_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_example',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_example}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_example_tag_label_mm',
                 'MM_opposite_field'   => 'label',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -604,14 +604,14 @@ return [
             ],
         ],
         'asLabelOfInflectedForm' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfInflectedForm',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfInflectedForm.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfInflectedForm',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfInflectedForm.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_inflected_form',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_inflected_form}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_inflected_form_tag_label_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_inflected_form',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_inflected_form}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_inflected_form_tag_label_mm',
                 'MM_opposite_field'   => 'label',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -629,14 +629,14 @@ return [
             ],
         ],
         'asLabelOfPronunciation' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfPronunciation',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfPronunciation.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfPronunciation',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelOfPronunciation.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_pronunciation',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_pronunciation}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_pronunciation_tag_label_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_pronunciation',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_pronunciation}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_pronunciation_tag_label_mm',
                 'MM_opposite_field'   => 'label',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -654,14 +654,14 @@ return [
             ],
         ],
         'asCountryOrRegionOfFrequency' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asCountryOrRegionOfFrequency',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asCountryOrRegionOfFrequency.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asCountryOrRegionOfFrequency',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asCountryOrRegionOfFrequency.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_frequency',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_frequency}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_frequency_tag_countryorregion_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_frequency',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_frequency}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_frequency_tag_countryorregion_mm',
                 'MM_opposite_field'   => 'countryOrRegion',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -679,14 +679,14 @@ return [
             ],
         ],
         'asDistributionLanguageOfEntry' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asDistributionLanguageOfEntry',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asDistributionLanguageOfEntry.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asDistributionLanguageOfEntry',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asDistributionLanguageOfEntry.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_entry',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_entry}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_entry_tag_distributionlanguage_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_entry}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_entry_tag_distributionlanguage_mm',
                 'MM_opposite_field'   => 'distributionLanguage',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -704,14 +704,14 @@ return [
             ],
         ],
         'asDistributionCountryOfEntry' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asDistributionCountryOfEntry',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asDistributionCountryOfEntry.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asDistributionCountryOfEntry',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asDistributionCountryOfEntry.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_entry',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_entry}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_entry_tag_distributioncountry_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_entry}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_entry_tag_distributioncountry_mm',
                 'MM_opposite_field'   => 'distributionCountry',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -729,14 +729,14 @@ return [
             ],
         ],
         'asDistributionRegionOfEntry' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asDistributionRegionOfEntry',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asDistributionRegionOfEntry.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asDistributionRegionOfEntry',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asDistributionRegionOfEntry.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_entry',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_entry}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_entry_tag_distributionregion_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_entry}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_entry_tag_distributionregion_mm',
                 'MM_opposite_field'   => 'distributionRegion',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -754,15 +754,15 @@ return [
             ],
         ],
         'asLabelTypeOfTag' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelTypeOfTag',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelTypeOfTag.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelTypeOfTag',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asLabelTypeOfTag.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'label\'',
-                'MM'                  => 'tx_dalex_domain_model_tag_tag_labeltype_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'label\'',
+                'MM'                  => 'tx_chflex_domain_model_tag_tag_labeltype_mm',
                 'MM_opposite_field'   => 'labelType',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -780,14 +780,14 @@ return [
             ],
         ],
         'asTypeOfDefinition' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfDefinition',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfDefinition.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfDefinition',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfDefinition.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_definition',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_definition}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_definition_tag_definitiontype_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_definition',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_definition}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_definition_tag_definitiontype_mm',
                 'MM_opposite_field'   => 'definitionType',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -805,14 +805,14 @@ return [
             ],
         ],
         'asTypeOfInflectedForm' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfInflectedForm',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfInflectedForm.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfInflectedForm',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfInflectedForm.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_inflected_form',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_inflected_form}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_inflected_form_tag_inflectiontype_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_inflected_form',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_inflected_form}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_inflected_form_tag_inflectiontype_mm',
                 'MM_opposite_field'   => 'inflectionType',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -830,14 +830,14 @@ return [
             ],
         ],
         'asTypeOfFrequency' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfFrequency',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfFrequency.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfFrequency',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfFrequency.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_frequency',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_frequency}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_frequency_tag_type_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_frequency',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_frequency}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_frequency_tag_type_mm',
                 'MM_opposite_field'   => 'type',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -855,14 +855,14 @@ return [
             ],
         ],
         'asTypeOfRelation' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfRelation',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfRelation.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfRelation',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asTypeOfRelation.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_relation}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_relation_tag_type_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_relation',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_relation}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_relation_tag_type_mm',
                 'MM_opposite_field'   => 'type',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -880,14 +880,14 @@ return [
             ],
         ],
         'asSchemeOfTranscription' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asSchemeOfTranscription',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asSchemeOfTranscription.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asSchemeOfTranscription',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asSchemeOfTranscription.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_transcription',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_transcription}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_transcription_tag_scheme_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_transcription',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_transcription}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_transcription_tag_scheme_mm',
                 'MM_opposite_field'   => 'scheme',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -905,14 +905,14 @@ return [
             ],
         ],
         'asSourceIdentityOfFrequency' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asSourceIdentityOfFrequency',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asSourceIdentityOfFrequency.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asSourceIdentityOfFrequency',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asSourceIdentityOfFrequency.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_frequency',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_frequency}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_frequency_tag_sourceidentity_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_frequency',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_frequency}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_frequency_tag_sourceidentity_mm',
                 'MM_opposite_field'   => 'sourceIdentity',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -930,14 +930,14 @@ return [
             ],
         ],
         'asSourceIdentityOfExample' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asSourceIdentityOfExample',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asSourceIdentityOfExample.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asSourceIdentityOfExample',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asSourceIdentityOfExample.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_example',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_example}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_example_tag_sourceidentity_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_example',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_example}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_example_tag_sourceidentity_mm',
                 'MM_opposite_field'   => 'sourceIdentity',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -955,14 +955,14 @@ return [
             ],
         ],
         'asPartOfSpeechOfEntry' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asPartOfSpeechOfEntry',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asPartOfSpeechOfEntry.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asPartOfSpeechOfEntry',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asPartOfSpeechOfEntry.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_entry',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_entry}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_entry_tag_partofspeech_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_entry}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_entry_tag_partofspeech_mm',
                 'MM_opposite_field'   => 'partOfSpeech',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -980,14 +980,14 @@ return [
             ],
         ],
         'asRoleOfMember' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asRoleOfMember',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asRoleOfMember.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asRoleOfMember',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asRoleOfMember.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_member',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_member}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_member_tag_role_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_member',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_member}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_member_tag_role_mm',
                 'MM_opposite_field'   => 'role',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -1005,14 +1005,14 @@ return [
             ],
         ],
         'asClassificationOfEntry' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asClassificationOfEntry',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asClassificationOfEntry.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asClassificationOfEntry',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asClassificationOfEntry.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_entry',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_entry}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_entry_tag_classification_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_entry}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_entry_tag_classification_mm',
                 'MM_opposite_field'   => 'classification',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -1030,14 +1030,14 @@ return [
             ],
         ],
         'asClassificationOfSense' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asClassificationOfSense',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.asClassificationOfSense.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asClassificationOfSense',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.asClassificationOfSense.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_sense',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_sense}.{#pid}=###CURRENT_PID###',
-                'MM'                  => 'tx_dalex_domain_model_sense_tag_classification_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_sense',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_sense}.{#pid}=###CURRENT_PID###',
+                'MM'                  => 'tx_chflex_domain_model_sense_tag_classification_mm',
                 'MM_opposite_field'   => 'classification',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
@@ -1075,67 +1075,67 @@ return [
         ],
         'language' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asDistributionLanguageOfEntry,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asDistributionLanguageOfEntry,',
         ],
         'country' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asCountryOrRegionOfFrequency,asDistributionCountryOfEntry,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asCountryOrRegionOfFrequency,asDistributionCountryOfEntry,',
         ],
         'region' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asCountryOrRegionOfFrequency,asDistributionRegionOfEntry,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asCountryOrRegionOfFrequency,asDistributionRegionOfEntry,',
         ],
         'label' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.constraints,forPartOfSpeech,labelType,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asLabelOfEntry,asLabelOfContributor,asLabelOfSense,asLabelOfExample,asLabelOfInflectedForm,asLabelOfPronunciation,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.constraints,forPartOfSpeech,labelType,
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asLabelOfEntry,asLabelOfContributor,asLabelOfSense,asLabelOfExample,asLabelOfInflectedForm,asLabelOfPronunciation,',
         ],
         'labelType' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asLabelTypeOfTag,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asLabelTypeOfTag,',
         ],
         'classificationEntry' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,child,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asClassificationOfEntry,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asClassificationOfEntry,',
         ],
         'classificationSense' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,child,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asClassificationOfSense,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asClassificationOfSense,',
         ],
         'relationType' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.constraints,scope,memberRole,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asTypeOfRelation,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.constraints,scope,memberRole,
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asTypeOfRelation,',
         ],
         'memberRole' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.constraints,memberType,minMax,action,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asMemberRoleOfTag,asRoleOfMember,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.constraints,memberType,minMax,action,
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asMemberRoleOfTag,asRoleOfMember,',
         ],
         'sourceIdentity' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asSourceIdentityOfFrequency,asSourceIdentityOfExample,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asSourceIdentityOfFrequency,asSourceIdentityOfExample,',
         ],
         'partOfSpeech' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asPartOfSpeechOfEntry,asForPartOfSpeechOfTag,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asPartOfSpeechOfEntry,asForPartOfSpeechOfTag,',
         ],
         'transcriptionScheme' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asSchemeOfTranscription,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asSchemeOfTranscription,',
         ],
         'inflectedForm' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.constraints,forPartOfSpeech,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asTypeOfInflectedForm,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.constraints,forPartOfSpeech,
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asTypeOfInflectedForm,',
         ],
         'definitionType' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asTypeOfDefinition,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asTypeOfDefinition,',
         ],
         'frequencyType' => [
             'showitem' => 'hiddenParentId,idUuid,textType,description,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asTypeOfFrequency,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.tag.usage,asTypeOfFrequency,',
         ],
     ],
 ];

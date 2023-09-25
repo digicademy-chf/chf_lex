@@ -1,6 +1,6 @@
 <?php
 
-# This file is part of the extension DA Lex for TYPO3.
+# This file is part of the extension CHF Lex for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
@@ -16,7 +16,7 @@
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource',
+        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource',
         'label'                    => 'title',
         'label_alt'                => 'language,uri',
         'descriptionColumn'        => 'description',
@@ -26,7 +26,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'title ASC,language ASC,uri ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:da_lex/Resources/Public/Icons/LexicographicResource.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/LexicographicResource.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
@@ -100,9 +100,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_dalex_domain_model_lexicographic_resource',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_lexicographic_resource}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table'       => 'tx_chflex_domain_model_lexicographic_resource',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_lexicographic_resource}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
         ],
@@ -118,8 +118,8 @@ return [
             ],
         ],
         'title' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.title',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.title.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.title',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.title.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -128,16 +128,16 @@ return [
             ],
         ],
         'language' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.language',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.language.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.language',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.language.description',
             'config'      => [
                 'type'     => 'language',
                 'required' => true,
             ],
         ],
         'description' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.description',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.description.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.description',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.description.description',
             'config'      => [
                 'type' => 'text',
                 'cols' => 40,
@@ -147,8 +147,8 @@ return [
             ],
         ],
         'uri' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.uri',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.uri.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.uri',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.uri.description',
             'config' => [
                 'type'           => 'link',
                 'allowedTypes'   => ['page', 'url', 'record'],
@@ -163,11 +163,11 @@ return [
             ],
         ],
         'sameAs' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.sameAs',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.sameAs.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.sameAs',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.sameAs.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dalex_domain_model_same_as',
+                'foreign_table'       => 'tx_chflex_domain_model_same_as',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'appearance'          => [
@@ -183,11 +183,11 @@ return [
             ],
         ],
         'entry' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.entry',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.entry.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.entry',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.entry.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dalex_domain_model_entry',
+                'foreign_table'       => 'tx_chflex_domain_model_entry',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'foreign_sortby'      => 'sorting',
@@ -204,11 +204,11 @@ return [
             ],
         ],
         'contributor' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.contributor',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.contributor.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.contributor',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.contributor.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dalex_domain_model_contributor',
+                'foreign_table'       => 'tx_chflex_domain_model_contributor',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'foreign_sortby'      => 'sorting',
@@ -225,11 +225,11 @@ return [
             ],
         ],
         'tag' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.tag',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.tag.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.tag',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.tag.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'foreign_sortby'      => 'sorting',
@@ -246,11 +246,11 @@ return [
             ],
         ],
         'relation' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.relation',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.relation.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.relation',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.relation.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dalex_domain_model_relation',
+                'foreign_table'       => 'tx_chflex_domain_model_relation',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'foreign_sortby'      => 'sorting',
@@ -275,7 +275,7 @@ return [
     'types' => [
         '0' => [
             'showitem' => 'hidden,titleLanguage,description,uri,sameAs,
-            --div--;LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.content,entry,contributor,tag,relation,',
+            --div--;LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.lexicographicResource.content,entry,contributor,tag,relation,',
         ],
     ],
 ];

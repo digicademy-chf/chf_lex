@@ -20,4 +20,4 @@ editor:
 
 # Support for TEI annotations
   importModules:
-    - '@digicademy/da-lex/ckeditor-tei-elements.js'
+    - '@digicademy/chf_lex/ckeditor-tei-annotations.js'

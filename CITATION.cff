@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: DA Lex
+title: CHF Lex
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
@@ -10,21 +10,24 @@ authors:
     email: jonatan.steller@adwmainz.de
     affiliation: Academy of Sciences and Literature Mainz
     orcid: 'https://orcid.org/0000-0002-5101-5275'
-  - name: "DA Lex contributors"
+  - name: "CHF Lex contributors"
 repository-code: >-
-  https://github.com/digicademy/da-lex
+  https://github.com/digicademy-chf/chf_lex
 abstract: >-
   This TYPO3 extension for lexicographic resources
-  implements the DMLex data model, version 1.0 WD1. It
-  includes the two official modules Controlled Vocabulary
-  and Linking, as well as a custom Editorial module and
-  in-line annotations. In addition to the data model, the
-  extension also provides extensible TEI Lex-0 and OntoLex
-  Lemon serialisations provided through a REST endpoint
-  based on a specification from the EU-funded Elexis
-  project. In addition to the focus on dictionary entries,
-  the extension also provides encyclopedic articles and
-  glossary entries as additional data types.
+  implements the DMLex data model, version 1.0 WD1, as part
+  of the Cultural Heritage Framework (CHF). It includes the
+  two official modules Controlled Vocabulary and Linking,
+  as well as a custom Editorial module and in-line
+  annotations. Other additions are intended to make it work
+  better for dictionaries with a historical component. In
+  addition to the data model itself, the extension also
+  provides TEI Lex-0 and OntoLex Lemon serialisations
+  designed so they can be provided through REST endpoints
+  like the one specified by the EU-funded Elexis project.
+  In addition to dictionary entries, the extension also
+  allows for encyclopedic entries and works well with
+  chf_glossary to further integrate glossary entries.
 keywords:
   - TYPO3
   - Lexicographic data
@@ -37,4 +40,4 @@ keywords:
   - OntoLex Lemon
 license: GPL 3
 version: 0.5.0
-date-released: '2023-08-09'
+date-released: '2023-09-22'

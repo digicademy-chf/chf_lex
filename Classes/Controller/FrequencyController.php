@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-# This file is part of the extension DA Lex for TYPO3.
+# This file is part of the extension CHF Lex for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
 
 
-namespace Digicademy\DALex\Controller;
+namespace Digicademy\CHFLex\Controller;
 
 use Psr\Http\Message\ResponseInterface;
-use Digicademy\DALex\Domain\Model\Frequency;
-use Digicademy\DALex\Domain\Repository\FrequencyRepository;
+use Digicademy\CHFLex\Domain\Model\Frequency;
+use Digicademy\CHFLex\Domain\Repository\FrequencyRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**

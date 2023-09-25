@@ -1,6 +1,6 @@
 <?php
 
-# This file is part of the extension DA Lex for TYPO3.
+# This file is part of the extension CHF Lex for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
@@ -16,7 +16,7 @@
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency',
+        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency',
         'label'                    => 'tokens',
         'label_alt'                => 'tokensSecondary',
         'tstamp'                   => 'tstamp',
@@ -25,7 +25,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'tokens ASC,tokensSecondary ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:da_lex/Resources/Public/Icons/Frequency.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/Frequency.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
@@ -99,9 +99,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_dalex_domain_model_frequency',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_frequency}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_frequency}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table'       => 'tx_chflex_domain_model_frequency',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_frequency}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_frequency}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
         ],
@@ -117,47 +117,47 @@ return [
             ],
         ],
         'type' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.type',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.type.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.type',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.type.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'frequencyType\'',
-                'MM'                  => 'tx_dalex_domain_model_frequency_tag_type_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'frequencyType\'',
+                'MM'                  => 'tx_chflex_domain_model_frequency_tag_type_mm',
             ],
         ],
         'tokens' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.tokens',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.tokens.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.tokens',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.tokens.description',
             'config'      => [
                 'type'     => 'number',
                 'required' => true,
             ],
         ],
         'tokensSecondary' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.tokensSecondary',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.tokensSecondary.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.tokensSecondary',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.tokensSecondary.description',
             'config'      => [
                 'type'     => 'number',
             ],
         ],
         'countryOrRegion' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.countryOrRegion',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.countryOrRegion.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.countryOrRegion',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.countryOrRegion.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND ({#tx_dalex_domain_model_tag}.{#type}=\'country\' OR {#tx_dalex_domain_model_tag}.{#type}=\'region\')',
-                'MM'                  => 'tx_dalex_domain_model_frequency_tag_countryorregion_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND ({#tx_chflex_domain_model_tag}.{#type}=\'country\' OR {#tx_chflex_domain_model_tag}.{#type}=\'region\')',
+                'MM'                  => 'tx_chflex_domain_model_frequency_tag_countryorregion_mm',
             ],
         ],
         'dateCirca' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateCirca',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateCirca.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateCirca',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateCirca.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -166,8 +166,8 @@ return [
             ],
         ],
         'dateStart' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateStart',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateStart.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateStart',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateStart.description',
             'config'      => [
                 'type'    => 'datetime',
                 'format'  => 'date',
@@ -176,8 +176,8 @@ return [
             ],
         ],
         'dateEnd' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateEnd',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateEnd.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateEnd',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateEnd.description',
             'config'      => [
                 'type'    => 'datetime',
                 'format'  => 'date',
@@ -186,20 +186,20 @@ return [
             ],
         ],
         'sourceIdentity' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.sourceIdentity',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.sourceIdentity.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.sourceIdentity',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.sourceIdentity.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'sourceIdentity\'',
-                'MM'                  => 'tx_dalex_domain_model_frequency_tag_sourceidentity_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'sourceIdentity\'',
+                'MM'                  => 'tx_chflex_domain_model_frequency_tag_sourceidentity_mm',
             ],
         ],
         'sourceElaboration' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.sourceElaboration',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.sourceElaboration.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.sourceElaboration',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.sourceElaboration.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -208,11 +208,11 @@ return [
             ],
         ],
         'source' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.source',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.source.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.source',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.source.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dabib_domain_model_reference',
+                'foreign_table'       => 'tx_chfbib_domain_model_reference',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'appearance'          => [
@@ -228,13 +228,13 @@ return [
             ],
         ],
         'geodata' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.geodata',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.geodata.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.geodata',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.geodata.description',
             'config'      => [
                 'type'          => 'group',
-                'allowed'       => 'tx_damap_domain_model_feature',
-                'foreign_table' => 'tx_damap_domain_model_feature', // Needed by Extbase
-                'MM'            => 'tx_dalex_domain_model_frequency_feature_geodata_mm',
+                'allowed'       => 'tx_chfmap_domain_model_feature',
+                'foreign_table' => 'tx_chfmap_domain_model_feature', // Needed by Extbase
+                'MM'            => 'tx_chflex_domain_model_frequency_feature_geodata_mm',
                 'maxitems'      => 1,
                 'minitems'      => 0,
                 'size'          => 1,

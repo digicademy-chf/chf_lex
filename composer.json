@@ -1,7 +1,7 @@
 {
-    "name": "digicademy/da-lex",
+    "name": "digicademy/chf_lex",
     "type": "typo3-cms-extension",
-    "description": "Create and manage lexicographic data in TYPO3",
+    "description": "Create and manage lexicographic data in TYPO3 as part of the CHF",
     "authors": [
         {
             "name": "Jonatan Jalle Steller",
@@ -10,15 +10,15 @@
             "homepage": "https://www.adwmainz.de"
         },
         {
-            "name": "DA Lex contributors"
+            "name": "CHF Lex contributors"
         }
     ],
     "license": "GPL-2.0-or-later",
-    "homepage": "https://extensions.typo3.org/extension/da-lex",
+    "homepage": "https://extensions.typo3.org/extension/chf_lex",
     "support": {
-        "issues": "https://github.com/digicademy/da-lex/issues",
-        "source": "https://github.com/digicademy/da-lex",
-        "docs": "https://docs.typo3.org/p/da-lex/main/en-us"
+        "issues": "https://github.com/digicademy-chf/chf_lex/issues",
+        "source": "https://github.com/digicademy-chf/chf_lex",
+        "docs": "https://digicademy-chf.github.io/chf_lex"
     },
     "keywords": [
         "TYPO3",
@@ -35,12 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Digicademy\\DALex\\": "Classes/"
+            "Digicademy\\CHFLex\\": "Classes/"
         }
     },
     "extra": {
         "typo3/cms": {
-            "extension-key": "da_lex"
+            "extension-key": "chf_lex"
         }
     }
 }

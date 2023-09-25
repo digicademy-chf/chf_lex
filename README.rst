@@ -10,25 +10,27 @@
     :alt: License: GPL v3
     :target: https://www.gnu.org/licenses/gpl-3.0
 
-======
-DA Lex
-======
+=======
+CHF Lex
+=======
 
 This TYPO3 extension for lexicographic resources implements the `DMLex data
-model <https://www.oasis-open.org/committees/lexidma>`__, version 1.0 WD1. It
-includes the two official modules Controlled Vocabulary and Linking, as well
-as a custom Editorial module and in-line annotations. In addition to the data
-model, the extension also provides extensible `TEI Lex-0
+model <https://www.oasis-open.org/committees/lexidma>`__, version 1.0 WD1, as
+part of the Cultural Heritage Framework (CHF). It includes the two official
+modules Controlled Vocabulary and Linking, as well as a custom Editorial
+module and in-line annotations. Other additions are intended to make it work
+better for dictionaries with a historical component. In addition to the data
+model itself, the extension also provides `TEI Lex-0
 <https://dariah-eric.github.io/lexicalresources/pages/TEILex0/TEILex0.html>`__
 and `OntoLex Lemon <https://www.w3.org/2019/09/lexicog>`__ serialisations
-provided through a REST endpoint based on a specification from the EU-funded
-Elexis project. In addition to the focus on dictionary entries, the extension
-also provides encyclopedic articles and glossary entries as additional data
-types.
+designed so they can be provided through REST endpoints like the one
+specified by the EU-funded Elexis project. In addition to dictionary entries,
+the extension also allows for encyclopedic entries and works well with
+``chf_glossary`` to further integrate glossary entries.
 
-:Repository:  https://github.com/digicademy/da-lex
-:Read online: https://docs.typo3.org/p/da-lex/main/en-us
-:TER:         https://extensions.typo3.org/extension/da-lex
+:Repository:  https://github.com/digicademy-chf/chf_lex
+:Read online: https://digicademy-chf.github.io/chf_lex
+:TER:         https://extensions.typo3.org/extension/chf_lex
 
 Roadmap
 =======

@@ -1,6 +1,6 @@
 <?php
 
-# This file is part of the extension DA Lex for TYPO3.
+# This file is part of the extension CHF Lex for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
@@ -16,7 +16,7 @@
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example',
+        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example',
         'label'                    => 'text',
         'label_alt'                => 'dateCirca,locationLabel',
         'tstamp'                   => 'tstamp',
@@ -25,7 +25,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'text ASC,dateCirca ASC,locationLabel ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:da_lex/Resources/Public/Icons/Example.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/Example.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
@@ -99,9 +99,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_dalex_domain_model_example',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_example}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_example}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table'       => 'tx_chflex_domain_model_example',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_example}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_example}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
         ],
@@ -117,18 +117,18 @@ return [
             ],
         ],
         'text' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.text',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.text.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.text',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.text.description',
             'config'      => [
                 'type'                  => 'text',
                 'enableRichtext'        => true,
-                'richtextConfiguration' => 'da_lex_text',
+                'richtextConfiguration' => 'chf_lex_text',
                 'required'              => true,
             ],
         ],
         'dateCirca' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.dateCirca',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.dateCirca.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.dateCirca',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.dateCirca.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -137,8 +137,8 @@ return [
             ],
         ],
         'dateStart' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.dateStart',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.dateStart.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.dateStart',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.dateStart.description',
             'config'      => [
                 'type'    => 'datetime',
                 'format'  => 'date',
@@ -147,8 +147,8 @@ return [
             ],
         ],
         'dateEnd' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.dateEnd',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.dateEnd.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.dateEnd',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.dateEnd.description',
             'config'      => [
                 'type'    => 'datetime',
                 'format'  => 'date',
@@ -157,8 +157,8 @@ return [
             ],
         ],
         'locationLabel' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.locationLabel',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.locationLab.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.locationLabel',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.locationLab.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -167,13 +167,13 @@ return [
             ],
         ],
         'locationGeodata' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.locationGeodata',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.frequency.locationGeodata.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.locationGeodata',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.locationGeodata.description',
             'config'      => [
                 'type'          => 'group',
-                'allowed'       => 'tx_damap_domain_model_feature',
-                'foreign_table' => 'tx_damap_domain_model_feature', // Needed by Extbase
-                'MM'            => 'tx_dalex_domain_model_example_feature_locationgeodata_mm',
+                'allowed'       => 'tx_chfmap_domain_model_feature',
+                'foreign_table' => 'tx_chfmap_domain_model_feature', // Needed by Extbase
+                'MM'            => 'tx_chflex_domain_model_example_feature_locationgeodata_mm',
                 'maxitems'      => 1,
                 'minitems'      => 0,
                 'size'          => 1,
@@ -191,8 +191,8 @@ return [
             ],
         ],
         'soundFile' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.soundFile',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.soundFile.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.soundFile',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.soundFile.description',
             'config' => [
                 'type'     => 'file',
                 'maxitems' => 1,
@@ -200,20 +200,20 @@ return [
             ],
         ],
         'sourceIdentity' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.sourceIdentity',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.sourceIdentity.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.sourceIdentity',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.sourceIdentity.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'sourceIdentity\'',
-                'MM'                  => 'tx_dalex_domain_model_example_tag_sourceidentity_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'sourceIdentity\'',
+                'MM'                  => 'tx_chflex_domain_model_example_tag_sourceidentity_mm',
             ],
         ],
         'sourceElaboration' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.sourceElaboration',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.sourceElaboration.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.sourceElaboration',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.sourceElaboration.description',
             'config'      => [
                 'type' => 'input',
                 'size' => 40,
@@ -222,11 +222,11 @@ return [
             ],
         ],
         'source' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.source',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.source.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.source',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.source.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dabib_domain_model_reference',
+                'foreign_table'       => 'tx_chfbib_domain_model_reference',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'appearance'          => [
@@ -242,15 +242,15 @@ return [
             ],
         ],
         'label' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.label',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.example.label.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.label',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.label.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'label\'',
-                'MM'                  => 'tx_dalex_domain_model_example_tag_label_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'label\'',
+                'MM'                  => 'tx_chflex_domain_model_example_tag_label_mm',
                 'size'                => 5,
                 'autoSizeMax'         => 10,
                 'fieldControl'        => [

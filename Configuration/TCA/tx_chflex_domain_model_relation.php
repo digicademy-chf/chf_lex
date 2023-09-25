@@ -1,6 +1,6 @@
 <?php
 
-# This file is part of the extension DA Lex for TYPO3.
+# This file is part of the extension CHF Lex for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
@@ -16,7 +16,7 @@
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.relation',
+        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.relation',
         'label'                    => 'description',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
@@ -24,7 +24,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'description ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:da_lex/Resources/Public/Icons/Relation.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/Relation.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
@@ -98,9 +98,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_dalex_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_relation}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_relation}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table'       => 'tx_chflex_domain_model_relation',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_relation}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_relation}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
         ],
@@ -116,33 +116,33 @@ return [
             ],
         ],
         'parent_id' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.relation.parent_id',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.relation.parent_id.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.relation.parent_id',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.relation.parent_id.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dalex_domain_model_lexicographic_resource',
-                'foreign_table_where' => 'AND {#tx_dabib_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###',
+                'foreign_table'       => 'tx_chflex_domain_model_lexicographic_resource',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###',
                 'maxitems'            => 1,
                 'required'            => true,
             ],
         ],
         'type' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.relation.type',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.relation.type.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.relation.type',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.relation.type.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'relationType\'',
-                'MM'                  => 'tx_dalex_domain_model_relation_tag_type_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'relationType\'',
+                'MM'                  => 'tx_chflex_domain_model_relation_tag_type_mm',
                 'required'            => true,
             ],
         ],
         'description' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.relation.description',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.relation.description.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.relation.description',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.relation.description.description',
             'config'      => [
                 'type' => 'text',
                 'cols' => 40,
@@ -152,11 +152,11 @@ return [
             ],
         ],
         'member' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.relation.member',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.relation.member.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.relation.member',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.relation.member.description',
             'config'      => [
                 'type'                => 'inline',
-                'foreign_table'       => 'tx_dalex_domain_model_member',
+                'foreign_table'       => 'tx_chflex_domain_model_member',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
                 'appearance'          => [

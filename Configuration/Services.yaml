@@ -4,6 +4,6 @@ services:
     autoconfigure: true
     public: false
 
-  Digicademy\DALex\:
+  Digicademy\CHFLex\:
     resource: '../Classes/*'
     exclude: '../Classes/Domain/Model/*'

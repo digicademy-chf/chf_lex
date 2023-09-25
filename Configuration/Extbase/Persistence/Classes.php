@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-# This file is part of the extension DA Lex for TYPO3.
+# This file is part of the extension CHF Lex for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
@@ -19,37 +19,37 @@ declare(strict_types=1);
  * https://docs.typo3.org/m/typo3/reference-coreapi/main/en-us/ExtensionArchitecture/Extbase/Reference/Domain/Persistence.html.
  */
 return [
-    Digicademy\DALex\Domain\Model\Content::class => [
+    Digicademy\CHFLex\Domain\Model\Content::class => [
         'tableName' => 'tt_content',
     ],
-    Digicademy\DALex\Domain\Model\AbstractEntry::class => [
-        'tableName'  => 'tx_damap_domain_model_entry',
+    Digicademy\CHFLex\Domain\Model\AbstractEntry::class => [
+        'tableName'  => 'tx_chflex_domain_model_entry',
         'recordType' => 'abstractEntry',
         'subclasses' => [
-            'entry'             => Digicademy\DAMap\Domain\Model\Entry::class,
-            'encyclopediaEntry' => Digicademy\DAMap\Domain\Model\EncyclopediaEntry::class,
-            'glossaryEntry'     => Digicademy\DAMap\Domain\Model\GlossaryEntry::class,
+            'entry'             => Digicademy\CHFLex\Domain\Model\Entry::class,
+            'encyclopediaEntry' => Digicademy\CHFLex\Domain\Model\EncyclopediaEntry::class,
+            'glossaryEntry'     => Digicademy\CHFLex\Domain\Model\GlossaryEntry::class,
         ]
     ],
-    Digicademy\DALex\Domain\Model\AbstractTag::class => [
-        'tableName'  => 'tx_damap_domain_model_tag',
+    Digicademy\CHFLex\Domain\Model\AbstractTag::class => [
+        'tableName'  => 'tx_chflex_domain_model_tag',
         'recordType' => 'abstractTag',
         'subclasses' => [
-            'language'            => Digicademy\DAMap\Domain\Model\LanguageTag::class,
-            'country'             => Digicademy\DAMap\Domain\Model\CountryTag::class,
-            'region'              => Digicademy\DAMap\Domain\Model\RegionTag::class,
-            'label'               => Digicademy\DAMap\Domain\Model\LabelTag::class,
-            'labelType'           => Digicademy\DAMap\Domain\Model\LabelTypeTag::class,
-            'classificationEntry' => Digicademy\DAMap\Domain\Model\ClassificationEntryTag::class,
-            'classificationSense' => Digicademy\DAMap\Domain\Model\ClassificationSenseTag::class,
-            'relationType'        => Digicademy\DAMap\Domain\Model\RelationTypeTag::class,
-            'memberRole'          => Digicademy\DAMap\Domain\Model\MemberRoleTag::class,
-            'sourceIdentity'      => Digicademy\DAMap\Domain\Model\SourceIdentityTag::class,
-            'partOfSpeech'        => Digicademy\DAMap\Domain\Model\PartOfSpeechTag::class,
-            'transcriptionScheme' => Digicademy\DAMap\Domain\Model\TranscriptionSchemeTag::class,
-            'inflectedForm'       => Digicademy\DAMap\Domain\Model\InflectedFormTag::class,
-            'definitionType'      => Digicademy\DAMap\Domain\Model\DefinitionTypeTag::class,
-            'frequencyType'       => Digicademy\DAMap\Domain\Model\FrequencyTypeTag::class,
+            'language'            => Digicademy\CHFLex\Domain\Model\LanguageTag::class,
+            'country'             => Digicademy\CHFLex\Domain\Model\CountryTag::class,
+            'region'              => Digicademy\CHFLex\Domain\Model\RegionTag::class,
+            'label'               => Digicademy\CHFLex\Domain\Model\LabelTag::class,
+            'labelType'           => Digicademy\CHFLex\Domain\Model\LabelTypeTag::class,
+            'classificationEntry' => Digicademy\CHFLex\Domain\Model\ClassificationEntryTag::class,
+            'classificationSense' => Digicademy\CHFLex\Domain\Model\ClassificationSenseTag::class,
+            'relationType'        => Digicademy\CHFLex\Domain\Model\RelationTypeTag::class,
+            'memberRole'          => Digicademy\CHFLex\Domain\Model\MemberRoleTag::class,
+            'sourceIdentity'      => Digicademy\CHFLex\Domain\Model\SourceIdentityTag::class,
+            'partOfSpeech'        => Digicademy\CHFLex\Domain\Model\PartOfSpeechTag::class,
+            'transcriptionScheme' => Digicademy\CHFLex\Domain\Model\TranscriptionSchemeTag::class,
+            'inflectedForm'       => Digicademy\CHFLex\Domain\Model\InflectedFormTag::class,
+            'definitionType'      => Digicademy\CHFLex\Domain\Model\DefinitionTypeTag::class,
+            'frequencyType'       => Digicademy\CHFLex\Domain\Model\FrequencyTypeTag::class,
         ]
     ],
 ];

@@ -1,13 +1,13 @@
 <?php
 
-# This file is part of the extension DA Lex for TYPO3.
+# This file is part of the extension CHF Lex for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
 
 
 /**
- * Transcription and its properties
+ * InflectedForm and its properties
  * 
  * Configuration of a database table and its editing interface in the
  * TYPO3 backend. This also serves as the basis for the Extbase
@@ -16,7 +16,7 @@
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.transcription',
+        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.inflectedForm',
         'label'                    => 'text',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
@@ -24,7 +24,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'text ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:da_lex/Resources/Public/Icons/Transcription.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/InflectedForm.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
@@ -98,9 +98,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_dalex_domain_model_transcription',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_transcription}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_transcription}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table'       => 'tx_chflex_domain_model_inflected_form',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_inflected_form}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_inflected_form}.{#sys_language_uid} IN (-1,0)',
                 'default'             => 0,
             ],
         ],
@@ -116,8 +116,8 @@ return [
             ],
         ],
         'text' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.transcription.text',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.transcription.text.description',
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.inflectedForm.text',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.inflectedForm.text.description',
             'config'      => [
                 'type'     => 'input',
                 'size'     => 40,
@@ -126,26 +126,72 @@ return [
                 'required' => true,
             ],
         ],
-        'scheme' => [
-            'label'       => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.transcription.scheme',
-            'description' => 'LLL:EXT:da_lex/Resources/Private/Language/locallang.xlf:database.transcription.scheme.description',
+        'inflectionType' => [
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.inflectedForm.inflectionType',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.inflectedForm.inflectionType.description',
             'config'      => [
                 'type'                => 'select',
                 'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_dalex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_dalex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_dalex_domain_model_tag}.{#type}=\'transcriptionScheme\'',
-                'MM'                  => 'tx_dalex_domain_model_transcription_tag_scheme_mm',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'inflectedForm\'',
+                'MM'                  => 'tx_chflex_domain_model_inflected_form_tag_inflectiontype_mm',
+            ],
+        ],
+        'pronunciation' => [
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.inflectedForm.pronunciation',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.inflectedForm.pronunciation.description',
+            'config'      => [
+                'type'                => 'inline',
+                'foreign_table'       => 'tx_chflex_domain_model_pronunciation',
+                'foreign_field'       => 'parent_id',
+                'foreign_table_field' => 'parent_table',
+                'appearance'          => [
+                    'collapseAll'                     => true,
+                    'expandSingle'                    => true,
+                    'newRecordLinkAddTitle'           => true,
+                    'levelLinksPosition'              => 'top',
+                    'useSortable'                     => true,
+                    'showPossibleLocalizationRecords' => true,
+                    'showAllLocalizationLink'         => true,
+                    'showSynchronizationLink'         => true,
+                ],
+            ],
+        ],
+        'label' => [
+            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.inflectedForm.label',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.inflectedForm.label.description',
+            'config'      => [
+                'type'                => 'select',
+                'renderType'          => 'selectMultipleSideBySide',
+                'foreign_table'       => 'tx_chflex_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'label\'',
+                'MM'                  => 'tx_chflex_domain_model_inflected_form_tag_label_mm',
+                'size'                => 5,
+                'autoSizeMax'         => 10,
+                'fieldControl'        => [
+                    'editPopup'  => [
+                        'disabled' => false,
+                    ],
+                    'addRecord'  => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
             ],
         ],
     ],
     'palettes' => [
-        'textScheme' => [
-            'showitem' => 'text,scheme,',
-        ],],
+        'textInflectionType' => [
+            'showitem' => 'text,inflectionType,',
+        ],
+    ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,textScheme,',
+            'showitem' => 'hidden,textInflectionType,pronunciation,label,',
         ],
     ],
 ];

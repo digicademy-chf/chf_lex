@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-# This file is part of the extension DA Lex for TYPO3.
+# This file is part of the extension CHF Lex for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
 
 
-namespace Digicademy\DALex\Domain\Validator;
+namespace Digicademy\CHFLex\Domain\Validator;
 
 use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
 use TYPO3\CMS\Extbase\Validation\Exception\InvalidValidationOptionsException;
@@ -37,17 +37,17 @@ final class StringOptionsValidator extends AbstractValidator
         // Check if allowed values only contain strings
         foreach($this->options['allowed'] as $allowed) {
             if (!is_string($allowed)) {
-                throw new InvalidValidationOptionsException($this->translateErrorMessage('validator.stringOptions.allowedStringInvalid', 'da-lex'), 1691677298);
+                throw new InvalidValidationOptionsException($this->translateErrorMessage('validator.stringOptions.allowedStringInvalid', 'chf_lex'), 1691677298);
             }
         }
 
         // Check if value is a string
         if (!is_string($value)) {
-            $this->addError($this->translateErrorMessage('validator.stringOptions.invalidString', 'da-lex'), 1691677428);
+            $this->addError($this->translateErrorMessage('validator.stringOptions.invalidString', 'chf_lex'), 1691677428);
 
         // Check if value is one of the allowed values
         } elseif (!in_array($value, $this->options['allowed'])) {
-            $this->addError($this->translateErrorMessage('validator.stringOptions.notAllowedValue', 'da-lex'), 1691677607);
+            $this->addError($this->translateErrorMessage('validator.stringOptions.notAllowedValue', 'chf_lex'), 1691677607);
         }
     }
 }
