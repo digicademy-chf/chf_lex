@@ -20,9 +20,9 @@ difficulty.
 An additional ``Contributor`` class is employed to name authors and editors of
 entries. A ``Frequency`` class may be attached to either an entry or a sense
 in order to provide the number of tokens from a specified dataset, and can be
-connected to a ``Feature`` class from the `DA Map
-<https://github.com/digicademy/da-map>`__ extension. Across the data model, a
-``Reference`` from the `DA Bib <https://github.com/digicademy/da-bib>`__
+connected to a ``Feature`` class from the `CHF Map
+<https://github.com/digicademy-chf/chf_map>`__ extension. Across the data model, a
+``Reference`` from the `CHF Bib <https://github.com/digicademy-chf/chf_bib>`__
 extension may be used to identify sources.
 
 The model does not have a separate class for headwords, which are simply

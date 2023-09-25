@@ -18,7 +18,7 @@ Install and config
     In a blank folder in your page tree, add a ``LexicographicResource``.
     Further data, such as entries, needs to be located in the same data folder.
     Each resource of this type ideally lives in its own data folder to keep
-    their record separate.
+    its records separate from other records of the same type.
 
 3.  Optionally add an import task
 
@@ -42,9 +42,3 @@ the label function built into the extension. You can add a ``Tag`` of type
 :guilabel:`Label` to your data folder and then select it in the entries,
 contributors, or relations you want it to apply to. You can then select the
 label in the plugin to display only those entries, contributors, or relations.
-
-..  attention::
-
-    The extension does not currently include a generic frontend template.
-
-    TBD

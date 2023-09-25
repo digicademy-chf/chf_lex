@@ -54,7 +54,7 @@ class Sense extends AbstractEntity
         'validator' => 'RegularExpression',
         'options'   => [
             'regularExpression' => '^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$',
-            'errorMessage'      => 'LLL:EXT:da_bib/Resources/Private/Language/locallang.xlf:validator.regularExpression.noUuid',
+            'errorMessage'      => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:validator.regularExpression.noUuid',
         ],
     ])]
     protected string $uuid = '';
