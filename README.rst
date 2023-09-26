@@ -37,26 +37,35 @@ Roadmap
 
 This is a pre-release version. The following steps are required for the software to move out of beta:
 
+**Version 0.6.0**
+
+- Move some classes/tables to CHF Base
+- Revise data model based on DMLex 1.0 WD1
+
 **Version 0.7.0**
 
 - TCA and model work as expected
-- Working frontend plugin
+- Frontend plugin and templates
 
 **Version 0.8.0**
 
-- Import of DFD data
-- Serialisation(s) of DFD data
-- Consider adding a generic search config
+- Import of *Namenforschung* data
+- Embedded metadata
 
 **Version 0.9.0**
 
-- Make import generic
-- Make serialisation(s) generic
+- First set of serialisations
+- Search configuration
 
-**Version 1.0.0**
+**Version 2.0.0**
+
+- Add API documentation
+
+**Version 2.1.0**
 
 - Add testing
-- Finish documentation
+- Generic import
+- Additional serialisations
 
 **Known issues**
 
