@@ -32,7 +32,10 @@
     ],
     "require": {
         "typo3/cms-core": "^12",
-        "typo3/cms-rte-ckeditor": "^12"
+        "typo3/cms-rte-ckeditor": "^12",
+        "digicademy/chf_base": "dev-main",
+        "digicademy/chf_bib": "dev-main",
+        "digicademy/chf_map": "dev-main"
     },
     "autoload": {
         "psr-4": {
