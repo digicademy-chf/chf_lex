@@ -11,8 +11,8 @@ declare(strict_types=1);
 namespace Digicademy\CHFLex\Domain\Model;
 
 use DateTime;
+use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 use Digicademy\CHFBib\Domain\Reference;
-use Digicademy\CHFLex\Domain\Validator\StringOptionsValidator;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
 use TYPO3\CMS\Extbase\Annotation\Validate;

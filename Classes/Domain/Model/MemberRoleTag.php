@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Domain\Model;
 
-use Digicademy\CHFLex\Domain\Validator\StringOptionsValidator;
+use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
