@@ -1449,19 +1449,6 @@
                 <source>List of memberships in a relation</source>
                 <target>Liste der Mitgliedschaften in Relationen</target>
             </trans-unit>
-            <!-- Validator: StringOptionsValidator -->
-            <trans-unit id="validator.stringOptions.validator.stringOptions.allowedStringInvalid" resname="validator.stringOptions.allowedStringInvalid" approved="yes">
-                <source>One of the allowed options is not a string in the StringOptionsValidator.</source>
-                <target>Eine der erlaubten Optionen im StringOptionsValidator ist kein String.</target>
-            </trans-unit>
-            <trans-unit id="validator.stringOptions.invalidString" resname="validator.stringOptions.invalidString" approved="yes">
-                <source>The given value was not a valid string.</source>
-                <target>Der Wert war kein richtiger String.</target>
-            </trans-unit>
-            <trans-unit id="validator.stringOptions.notAllowedValue" resname="validator.stringOptions.notAllowedValue" approved="yes">
-                <source>The given value was not in the list of allowed values.</source>
-                <target>Der Wert war nicht in der Liste erlaubter Werte.</target>
-            </trans-unit>
             <!-- Validator: RegularExpressionValidator -->
             <trans-unit id="validator.regularExpression.noUuid" resname="validator.regularExpression.noUuid" approved="yes">
                 <source>The given value was not a UUID.</source>

@@ -1091,16 +1091,6 @@
             <trans-unit id="database.entry.asMember.description" resname="database.entry.asMember.description">
                 <source>List of memberships in a relation</source>
             </trans-unit>
-            <!-- Validator: StringOptionsValidator -->
-            <trans-unit id="validator.stringOptions.allowedStringInvalid" resname="validator.stringOptions.allowedStringInvalid">
-                <source>One of the allowed options is not a string in the StringOptionsValidator.</source>
-            </trans-unit>
-            <trans-unit id="validator.stringOptions.invalidString" resname="validator.stringOptions.invalidString">
-                <source>The given value was not a valid string.</source>
-            </trans-unit>
-            <trans-unit id="validator.stringOptions.notAllowedValue" resname="validator.stringOptions.notAllowedValue">
-                <source>The given value was not in the list of allowed values.</source>
-            </trans-unit>
             <!-- Validator: RegularExpressionValidator -->
             <trans-unit id="validator.regularExpression.noUuid" resname="validator.regularExpression.noUuid">
                 <source>The given value was not a UUID.</source>
