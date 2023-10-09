@@ -131,6 +131,9 @@ return [
                 'foreign_table'       => 'tx_chflex_domain_model_transcription',
                 'foreign_field'       => 'parent_id',
                 'foreign_table_field' => 'parent_table',
+                'behaviour'           => [
+                     'allowLanguageSynchronization' => true
+                ],
                 'appearance'          => [
                     'collapseAll'                     => true,
                     'expandSingle'                    => true,
