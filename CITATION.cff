@@ -15,19 +15,19 @@ repository-code: >-
   https://github.com/digicademy-chf/chf_lex
 abstract: >-
   This TYPO3 extension for lexicographic resources
-  implements the DMLex data model, version 1.0 WD1, as part
-  of the Cultural Heritage Framework (CHF). It includes the
-  two official modules Controlled Vocabulary and Linking,
-  as well as a custom Editorial module and in-line
-  annotations. Other additions are intended to make it work
-  better for dictionaries with a historical component. In
-  addition to the data model itself, the extension also
-  provides TEI Lex-0 and OntoLex Lemon serialisations
-  designed so they can be provided through REST endpoints
-  like the one specified by the EU-funded Elexis project.
-  In addition to dictionary entries, the extension also
-  allows for encyclopedic entries and works well with
-  chf_glossary to further integrate glossary entries.
+  implements the DMLex data model, version 1.0 CSD01, as
+  part of the Cultural Heritage Framework (CHF). It
+  includes the two official modules Controlled Vocabulary
+  and Linking, as well as a custom Editorial module and
+  in-line annotations. Other additions are intended to make
+  it work better for dictionaries with a historical
+  component. In addition to the data model itself, the
+  extension also provides TEI Lex-0 and OntoLex Lemon
+  serialisations designed so they can be provided through
+  REST endpoints. In addition to dictionary entries, the
+  extension also allows for encyclopedic entries and works
+  well with chf_gloss to further integrate glossary
+  entries.
 keywords:
   - TYPO3
   - Lexicographic data
@@ -39,5 +39,5 @@ keywords:
   - TEI Lex-0
   - OntoLex Lemon
 license: GPL 3
-version: 0.5.0
-date-released: '2023-09-22'
+version: 0.6.0
+date-released: '2023-11-27'

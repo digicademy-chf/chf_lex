@@ -15,18 +15,17 @@ CHF Lex
 =======
 
 This TYPO3 extension for lexicographic resources implements the `DMLex data
-model <https://www.oasis-open.org/committees/lexidma>`__, version 1.0 WD1, as
-part of the Cultural Heritage Framework (CHF). It includes the two official
+model <https://www.oasis-open.org/committees/lexidma>`__, version 1.0 CSD01,
+as part of the Cultural Heritage Framework (CHF). It includes the two official
 modules Controlled Vocabulary and Linking, as well as a custom Editorial
 module and in-line annotations. Other additions are intended to make it work
 better for dictionaries with a historical component. In addition to the data
 model itself, the extension also provides `TEI Lex-0
 <https://dariah-eric.github.io/lexicalresources/pages/TEILex0/TEILex0.html>`__
 and `OntoLex Lemon <https://www.w3.org/2019/09/lexicog>`__ serialisations
-designed so they can be provided through REST endpoints like the one
-specified by the EU-funded Elexis project. In addition to dictionary entries,
-the extension also allows for encyclopedic entries and works well with
-``chf_glossary`` to further integrate glossary entries.
+designed so they can be provided through REST endpoints. In addition to
+dictionary entries, the extension also allows for encyclopedic entries and
+works well with ``chf_gloss`` to further integrate glossary entries.
 
 :Repository:  https://github.com/digicademy-chf/chf_lex
 :Read online: https://digicademy-chf.github.io/chf_lex
@@ -37,31 +36,15 @@ Roadmap
 
 This is a pre-release version. The following steps are required for the software to move out of beta:
 
-**Version 0.6.0**
-
-- Move some classes/tables to CHF Base
-- Revise data model based on DMLex 1.0 WD1
-
-**Version 0.7.0**
-
 - TCA and model work as expected
 - Frontend plugin and templates
-
-**Version 0.8.0**
-
 - Import of *Namenforschung* data
 - Embedded metadata
-
-**Version 0.9.0**
-
 - First set of serialisations
 - Search configuration
-
-**Version 2.0.0**
-
 - Add API documentation
 
-**Version 2.1.0**
+**Beyond 2.0.0**
 
 - Add testing
 - Generic import
