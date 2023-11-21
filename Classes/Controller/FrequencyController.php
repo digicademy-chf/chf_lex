@@ -16,7 +16,7 @@ use Digicademy\CHFLex\Domain\Repository\FrequencyRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller for frequencies
+ * Controller for Frequency
  */
 class FrequencyController extends ActionController
 {

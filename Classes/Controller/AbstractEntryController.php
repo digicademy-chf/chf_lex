@@ -16,7 +16,7 @@ use Digicademy\CHFLex\Domain\Repository\AbstractEntryRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller for entries
+ * Controller for AbstractEntry
  */
 class AbstractEntryController extends ActionController
 {

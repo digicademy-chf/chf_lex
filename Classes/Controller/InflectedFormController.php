@@ -16,7 +16,7 @@ use Digicademy\CHFLex\Domain\Repository\InflectedFormRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller for inflected forms
+ * Controller for InflectedForm
  */
 class InflectedFormController extends ActionController
 {

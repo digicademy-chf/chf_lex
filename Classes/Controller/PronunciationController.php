@@ -16,7 +16,7 @@ use Digicademy\CHFLex\Domain\Repository\PronunciationRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller for pronunciations
+ * Controller for Pronunciation
  */
 class PronunciationController extends ActionController
 {

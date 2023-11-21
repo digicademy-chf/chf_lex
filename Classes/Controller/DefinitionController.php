@@ -16,7 +16,7 @@ use Digicademy\CHFLex\Domain\Repository\DefinitionRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller for definitions
+ * Controller for Definition
  */
 class DefinitionController extends ActionController
 {

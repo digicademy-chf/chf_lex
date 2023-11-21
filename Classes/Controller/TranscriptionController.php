@@ -16,7 +16,7 @@ use Digicademy\CHFLex\Domain\Repository\TranscriptionRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller for transcriptions
+ * Controller for Transcription
  */
 class TranscriptionController extends ActionController
 {

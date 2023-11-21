@@ -16,7 +16,7 @@ use Digicademy\CHFLex\Domain\Repository\MemberRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller for members
+ * Controller for Member
  */
 class MemberController extends ActionController
 {

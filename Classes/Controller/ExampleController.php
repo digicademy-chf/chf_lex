@@ -16,7 +16,7 @@ use Digicademy\CHFLex\Domain\Repository\ExampleRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller for examples
+ * Controller for Example
  */
 class ExampleController extends ActionController
 {

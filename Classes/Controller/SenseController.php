@@ -16,7 +16,7 @@ use Digicademy\CHFLex\Domain\Repository\SenseRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Controller for senses
+ * Controller for Sense
  */
 class SenseController extends ActionController
 {
