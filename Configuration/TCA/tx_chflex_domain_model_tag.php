@@ -1,4 +1,5 @@
 <?php
+defined('TYPO3') or die();
 
 # This file is part of the extension CHF Lex for TYPO3.
 #
@@ -1145,5 +1146,3 @@ return [
         ],
     ],
 ];
-
-?>

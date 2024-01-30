@@ -1,5 +1,5 @@
 <?php
-
+defined('TYPO3') or die();
 declare(strict_types=1);
 
 # This file is part of the extension CHF Lex for TYPO3.
@@ -559,5 +559,3 @@ class LabelTag extends AbstractTag
         $this->asLabelOfPronunciation->removeAll($asLabelOfPronunciation);
     }
 }
-
-?>

@@ -1,5 +1,5 @@
 <?php
-
+defined('TYPO3') or die();
 declare(strict_types=1);
 
 # This file is part of the extension CHF Lex for TYPO3.
@@ -328,5 +328,3 @@ class MemberRoleTag extends AbstractTag
  * Alias for DMLex conformity since the class above is implemented as a type of tag
  */
 class_alias('MemberRoleTag', 'MemberType');
-
-?>
