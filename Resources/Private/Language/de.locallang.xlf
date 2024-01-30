@@ -3,87 +3,28 @@
     <file source-language="en" target-language="de" datatype="plaintext" original="EXT:chf_lex/Resources/Private/Language/de.locallang.xlf" date="2023-09-25T10:48:43Z" product-name="chf_lex">
         <header/>
         <body>
-            <!-- Database: LexicographicResource -->
-            <trans-unit id="database.lexicographicResource" resname="database.lexicographicResource" approved="yes">
+            <!-- Object: LexicographicResource -->
+            <trans-unit id="object.lexicographicResource.type.lexicographicResource" resname="object.lexicographicResource.type.lexicographicResource" approved="yes">
                 <source>Lexicographic resource</source>
                 <target>Lexikografische Ressource</target>
             </trans-unit>
-            <trans-unit id="database.lexicographicResource.content" resname="database.lexicographicResource.content" approved="yes">
-                <source>Content</source>
-                <target>Inhalt</target>
+            <trans-unit id="object.lexicographicResource.allDictionaryEntries" resname="object.lexicographicResource.allDictionaryEntries" approved="yes">
+                <source>All dictionary entries</source>
+                <target>Alle Wörterbucheinträge</target>
             </trans-unit>
-            <trans-unit id="database.lexicographicResource.title" resname="database.lexicographicResource.title" approved="yes">
-                <source>Title</source>
-                <target>Titel</target>
+            <trans-unit id="object.lexicographicResource.allDictionaryEntries.description" resname="object.lexicographicResource.allDictionaryEntries.description" approved="yes">
+                <source>List of all dictionary entries compiled in this resource</source>
+                <target>Liste aller Wörterbucheinträge, die in dieser Ressource verzeichnet sind</target>
             </trans-unit>
-            <trans-unit id="database.lexicographicResource.title.description" resname="database.lexicographicResource.title.description" approved="yes">
-                <source>Name of the resource</source>
-                <target>Name der Ressource</target>
+            <trans-unit id="object.lexicographicResource.allEncyclopediaEntries" resname="object.lexicographicResource.allEncyclopediaEntries" approved="yes">
+                <source>All encyclopedia entries</source>
+                <target>Alle Lexikoneinträge</target>
             </trans-unit>
-            <trans-unit id="database.lexicographicResource.language" resname="database.lexicographicResource.language" approved="yes">
-                <source>Language</source>
-                <target>Sprache</target>
+            <trans-unit id="object.lexicographicResource.allEncyclopediaEntries.description" resname="object.lexicographicResource.allEncyclopediaEntries.description" approved="yes">
+                <source>List of all encyclopedia entries compiled in this resource</source>
+                <target>Liste aller Lexikoneinträge, die in dieser Ressource verzeichnet sind</target>
             </trans-unit>
-            <trans-unit id="database.lexicographicResource.language.description" resname="database.lexicographicResource.language.description" approved="yes">
-                <source>Language of the resource</source>
-                <target>Sprache der Ressource</target>
-            </trans-unit>
-            <trans-unit id="database.lexicographicResource.description" resname="database.lexicographicResource.description" approved="yes">
-                <source>Description</source>
-                <target>Beschreibung</target>
-            </trans-unit>
-            <trans-unit id="database.lexicographicResource.description.description" resname="database.lexicographicResource.description.description" approved="yes">
-                <source>Brief information about the resource</source>
-                <target>Kurze Erläuterung der Ressource</target>
-            </trans-unit>
-            <trans-unit id="database.lexicographicResource.uri" resname="database.lexicographicResource.uri" approved="yes">
-                <source>URI</source>
-                <target>URI</target>
-            </trans-unit>
-            <trans-unit id="database.lexicographicResource.uri.description" resname="database.lexicographicResource.uri.description" approved="yes">
-                <source>Web address of the resource</source>
-                <target>Webadresse der Ressource</target>
-            </trans-unit>
-            <trans-unit id="database.lexicographicResource.sameAs" resname="database.lexicographicResource.sameAs" approved="yes">
-                <source>Reference URI</source>
-                <target>Referenz-URI</target>
-            </trans-unit>
-            <trans-unit id="database.lexicographicResource.sameAs.description" resname="database.lexicographicResource.sameAs.description" approved="yes">
-                <source>External web address to identify the resource across the web</source>
-                <target>Externe Webadresse zur Identifikation der Ressource im Internet</target>
-            </trans-unit>
-            <trans-unit id="database.lexicographicResource.entry" resname="database.lexicographicResource.entry" approved="yes">
-                <source>Entry</source>
-                <target>Eintrag</target>
-            </trans-unit>
-            <trans-unit id="database.lexicographicResource.entry.description" resname="database.lexicographicResource.entry.description" approved="yes">
-                <source>List of all entries in this resource</source>
-                <target>Liste aller Einträge in dieser Ressource</target>
-            </trans-unit>
-            <trans-unit id="database.lexicographicResource.contributor" resname="database.lexicographicResource.contributor" approved="yes">
-                <source>Contributor</source>
-                <target>Beitragende:r</target>
-            </trans-unit>
-            <trans-unit id="database.lexicographicResource.contributor.description" resname="database.lexicographicResource.contributor.description" approved="yes">
-                <source>List of all contributors in this resource</source>
-                <target>Liste aller Beitragenden in dieser Ressource</target>
-            </trans-unit>
-            <trans-unit id="database.lexicographicResource.tag" resname="database.lexicographicResource.tag" approved="yes">
-                <source>Tag</source>
-                <target>Schlagwort</target>
-            </trans-unit>
-            <trans-unit id="database.lexicographicResource.tag.description" resname="database.lexicographicResource.tag.description" approved="yes">
-                <source>List of all tags in this resource</source>
-                <target>Liste aller Schlagworte in dieser Ressource</target>
-            </trans-unit>
-            <trans-unit id="database.lexicographicResource.relation" resname="database.lexicographicResource.relation" approved="yes">
-                <source>Relation</source>
-                <target>Relation</target>
-            </trans-unit>
-            <trans-unit id="database.lexicographicResource.relation.description" resname="database.lexicographicResource.relation.description" approved="yes">
-                <source>List of all relations in this resource</source>
-                <target>Liste aller Relationen in dieser Ressource</target>
-            </trans-unit>
+
             <!-- Database: Tag -->
             <trans-unit id="database.tag" resname="database.tag" approved="yes">
                 <source>Tag</source>
