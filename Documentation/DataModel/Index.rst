@@ -9,7 +9,7 @@ Data model
 All records of a resource are held together by a single
 ``LexicographicResource`` which holds the main classes ``DictionaryEntry``,
 ``EncyclopediaEntry``, ``Agent``, ``Tag``, ``Example``, and
-``LexicographicRelation``. A ``DoctionaryEntry`` has a number of dependent
+``LexicographicRelation``. A ``DictionaryEntry`` has a number of dependent
 classes that provide information that may be needed multiple times per entry:
 ``Sense``, ``Definition``, ``InflectedForm``, ``Pronunciation``, and
 ``Transcription``. Defenition and sense are separate to allow for multiple
@@ -21,17 +21,17 @@ evidence of an entry or sense. A ``Frequency`` class may similarly be attached
 to either an entry or a sense in order to provide the number of tokens from a
 specified dataset, and can be connected to a ``Feature`` class from the
 `CHF Map <https://github.com/digicademy-chf/chf_map>`__ extension. Across the
-data model, a ``SourceRelation`` from the `CHF Bib
-<https://github.com/digicademy-chf/chf_bib>`__ extension may be used to
-identify sources.
+data model, a ``SourceRelation`` from the
+`CHF Bib <https://github.com/digicademy-chf/chf_bib>`__ extension may be used
+to identify sources.
 
 The model does not have a separate class for headwords, which are simply
 organised using an entry's ``headword`` property. To provide information about
 how entries of all types interconnect, including lemmatisation, the class
 ``LexicographicRelation`` lets you choose a type of relation you want to model
-and add as many ``Member``s as you like.
+and add as many ``Member`` objects as you like.
 
-In addition, the model knows flexible ``LabelTag``s and ``SameAs`` classes,
+In addition, the model knows flexible ``LabelTag`` and ``SameAs`` classes,
 which can be used to group entries, agents, and examples via labels, to add various
 types across other classes, and to connect entities to authority files.
 
@@ -46,7 +46,7 @@ Graphical overview
 
 ..  figure:: /DataModel/DataModel.png
     :alt: Data model of the extension
-    :target: /DataModel/DataModel.png
+    :target: ../_images/DataModel.png
     :class: with-shadow
 
     Overview of the extension's data model. Check the :ref:`api-reference`

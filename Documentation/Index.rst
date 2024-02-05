@@ -32,18 +32,18 @@ CHF Lex
 
 ----
 
-This TYPO3 extension for lexicographic resources implements the `DMLex data
-model <https://www.oasis-open.org/committees/lexidma>`__, version 1.0 CSD01,
-as part of the Cultural Heritage Framework (CHF). It includes the two official
-modules Controlled Vocabulary and Linking, as well as a custom Editorial
-module and in-line annotations. Other additions are intended to make it work
-better for dictionaries with a historical component. In addition to the data
-model itself, the extension also provides `TEI Lex-0
-<https://dariah-eric.github.io/lexicalresources/pages/TEILex0/TEILex0.html>`__
+This TYPO3 extension for lexicographic resources implements the
+`DMLex data model <https://www.oasis-open.org/committees/lexidma>`__, version
+1.0 CSD01, as part of the Cultural Heritage Framework (CHF). It includes the
+two official modules Controlled Vocabulary and Linking, as well as a custom
+Editorial module and in-line annotations. Other additions are intended to make
+it work better for dictionaries with a historical component. In addition to the
+data model itself, the extension also provides
+`TEI Lex-0 <https://dariah-eric.github.io/lexicalresources/pages/TEILex0/TEILex0.html>`__
 and `OntoLex Lemon <https://www.w3.org/2019/09/lexicog>`__ serialisations
 designed so they can be provided through REST endpoints. In addition to
 dictionary entries, the extension also allows for encyclopedic entries and
-works well with ``chf_gloss`` to further integrate glossary entries.
+works well with CHF Gloss to further integrate glossary entries.
 
 ----
 

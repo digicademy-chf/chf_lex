@@ -26,7 +26,7 @@ abstract: >-
   serialisations designed so they can be provided through
   REST endpoints. In addition to dictionary entries, the
   extension also allows for encyclopedic entries and works
-  well with chf_gloss to further integrate glossary
+  well with CHF Gloss to further integrate glossary
   entries.
 keywords:
   - TYPO3
