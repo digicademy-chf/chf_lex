@@ -25,46 +25,20 @@ return [
             'lexicographicResource' => Digicademy\CHFLex\Domain\Model\LexicographicResource::class,
         ],
     ],
+    Digicademy\CHFBase\Domain\Model\AbstractTag::class => [
+        'subclasses' => [
+            'partOfSpeechTag' => Digicademy\CHFLex\Domain\Model\PartOfSpeechTag::class,
+            'inflectionTypeTag' => Digicademy\CHFLex\Domain\Model\InflectionTypeTag::class,
+            'definitionTypeTag' => Digicademy\CHFLex\Domain\Model\DefinitionTypeTag::class,
+            'transcriptionSchemeTag' => Digicademy\CHFLex\Domain\Model\TranscriptionSchemeTag::class,
+            'relationTypeTag' => Digicademy\CHFLex\Domain\Model\RelationTypeTag::class,
+            'memberRoleTag' => Digicademy\CHFLex\Domain\Model\MemberRoleTag::class,
+        ],
+    ],
     Digicademy\CHFBase\Domain\Model\AbstractRelation::class => [
         'subclasses' => [
             'similarityRelation' => Digicademy\CHFLex\Domain\Model\SimilarityRelation::class,
             'lexicographicRelation' => Digicademy\CHFLex\Domain\Model\LexicographicRelation::class,
-        ],
-    ],
-
-
-
-
-
-
-    Digicademy\CHFLex\Domain\Model\AbstractEntry::class => [
-        'tableName' => 'tx_chflex_domain_model_entry',
-        'recordType' => 'abstractEntry',
-        'subclasses' => [
-            'entry' => Digicademy\CHFLex\Domain\Model\Entry::class,
-            'encyclopediaEntry' => Digicademy\CHFLex\Domain\Model\EncyclopediaEntry::class,
-            'glossaryEntry' => Digicademy\CHFLex\Domain\Model\GlossaryEntry::class,
-        ],
-    ],
-    Digicademy\CHFLex\Domain\Model\AbstractTag::class => [
-        'tableName' => 'tx_chflex_domain_model_tag',
-        'recordType' => 'abstractTag',
-        'subclasses' => [
-            'language' => Digicademy\CHFLex\Domain\Model\LanguageTag::class,
-            'country' => Digicademy\CHFLex\Domain\Model\CountryTag::class,
-            'region' => Digicademy\CHFLex\Domain\Model\RegionTag::class,
-            'label' => Digicademy\CHFLex\Domain\Model\LabelTag::class,
-            'labelType' => Digicademy\CHFLex\Domain\Model\LabelTypeTag::class,
-            'classificationEntry' => Digicademy\CHFLex\Domain\Model\ClassificationEntryTag::class,
-            'classificationSense' => Digicademy\CHFLex\Domain\Model\ClassificationSenseTag::class,
-            'relationType' => Digicademy\CHFLex\Domain\Model\RelationTypeTag::class,
-            'memberRole' => Digicademy\CHFLex\Domain\Model\MemberRoleTag::class,
-            'sourceIdentity' => Digicademy\CHFLex\Domain\Model\SourceIdentityTag::class,
-            'partOfSpeech' => Digicademy\CHFLex\Domain\Model\PartOfSpeechTag::class,
-            'transcriptionScheme' => Digicademy\CHFLex\Domain\Model\TranscriptionSchemeTag::class,
-            'inflectedForm' => Digicademy\CHFLex\Domain\Model\InflectedFormTag::class,
-            'definitionType' => Digicademy\CHFLex\Domain\Model\DefinitionTypeTag::class,
-            'frequencyType' => Digicademy\CHFLex\Domain\Model\FrequencyTypeTag::class,
         ],
     ],
 ];
