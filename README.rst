@@ -53,7 +53,6 @@ This is a pre-release version. The following steps are required for the software
 **Known issues**
 
 - Data model conformity: in ``Pronunciation``, either ``soundFile`` or ``transcription`` are required
-- Data model conformity: the ``min`` and ``max`` values of ``Tag``s of the type ``memberRole`` should limit the number of members
-- Data model conformity: the ``type`` tag of a relation should limit the types of members that may be selected, and ``role`` too
+- Data model conformity: the ``min`` and ``max`` values of ``MemberRoleTag`` should limit the number of members
 - Needs checking: the config for custom TEI annotations may not work properly and still needs `toolbar buttons <https://ckeditor.com/docs/ckeditor5/latest/api/module_core_editor_editorconfig-EditorConfig.html#member-toolbar>`__
 - To do: to use TEI annotations in the frontend, RTE transformations are needed

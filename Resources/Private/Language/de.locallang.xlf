@@ -24,444 +24,214 @@
                 <source>List of all encyclopedia entries compiled in this resource</source>
                 <target>Liste aller Lexikoneinträge, die in dieser Ressource verzeichnet sind</target>
             </trans-unit>
-
-            <!-- Database: Tag -->
-            <trans-unit id="database.tag" resname="database.tag" approved="yes">
-                <source>Tag</source>
-                <target>Schlagwort</target>
+            <!-- Object: SimilarityRelation -->
+            <trans-unit id="object.similarityRelation.type.similarityRelation" resname="object.similarityRelation.type.similarityRelation" approved="yes">
+                <source>Similarity relation</source>
+                <target>Ähnlichkeitsrelation</target>
             </trans-unit>
-            <trans-unit id="database.tag.constraints" resname="database.tag.constraints" approved="yes">
-                <source>Constraints</source>
-                <target>Einschränkungen</target>
+            <trans-unit id="object.similarityRelation.relatedRecord" resname="object.similarityRelation.relatedRecord" approved="yes">
+                <source>Related database record</source>
+                <target>Ähnlicher Datenbankeintrag</target>
             </trans-unit>
-            <trans-unit id="database.tag.usage" resname="database.tag.usage" approved="yes">
-                <source>Usage</source>
-                <target>Gebrauch</target>
+            <trans-unit id="object.similarityRelation.relatedRecord.description" resname="object.similarityRelation.relatedRecord.description" approved="yes">
+                <source>Similar record to connect the previous record to</source>
+                <target>Ähnlicher Eintrag, mit dem der vorgenannte Eintrag verbunden sein soll</target>
             </trans-unit>
-            <trans-unit id="database.tag.parent_id" resname="database.tag.parent_id" approved="yes">
-                <source>Lexicographic resource</source>
-                <target>Lexicografische Ressource</target>
+            <!-- Object: LexicographicRelation -->
+            <trans-unit id="object.lexicographicRelation.type.lexicographicRelation" resname="object.lexicographicRelation.type.lexicographicRelation" approved="yes">
+                <source>Lexicographic relation</source>
+                <target>Lexikografische Relation</target>
             </trans-unit>
-            <trans-unit id="database.tag.parent_id.description" resname="database.tag.parent_id.description" approved="yes">
-                <source>Resource that this tag is attached to</source>
-                <target>Ressource, zu der dieses Schlagwort gehört</target>
+            <trans-unit id="object.lexicographicRelation.lexicographicRelationType" resname="object.lexicographicRelation.lexicographicRelationType" approved="yes">
+                <source>Lexicographic relation type</source>
+                <target>Lexikografische Relationsart</target>
             </trans-unit>
-            <trans-unit id="database.tag.id" resname="database.tag.id" approved="yes">
-                <source>ID</source>
-                <target>ID</target>
+            <trans-unit id="object.lexicographicRelation.lexicographicRelationType.description" resname="object.lexicographicRelation.lexicographicRelationType.description" approved="yes">
+                <source>Specifies the type of lexicographic relation</source>
+                <target>Angabe der Art der lexikografischen Relation</target>
             </trans-unit>
-            <trans-unit id="database.tag.id.description" resname="database.tag.id.description" approved="yes">
-                <source>Simple identifier of this tag as part of a single dataset</source>
-                <target>Einfacher Identifikator des Schlagworts als Teil eines einzelnen Datensatzes</target>
+            <trans-unit id="object.lexicographicRelation.member" resname="object.lexicographicRelation.member" approved="yes">
+                <source>Relation member</source>
+                <target>Relationsmitglied</target>
             </trans-unit>
-            <trans-unit id="database.tag.uuid" resname="database.tag.uuid" approved="yes">
-                <source>UUID</source>
-                <target>UUID</target>
+            <trans-unit id="object.lexicographicRelation.member.description" resname="object.lexicographicRelation.member.description" approved="yes">
+                <source>List of members of this lexicographic relation</source>
+                <target>Liste der Mitglieder dieser lexikografischen Relation</target>
             </trans-unit>
-            <trans-unit id="database.tag.uuid.description" resname="database.tag.uuid.description" approved="yes">
-                <source>Unique identifier of the tag</source>
-                <target>Einzigartiger Identifikator des Schlagworts</target>
-            </trans-unit>
-            <trans-unit id="database.tag.text" resname="database.tag.text" approved="yes">
-                <source>Text</source>
-                <target>Text</target>
-            </trans-unit>
-            <trans-unit id="database.tag.text.description" resname="database.tag.text.description" approved="yes">
-                <source>Name of the tag</source>
-                <target>Bezeichnung des Schlagworts</target>
-            </trans-unit>
-            <trans-unit id="database.tag.type" resname="database.tag.type" approved="yes">
-                <source>Type</source>
-                <target>Art</target>
-            </trans-unit>
-            <trans-unit id="database.tag.type.description" resname="database.tag.type.description" approved="yes">
-                <source>Type of tag</source>
-                <target>Art des Schlagworts</target>
-            </trans-unit>
-            <trans-unit id="database.tag.type.language" resname="database.tag.type.language" approved="yes">
-                <source>Language</source>
-                <target>Sprache</target>
-            </trans-unit>
-            <trans-unit id="database.tag.type.country" resname="database.tag.type.country" approved="yes">
-                <source>Country</source>
-                <target>Land</target>
-            </trans-unit>
-            <trans-unit id="database.tag.type.region" resname="database.tag.type.region" approved="yes">
-                <source>Region</source>
-                <target>Region</target>
-            </trans-unit>
-            <trans-unit id="database.tag.type.label" resname="database.tag.type.label" approved="yes">
-                <source>Label</source>
-                <target>Label</target>
-            </trans-unit>
-            <trans-unit id="database.tag.type.labelType" resname="database.tag.type.labelType" approved="yes">
-                <source>Label type</source>
-                <target>Labelart</target>
-            </trans-unit>
-            <trans-unit id="database.tag.type.classificationEntry" resname="database.tag.type.classificationEntry" approved="yes">
-                <source>Entry classification</source>
-                <target>Einstufung für Einträge</target>
-            </trans-unit>
-            <trans-unit id="database.tag.type.classificationSense" resname="database.tag.type.classificationSense" approved="yes">
-                <source>Sense classification</source>
-                <target>Einstufung für Bedeutungen</target>
-            </trans-unit>
-            <trans-unit id="database.tag.type.relationType" resname="database.tag.type.relationType" approved="yes">
-                <source>Relation type</source>
-                <target>Relationsart</target>
-            </trans-unit>
-            <trans-unit id="database.tag.type.memberRole" resname="database.tag.type.memberRole" approved="yes">
-                <source>Member role</source>
-                <target>Mitgliedsrolle</target>
-            </trans-unit>
-            <trans-unit id="database.tag.type.sourceIdentity" resname="database.tag.type.sourceIdentity" approved="yes">
-                <source>Source identity</source>
-                <target>Quellen-ID</target>
-            </trans-unit>
-            <trans-unit id="database.tag.type.partOfSpeech" resname="database.tag.type.partOfSpeech" approved="yes">
+            <!-- Object: PartOfSpeechTag -->
+            <trans-unit id="object.partOfSpeechTag.type.partOfSpeechTag" resname="object.partOfSpeechTag.type.partOfSpeechTag" approved="yes">
                 <source>Part of speech</source>
                 <target>Wortart</target>
             </trans-unit>
-            <trans-unit id="database.tag.type.transcriptionScheme" resname="database.tag.type.transcriptionScheme" approved="yes">
-                <source>Transcription scheme</source>
-                <target>Transkriptionsschema</target>
+            <trans-unit id="object.partOfSpeechTag.asPartOfSpeechOfDictionaryEntry" resname="object.partOfSpeechTag.asPartOfSpeechOfDictionaryEntry" approved="yes">
+                <source>Usage as part of speech of a dictionary entry</source>
+                <target>Verwendung als Wortart eines Wörterbucheintrags</target>
             </trans-unit>
-            <trans-unit id="database.tag.type.inflectedForm" resname="database.tag.type.inflectedForm" approved="yes">
+            <trans-unit id="object.partOfSpeechTag.asPartOfSpeechOfDictionaryEntry.description" resname="object.partOfSpeechTag.asPartOfSpeechOfDictionaryEntry.description" approved="yes">
+                <source>List of dictionary entries that use this tag as a part of speech</source>
+                <target>Liste der Wörterbucheinträge, die dieses Schlagwort als Wortart verwenden</target>
+            </trans-unit>
+            <!-- Object: InflectionTypeTag -->
+            <trans-unit id="object.inflectionTypeTag.type.inflectionTypeTag" resname="object.inflectionTypeTag.type.inflectionTypeTag" approved="yes">
                 <source>Inflection type</source>
                 <target>Beugungsart</target>
             </trans-unit>
-            <trans-unit id="database.tag.type.definitionType" resname="database.tag.type.definitionType" approved="yes">
+            <trans-unit id="object.inflectionTypeTag.for" resname="object.inflectionTypeTag.for" approved="yes">
+                <source>Intended for</source>
+                <target>Bestimmt für</target>
+            </trans-unit>
+            <trans-unit id="object.inflectionTypeTag.for.description" resname="object.inflectionTypeTag.for.description" approved="yes">
+                <source>Constraints and recommendations on where this tag may apply</source>
+                <target>Einschränkungen und Empfehlungen zur Anwendung dieses Schlagworts</target>
+            </trans-unit>
+            <trans-unit id="object.inflectionTypeTag.asInflectionTypeOfInflectedForm" resname="object.inflectionTypeTag.asInflectionTypeOfInflectedForm" approved="yes">
+                <source>Usage as inflection type of an inflected form</source>
+                <target>Verwendung als Beugungsart einer gebeugten Form</target>
+            </trans-unit>
+            <trans-unit id="object.inflectionTypeTag.asInflectionTypeOfInflectedForm.description" resname="object.inflectionTypeTag.asInflectionTypeOfInflectedForm.description" approved="yes">
+                <source>List of inflected forms that use this tag as an inflection type</source>
+                <target>Liste der gebeugten Formen, die dieses Schlagwort als Beugungsart verwenden</target>
+            </trans-unit>
+            <!-- Object: DefinitionTypeTag -->
+            <trans-unit id="object.definitionTypeTag.type.definitionTypeTag" resname="object.definitionTypeTag.type.definitionTypeTag" approved="yes">
                 <source>Definition type</source>
                 <target>Definitionsart</target>
             </trans-unit>
-            <trans-unit id="database.tag.type.frequencyType" resname="database.tag.type.frequencyType" approved="yes">
-                <source>Frequency type</source>
-                <target>Häufigkeitsart</target>
+            <trans-unit id="object.definitionTypeTag.asDefinitionTypeOfDefinition" resname="object.definitionTypeTag.asDefinitionTypeOfDefinition" approved="yes">
+                <source>Usage as definition type of a definition</source>
+                <target>Verwendung als Definitionsart einer Definition</target>
             </trans-unit>
-            <trans-unit id="database.tag.description" resname="database.tag.description" approved="yes">
-                <source>Description</source>
-                <target>Beschreibung</target>
+            <trans-unit id="object.definitionTypeTag.asDefinitionTypeOfDefinition.description" resname="object.definitionTypeTag.asDefinitionTypeOfDefinition.description" approved="yes">
+                <source>List of definitions that use this tag as a definition type</source>
+                <target>Liste der Definitionen, die dieses Schlagwort als Definitionsart verwenden</target>
             </trans-unit>
-            <trans-unit id="database.tag.description.description" resname="database.tag.description.description" approved="yes">
-                <source>Brief information about the tag</source>
-                <target>Kurze Erläuterung des Schlagworts</target>
+            <!-- Object: TranscriptionSchemeTag -->
+            <trans-unit id="object.transcriptionSchemeTag.type.transcriptionSchemeTag" resname="object.transcriptionSchemeTag.type.transcriptionSchemeTag" approved="yes">
+                <source>Transcription scheme</source>
+                <target>Transkriptionsschema</target>
             </trans-unit>
-            <trans-unit id="database.tag.child" resname="database.tag.child" approved="yes">
-                <source>Child elements</source>
-                <target>Kindelemente</target>
+            <trans-unit id="object.transcriptionSchemeTag.asSchemeOfTranscription" resname="object.transcriptionSchemeTag.asSchemeOfTranscription" approved="yes">
+                <source>Usage as scheme of a transcription</source>
+                <target>Verwendung als Schema einer Transkription</target>
             </trans-unit>
-            <trans-unit id="database.tag.child.description" resname="database.tag.child.description" approved="yes">
-                <source>List of tags on the child level of this tag</source>
-                <target>Liste der Schlagworte auf der Kindebene</target>
+            <trans-unit id="object.transcriptionSchemeTag.asSchemeOfTranscription.description" resname="object.transcriptionSchemeTag.asSchemeOfTranscription.description" approved="yes">
+                <source>List of transcriptions that use this tag as a scheme</source>
+                <target>Liste der Transkriptionen, die dieses Schlagwort als Schema verwenden</target>
             </trans-unit>
-            <trans-unit id="database.tag.sameAs" resname="database.tag.sameAs" approved="yes">
-                <source>Reference URI</source>
-                <target>Referenz-URI</target>
+            <!-- Object: RelationTypeTag -->
+            <trans-unit id="object.relationTypeTag.type.relationTypeTag" resname="object.relationTypeTag.type.relationTypeTag" approved="yes">
+                <source>Relation type</source>
+                <target>Relationsart</target>
             </trans-unit>
-            <trans-unit id="database.tag.sameAs.description" resname="database.tag.sameAs.description" approved="yes">
-                <source>External web address to identify the tag across the web</source>
-                <target>Externe Webadresse zur Identifikation des Schlagworts im Internet</target>
-            </trans-unit>
-            <trans-unit id="database.tag.forPartOfSpeech" resname="database.tag.forPartOfSpeech" approved="yes">
-                <source>For part of speech</source>
-                <target>Für Wortart</target>
-            </trans-unit>
-            <trans-unit id="database.tag.forPartOfSpeech.description" resname="database.tag.forPartOfSpeech.description" approved="yes">
-                <source>List of parts of speech that this tag may be used for</source>
-                <target>Liste der Wortarten, bei denen dieses Schlagwort verwendet werden kann</target>
-            </trans-unit>
-            <trans-unit id="database.tag.scope" resname="database.tag.scope" approved="yes">
-                <source>Scope</source>
+            <trans-unit id="object.relationTypeTag.scopeRestriction" resname="object.relationTypeTag.scopeRestriction" approved="yes">
+                <source>Scope restriction</source>
                 <target>Anwendungsfeld</target>
             </trans-unit>
-            <trans-unit id="database.tag.scope.description" resname="database.tag.scope.description" approved="yes">
+            <trans-unit id="object.relationTypeTag.scopeRestriction.description" resname="object.relationTypeTag.scopeRestriction.description" approved="yes">
                 <source>Indicator of how close members of this type of relation need to be</source>
                 <target>Angabe wie ähnlich Mitglieder einer Relation dieser Art sein sollen</target>
             </trans-unit>
-            <trans-unit id="database.tag.scope.any" resname="database.tag.scope.any" approved="yes">
+            <trans-unit id="object.relationTypeTag.scopeRestriction.any" resname="object.relationTypeTag.scopeRestriction.any" approved="yes">
                 <source>Any</source>
                 <target>Beliebig</target>
             </trans-unit>
-            <trans-unit id="database.tag.scope.sameResource" resname="database.tag.scope.sameResource" approved="yes">
-                <source>Same lexicographic resource</source>
-                <target>Dieselbe lexikografische Ressource</target>
+            <trans-unit id="object.relationTypeTag.scopeRestriction.sameResource" resname="object.relationTypeTag.scopeRestriction.sameResource" approved="yes">
+                <source>Part of the same lexicographic resource</source>
+                <target>Teil derselben lexikografischen Ressource</target>
             </trans-unit>
-            <trans-unit id="database.tag.scope.sameEntry" resname="database.tag.scope.sameEntry" approved="yes">
-                <source>Same entry</source>
-                <target>Derselbe Eintrag</target>
+            <trans-unit id="object.relationTypeTag.scopeRestriction.sameEntry" resname="object.relationTypeTag.scopeRestriction.sameEntry" approved="yes">
+                <source>Part of the same entry</source>
+                <target>Teil desselben Eintrags</target>
             </trans-unit>
-            <trans-unit id="database.tag.memberRole" resname="database.tag.memberRole" approved="yes">
+            <trans-unit id="object.relationTypeTag.memberRole" resname="object.relationTypeTag.memberRole" approved="yes">
                 <source>Member role</source>
                 <target>Mitgliedsrolle</target>
             </trans-unit>
-            <trans-unit id="database.tag.memberRole.description" resname="database.tag.memberRole.description" approved="yes">
+            <trans-unit id="object.relationTypeTag.memberRole.description" resname="object.relationTypeTag.memberRole.description" approved="yes">
                 <source>Defines which roles members of this relation may have</source>
                 <target>Legt fest, welche Rollen Mitglieder dieser Relation haben können</target>
             </trans-unit>
-            <trans-unit id="database.tag.memberType" resname="database.tag.memberType" approved="yes">
+            <trans-unit id="object.relationTypeTag.asLexicographicRelationTypeOfLexicographicRelation" resname="object.relationTypeTag.asLexicographicRelationTypeOfLexicographicRelation" approved="yes">
+                <source>Usage as type of a lexicographic relation</source>
+                <target>Verwendung als Art einer lexikografischen Relation</target>
+            </trans-unit>
+            <trans-unit id="object.relationTypeTag.asLexicographicRelationTypeOfLexicographicRelation.description" resname="object.relationTypeTag.asLexicographicRelationTypeOfLexicographicRelation.description" approved="yes">
+                <source>List of lexicographic relations that use this tag as a type</source>
+                <target>Liste der lexikografischen Relationen, die dieses Schlagwort als Art verwenden</target>
+            </trans-unit>
+            <!-- Object: MemberRoleTag -->
+            <trans-unit id="object.memberRoleTag.type.memberRoleTag" resname="object.memberRoleTag.type.memberRoleTag" approved="yes">
+                <source>Member role</source>
+                <target>Mitgliedsrolle</target>
+            </trans-unit>
+            <trans-unit id="object.memberRoleTag.memberType" resname="object.memberRoleTag.memberType" approved="yes">
                 <source>Member type</source>
                 <target>Mitgliedsart</target>
             </trans-unit>
-            <trans-unit id="database.tag.memberType.description" resname="database.tag.memberType.description" approved="yes">
+            <trans-unit id="object.memberRoleTag.memberType.description" resname="object.memberRoleTag.memberType.description" approved="yes">
                 <source>Defines which types of members may be part of this relation</source>
                 <target>Schränkt ein, welche Art Mitglieder Teil dieser Relation sein dürfen</target>
             </trans-unit>
-            <trans-unit id="database.tag.memberType.any" resname="database.tag.memberType.any" approved="yes">
-                <source>Any</source>
-                <target>Beliebig</target>
+            <trans-unit id="object.memberRoleTag.memberType.entry" resname="object.memberRoleTag.memberType.entry" approved="yes">
+                <source>Dictionary entry</source>
+                <target>Wörterbucheintrag</target>
             </trans-unit>
-            <trans-unit id="database.tag.memberType.entry" resname="database.tag.memberType.entry" approved="yes">
-                <source>Entry</source>
-                <target>Eintrag</target>
-            </trans-unit>
-            <trans-unit id="database.tag.memberType.sense" resname="database.tag.memberType.sense" approved="yes">
-                <source>Sense</source>
-                <target>Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="database.tag.memberType.encyclopediaEntry" resname="database.tag.memberType.encyclopediaEntry" approved="yes">
+            <trans-unit id="object.memberRoleTag.memberType.encyclopediaEntry" resname="object.memberRoleTag.memberType.encyclopediaEntry" approved="yes">
                 <source>Encyclopedia entry</source>
                 <target>Lexikoneintrag</target>
             </trans-unit>
-            <trans-unit id="database.tag.memberType.glossaryEntry" resname="database.tag.memberType.glossaryEntry" approved="yes">
-                <source>Glossary entry</source>
-                <target>Glossareintrag</target>
+            <trans-unit id="object.memberRoleTag.memberType.sense" resname="object.memberRoleTag.memberType.sense" approved="yes">
+                <source>Sense</source>
+                <target>Bedeutung</target>
             </trans-unit>
-            <trans-unit id="database.tag.labelType" resname="database.tag.labelType" approved="yes">
-                <source>Label type</source>
-                <target>Labelart</target>
-            </trans-unit>
-            <trans-unit id="database.tag.labelType.description" resname="database.tag.labelType.description" approved="yes">
-                <source>Option to group various kinds of labels together</source>
-                <target>Option zum Gruppieren verschiedener Arten von Labels</target>
-            </trans-unit>
-            <trans-unit id="database.tag.min" resname="database.tag.min" approved="yes">
+            <trans-unit id="object.memberRoleTag.min" resname="object.memberRoleTag.min" approved="yes">
                 <source>Minimum number</source>
                 <target>Mindestanzahl</target>
             </trans-unit>
-            <trans-unit id="database.tag.min.description" resname="database.tag.min.description" approved="yes">
+            <trans-unit id="object.memberRoleTag.min.description" resname="object.memberRoleTag.min.description" approved="yes">
                 <source>Minimum number of members in this relation (leave empty to not set a limit)</source>
                 <target>Mindestanzahl an Mitgliedern für diese Relation (leer lassen um kein Limit anzugeben)</target>
             </trans-unit>
-            <trans-unit id="database.tag.max" resname="database.tag.max" approved="yes">
+            <trans-unit id="object.memberRoleTag.max" resname="object.memberRoleTag.max" approved="yes">
                 <source>Maximum number</source>
                 <target>Höchstanzahl</target>
             </trans-unit>
-            <trans-unit id="database.tag.max.description" resname="database.tag.max.description" approved="yes">
+            <trans-unit id="object.memberRoleTag.max.description" resname="object.memberRoleTag.max.description" approved="yes">
                 <source>Maximum number of members in this relation (leave empty to not set a limit)</source>
                 <target>Höchstanzahl an Mitgliedern für diese Relation (leer lassen um kein Limit anzugeben)</target>
             </trans-unit>
-            <trans-unit id="database.tag.action" resname="database.tag.action" approved="yes">
-                <source>Display action</source>
-                <target>Anzeigeaktion</target>
+            <trans-unit id="object.memberRoleTag.hint" resname="object.memberRoleTag.hint" approved="yes">
+                <source>Display hint</source>
+                <target>Hinweis zur Anzeige</target>
             </trans-unit>
-            <trans-unit id="database.tag.action.description" resname="database.tag.action.description" approved="yes">
-                <source>Instructs machine agents what to do when they show this relation</source>
-                <target>Weist Maschinen an, was sie bei der Anzeige dieser Relation tun sollen</target>
+            <trans-unit id="object.memberRoleTag.hint.description" resname="object.memberRoleTag.hint.description" approved="yes">
+                <source>Instructs software what to do when it shows relation members with this role</source>
+                <target>Weist Software an, was sie bei der Anzeige von Relationsmitgliedern dieser Rolle tun soll</target>
             </trans-unit>
-            <trans-unit id="database.tag.action.embed" resname="database.tag.action.embed" approved="yes">
-                <source>Embed</source>
-                <target>Einbetten</target>
+            <trans-unit id="object.memberRoleTag.hint.embed" resname="object.memberRoleTag.hint.embed" approved="yes">
+                <source>Embed (e.g., entries and subentries)</source>
+                <target>Einbetten (z.B. Einträge und Untereinträge)</target>
             </trans-unit>
-            <trans-unit id="database.tag.action.navigate" resname="database.tag.action.navigate" approved="yes">
-                <source>Display link</source>
-                <target>Link anzeigen</target>
+            <trans-unit id="object.memberRoleTag.hint.navigate" resname="object.memberRoleTag.hint.navigate" approved="yes">
+                <source>Display link (e.g., synonyms, antonyms, etc.)</source>
+                <target>Link anzeigen (z.B. Synonyme, Antonyme, etc.)</target>
             </trans-unit>
-            <trans-unit id="database.tag.action.none" resname="database.tag.action.none" approved="yes">
+            <trans-unit id="object.memberRoleTag.hint.none" resname="object.memberRoleTag.hint.none" approved="yes">
                 <source>Do not display</source>
                 <target>Nicht anzeigen</target>
             </trans-unit>
-            <trans-unit id="database.tag.asForPartOfSpeechOfTag" resname="database.tag.asForPartOfSpeechOfTag" approved="yes">
-                <source>As part-of-speech constraint</source>
-                <target>Als Einschränkung der Wortart</target>
+            <trans-unit id="object.memberRoleTag.asMemberRoleOfRelationTypeTag" resname="object.memberRoleTag.asMemberRoleOfRelationTypeTag" approved="yes">
+                <source>Usage as member role of a relation type</source>
+                <target>Verwendung als Mitgliedsrolle einer Relationsart</target>
             </trans-unit>
-            <trans-unit id="database.tag.asForPartOfSpeechOfTag.description" resname="database.tag.asForPartOfSpeechOfTag.description" approved="yes">
-                <source>List of tags with this part of speech as a constraint</source>
-                <target>Liste der Schlagworte mit dieser Wortart als Einschränkung</target>
+            <trans-unit id="object.memberRoleTag.asMemberRoleOfRelationTypeTag.description" resname="object.memberRoleTag.asMemberRoleOfRelationTypeTag.description" approved="yes">
+                <source>List of relation types that use this tag as a member role</source>
+                <target>Liste der Relationsarten, die dieses Schlagwort als Mitgliedsrolle verwenden</target>
             </trans-unit>
-            <trans-unit id="database.tag.asMemberRoleOfTag" resname="database.tag.asMemberRoleOfTag" approved="yes">
-                <source>As member role of tags</source>
-                <target>Als Mitgliedsart für Schlagwörter</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asMemberRoleOfTag.description" resname="database.tag.asMemberRoleOfTag.description" approved="yes">
-                <source>List of tags with this member role</source>
-                <target>Liste der Schlagworte mit dieser Mitgliedsart</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asLabelOfEntry" resname="database.tag.asLabelOfEntry" approved="yes">
-                <source>As label of entries</source>
-                <target>Als Label für Einträge</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asLabelOfEntry.description" resname="database.tag.asLabelOfEntry.description" approved="yes">
-                <source>List of entries with this label</source>
-                <target>Liste der Einträge mit diesem Label</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asLabelOfContributor" resname="database.tag.asLabelOfContributor" approved="yes">
-                <source>As label of contributors</source>
-                <target>Als Label für Beitragende</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asLabelOfContributor.description" resname="database.tag.asLabelOfContributor.description" approved="yes">
-                <source>List of contributors with this label</source>
-                <target>Liste der Beitragenden mit diesem Label</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asLabelOfSense" resname="database.tag.asLabelOfSense" approved="yes">
-                <source>As label of senses</source>
-                <target>Als Label für Bedeutungen</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asLabelOfSense.description" resname="database.tag.asLabelOfSense.description" approved="yes">
-                <source>List of senses with this label</source>
-                <target>Liste der Bedeutungen mit diesem Label</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asLabelOfExample" resname="database.tag.asLabelOfExample" approved="yes">
-                <source>As label of examples</source>
-                <target>Als Label für Beispiele</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asLabelOfExample.description" resname="database.tag.asLabelOfExample.description" approved="yes">
-                <source>List of examples with this label</source>
-                <target>Liste der Beispiele mit diesem Label</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asLabelOfInflectedForm" resname="database.tag.asLabelOfInflectedForm" approved="yes">
-                <source>As label of inflected forms</source>
-                <target>Als Label für gebeugte Formen</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asLabelOfInflectedForm.description" resname="database.tag.asLabelOfInflectedForm.description" approved="yes">
-                <source>List of inflected forms with this label</source>
-                <target>Liste der gebeugten Formen mit diesem Label</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asLabelOfPronunciation" resname="database.tag.asLabelOfPronunciation" approved="yes">
-                <source>As label of pronunciations</source>
-                <target>Als Label für Aussprachen</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asLabelOfPronunciation.description" resname="database.tag.asLabelOfPronunciation.description" approved="yes">
-                <source>List of pronunciations with this label</source>
-                <target>Liste der Aussprachen mit diesem Label</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asCountryOrRegionOfFrequency" resname="database.tag.asCountryOrRegionOfFrequency" approved="yes">
-                <source>As country or region of frequencies</source>
-                <target>Als Land oder Region bei Häufigkeiten</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asCountryOrRegionOfFrequency.description" resname="database.tag.asCountryOrRegionOfFrequency.description" approved="yes">
-                <source>List of frequencies with this country or region</source>
-                <target>Liste der Häufigkeiten mit diesem Land oder dieser Region</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asDistributionLanguageOfEntry" resname="database.tag.asDistributionLanguageOfEntry" approved="yes">
-                <source>As language of entries</source>
-                <target>Als Sprachvorkommen bei Einträgen</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asDistributionLanguageOfEntry.description" resname="database.tag.asDistributionLanguageOfEntry.description" approved="yes">
-                <source>List of entries annotated with this language</source>
-                <target>Liste der Einträge mit dieser Angabe zum Sprachvorkommen</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asDistributionCountryOfEntry" resname="database.tag.asDistributionCountryOfEntry" approved="yes">
-                <source>As main distribution of entries</source>
-                <target>Als Hauptverbreitung bei Einträgen</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asDistributionCountryOfEntry.description" resname="database.tag.asDistributionCountryOfEntry.description" approved="yes">
-                <source>List of entries with this main distribution</source>
-                <target>Liste der Einträge mit dieser Hauptverbreitung</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asDistributionRegionOfEntry" resname="database.tag.asDistributionRegionOfEntry" approved="yes">
-                <source>As regional distribution of entries</source>
-                <target>Als regionale Verbreitung bei Einträgen</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asDistributionRegionOfEntry.description" resname="database.tag.asDistributionRegionOfEntry.description" approved="yes">
-                <source>List of entries with this regional distribution</source>
-                <target>Liste der Einträge mit dieser regionalen Verbreitung</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asLabelTypeOfTag" resname="database.tag.asLabelTypeOfTag" approved="yes">
-                <source>As type of label</source>
-                <target>Als Art bei Labels</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asLabelTypeOfTag.description" resname="database.tag.asLabelTypeOfTag.description" approved="yes">
-                <source>List of labels of this type</source>
-                <target>Liste der Labels dieser Art</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asTypeOfDefinition" resname="database.tag.asTypeOfDefinition" approved="yes">
-                <source>As type of definitions</source>
-                <target>Als Art bei Definitionen</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asTypeOfDefinition.description" resname="database.tag.asTypeOfDefinition.description" approved="yes">
-                <source>List of definitions of this type</source>
-                <target>Liste der Definitionen dieser Art</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asTypeOfInflectedForm" resname="database.tag.asTypeOfInflectedForm" approved="yes">
-                <source>As type of inflected forms</source>
-                <target>Als Art bei gebeugten Formen</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asTypeOfInflectedForm.description" resname="database.tag.asTypeOfInflectedForm.description" approved="yes">
-                <source>List of inflected forms of this type</source>
-                <target>Liste der gebeugten Formen dieser Art</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asTypeOfFrequency" resname="database.tag.asTypeOfFrequency" approved="yes">
-                <source>As type of frequencies</source>
-                <target>Als Art bei Häufigkeiten</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asTypeOfFrequency.description" resname="database.tag.asTypeOfFrequency.description" approved="yes">
-                <source>List of frequencies of this type</source>
-                <target>Liste der Häufigkeiten dieser Art</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asTypeOfRelation" resname="database.tag.asTypeOfRelation" approved="yes">
-                <source>As type of relations</source>
-                <target>Als Art bei Relationen</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asTypeOfRelation.description" resname="database.tag.asTypeOfRelation.description" approved="yes">
-                <source>List of relations of this type</source>
-                <target>Liste der Relationen dieser Art</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asSchemeOfTranscription" resname="database.tag.asSchemeOfTranscription" approved="yes">
-                <source>As scheme of transcriptions</source>
-                <target>Als Schema bei Transkriptionen</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asSchemeOfTranscription.description" resname="database.tag.asSchemeOfTranscription.description" approved="yes">
-                <source>List of transcriptions with this scheme</source>
-                <target>Liste der Transkriptionen mit diesem Schema</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asSourceIdentityOfFrequency" resname="database.tag.asSourceIdentityOfFrequency" approved="yes">
-                <source>As source identity of frequencies</source>
-                <target>Als Quellen-ID bei Häufigkeiten</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asSourceIdentityOfFrequency.description" resname="database.tag.asSourceIdentityOfFrequency.description" approved="yes">
-                <source>List of frequencies with this source identity</source>
-                <target>Liste der Häufigkeiten mit dieser Quellen-ID</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asSourceIdentityOfExample" resname="database.tag.asSourceIdentityOfExample" approved="yes">
-                <source>As source identity of examples</source>
-                <target>Als Quellen-ID bei Häufigkeiten</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asSourceIdentityOfExample.description" resname="database.tag.asSourceIdentityOfExample.description" approved="yes">
-                <source>List of examples with this source identity</source>
-                <target>Liste der Beispiele mit dieser Quellen-ID</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asPartOfSpeechOfEntry" resname="database.tag.asPartOfSpeechOfEntry" approved="yes">
-                <source>As part of speech of entries</source>
-                <target>Als Wortart von Einträgen</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asPartOfSpeechOfEntry.description" resname="database.tag.asPartOfSpeechOfEntry.description" approved="yes">
-                <source>List of entries annotated with this part of speech</source>
-                <target>Liste der Einträge, die mit dieser Wortart ausgezeichnet wurden</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asRoleOfMember" resname="database.tag.asRoleOfMember" approved="yes">
-                <source>As role of members</source>
-                <target>Als Rolle bei Mitgliedern</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asRoleOfMember.description" resname="database.tag.asRoleOfMember.description" approved="yes">
-                <source>List of relation members with this role</source>
-                <target>Liste der Relationsmitglieder mit dieser Rolle</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asClassificationOfEntry" resname="database.tag.asClassificationOfEntry" approved="yes">
-                <source>As classification of entries</source>
-                <target>Als Einstufung von Einträgen</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asClassificationOfEntry.description" resname="database.tag.asClassificationOfEntry.description" approved="yes">
-                <source>List of entries with this classification</source>
-                <target>Liste der Einträge mit dieser Einstufung</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asClassificationOfEntry" resname="database.tag.asClassificationOfEntry" approved="yes">
-                <source>As classification of senses</source>
-                <target>Als Einstufung von Bedeutungen</target>
-            </trans-unit>
-            <trans-unit id="database.tag.asClassificationOfEntry.description" resname="database.tag.asClassificationOfEntry.description" approved="yes">
-                <source>List of senses with this classification</source>
-                <target>Liste der Bedeutungen mit dieser Einstufung</target>
-            </trans-unit>
+
+
+
+            
             <!-- Database: SameAs -->
             <trans-unit id="database.sameAs" resname="database.sameAs" approved="yes">
                 <source>Reference URI</source>

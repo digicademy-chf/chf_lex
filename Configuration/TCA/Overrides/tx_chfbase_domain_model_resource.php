@@ -1,11 +1,13 @@
 <?php
-defined('TYPO3') or die();
+declare(strict_types=1);
 
 # This file is part of the extension CHF Lex for TYPO3.
 #
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
 
+
+defined('TYPO3') or die();
 
 /**
  * LexicographicResource and its properties
@@ -80,6 +82,6 @@ defined('TYPO3') or die();
    'hiddenUuid,typeUri,titleLangCode,glossary,description,sameAs,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,authorshipRelation,licenceRelation,publicationDateRevisionNumberRevisionDate,editorialNote,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.content,allAgents,allFileCollections,allLocations,allPeriods,allRelations,allTags,allDictionaryEntries,allEncyclopediaEntries,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,importOrigin,importState,'
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,importOrigin,importState,',
    'lexicographicResource'
 );

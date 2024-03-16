@@ -1,5 +1,4 @@
 <?php
-defined('TYPO3') or die();
 declare(strict_types=1);
 
 # This file is part of the extension CHF Lex for TYPO3.
@@ -7,6 +6,8 @@ declare(strict_types=1);
 # For the full copyright and license information, please read the
 # LICENSE.txt file that was distributed with this source code.
 
+
+defined('TYPO3') or die();
 
 /**
  * Rules to map object inheritance to TCA tables
@@ -21,9 +22,21 @@ declare(strict_types=1);
 return [
     Digicademy\CHFBase\Domain\Model\AbstractResource::class => [
         'subclasses' => [
-            'lexicographicResource' => Digicademy\CHFBib\Domain\Model\LexicographicResource::class,
-        ]
+            'lexicographicResource' => Digicademy\CHFLex\Domain\Model\LexicographicResource::class,
+        ],
     ],
+    Digicademy\CHFBase\Domain\Model\AbstractRelation::class => [
+        'subclasses' => [
+            'similarityRelation' => Digicademy\CHFLex\Domain\Model\SimilarityRelation::class,
+            'lexicographicRelation' => Digicademy\CHFLex\Domain\Model\LexicographicRelation::class,
+        ],
+    ],
+
+
+
+
+
+
     Digicademy\CHFLex\Domain\Model\AbstractEntry::class => [
         'tableName' => 'tx_chflex_domain_model_entry',
         'recordType' => 'abstractEntry',
@@ -31,7 +44,7 @@ return [
             'entry' => Digicademy\CHFLex\Domain\Model\Entry::class,
             'encyclopediaEntry' => Digicademy\CHFLex\Domain\Model\EncyclopediaEntry::class,
             'glossaryEntry' => Digicademy\CHFLex\Domain\Model\GlossaryEntry::class,
-        ]
+        ],
     ],
     Digicademy\CHFLex\Domain\Model\AbstractTag::class => [
         'tableName' => 'tx_chflex_domain_model_tag',
@@ -52,6 +65,6 @@ return [
             'inflectedForm' => Digicademy\CHFLex\Domain\Model\InflectedFormTag::class,
             'definitionType' => Digicademy\CHFLex\Domain\Model\DefinitionTypeTag::class,
             'frequencyType' => Digicademy\CHFLex\Domain\Model\FrequencyTypeTag::class,
-        ]
+        ],
     ],
 ];
