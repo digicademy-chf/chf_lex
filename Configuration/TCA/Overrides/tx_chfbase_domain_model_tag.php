@@ -10,9 +10,7 @@ declare(strict_types=1);
 defined('TYPO3') or die();
 
 /**
- * PartOfSpeechTag, InflectionTypeTag, DefinitionTypeTag,
- * TranscriptionSchemeTag, RelationTypeTag, MemberRoleTag,
- * and their properties
+ * AbstractTag and its properties
  * 
  * Extension of a database table and its editing interface in the
  * TYPO3 backend. This also serves as the basis for the Extbase
@@ -81,7 +79,8 @@ defined('TYPO3') or die();
 );
 
 // Add columns 'for', 'scopeRestriction', 'memberRole', 'memberType', 'min',
-// 'max', 'hint', 'asPartOfSpeechOfDictionaryEntry', 'asInflectionTypeOfInflectedForm',
+// 'max', 'hint', 'asLabelOfDictionaryEntry', 'asLabelOfEncyclopediaEntry',
+// 'asPartOfSpeechOfDictionaryEntry', 'asInflectionTypeOfInflectedForm',
 // 'asDefinitionTypeOfDefinition', 'asSchemeOfTranscription',
 // 'asLexicographicRelationTypeOfLexicographicRelation', and 'asMemberRoleOfRelationTypeTag
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_relation',
@@ -231,6 +230,62 @@ defined('TYPO3') or die();
                 'sortItems' => [
                     'label' => 'asc',
                 ],
+            ],
+        ],
+        'asLabelOfDictionaryEntry' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfDictionaryEntry',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfDictionaryEntry.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
+                'MM' => 'tx_chflex_domain_model_dictionary_entry_tag_label_mm',
+                'MM_opposite_field' => 'label',
+                'size' => 5,
+                'autoSizeMax' => 10,
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+                'readOnly' => true,
+            ],
+        ],
+        'asLabelOfEncyclopediaEntry' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfEncyclopediaEntry',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfEncyclopediaEntry.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_chflex_domain_model_encyclopedia_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_encyclopedia_entry}.{#pid}=###CURRENT_PID###',
+                'MM' => 'tx_chflex_domain_model_encyclopedia_entry_tag_label_mm',
+                'MM_opposite_field' => 'label',
+                'size' => 5,
+                'autoSizeMax' => 10,
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+                'readOnly' => true,
             ],
         ],
         'asPartOfSpeechOfDictionaryEntry' => [
@@ -387,6 +442,40 @@ defined('TYPO3') or die();
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'relationTypeTag\'',
                 'MM' => 'tx_chfbase_domain_model_tag_tag_memberrole_mm',
                 'MM_opposite_field' => 'memberRole',
+                'size' => 5,
+                'autoSizeMax' => 10,
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+                'readOnly' => true,
+            ],
+        ],
+    ]
+);
+
+// Add column 'asLabelOfFileGroup'
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_tag',
+    [
+        'asLabelOfFileGroup' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfFileGroup',
+            'description' => 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfFileGroup.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_chfmedia_domain_model_file_group',
+                'foreign_table_where' => 'AND {#tx_chfmedia_domain_model_file_group}.{#pid}=###CURRENT_PID###',
+                'MM' => 'tx_chfmedia_domain_model_file_group_tag_label_mm',
+                'MM_opposite_field' => 'label',
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [

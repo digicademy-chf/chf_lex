@@ -3,6 +3,23 @@
     <file source-language="en" target-language="de" datatype="plaintext" original="EXT:chf_lex/Resources/Private/Language/de.locallang.xlf" date="2023-09-25T10:48:43Z" product-name="chf_lex">
         <header/>
         <body>
+            <!-- Object: LabelTag -->
+            <trans-unit id="object.labelTag.asLabelOfDictionaryEntry" resname="object.labelTag.asLabelOfDictionaryEntry" approved="yes">
+                <source>Usage as label of a dictionary entry</source>
+                <target>Verwendung als Label eines Wörterbucheintrags</target>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfDictionaryEntry.description" resname="object.labelTag.asLabelOfDictionaryEntry.description" approved="yes">
+                <source>List of dictionary entries that use this tag as a label</source>
+                <target>Liste der Wörterbucheinträge, die dieses Schlagwort als Label verwenden</target>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfEncyclopediaEntry" resname="object.labelTag.asLabelOfEncyclopediaEntry" approved="yes">
+                <source>Usage as label of a encyclopedia entry</source>
+                <target>Verwendung als Label eines Lexikoneintrags</target>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfEncyclopediaEntry.description" resname="object.labelTag.asLabelOfEncyclopediaEntry.description" approved="yes">
+                <source>List of encyclopedia entries that use this tag as a label</source>
+                <target>Liste der Lexikoneinträge, die dieses Schlagwort als Label verwenden</target>
+            </trans-unit>
             <!-- Object: LexicographicResource -->
             <trans-unit id="object.lexicographicResource.type.lexicographicResource" resname="object.lexicographicResource.type.lexicographicResource" approved="yes">
                 <source>Lexicographic resource</source>
@@ -228,119 +245,211 @@
                 <source>List of relation types that use this tag as a member role</source>
                 <target>Liste der Relationsarten, die dieses Schlagwort als Mitgliedsrolle verwenden</target>
             </trans-unit>
+            <!-- Object: AbstractEntry -->
+            <trans-unit id="object.abstractEntry.editorialSteps" resname="object.abstractEntry.editorialSteps" approved="yes">
+                <source>Editorial steps</source>
+                <target>Redaktionsschritte</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.editorialSteps.description" resname="object.abstractEntry.editorialSteps.description" approved="yes">
+                <source>Steps taken in creating the entry</source>
+                <target>Vorgehen beim Bearbeiten des Eintrags</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.editorialSteps.checkDatabase" resname="object.abstractEntry.editorialSteps.checkDatabase" approved="yes">
+                <source>Check database</source>
+                <target>Datenbankabfrage</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.editorialSteps.checkForeignLanguage" resname="object.abstractEntry.editorialSteps.checkForeignLanguage" approved="yes">
+                <source>Check foreign-language resources</source>
+                <target>Fremdsprachige Nachschlagewerke sichten</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.editorialSteps.checkRegional" resname="object.abstractEntry.editorialSteps.checkRegional" approved="yes">
+                <source>Check regional resources</source>
+                <target>Regionale Nachschlagewerke sichten</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.editorialSteps.checkPrevious" resname="object.abstractEntry.editorialSteps.checkPrevious" approved="yes">
+                <source>Check preceding projects</source>
+                <target>Vorgängerprojekte sichten</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.editorialSteps.checkFurther" resname="object.abstractEntry.editorialSteps.checkFurther" approved="yes">
+                <source>Check further resources</source>
+                <target>Weitere Nachschlagewerke sichten</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.editorialSteps.checkMaps" resname="object.abstractEntry.editorialSteps.checkMaps" approved="yes">
+                <source>Check domestic and foreign maps</source>
+                <target>Kartierung im In- und Ausland sichten</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.publicationSteps" resname="object.abstractEntry.publicationSteps" approved="yes">
+                <source>Publication steps</source>
+                <target>Publikationsschritte</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.publicationSteps.description" resname="object.abstractEntry.publicationSteps.description" approved="yes">
+                <source>The entry's publication status</source>
+                <target>Veröffentlichungsstatus des Eintrags</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.publicationSteps.started" resname="object.abstractEntry.publicationSteps.started" approved="yes">
+                <source>Started</source>
+                <target>Angefangen</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.publicationSteps.edited" resname="object.abstractEntry.publicationSteps.edited" approved="yes">
+                <source>Edited</source>
+                <target>Redaktionell bearbeitet</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.publicationSteps.checked" resname="object.abstractEntry.publicationSteps.checked" approved="yes">
+                <source>Checked</source>
+                <target>Überprüft</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.publicationSteps.deferred" resname="object.abstractEntry.publicationSteps.deferred" approved="yes">
+                <source>Deferred</source>
+                <target>Zurückgestellt</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.publicationSteps.revised" resname="object.abstractEntry.publicationSteps.revised" approved="yes">
+                <source>Revised</source>
+                <target>Überarbeitet</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.publicationSteps.publicationReady" resname="object.abstractEntry.publicationSteps.publicationReady" approved="yes">
+                <source>Publication-ready</source>
+                <target>Publikationsfreigabe</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.similarityRelation" resname="object.abstractEntry.similarityRelation" approved="yes">
+                <source>Similarity relation</source>
+                <target>Ähnlichkeitsrelation</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.similarityRelation.description" resname="object.abstractEntry.similarityRelation.description" approved="yes">
+                <source>Similarities relevant to this entry described by a relation</source>
+                <target>Ähnlichkeiten, die für diesen Eintrag relevant sind, beschrieben durch eine Relation</target>
+            </trans-unit>
+            <!-- Object: DictionaryEntry -->
+            <trans-unit id="object.dictionaryEntry" resname="object.dictionaryEntry" approved="yes">
+                <source>Dictionary entry</source>
+                <target>Wörterbucheintrag</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.details" resname="object.dictionaryEntry.details" approved="yes">
+                <source>Details</source>
+                <target>Details</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.headword" resname="object.dictionaryEntry.headword" approved="yes">
+                <source>Headword</source>
+                <target>Lemma</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.headword.description" resname="object.dictionaryEntry.headword.description" approved="yes">
+                <source>Lemma identifying the word discussed in the entry</source>
+                <target>Zeichenkette zur Identifikation des Wortes, das im Eintrag diskutiert wird</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.homographNumber" resname="object.dictionaryEntry.homographNumber" approved="yes">
+                <source>Homograph number</source>
+                <target>Homographnummer</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.homographNumber.description" resname="object.dictionaryEntry.homographNumber.description" approved="yes">
+                <source>Optional number to distinguish lemmas that are spelled the same</source>
+                <target>Optionale Nummer zur Unterscheidung von Lemmata mit identischer Schreibweise</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.partOfSpeech" resname="object.dictionaryEntry.partOfSpeech" approved="yes">
+                <source>Part of speech</source>
+                <target>Wortart</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.partOfSpeech.description" resname="object.dictionaryEntry.partOfSpeech.description" approved="yes">
+                <source>Define the headword's part of speech</source>
+                <target>Angabe der Wortart des Lemmas</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.editorialQuery" resname="object.dictionaryEntry.editorialQuery" approved="yes">
+                <source>Editorial query</source>
+                <target>Redaktionsabfrage</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.editorialQuery.description" resname="object.dictionaryEntry.editorialQuery.description" approved="yes">
+                <source>Database query that identifies entries edited in a single run</source>
+                <target>Datenbankabfrage zur Identifikation von Einträgen, die gemeinsam bearbeitet wurden</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.sense" resname="object.dictionaryEntry.sense" approved="yes">
+                <source>Sense</source>
+                <target>Bedeutung</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.sense.description" resname="object.dictionaryEntry.sense.description" approved="yes">
+                <source>List of senses for this entry</source>
+                <target>Angabe von Bedeutungen dieses Eintrags</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.example" resname="object.dictionaryEntry.example" approved="yes">
+                <source>Example</source>
+                <target>Beispiel</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.example.description" resname="object.dictionaryEntry.example.description" approved="yes">
+                <source>List of contemporary or historical examples of this dictionary entry</source>
+                <target>Liste mit zeitgenössischen oder historischen Beispielen dieses Wörterbucheintrags</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.frequency" resname="object.dictionaryEntry.frequency" approved="yes">
+                <source>Frequency</source>
+                <target>Häufigkeit</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.frequency.description" resname="object.dictionaryEntry.frequency.description" approved="yes">
+                <source>List of domestic and foreign frequency data</source>
+                <target>Liste mit Angaben zur Häufigkeit im In- und Ausland</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.pronunciation" resname="object.dictionaryEntry.pronunciation" approved="yes">
+                <source>Pronunciation</source>
+                <target>Aussprache</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.pronunciation.description" resname="object.dictionaryEntry.pronunciation.description" approved="yes">
+                <source>List of possible pronunciations of the headword</source>
+                <target>Liste der möglichen Aussprachen des Lemmas</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.inflectedForm" resname="object.dictionaryEntry.inflectedForm" approved="yes">
+                <source>Inflected form</source>
+                <target>Gebeugte Form</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.inflectedForm.description" resname="object.dictionaryEntry.inflectedForm.description" approved="yes">
+                <source>List of the headword's inflected forms</source>
+                <target>Liste der gebeugten Formen des Lemmas</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.asRefOfMember" resname="object.dictionaryEntry.asRefOfMember" approved="yes">
+                <source>As reference of a relation member</source>
+                <target>Als Bezugspunkt einer Mitgliedsangabe</target>
+            </trans-unit>
+            <trans-unit id="object.dictionaryEntry.asRefOfMember.description" resname="object.dictionaryEntry.asRefOfMember.description" approved="yes">
+                <source>List of memberships in a lexicographic relation</source>
+                <target>Liste der Mitgliedschaften in einer lexikografischen Relationen</target>
+            </trans-unit>
+            <!-- Object: EncyclopediaEntry -->
+            <trans-unit id="object.encyclopediaEntry" resname="object.encyclopediaEntry" approved="yes">
+                <source>Encyclopedia entry</source>
+                <target>Lexikoneintrag</target>
+            </trans-unit>
+            <trans-unit id="object.encyclopediaEntry.title" resname="object.encyclopediaEntry.title" approved="yes">
+                <source>Title</source>
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="object.encyclopediaEntry.title.description" resname="object.encyclopediaEntry.title.description" approved="yes">
+                <source>Heading of the encyclopedia entry</source>
+                <target>Überschrift des Lexikoneintrags</target>
+            </trans-unit>
 
 
 
             
-            <!-- Database: SameAs -->
-            <trans-unit id="database.sameAs" resname="database.sameAs" approved="yes">
-                <source>Reference URI</source>
-                <target>Referenz-URI</target>
+
+
+
+
+
+
+
+
+
+            
+
+            <trans-unit id="database.sense.example" resname="database.sense.example" approved="yes">
+                <source>Example</source>
+                <target>Beispiel</target>
             </trans-unit>
-            <trans-unit id="database.sameAs.uri" resname="database.sameAs.uri" approved="yes">
-                <source>URI</source>
-                <target>URI</target>
+            <trans-unit id="database.sense.example.description" resname="database.sense.example.description" approved="yes">
+                <source>Contemporary or historical examples of this sense</source>
+                <target>Zeitgenössische oder historische Beispiele dieser Bedeutung</target>
             </trans-unit>
-            <trans-unit id="database.sameAs.uri.description" resname="database.sameAs.uri.description" approved="yes">
-                <source>External web address to identify an entity across the web</source>
-                <target>Externe Webadresse zur Identifikation einer Entität im Internet</target>
+            <trans-unit id="database.sense.frequency" resname="database.sense.frequency" approved="yes">
+                <source>Frequency</source>
+                <target>Häufigkeit</target>
             </trans-unit>
-            <!-- Database: Contributor -->
-            <trans-unit id="database.contributor" resname="database.contributor" approved="yes">
-                <source>Contributor</source>
-                <target>Beitragende:r</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.contributions" resname="database.contributor.contributions" approved="yes">
-                <source>Contributions</source>
-                <target>Beiträge</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.parent_id" resname="database.contributor.parent_id" approved="yes">
-                <source>Lexicographic resource</source>
-                <target>Lexicografische Ressource</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.parent_id.description" resname="database.contributor.parent_id.description" approved="yes">
-                <source>Resource that this contributor is attached to</source>
-                <target>Ressource, zu der diese:r Beitragende gehört</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.id" resname="database.contributor.id" approved="yes">
-                <source>ID</source>
-                <target>ID</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.id.description" resname="database.contributor.id.description" approved="yes">
-                <source>Simple identifier of this contributor as part of a single dataset</source>
-                <target>Einfacher Identifikator der oder des Beitragenden als Teil eines einzelnen Datensatzes</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.uuid" resname="database.contributor.uuid" approved="yes">
-                <source>UUID</source>
-                <target>UUID</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.uuid.description" resname="database.contributor.uuid.description" approved="yes">
-                <source>Unique identifier of the contributor</source>
-                <target>Einzigartiger Identifikator der oder des Beitragenden</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.active" resname="database.contributor.active" approved="yes">
-                <source>Active</source>
-                <target>Aktiv</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.active.description" resname="database.contributor.active.description" approved="yes">
-                <source>Whether the contributor should be listed above non-active ones</source>
-                <target>Ob ein:e Beitragende:r vor älteren Beitragenden gelistet werden soll</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.surname" resname="database.contributor.surname" approved="yes">
-                <source>Surname</source>
-                <target>Nachname</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.surname.description" resname="database.contributor.surname.description" approved="yes">
-                <source>Surname of the contributor</source>
-                <target>Nachname der oder des Beitragenden</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.forename" resname="database.contributor.forename" approved="yes">
-                <source>Forename</source>
-                <target>Vorname</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.forename.description" resname="database.contributor.forename.description" approved="yes">
-                <source>Forename of the contributor</source>
-                <target>Vorname der oder des Beitragenden</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.corporateName" resname="database.contributor.corporateName" approved="yes">
-                <source>Corporate name</source>
-                <target>Name der Körperschaft</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.corporateName.description" resname="database.contributor.corporateName.description" approved="yes">
-                <source>Name of a corporate body (e.g., an organisation) used instead of forename and surname</source>
-                <target>Körperschaftsname (z.B. einer Organisation) anstelle von Vor- und Nachname</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.label" resname="database.contributor.label" approved="yes">
-                <source>Label</source>
-                <target>Label</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.label.description" resname="database.contributor.label.description" approved="yes">
-                <source>Label to group the contributor into</source>
-                <target>Label zum Gliedern von Beitragenden</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.sameAs" resname="database.contributor.sameAs" approved="yes">
-                <source>Reference URI</source>
-                <target>Referenz-URI</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.sameAs.description" resname="database.contributor.sameAs.description" approved="yes">
-                <source>External web address to identify the contributor across the web</source>
-                <target>Externe Webadresse zur Identifikation der oder des Beitragenden im Internet</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.asAuthor" resname="database.contributor.asAuthor" approved="yes">
-                <source>As author</source>
-                <target>Als Autor:in</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.asAuthor.description" resname="database.contributor.asAuthor.description" approved="yes">
-                <source>List of contributions as an author</source>
-                <target>Liste der Beiträge als Autor:in</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.asEditor" resname="database.contributor.asEditor" approved="yes">
-                <source>As editor</source>
-                <target>Als Redakteur:in</target>
-            </trans-unit>
-            <trans-unit id="database.contributor.asEditor.description" resname="database.contributor.asEditor.description" approved="yes">
-                <source>List of contributions as an editor</source>
-                <target>Liste der Beiträge als Redakteur:in</target>
+            <trans-unit id="database.sense.frequency.description" resname="database.sense.frequency.description" approved="yes">
+                <source>Frequency data for different countries or regions</source>
+                <target>Angaben zur Häufigkeit in verschiedenen Ländern oder Regionen</target>
             </trans-unit>
             <!-- Database: Example -->
             <trans-unit id="database.example" resname="database.example" approved="yes">
@@ -685,22 +794,6 @@
                 <source>Assess the sense using a given set of categories</source>
                 <target>Angaben zur Klassifikation der Bedeutung</target>
             </trans-unit>
-            <trans-unit id="database.sense.example" resname="database.sense.example" approved="yes">
-                <source>Example</source>
-                <target>Beispiel</target>
-            </trans-unit>
-            <trans-unit id="database.sense.example.description" resname="database.sense.example.description" approved="yes">
-                <source>Contemporary or historical examples of this sense</source>
-                <target>Zeitgenössische oder historische Beispiele dieser Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="database.sense.frequency" resname="database.sense.frequency" approved="yes">
-                <source>Frequency</source>
-                <target>Häufigkeit</target>
-            </trans-unit>
-            <trans-unit id="database.sense.frequency.description" resname="database.sense.frequency.description" approved="yes">
-                <source>Frequency data for different countries or regions</source>
-                <target>Angaben zur Häufigkeit in verschiedenen Ländern oder Regionen</target>
-            </trans-unit>
             <trans-unit id="database.sense.label" resname="database.sense.label" approved="yes">
                 <source>Label</source>
                 <target>Label</target>
@@ -753,417 +846,6 @@
             <trans-unit id="database.member.entryOrSense.description" resname="database.member.entryOrSense.description" approved="yes">
                 <source>Selection of entries or senses as members of this relation</source>
                 <target>Auswahl von Einträgen oder Bedeutungen als Mitglieder dieser Relation</target>
-            </trans-unit>
-            <!-- Database: Relation -->
-            <trans-unit id="database.relation" resname="database.relation" approved="yes">
-                <source>Relation</source>
-                <target>Relation</target>
-            </trans-unit>
-            <trans-unit id="database.relation.parent_id" resname="database.relation.parent_id" approved="yes">
-                <source>Lexicographic resource</source>
-                <target>Lexicografische Ressource</target>
-            </trans-unit>
-            <trans-unit id="database.relation.parent_id.description" resname="database.relation.parent_id.description" approved="yes">
-                <source>Resource that this relation is attached to</source>
-                <target>Ressource, zu der diese Relation gehört</target>
-            </trans-unit>
-            <trans-unit id="database.relation.type" resname="database.relation.type" approved="yes">
-                <source>Type</source>
-                <target>Art</target>
-            </trans-unit>
-            <trans-unit id="database.relation.type.description" resname="database.relation.type.description" approved="yes">
-                <source>Specifies the type of relation</source>
-                <target>Angabe der Art der Relation</target>
-            </trans-unit>
-            <trans-unit id="database.relation.description" resname="database.relation.description" approved="yes">
-                <source>Description</source>
-                <target>Beschreibung</target>
-            </trans-unit>
-            <trans-unit id="database.relation.description.description" resname="database.relation.description.description" approved="yes">
-                <source>Explanation of this relation</source>
-                <target>Erklärung dieser Relation</target>
-            </trans-unit>
-            <trans-unit id="database.relation.member" resname="database.relation.member" approved="yes">
-                <source>Member</source>
-                <target>Mitglied</target>
-            </trans-unit>
-            <trans-unit id="database.relation.member.description" resname="database.relation.member.description" approved="yes">
-                <source>List of members in this relation</source>
-                <target>Liste der Mitglieder in dieser Relation</target>
-            </trans-unit>
-            <!-- Database: Entry -->
-            <trans-unit id="database.entry" resname="database.entry" approved="yes">
-                <source>Entry</source>
-                <target>Eintrag</target>
-            </trans-unit>
-            <trans-unit id="database.entry.editorial" resname="database.entry.editorial" approved="yes">
-                <source>Editorial</source>
-                <target>Redaktion</target>
-            </trans-unit>
-            <trans-unit id="database.entry.characteristics" resname="database.entry.characteristics" approved="yes">
-                <source>Characteristics</source>
-                <target>Kenndaten</target>
-            </trans-unit>
-            <trans-unit id="database.entry.content" resname="database.entry.content" approved="yes">
-                <source>Content</source>
-                <target>Inhalt</target>
-            </trans-unit>
-            <trans-unit id="database.entry.distribution" resname="database.entry.distribution" approved="yes">
-                <source>Distribution</source>
-                <target>Verbreitung</target>
-            </trans-unit>
-            <trans-unit id="database.entry.bibliography" resname="database.entry.bibliography" approved="yes">
-                <source>Bibliography</source>
-                <target>Bibliografie</target>
-            </trans-unit>
-            <trans-unit id="database.entry.original" resname="database.entry.original" approved="yes">
-                <source>Original</source>
-                <target>Original</target>
-            </trans-unit>
-            <trans-unit id="database.entry.relations" resname="database.entry.relations" approved="yes">
-                <source>Relations</source>
-                <target>Relationen</target>
-            </trans-unit>
-            <trans-unit id="database.entry.parent_id" resname="database.entry.parent_id" approved="yes">
-                <source>Lexicographic resource</source>
-                <target>Lexicografische Ressource</target>
-            </trans-unit>
-            <trans-unit id="database.entry.parent_id.description" resname="database.entry.parent_id.description" approved="yes">
-                <source>Resource that this entry is attached to</source>
-                <target>Ressource, zu der dieser Eintrag gehört</target>
-            </trans-unit>
-            <trans-unit id="database.entry.id" resname="database.entry.id" approved="yes">
-                <source>ID</source>
-                <target>ID</target>
-            </trans-unit>
-            <trans-unit id="database.entry.id.description" resname="database.entry.id.description" approved="yes">
-                <source>Simple identifier of this entry as part of a single dataset</source>
-                <target>Einfacher Identifikator des Eintrags als Teil eines einzelnen Datensatzes</target>
-            </trans-unit>
-            <trans-unit id="database.entry.uuid" resname="database.entry.uuid" approved="yes">
-                <source>UUID</source>
-                <target>UUID</target>
-            </trans-unit>
-            <trans-unit id="database.entry.uuid.description" resname="database.entry.uuid.description" approved="yes">
-                <source>Unique identifier of the entry</source>
-                <target>Einzigartiger Identifikator des Eintrags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.type" resname="database.entry.type" approved="yes">
-                <source>Type</source>
-                <target>Art</target>
-            </trans-unit>
-            <trans-unit id="database.entry.type.description" resname="database.entry.type.description" approved="yes">
-                <source>Type of entry</source>
-                <target>Art des Eintrags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.type.entry" resname="database.entry.type.entry" approved="yes">
-                <source>Dictionary entry</source>
-                <target>Wörterbucheintrag</target>
-            </trans-unit>
-            <trans-unit id="database.entry.type.encyclopediaEntry" resname="database.entry.type.encyclopediaEntry" approved="yes">
-                <source>Encyclopedia entry</source>
-                <target>Lexikoneintrag</target>
-            </trans-unit>
-            <trans-unit id="database.entry.type.glossaryEntry" resname="database.entry.type.glossaryEntry" approved="yes">
-                <source>Glossary entry</source>
-                <target>Glossareintrag</target>
-            </trans-unit>
-            <trans-unit id="database.entry.headword" resname="database.entry.headword" approved="yes">
-                <source>Headword</source>
-                <target>Lemma</target>
-            </trans-unit>
-            <trans-unit id="database.entry.headword.description" resname="database.entry.headword.description" approved="yes">
-                <source>Single lemma identifying the word discussed in the entry</source>
-                <target>Einzelne Zeichenkette zur Identifikation des Wortes, das im Eintrag diskutiert wird</target>
-            </trans-unit>
-            <trans-unit id="database.entry.homographNumber" resname="database.entry.homographNumber" approved="yes">
-                <source>Homograph number</source>
-                <target>Homographnummer</target>
-            </trans-unit>
-            <trans-unit id="database.entry.homographNumber.description" resname="database.entry.homographNumber.description" approved="yes">
-                <source>Optional number to distinguish lemmas that are spelled the same</source>
-                <target>Optionale Nummer zur Unterscheidung von Lemmata mit identischer Schreibweise</target>
-            </trans-unit>
-            <trans-unit id="database.entry.title" resname="database.entry.title" approved="yes">
-                <source>Title</source>
-                <target>Titel</target>
-            </trans-unit>
-            <trans-unit id="database.entry.title.description" resname="database.entry.title.description" approved="yes">
-                <source>Name of the entry</source>
-                <target>Name des Eintrags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.annotateStrings" resname="database.entry.annotateStrings" approved="yes">
-                <source>Annotate strings</source>
-                <target>Zu annotierende Zeichenketten</target>
-            </trans-unit>
-            <trans-unit id="database.entry.annotateStrings.description" resname="database.entry.annotateStrings.description" approved="yes">
-                <source>List of comma-separated strings to link to this glossary entry</source>
-                <target>Liste kommaseparierter Zeichenketten, die mit diesem Glossareintrag verknüpft sein sollen</target>
-            </trans-unit>
-            <trans-unit id="database.entry.label" resname="database.entry.label" approved="yes">
-                <source>Label</source>
-                <target>Label</target>
-            </trans-unit>
-            <trans-unit id="database.entry.label.description" resname="database.entry.label.description" approved="yes">
-                <source>Label to group the entry into</source>
-                <target>Label zum Gliedern von Einträgen</target>
-            </trans-unit>
-            <trans-unit id="database.entry.sameAs" resname="database.entry.sameAs" approved="yes">
-                <source>Reference URI</source>
-                <target>Referenz-URI</target>
-            </trans-unit>
-            <trans-unit id="database.entry.sameAs.description" resname="database.entry.sameAs.description" approved="yes">
-                <source>External web address to identify the entry across the web</source>
-                <target>Externe Webadresse zur Identifikation des Eintrags im Internet</target>
-            </trans-unit>
-            <trans-unit id="database.entry.author" resname="database.entry.author" approved="yes">
-                <source>Author</source>
-                <target>Autor:in</target>
-            </trans-unit>
-            <trans-unit id="database.entry.author.description" resname="database.entry.author.description" approved="yes">
-                <source>List of authors of this entry</source>
-                <target>Liste der Autor:innen des Eintrags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.editor" resname="database.entry.editor" approved="yes">
-                <source>Editor</source>
-                <target>Redakteur:in</target>
-            </trans-unit>
-            <trans-unit id="database.entry.editor.description" resname="database.entry.editor.description" approved="yes">
-                <source>List of editors of this entry</source>
-                <target>Liste der Redakteur:innen des Eintrags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.revisionNumber" resname="database.entry.revisionNumber" approved="yes">
-                <source>Revision number</source>
-                <target>Revisionsnummer</target>
-            </trans-unit>
-            <trans-unit id="database.entry.revisionNumber.description" resname="database.entry.revisionNumber.description" approved="yes">
-                <source>Counter to increase when the entry is changed significantly</source>
-                <target>Zähler zum Erhöhen bei signifikanten Änderungen am Eintrag</target>
-            </trans-unit>
-            <trans-unit id="database.entry.revisionDate" resname="database.entry.revisionDate" approved="yes">
-                <source>Revision date</source>
-                <target>Revisionsdatum</target>
-            </trans-unit>
-            <trans-unit id="database.entry.revisionDate.description" resname="database.entry.revisionDate.description" approved="yes">
-                <source>Date when the last significant edit was made</source>
-                <target>Datum der letzten signifikanten Änderung</target>
-            </trans-unit>
-            <trans-unit id="database.entry.databaseQuery" resname="database.entry.databaseQuery" approved="yes">
-                <source>Database query</source>
-                <target>Datenbankabfrage</target>
-            </trans-unit>
-            <trans-unit id="database.entry.databaseQuery.description" resname="database.entry.databaseQuery.description" approved="yes">
-                <source>Query that identifies a set of entries edited in a single run</source>
-                <target>Abfrage zur Identifikation einer Gruppe Einträge, die gemeinsam bearbeitet wurden</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationDate" resname="database.entry.publicationDate" approved="yes">
-                <source>Publication date</source>
-                <target>Veröffentlichungsdatum</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationDate.description" resname="database.entry.publicationDate.description" approved="yes">
-                <source>Date when the entry was published on the web</source>
-                <target>Datum, an dem der Eintrag online veröffentlicht wurde</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationSteps" resname="database.entry.publicationSteps" approved="yes">
-                <source>Publication steps</source>
-                <target>Publikationsschritte</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationSteps.description" resname="database.entry.publicationSteps.description" approved="yes">
-                <source>Indicator of the entry's publication status</source>
-                <target>Angabe zum Veröffentlichungsstatus des Eintrags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationSteps.editing" resname="database.entry.publicationSteps.editing" approved="yes">
-                <source>Editing</source>
-                <target>Redaktionelle Bearbeitung</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationSteps.deferred" resname="database.entry.publicationSteps.deferred" approved="yes">
-                <source>Deferred</source>
-                <target>Zurückgestellt</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationSteps.checking" resname="database.entry.publicationSteps.checking" approved="yes">
-                <source>Checking</source>
-                <target>Überprüfung</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationSteps.revising" resname="database.entry.publicationSteps.revising" approved="yes">
-                <source>Revising</source>
-                <target>Überarbeitung</target>
-            </trans-unit>
-            <trans-unit id="database.entry.publicationSteps.publishing" resname="database.entry.publicationSteps.publishing" approved="yes">
-                <source>Publishing</source>
-                <target>Publikationsfreigabe</target>
-            </trans-unit>
-            <trans-unit id="database.entry.editingSteps" resname="database.entry.editingSteps" approved="yes">
-                <source>Editing steps</source>
-                <target>Redaktionsschritte</target>
-            </trans-unit>
-            <trans-unit id="database.entry.editingSteps.description" resname="database.entry.editingSteps.description" approved="yes">
-                <source>Indicator of the steps taken in writing the entry</source>
-                <target>Angabe zum Vorgehen beim Bearbeiten des Eintrags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.editingSteps.checkDatabase" resname="database.entry.editingSteps.checkDatabase" approved="yes">
-                <source>Check database</source>
-                <target>Datenbankabfrage</target>
-            </trans-unit>
-            <trans-unit id="database.entry.editingSteps.checkForeignLanguage" resname="database.entry.editingSteps.checkForeignLanguage" approved="yes">
-                <source>Check foreign-language dictionaries</source>
-                <target>Fremdsprachige Wörterbücher sichten</target>
-            </trans-unit>
-            <trans-unit id="database.entry.editingSteps.checkRegional" resname="database.entry.editingSteps.checkRegional" approved="yes">
-                <source>Check regional dictionaries</source>
-                <target>Regionale Wörterbücher sichten</target>
-            </trans-unit>
-            <trans-unit id="database.entry.editingSteps.checkPrevious" resname="database.entry.editingSteps.checkPrevious" approved="yes">
-                <source>Check preceding projects</source>
-                <target>Vorgängerprojekte sichten</target>
-            </trans-unit>
-            <trans-unit id="database.entry.editingSteps.checkFurther" resname="database.entry.editingSteps.checkFurther" approved="yes">
-                <source>Check further dictionaries</source>
-                <target>Weitere Nachschlagewerke sichten</target>
-            </trans-unit>
-            <trans-unit id="database.entry.editingSteps.checkMaps" resname="database.entry.editingSteps.checkMaps" approved="yes">
-                <source>Check domestic and foreign maps</source>
-                <target>Kartierung im In- und Ausland sichten</target>
-            </trans-unit>
-            <trans-unit id="database.entry.editingNotes" resname="database.entry.editingNotes" approved="yes">
-                <source>Editing notes</source>
-                <target>Redaktionshinweise</target>
-            </trans-unit>
-            <trans-unit id="database.entry.editingNotes.description" resname="database.entry.editingNotes.description" approved="yes">
-                <source>Comments that support the editorial process</source>
-                <target>Notizen zur Unterstützung des Redaktionsprozesses</target>
-            </trans-unit>
-            <trans-unit id="database.entry.classification" resname="database.entry.classification" approved="yes">
-                <source>Classification</source>
-                <target>Einstufung</target>
-            </trans-unit>
-            <trans-unit id="database.entry.classification.description" resname="database.entry.classification.description" approved="yes">
-                <source>Assess the entry using a given set of categories</source>
-                <target>Angaben zur Klassifikation des Eintrags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.partOfSpeech" resname="database.entry.partOfSpeech" approved="yes">
-                <source>Part of speech</source>
-                <target>Wortart</target>
-            </trans-unit>
-            <trans-unit id="database.entry.partOfSpeech.description" resname="database.entry.partOfSpeech.description" approved="yes">
-                <source>Define the headword's part of speech</source>
-                <target>Angabe der Wortart des Lemmas</target>
-            </trans-unit>
-            <trans-unit id="database.entry.inflectedForm" resname="database.entry.inflectedForm" approved="yes">
-                <source>Inflected form</source>
-                <target>Gebeugte Form</target>
-            </trans-unit>
-            <trans-unit id="database.entry.inflectedForm.description" resname="database.entry.inflectedForm.description" approved="yes">
-                <source>Define the headword's inflected forms</source>
-                <target>Angabe von gebeugten Formen des Lemmas</target>
-            </trans-unit>
-            <trans-unit id="database.entry.pronunciation" resname="database.entry.pronunciation" approved="yes">
-                <source>Pronunciation</source>
-                <target>Aussprache</target>
-            </trans-unit>
-            <trans-unit id="database.entry.pronunciation.description" resname="database.entry.pronunciation.description" approved="yes">
-                <source>Define the pronunciation of the headword</source>
-                <target>Angabe der Aussprache des Lemmas</target>
-            </trans-unit>
-            <trans-unit id="database.entry.sense" resname="database.entry.sense" approved="yes">
-                <source>Sense</source>
-                <target>Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="database.entry.sense.description" resname="database.entry.sense.description" approved="yes">
-                <source>List of senses for this entry</source>
-                <target>Angabe von Bedeutungen dieses Eintrags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.example" resname="database.entry.example" approved="yes">
-                <source>Example</source>
-                <target>Beispiel</target>
-            </trans-unit>
-            <trans-unit id="database.entry.example.description" resname="database.entry.example.description" approved="yes">
-                <source>Contemporary or historical examples of this entry</source>
-                <target>Zeitgenössische oder historische Beispiele dieses Eintrags</target>
-            </trans-unit>
-            <trans-unit id="database.entry.contentElements" resname="database.entry.contentElements" approved="yes">
-                <source>Content elements</source>
-                <target>Inhaltselemente</target>
-            </trans-unit>
-            <trans-unit id="database.entry.contentElements.description" resname="database.entry.contentElements.description" approved="yes">
-                <source>Content blocks that make up the content of this entry</source>
-                <target>Inhaltliche Abschnitte, die den Inhalt des Eintrag ausmachen</target>
-            </trans-unit>
-            <trans-unit id="database.entry.image" resname="database.entry.image" approved="yes">
-                <source>Image</source>
-                <target>Bild</target>
-            </trans-unit>
-            <trans-unit id="database.entry.image.description" resname="database.entry.image.description" approved="yes">
-                <source>Images depicting the entry</source>
-                <target>Bilder, die den Eintrag darstellen</target>
-            </trans-unit>
-            <trans-unit id="database.entry.file" resname="database.entry.file" approved="yes">
-                <source>File</source>
-                <target>Datei</target>
-            </trans-unit>
-            <trans-unit id="database.entry.file.description" resname="database.entry.file.description" approved="yes">
-                <source>Files that contains, for example, content of the entry</source>
-                <target>Dateien, die beispielsweise Inhalte des Eintrags enthalten</target>
-            </trans-unit>
-            <trans-unit id="database.entry.distributionLanguage" resname="database.entry.distributionLanguage" approved="yes">
-                <source>Language</source>
-                <target>Sprachvorkommen</target>
-            </trans-unit>
-            <trans-unit id="database.entry.distributionLanguage.description" resname="database.entry.distributionLanguage.description" approved="yes">
-                <source>Languages associated with this entry</source>
-                <target>Sprachen in Verbindung mit diesem Eintrag</target>
-            </trans-unit>
-            <trans-unit id="database.entry.distributionCountry" resname="database.entry.distributionCountry" approved="yes">
-                <source>Main distribution</source>
-                <target>Hauptverbreitung</target>
-            </trans-unit>
-            <trans-unit id="database.entry.distributionCountry.description" resname="database.entry.distributionCountry.description" approved="yes">
-                <source>Countries connected to this entry</source>
-                <target>Länder, die mit diesem Eintrag in Beziehung stehen</target>
-            </trans-unit>
-            <trans-unit id="database.entry.distributionRegion" resname="database.entry.distributionRegion" approved="yes">
-                <source>Regional distribution</source>
-                <target>Regionale Verbreitung</target>
-            </trans-unit>
-            <trans-unit id="database.entry.distributionRegion.description" resname="database.entry.distributionRegion.description" approved="yes">
-                <source>Regions connected to this entry</source>
-                <target>Regionen, die mit diesem Eintrag in Beziehung stehen</target>
-            </trans-unit>
-            <trans-unit id="database.entry.frequency" resname="database.entry.frequency" approved="yes">
-                <source>Frequency</source>
-                <target>Häufigkeit</target>
-            </trans-unit>
-            <trans-unit id="database.entry.frequency.description" resname="database.entry.frequency.description" approved="yes">
-                <source>List of domestic and foreign frequency data</source>
-                <target>Liste mit Angaben zur Häufigkeit im In- und Ausland</target>
-            </trans-unit>
-            <trans-unit id="database.entry.source" resname="database.entry.source" approved="yes">
-                <source>Reference</source>
-                <target>Quellenangabe</target>
-            </trans-unit>
-            <trans-unit id="database.entry.source.description" resname="database.entry.source.description" approved="yes">
-                <source>List of references for this entry</source>
-                <target>Liste der Quellen für diesen Eintrag</target>
-            </trans-unit>
-            <trans-unit id="database.entry.import" resname="database.entry.import" approved="yes">
-                <source>Imported file</source>
-                <target>Importierte Datei</target>
-            </trans-unit>
-            <trans-unit id="database.entry.import.description" resname="database.entry.import.description" approved="yes">
-                <source>Content of the file used to populate this record</source>
-                <target>Inhalt der Datei, die zum Befüllen dieses Datensatzes genutzt wurde</target>
-            </trans-unit>
-            <trans-unit id="database.entry.asMember" resname="database.entry.asMember" approved="yes">
-                <source>As member</source>
-                <target>Als Mitglied</target>
-            </trans-unit>
-            <trans-unit id="database.entry.asMember.description" resname="database.entry.asMember.description" approved="yes">
-                <source>List of memberships in a relation</source>
-                <target>Liste der Mitgliedschaften in Relationen</target>
-            </trans-unit>
-            <!-- Validator: RegularExpressionValidator -->
-            <trans-unit id="validator.regularExpression.noUuid" resname="validator.regularExpression.noUuid" approved="yes">
-                <source>The given value was not a UUID.</source>
-                <target>Der Wert war keine UUID.</target>
             </trans-unit>
         </body>
     </file>
