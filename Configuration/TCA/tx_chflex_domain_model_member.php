@@ -190,13 +190,13 @@ return [
         ],
     ],
     'palettes' => [
-        'parentRelationRole' => [
-            'showitem' => 'parentRelation,role,',
+        'hiddenParentRelation' => [
+            'showitem' => 'hidden,parentRelation,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,parentRelationRole,ref,',
+            'showitem' => 'hiddenParentRelation,role,ref,',
         ],
     ],
 ];

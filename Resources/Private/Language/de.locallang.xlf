@@ -457,6 +457,43 @@
                 <source>List of dictionary entries or senses as members of the lexicographic relation</source>
                 <target>Liste der Wörterbucheinträge oder Bedeutungen als Mitglieder der lexikografischen Relation</target>
             </trans-unit>
+            <!-- Object: InflectedForm -->
+            <trans-unit id="object.inflectedForm" resname="object.inflectedForm" approved="yes">
+                <source>Inflected form</source>
+                <target>Gebeugte Form</target>
+            </trans-unit>
+            <trans-unit id="object.inflectedForm.parentEntry" resname="object.inflectedForm.parentEntry" approved="yes">
+                <source>Parent entry</source>
+                <target>Übergeordneter Eintrag</target>
+            </trans-unit>
+            <trans-unit id="object.inflectedForm.parentEntry.description" resname="object.inflectedForm.parentEntry.description" approved="yes">
+                <source>Dictionary entry that this inflected form is part of</source>
+                <target>Wörterbucheintrag, zu dem diese gebeugte Form gehört</target>
+            </trans-unit>
+            <trans-unit id="object.inflectedForm.text" resname="object.inflectedForm.text" approved="yes">
+                <source>Text</source>
+                <target>Text</target>
+            </trans-unit>
+            <trans-unit id="object.inflectedForm.text.description" resname="object.inflectedForm.text.description" approved="yes">
+                <source>String of the inflected form</source>
+                <target>Zeichenkette der gebeugten Form</target>
+            </trans-unit>
+            <trans-unit id="object.inflectedForm.inflectionType" resname="object.inflectedForm.inflectionType" approved="yes">
+                <source>Inflection type</source>
+                <target>Beugungsart</target>
+            </trans-unit>
+            <trans-unit id="object.inflectedForm.inflectionType.description" resname="object.inflectedForm.inflectionType.description" approved="yes">
+                <source>Type of inflection provided here</source>
+                <target>Spezifische Art der hier angegebenen Beugung</target>
+            </trans-unit>
+            <trans-unit id="object.inflectedForm.pronunciation" resname="object.inflectedForm.pronunciation" approved="yes">
+                <source>Pronunciation</source>
+                <target>Aussprache</target>
+            </trans-unit>
+            <trans-unit id="object.inflectedForm.pronunciation.description" resname="object.inflectedForm.pronunciation.description" approved="yes">
+                <source>Pronunciation of the inflected form</source>
+                <target>Aussprache der gebeugten Form</target>
+            </trans-unit>
 
 
 
@@ -646,43 +683,6 @@
             <trans-unit id="database.pronunciation.label.description" resname="database.pronunciation.label.description" approved="yes">
                 <source>Label to group the pronunication into</source>
                 <target>Label zum Gliedern von Aussprachen</target>
-            </trans-unit>
-            <!-- Database: InflectedForm -->
-            <trans-unit id="database.inflectedForm" resname="database.inflectedForm" approved="yes">
-                <source>Inflected form</source>
-                <target>Gebeugte Form</target>
-            </trans-unit>
-            <trans-unit id="database.inflectedForm.text" resname="database.inflectedForm.text" approved="yes">
-                <source>Text</source>
-                <target>Text</target>
-            </trans-unit>
-            <trans-unit id="database.inflectedForm.text.description" resname="database.inflectedForm.text.description" approved="yes">
-                <source>Text of the inflected form</source>
-                <target>Text der gebeugten Form</target>
-            </trans-unit>
-            <trans-unit id="database.inflectedForm.inflectionType" resname="database.inflectedForm.inflectionType" approved="yes">
-                <source>inflectionType</source>
-                <target>Beugungsart</target>
-            </trans-unit>
-            <trans-unit id="database.inflectedForm.inflectionType.description" resname="database.inflectedForm.inflectionType.description" approved="yes">
-                <source>Specify the type of inflection used here</source>
-                <target>Angabe einer spezifischen Art der Beugung</target>
-            </trans-unit>
-            <trans-unit id="database.inflectedForm.pronunciation" resname="database.inflectedForm.pronunciation" approved="yes">
-                <source>Pronunciation</source>
-                <target>Aussprache</target>
-            </trans-unit>
-            <trans-unit id="database.inflectedForm.pronunciation.description" resname="database.inflectedForm.pronunciation.description" approved="yes">
-                <source>Define the pronunciation of the inflected form</source>
-                <target>Angabe der Aussprache der gebeugten Form</target>
-            </trans-unit>
-            <trans-unit id="database.inflectedForm.label" resname="database.inflectedForm.label" approved="yes">
-                <source>Label</source>
-                <target>Label</target>
-            </trans-unit>
-            <trans-unit id="database.inflectedForm.label.description" resname="database.inflectedForm.label.description" approved="yes">
-                <source>Label to group the inflected form into</source>
-                <target>Label zum Gliedern von gebeugten Formen</target>
             </trans-unit>
             <!-- Database: Frequency -->
             <trans-unit id="database.frequency" resname="database.frequency" approved="yes">
