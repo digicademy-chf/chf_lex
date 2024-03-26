@@ -616,6 +616,38 @@
                 <source>List of possible transcriptions of the pronuncation</source>
                 <target>Liste möglicher Transkriptionen der Aussprache</target>
             </trans-unit>
+            <!-- Object: Definition -->
+            <trans-unit id="object.definition" resname="object.definition" approved="yes">
+                <source>Definition</source>
+                <target>Definition</target>
+            </trans-unit>
+            <trans-unit id="object.definition.parentSense" resname="object.definition.parentSense" approved="yes">
+                <source>Parent sense</source>
+                <target>Übergeordnete Bedeutung</target>
+            </trans-unit>
+            <trans-unit id="object.definition.parentSense.description" resname="object.definition.parentSense.description" approved="yes">
+                <source>Sense that this definition belongs to</source>
+                <target>Bedeutung, zu der diese Definition gehört</target>
+            </trans-unit>
+            <trans-unit id="object.definition.text" resname="object.definition.text" approved="yes">
+                <source>Text</source>
+                <target>Text</target>
+            </trans-unit>
+            <trans-unit id="object.definition.text.description" resname="object.definition.text.description" approved="yes">
+                <source>Definition of the sense</source>
+                <target>Definition der Bedeutung</target>
+            </trans-unit>
+            <trans-unit id="object.definition.definitionType" resname="object.definition.definitionType" approved="yes">
+                <source>Definition type</source>
+                <target>Definitionsart</target>
+            </trans-unit>
+            <trans-unit id="object.definition.definitionType.description" resname="object.definition.definitionType.description" approved="yes">
+                <source>May be used to differentiate between different tiers of definitions</source>
+                <target>Kann zur Differenzierung verschiedener Definitionsstufen genutzt werden</target>
+            </trans-unit>
+
+
+
 
 
             <!-- Database: Example -->
@@ -710,27 +742,6 @@
             <trans-unit id="database.example.label.description" resname="database.example.label.description" approved="yes">
                 <source>Label to group the example into</source>
                 <target>Label zum Gliedern von Beispielen</target>
-            </trans-unit>
-            <!-- Database: Definition -->
-            <trans-unit id="database.definition" resname="database.definition" approved="yes">
-                <source>Definition</source>
-                <target>Definition</target>
-            </trans-unit>
-            <trans-unit id="database.definition.text" resname="database.definition.text" approved="yes">
-                <source>Text</source>
-                <target>Text</target>
-            </trans-unit>
-            <trans-unit id="database.definition.text.description" resname="database.definition.text.description" approved="yes">
-                <source>Definition of the headword</source>
-                <target>Definition des Begriffs</target>
-            </trans-unit>
-            <trans-unit id="database.definition.definitionType" resname="database.definition.definitionType" approved="yes">
-                <source>Definition type</source>
-                <target>Definitionsart</target>
-            </trans-unit>
-            <trans-unit id="database.definition.definitionType.description" resname="database.definition.definitionType.description" approved="yes">
-                <source>May be used to differentiate between different tiers of definitions</source>
-                <target>Kann zur Differenzierung verschiedener Definitionsstufen genutzt werden</target>
             </trans-unit>
             <!-- Database: Transcription -->
             <trans-unit id="database.transcription" resname="database.transcription" approved="yes">
