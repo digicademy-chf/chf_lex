@@ -23,6 +23,6 @@ class MemberRepository extends Repository
 {
     protected $defaultOrderings = [
         'sorting' => QueryInterface::ORDER_ASCENDING,
-        'member'  => QueryInterface::ORDER_ASCENDING,
+        'ref'     => QueryInterface::ORDER_ASCENDING,
     ];
 }

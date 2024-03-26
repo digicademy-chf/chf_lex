@@ -245,6 +245,14 @@
                 <source>List of relation types that use this tag as a member role</source>
                 <target>Liste der Relationsarten, die dieses Schlagwort als Mitgliedsrolle verwenden</target>
             </trans-unit>
+            <trans-unit id="object.memberRoleTag.asRoleOfMember" resname="object.memberRoleTag.asRoleOfMember" approved="yes">
+                <source>Usage as role of a relation member</source>
+                <target>Verwendung als Rolle einer Mitgliedsangabe</target>
+            </trans-unit>
+            <trans-unit id="object.memberRoleTag.asRoleOfMember.description" resname="object.memberRoleTag.asRoleOfMember.description" approved="yes">
+                <source>List of relation members that use this tag as a role</source>
+                <target>Liste der Mitgliedsangaben, die dieses Schlagwort als Rolle verwenden</target>
+            </trans-unit>
             <!-- Object: AbstractEntry -->
             <trans-unit id="object.abstractEntry.editorialSteps" resname="object.abstractEntry.editorialSteps" approved="yes">
                 <source>Editorial steps</source>
@@ -420,11 +428,35 @@
                 <source>Heading of the encyclopedia entry</source>
                 <target>Überschrift des Lexikoneintrags</target>
             </trans-unit>
-
-
-
-            
-
+            <!-- Object: Member -->
+            <trans-unit id="object.member" resname="object.member" approved="yes">
+                <source>Relation member</source>
+                <target>Mitgliedsangabe</target>
+            </trans-unit>
+            <trans-unit id="object.member.parentRelation" resname="object.member.parentRelation" approved="yes">
+                <source>Parent relation</source>
+                <target>Übergeordnete Relation</target>
+            </trans-unit>
+            <trans-unit id="object.member.parentRelation.description" resname="object.member.parentRelation.description" approved="yes">
+                <source>Lexicographic relation that this record is a member of</source>
+                <target>Lexikografische Relation, in der dieser Eintrag Mitglied ist</target>
+            </trans-unit>
+            <trans-unit id="object.member.role" resname="object.member.role" approved="yes">
+                <source>Role</source>
+                <target>Rolle</target>
+            </trans-unit>
+            <trans-unit id="object.member.role.description" resname="object.member.role.description" approved="yes">
+                <source>Role in the relation</source>
+                <target>Rolle in der Relation</target>
+            </trans-unit>
+            <trans-unit id="object.member.ref" resname="object.member.ref" approved="yes">
+                <source>Reference</source>
+                <target>Bezugspunkt</target>
+            </trans-unit>
+            <trans-unit id="object.member.ref.description" resname="object.member.ref.description" approved="yes">
+                <source>List of dictionary entries or senses as members of the lexicographic relation</source>
+                <target>Liste der Wörterbucheinträge oder Bedeutungen als Mitglieder der lexikografischen Relation</target>
+            </trans-unit>
 
 
 
@@ -817,35 +849,6 @@
             <trans-unit id="database.sense.asMember.description" resname="database.sense.asMember.description" approved="yes">
                 <source>List of memberships in a relation</source>
                 <target>Liste der Mitgliedschaften in Relationen</target>
-            </trans-unit>
-            <!-- Database: Member -->
-            <trans-unit id="database.member" resname="database.member" approved="yes">
-                <source>Member</source>
-                <target>Mitglied</target>
-            </trans-unit>
-            <trans-unit id="database.member.parent_id" resname="database.member.parent_id" approved="yes">
-                <source>Relation</source>
-                <target>Relation</target>
-            </trans-unit>
-            <trans-unit id="database.member.parent_id.description" resname="database.member.parent_id.description" approved="yes">
-                <source>Relation that this member is attached to</source>
-                <target>Relation, zu der dieses Mitglied gehört</target>
-            </trans-unit>
-            <trans-unit id="database.member.role" resname="database.member.role" approved="yes">
-                <source>Role</source>
-                <target>Rolle</target>
-            </trans-unit>
-            <trans-unit id="database.member.role.description" resname="database.member.role.description" approved="yes">
-                <source>Role in this relation</source>
-                <target>Rolle in dieser Relation</target>
-            </trans-unit>
-            <trans-unit id="database.member.entryOrSense" resname="database.member.entryOrSense" approved="yes">
-                <source>Entry or sense</source>
-                <target>Eintrag oder Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="database.member.entryOrSense.description" resname="database.member.entryOrSense.description" approved="yes">
-                <source>Selection of entries or senses as members of this relation</source>
-                <target>Auswahl von Einträgen oder Bedeutungen als Mitglieder dieser Relation</target>
             </trans-unit>
         </body>
     </file>

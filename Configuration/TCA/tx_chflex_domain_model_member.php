@@ -19,13 +19,13 @@ defined('TYPO3') or die();
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.member',
-        'label'                    => 'entryOrSense',
+        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member',
+        'label'                    => 'ref',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'entryOrSense ASC',
+        'default_sortby'           => 'ref ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/Member.svg',
         'origUid'                  => 't3_origuid',
@@ -34,36 +34,23 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
+        'searchFields'             => 'ref',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
         ],
     ],
     'columns' => [
-        'hidden' => [
-            'exclude' => true,
-            'label'   => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
-            'config'  => [
-                'type'       => 'check',
-                'renderType' => 'checkboxToggle',
-                'items'      => [
-                    [
-                        'label' => '',
-                        'invertStateDisplay' => true,
-                    ]
-                ],
-            ]
-        ],
         'fe_group' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
             'config' => [
-                'type'       => 'select',
+                'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'size'       => 5,
-                'maxitems'   => 20,
-                'items'      => [
+                'size' => 5,
+                'maxitems' => 20,
+                'items' => [
                     [
                         'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
                         'value' => -1,
@@ -83,27 +70,27 @@ return [
         ],
         'sys_language_uid' => [
             'exclude' => true,
-            'label'   => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-            'config'  => [
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'config' => [
                 'type' => 'language',
             ],
         ],
         'l18n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label'       => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
-            'config'      => [
-                'type'       => 'select',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'config' => [
+                'type' => 'select',
                 'renderType' => 'selectSingle',
-                'items'      => [
+                'items' => [
                     [
                         'label' => '',
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_chflex_domain_model_member',
+                'foreign_table' => 'tx_chflex_domain_model_member',
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_member}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chflex_domain_model_member}.{#sys_language_uid} IN (-1,0)',
-                'default'             => 0,
+                'default' => 0,
             ],
         ],
         'l10n_source' => [
@@ -113,54 +100,103 @@ return [
         ],
         'l18n_diffsource' => [
             'config' => [
-                'type'    => 'passthrough',
+                'type' => 'passthrough',
                 'default' => '',
             ],
         ],
-        'parent_id' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.member.parent_id',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.member.parent_id.description',
-            'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_chflex_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_lexicographic_resource}.{#pid}=###CURRENT_PID###',
-                'maxitems'            => 1,
-                'required'            => true,
+        'hidden' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.hidden.description',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'invertStateDisplay' => true,
+                    ]
+                ],
+            ]
+        ],
+        'parentRelation' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member.parentRelation',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member.parentRelation.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_chfbase_domain_model_relation',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'lexicographicRelation\'',
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
+                'required' => true,
             ],
         ],
         'role' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.member.role',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.member.role.description',
-            'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_chflex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'memberRole\'',
-                'MM'                  => 'tx_chflex_domain_model_member_tag_role_mm',
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member.role',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member.role.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_chfbase_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'memberRoleTag\'',
+                'MM' => 'tx_chflex_domain_model_member_tag_role_mm',
+                'size' => 5,
+                'autoSizeMax' => 10,
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
             ],
         ],
-        'entryOrSense' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.member.entryOrSense',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.member.entryOrSense.description',
-            'config'      => [
-                'type'     => 'group',
-                'minitems' => 1,
-                'allowed'  => 'tx_chflex_domain_model_entry,tx_chflex_domain_model_sense',
-                'MM'       => 'tx_chflex_domain_model_member_entryorsense_entryorsense_mm',
+        'ref' => [ # TODO enforce min/max values based on role and type restrictions based on parent relation
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member.ref',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member.ref.description',
+            'config' => [
+                'type' => 'group',
+                'allowed' => 'tx_chflex_domain_model_dictionary_entry,tx_chflex_domain_model_sense,',
+                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry', // Needed by Extbase as of TYPO3 12, remove when possible
+                'MM' => 'tx_chflex_domain_model_any_member_ref_mm',
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
                 'required' => true,
-            ], # TODO enforce min/max values from role and type restrictions from parent relation
+            ],
         ],
     ],
     'palettes' => [
-        'hiddenParentId' => [
-            'showitem' => 'hidden,parent_id,',
+        'parentRelationRole' => [
+            'showitem' => 'parentRelation,role,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hiddenParentId,role,entryOrSense,',
+            'showitem' => 'hidden,parentRelationRole,ref,',
         ],
     ],
 ];
