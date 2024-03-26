@@ -696,7 +696,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_chflex_domain_model_member',
-                'MM' => 'tx_chflex_domain_model_dictionary_entry_member_ref_mm',
+                'MM' => 'tx_chflex_domain_model_any_member_ref_mm',
                 'MM_opposite_field' => 'ref',
                 'size' => 5,
                 'autoSizeMax' => 10,

@@ -82,7 +82,8 @@ defined('TYPO3') or die();
 // 'max', 'hint', 'asLabelOfDictionaryEntry', 'asLabelOfEncyclopediaEntry',
 // 'asPartOfSpeechOfDictionaryEntry', 'asInflectionTypeOfInflectedForm',
 // 'asDefinitionTypeOfDefinition', 'asSchemeOfTranscription',
-// 'asLexicographicRelationTypeOfLexicographicRelation', and 'asMemberRoleOfRelationTypeTag
+// 'asLexicographicRelationTypeOfLexicographicRelation', 'asMemberRoleOfRelationTypeTag',
+// 'asRoleOfMember', and 'asLabelOfFileGroup'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_relation',
     [
         'for' => [
@@ -458,12 +459,34 @@ defined('TYPO3') or die();
                 'readOnly' => true,
             ],
         ],
-    ]
-);
-
-// Add column 'asLabelOfFileGroup'
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_tag',
-    [
+        'asRoleOfMember' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.asRoleOfMember',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.asRoleOfMember.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_chflex_domain_model_member',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_member}.{#pid}=###CURRENT_PID###',
+                'MM' => 'tx_chflex_domain_model_member_tag_role_mm',
+                'MM_opposite_field' => 'role',
+                'size' => 5,
+                'autoSizeMax' => 10,
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+                'readOnly' => true,
+            ],
+        ],
         'asLabelOfFileGroup' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
@@ -549,6 +572,6 @@ defined('TYPO3') or die();
     'tx_chfbase_domain_model_tag',
     'hiddenParentResource,uuidType,codeText,description,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,memberType,minMax,hint,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asMemberRoleOfRelationTypeTag,',
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asMemberRoleOfRelationTypeTag,asRoleOfMember,',
     'memberRoleTag'
 );
