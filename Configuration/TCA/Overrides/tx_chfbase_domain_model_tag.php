@@ -80,10 +80,11 @@ defined('TYPO3') or die();
 
 // Add columns 'for', 'scopeRestriction', 'memberRole', 'memberType', 'min',
 // 'max', 'hint', 'asLabelOfDictionaryEntry', 'asLabelOfEncyclopediaEntry',
-// 'asPartOfSpeechOfDictionaryEntry', 'asInflectionTypeOfInflectedForm',
-// 'asDefinitionTypeOfDefinition', 'asSchemeOfTranscription',
-// 'asLexicographicRelationTypeOfLexicographicRelation', 'asMemberRoleOfRelationTypeTag',
-// 'asRoleOfMember', and 'asLabelOfFileGroup'
+// 'asLabelOfInflectedForm', 'asLabelOfSense', 'asLabelOfPronunciation',
+// 'asLabelOfExample', 'asPartOfSpeechOfDictionaryEntry',
+// 'asInflectionTypeOfInflectedForm', 'asDefinitionTypeOfDefinition',
+// 'asSchemeOfTranscription', 'asLexicographicRelationTypeOfLexicographicRelation',
+// 'asMemberRoleOfRelationTypeTag', 'asRoleOfMember', and 'asLabelOfFileGroup'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_relation',
     [
         'for' => [
@@ -272,6 +273,118 @@ defined('TYPO3') or die();
                 'foreign_table' => 'tx_chflex_domain_model_encyclopedia_entry',
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_encyclopedia_entry}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chflex_domain_model_encyclopedia_entry_tag_label_mm',
+                'MM_opposite_field' => 'label',
+                'size' => 5,
+                'autoSizeMax' => 10,
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+                'readOnly' => true,
+            ],
+        ],
+        'asLabelOfInflectedForm' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfInflectedForm',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfInflectedForm.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_chflex_domain_model_inflected_form',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_inflected_form}.{#pid}=###CURRENT_PID###',
+                'MM' => 'tx_chflex_domain_model_inflected_form_tag_label_mm',
+                'MM_opposite_field' => 'label',
+                'size' => 5,
+                'autoSizeMax' => 10,
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+                'readOnly' => true,
+            ],
+        ],
+        'asLabelOfSense' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfSense',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfSense.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_chflex_domain_model_sense',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_sense}.{#pid}=###CURRENT_PID###',
+                'MM' => 'tx_chflex_domain_model_sense_tag_label_mm',
+                'MM_opposite_field' => 'label',
+                'size' => 5,
+                'autoSizeMax' => 10,
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+                'readOnly' => true,
+            ],
+        ],
+        'asLabelOfPronunciation' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfPronunciation',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfPronunciation.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_chflex_domain_model_pronunciation',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_pronunciation}.{#pid}=###CURRENT_PID###',
+                'MM' => 'tx_chflex_domain_model_pronunciation_tag_label_mm',
+                'MM_opposite_field' => 'label',
+                'size' => 5,
+                'autoSizeMax' => 10,
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
+                'readOnly' => true,
+            ],
+        ],
+        'asLabelOfExample' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfExample',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfExample.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_chflex_domain_model_example',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_example}.{#pid}=###CURRENT_PID###',
+                'MM' => 'tx_chflex_domain_model_example_tag_label_mm',
                 'MM_opposite_field' => 'label',
                 'size' => 5,
                 'autoSizeMax' => 10,
