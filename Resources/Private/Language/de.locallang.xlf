@@ -20,6 +20,38 @@
                 <source>List of encyclopedia entries that use this tag as a label</source>
                 <target>Liste der Lexikoneinträge, die dieses Schlagwort als Label verwenden</target>
             </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfInflectedForm" resname="object.labelTag.asLabelOfInflectedForm" approved="yes">
+                <source>Usage as label of an inflected form</source>
+                <target>Verwendung als Label einer gebeugten Form</target>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfInflectedForm.description" resname="object.labelTag.asLabelOfInflectedForm.description" approved="yes">
+                <source>List of inflected forms that use this tag as a label</source>
+                <target>Liste der gebeugten Formen, die dieses Schlagwort als Label verwenden</target>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfSense" resname="object.labelTag.asLabelOfSense" approved="yes">
+                <source>Usage as label of a sense</source>
+                <target>Verwendung als Label einer Bedeutung</target>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfSense.description" resname="object.labelTag.asLabelOfSense.description" approved="yes">
+                <source>List of senses that use this tag as a label</source>
+                <target>Liste der Bedeutungen, die dieses Schlagwort als Label verwenden</target>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfPronunciation" resname="object.labelTag.asLabelOfPronunciation" approved="yes">
+                <source>Usage as label of a pronunciation</source>
+                <target>Verwendung als Label einer Aussprache</target>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfPronunciation.description" resname="object.labelTag.asLabelOfPronunciation.description" approved="yes">
+                <source>List of pronunciations that use this tag as a label</source>
+                <target>Liste der Aussprachen, die dieses Schlagwort als Label verwenden</target>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfExample" resname="object.labelTag.asLabelOfExample" approved="yes">
+                <source>Usage as label of an example</source>
+                <target>Verwendung als Label eines Beispiels</target>
+            </trans-unit>
+            <trans-unit id="object.labelTag.asLabelOfExample.description" resname="object.labelTag.asLabelOfExample.description" approved="yes">
+                <source>List of examples that use this tag as a label</source>
+                <target>Liste der Beispiele, die dieses Schlagwort als Label verwenden</target>
+            </trans-unit>
             <!-- Object: LexicographicResource -->
             <trans-unit id="object.lexicographicResource.type.lexicographicResource" resname="object.lexicographicResource.type.lexicographicResource" approved="yes">
                 <source>Lexicographic resource</source>
@@ -494,32 +526,62 @@
                 <source>Pronunciation of the inflected form</source>
                 <target>Aussprache der gebeugten Form</target>
             </trans-unit>
-
-
-
-
-
-
-
-
-            
-
-            <trans-unit id="database.sense.example" resname="database.sense.example" approved="yes">
+            <!-- Object: Sense -->
+            <trans-unit id="object.sense" resname="object.sense" approved="yes">
+                <source>Sense</source>
+                <target>Bedeutung</target>
+            </trans-unit>
+            <trans-unit id="object.sense.parentEntry" resname="object.sense.parentEntry" approved="yes">
+                <source>Parent entry</source>
+                <target>Übergeordneter Eintrag</target>
+            </trans-unit>
+            <trans-unit id="object.sense.parentEntry.description" resname="object.sense.parentEntry.description" approved="yes">
+                <source>Dictionary entry that this sense belongs to</source>
+                <target>Wörterbucheintrag, zu dem diese Bedeutung gehört</target>
+            </trans-unit>
+            <trans-unit id="object.sense.indicator" resname="object.sense.indicator" approved="yes">
+                <source>Indicator</source>
+                <target>Indikator</target>
+            </trans-unit>
+            <trans-unit id="object.sense.indicator.description" resname="object.sense.indicator.description" approved="yes">
+                <source>Brief note differentiating this sense from the others</source>
+                <target>Kurze Angabe, wie sich diese Bedeutung von den anderen unterscheidet</target>
+            </trans-unit>
+            <trans-unit id="object.sense.definition" resname="object.sense.definition" approved="yes">
+                <source>Definition</source>
+                <target>Definition</target>
+            </trans-unit>
+            <trans-unit id="object.sense.definition.description" resname="object.sense.definition.description" approved="yes">
+                <source>Specific description of the sense</source>
+                <target>Genauere Beschreibung der Bedeutung</target>
+            </trans-unit>
+            <trans-unit id="object.sense.example" resname="object.sense.example" approved="yes">
                 <source>Example</source>
                 <target>Beispiel</target>
             </trans-unit>
-            <trans-unit id="database.sense.example.description" resname="database.sense.example.description" approved="yes">
-                <source>Contemporary or historical examples of this sense</source>
-                <target>Zeitgenössische oder historische Beispiele dieser Bedeutung</target>
+            <trans-unit id="object.sense.example.description" resname="object.sense.example.description" approved="yes">
+                <source>List of contemporary or historical examples of this sense</source>
+                <target>Liste mit zeitgenössischen oder historischen Beispielen dieser Bedeutung</target>
             </trans-unit>
-            <trans-unit id="database.sense.frequency" resname="database.sense.frequency" approved="yes">
+            <trans-unit id="object.sense.frequency" resname="object.sense.frequency" approved="yes">
                 <source>Frequency</source>
                 <target>Häufigkeit</target>
             </trans-unit>
-            <trans-unit id="database.sense.frequency.description" resname="database.sense.frequency.description" approved="yes">
-                <source>Frequency data for different countries or regions</source>
-                <target>Angaben zur Häufigkeit in verschiedenen Ländern oder Regionen</target>
+            <trans-unit id="object.sense.frequency.description" resname="object.sense.frequency.description" approved="yes">
+                <source>List of domestic and foreign frequency data</source>
+                <target>Liste mit Angaben zur Häufigkeit im In- und Ausland</target>
             </trans-unit>
+            <trans-unit id="object.sense.asRefOfMember" resname="object.sense.asRefOfMember" approved="yes">
+                <source>As reference of a relation member</source>
+                <target>Als Bezugspunkt einer Mitgliedsangabe</target>
+            </trans-unit>
+            <trans-unit id="object.sense.asRefOfMember.description" resname="object.sense.asRefOfMember.description" approved="yes">
+                <source>List of memberships in a lexicographic relation</source>
+                <target>Liste der Mitgliedschaften in einer lexikografischen Relationen</target>
+            </trans-unit>
+
+
+
             <!-- Database: Example -->
             <trans-unit id="database.example" resname="database.example" approved="yes">
                 <source>Example</source>
@@ -776,79 +838,6 @@
             <trans-unit id="database.frequency.geodata.description" resname="database.frequency.geodata.description" approved="yes">
                 <source>Option to connect a geographical feature</source>
                 <target>Möglichkeit zur Angabe eines geografischen Merkmals</target>
-            </trans-unit>
-            <!-- Database: Sense -->
-            <trans-unit id="database.sense" resname="database.sense" approved="yes">
-                <source>Sense</source>
-                <target>Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="database.sense.relations" resname="database.sense.relations" approved="yes">
-                <source>Relations</source>
-                <target>Relationen</target>
-            </trans-unit>
-            <trans-unit id="database.sense.id" resname="database.sense.id" approved="yes">
-                <source>ID</source>
-                <target>ID</target>
-            </trans-unit>
-            <trans-unit id="database.sense.id.description" resname="database.sense.id.description" approved="yes">
-                <source>Simple identifier of this sense as part of a single dataset</source>
-                <target>Einfacher Identifikator der Bedeutung als Teil eines einzelnen Datensatzes</target>
-            </trans-unit>
-            <trans-unit id="database.sense.uuid" resname="database.sense.uuid" approved="yes">
-                <source>UUID</source>
-                <target>UUID</target>
-            </trans-unit>
-            <trans-unit id="database.sense.uuid.description" resname="database.sense.uuid.description" approved="yes">
-                <source>Unique identifier of the sense</source>
-                <target>Einzigartiger Identifikator der Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="database.sense.definition" resname="database.sense.definition" approved="yes">
-                <source>Definition</source>
-                <target>Definition</target>
-            </trans-unit>
-            <trans-unit id="database.sense.definition.description" resname="database.sense.definition.description" approved="yes">
-                <source>Specific description of the sense</source>
-                <target>Genauere Beschreibung der Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="database.sense.indicator" resname="database.sense.indicator" approved="yes">
-                <source>Indicator</source>
-                <target>Indikator</target>
-            </trans-unit>
-            <trans-unit id="database.sense.indicator.description" resname="database.sense.indicator.description" approved="yes">
-                <source>Brief indicator differentiating this sense from the others</source>
-                <target>Kurze Angabe, wie sich diese Bedeutung von den anderen unterscheidet</target>
-            </trans-unit>
-            <trans-unit id="database.sense.classification" resname="database.sense.classification" approved="yes">
-                <source>Classification</source>
-                <target>Einstufung</target>
-            </trans-unit>
-            <trans-unit id="database.sense.classification.description" resname="database.sense.classification.description" approved="yes">
-                <source>Assess the sense using a given set of categories</source>
-                <target>Angaben zur Klassifikation der Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="database.sense.label" resname="database.sense.label" approved="yes">
-                <source>Label</source>
-                <target>Label</target>
-            </trans-unit>
-            <trans-unit id="database.sense.label.description" resname="database.sense.label.description" approved="yes">
-                <source>Label to group the sense into</source>
-                <target>Label zum Gliedern von Bedeutungen</target>
-            </trans-unit>
-            <trans-unit id="database.sense.sameAs" resname="database.sense.sameAs" approved="yes">
-                <source>Reference URI</source>
-                <target>Referenz-URI</target>
-            </trans-unit>
-            <trans-unit id="database.sense.sameAs.description" resname="database.sense.sameAs.description" approved="yes">
-                <source>External web address to identify the sense across the web</source>
-                <target>Externe Webadresse zur Identifikation der Bedeutung im Internet</target>
-            </trans-unit>
-            <trans-unit id="database.sense.asMember" resname="database.sense.asMember" approved="yes">
-                <source>As member</source>
-                <target>Als Mitglied</target>
-            </trans-unit>
-            <trans-unit id="database.sense.asMember.description" resname="database.sense.asMember.description" approved="yes">
-                <source>List of memberships in a relation</source>
-                <target>Liste der Mitgliedschaften in Relationen</target>
             </trans-unit>
         </body>
     </file>
