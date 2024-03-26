@@ -579,7 +579,43 @@
                 <source>List of memberships in a lexicographic relation</source>
                 <target>Liste der Mitgliedschaften in einer lexikografischen Relationen</target>
             </trans-unit>
-
+            <!-- Object: Pronunciation -->
+            <trans-unit id="object.pronunciation" resname="object.pronunciation" approved="yes">
+                <source>Pronunciation</source>
+                <target>Aussprache</target>
+            </trans-unit>
+            <trans-unit id="object.pronunciation.parentEntry" resname="object.pronunciation.parentEntry" approved="yes">
+                <source>Parent entry</source>
+                <target>Übergeordneter Eintrag</target>
+            </trans-unit>
+            <trans-unit id="object.pronunciation.parentEntry.description" resname="object.pronunciation.parentEntry.description" approved="yes">
+                <source>Dictionary entry that this pronunciation belongs to</source>
+                <target>Wörterbucheintrag, zu dem diese Aussprache gehört</target>
+            </trans-unit>
+            <trans-unit id="object.pronunciation.parentInflectedForm" resname="object.pronunciation.parentInflectedForm" approved="yes">
+                <source>Parent inflected form</source>
+                <target>Übergeordnete gebeugte Form</target>
+            </trans-unit>
+            <trans-unit id="object.pronunciation.parentInflectedForm.description" resname="object.pronunciation.parentInflectedForm.description" approved="yes">
+                <source>Inflected form that this pronunciation belongs to</source>
+                <target>Gebeugte Form, zu der diese Aussprache gehört</target>
+            </trans-unit>
+            <trans-unit id="object.pronunciation.soundFile" resname="object.pronunciation.soundFile" approved="yes">
+                <source>Sound file</source>
+                <target>Audiodatei</target>
+            </trans-unit>
+            <trans-unit id="object.pronunciation.soundFile.description" resname="object.pronunciation.soundFile.description" approved="yes">
+                <source>File that reads out the pronunciation</source>
+                <target>Datei, in der die Aussprache vorgelesen wird</target>
+            </trans-unit>
+            <trans-unit id="object.pronunciation.transcription" resname="object.pronunciation.transcription" approved="yes">
+                <source>Transcription</source>
+                <target>Transkription</target>
+            </trans-unit>
+            <trans-unit id="object.pronunciation.transcription.description" resname="object.pronunciation.transcription.description" approved="yes">
+                <source>List of possible transcriptions of the pronuncation</source>
+                <target>Liste möglicher Transkriptionen der Aussprache</target>
+            </trans-unit>
 
 
             <!-- Database: Example -->
@@ -716,35 +752,6 @@
             <trans-unit id="database.transcription.scheme.description" resname="database.transcription.scheme.description" approved="yes">
                 <source>Transcription scheme used here</source>
                 <target>Verwendetes Transkriptionsschema</target>
-            </trans-unit>
-            <!-- Database: Pronunciation -->
-            <trans-unit id="database." resname="database.pronunciation" approved="yes">
-                <source>Pronunciation</source>
-                <target>Aussprache</target>
-            </trans-unit>
-            <trans-unit id="database.pronunciation.soundFile" resname="database.pronunciation.soundFile" approved="yes">
-                <source>Sound file</source>
-                <target>Audiodatei</target>
-            </trans-unit>
-            <trans-unit id="database.pronunciation.soundFile.description" resname="database.pronunciation.soundFile.description" approved="yes">
-                <source>File that reads out the pronunciation</source>
-                <target>Datei, in der die Aussprache vorgelesen wird</target>
-            </trans-unit>
-            <trans-unit id="database.pronunciation.transcription" resname="database.pronunciation.transcription" approved="yes">
-                <source>Transcription</source>
-                <target>Transkription</target>
-            </trans-unit>
-            <trans-unit id="database.pronunciation.transcription.description" resname="database.pronunciation.transcription.description" approved="yes">
-                <source>Option to list various transcriptions of the pronuncation</source>
-                <target>Option zur Angabe verschiedener Transkriptionen der Aussprache</target>
-            </trans-unit>
-            <trans-unit id="database.pronunciation.label" resname="database.pronunciation.label" approved="yes">
-                <source>Label</source>
-                <target>Label</target>
-            </trans-unit>
-            <trans-unit id="database.pronunciation.label.description" resname="database.pronunciation.label.description" approved="yes">
-                <source>Label to group the pronunication into</source>
-                <target>Label zum Gliedern von Aussprachen</target>
             </trans-unit>
             <!-- Database: Frequency -->
             <trans-unit id="database.frequency" resname="database.frequency" approved="yes">

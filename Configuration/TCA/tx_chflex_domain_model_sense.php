@@ -129,8 +129,8 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_chfbase_domain_model_dictionary_entry',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
+                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
                 'sortItems' => [
                     'label' => 'asc',
                 ],

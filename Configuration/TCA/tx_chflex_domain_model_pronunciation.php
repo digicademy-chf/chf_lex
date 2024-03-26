@@ -19,7 +19,7 @@ defined('TYPO3') or die();
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.pronunciation',
+        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation',
         'label'                    => 'soundFile',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
@@ -34,36 +34,23 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
+        'searchFields'             => 'soundFile',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
         ],
     ],
     'columns' => [
-        'hidden' => [
-            'exclude' => true,
-            'label'   => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
-            'config'  => [
-                'type'       => 'check',
-                'renderType' => 'checkboxToggle',
-                'items'      => [
-                    [
-                        'label' => '',
-                        'invertStateDisplay' => true,
-                    ]
-                ],
-            ]
-        ],
         'fe_group' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
             'config' => [
-                'type'       => 'select',
+                'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'size'       => 5,
-                'maxitems'   => 20,
-                'items'      => [
+                'size' => 5,
+                'maxitems' => 20,
+                'items' => [
                     [
                         'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
                         'value' => -1,
@@ -83,27 +70,27 @@ return [
         ],
         'sys_language_uid' => [
             'exclude' => true,
-            'label'   => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-            'config'  => [
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'config' => [
                 'type' => 'language',
             ],
         ],
         'l18n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label'       => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
-            'config'      => [
-                'type'       => 'select',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'config' => [
+                'type' => 'select',
                 'renderType' => 'selectSingle',
-                'items'      => [
+                'items' => [
                     [
                         'label' => '',
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_chflex_domain_model_pronunciation',
+                'foreign_table' => 'tx_chflex_domain_model_pronunciation',
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_pronunciation}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chflex_domain_model_pronunciation}.{#sys_language_uid} IN (-1,0)',
-                'default'             => 0,
+                'default' => 0,
             ],
         ],
         'l10n_source' => [
@@ -113,59 +100,106 @@ return [
         ],
         'l18n_diffsource' => [
             'config' => [
-                'type'    => 'passthrough',
+                'type' => 'passthrough',
                 'default' => '',
             ],
         ],
+        'hidden' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.hidden.description',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'invertStateDisplay' => true,
+                    ]
+                ],
+            ]
+        ],
+        'parentEntry' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.parentEntry',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.parentEntry.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
+            ],
+        ],
+        'parentInflectedForm' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.parentInflectedForm',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.parentInflectedForm.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_chflex_domain_model_inflected_form',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_inflected_form}.{#pid}=###CURRENT_PID###',
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
+            ],
+        ],
         'soundFile' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.pronunciation.soundFile',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.pronunciation.soundFile.description',
-            'config'      => [
-                'type'     => 'file',
-                'maxitems' => 1,
-                'allowed'  => 'common-media-types'
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.soundFile',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.soundFile.description',
+            'config' => [
+                'type' => 'file',
+                'allowed' => 'common-media-types',
             ],
         ],
         'transcription' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.pronunciation.transcription',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.pronunciation.transcription.description',
-            'config'      => [
-                'type'                => 'inline',
-                'foreign_table'       => 'tx_chflex_domain_model_transcription',
-                'foreign_field'       => 'parent_id',
-                'foreign_table_field' => 'parent_table',
-                'behaviour'           => [
-                     'allowLanguageSynchronization' => true
-                ],
-                'appearance'          => [
-                    'collapseAll'                     => true,
-                    'expandSingle'                    => true,
-                    'newRecordLinkAddTitle'           => true,
-                    'levelLinksPosition'              => 'top',
-                    'useSortable'                     => true,
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.transcription',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.transcription.description',
+            'config' => [
+                'type' => 'inline',
+                'foreign_table' => 'tx_chflex_domain_model_transcription',
+                'foreign_field' => 'parentPronunciation',
+                'appearance' => [
+                    'collapseAll' => true,
+                    'expandSingle' => true,
+                    'newRecordLinkAddTitle' => true,
+                    'levelLinksPosition' => 'top',
+                    'useSortable' => true,
                     'showPossibleLocalizationRecords' => true,
-                    'showAllLocalizationLink'         => true,
-                    'showSynchronizationLink'         => true,
+                    'showAllLocalizationLink' => true,
+                    'showSynchronizationLink' => true,
                 ],
             ],
         ],
         'label' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.pronunciation.label',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.pronunciation.label.description',
-            'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_chflex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'label\'',
-                'MM'                  => 'tx_chflex_domain_model_pronunciation_tag_label_mm',
-                'size'                => 5,
-                'autoSizeMax'         => 10,
-                'fieldControl'        => [
-                    'editPopup'  => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.label',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.label.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_chfbase_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'label\'',
+                'MM' => 'tx_chflex_domain_model_pronunciation_tag_label_mm',
+                'size' => 5,
+                'autoSizeMax' => 10,
+                'fieldControl' => [
+                    'editPopup' => [
                         'disabled' => false,
                     ],
-                    'addRecord'  => [
+                    'addRecord' => [
                         'disabled' => false,
                     ],
                     'listModule' => [
@@ -175,10 +209,17 @@ return [
             ],
         ],
     ],
-    'palettes' => [],
+    'palettes' => [
+        'hiddenParentEntryParentInflectedForm' => [
+            'showitem' => 'hidden,parentEntry,parentInflectedForm,',
+        ],
+        'soundFileTranscription' => [
+            'showitem' => 'soundFile,transcription,',
+        ],
+    ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,soundFile,transcription,label,',
+            'showitem' => 'hiddenParentEntryParentInflectedForm,soundFileTranscription,label,',
         ],
     ],
 ];
