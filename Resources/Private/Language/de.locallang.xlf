@@ -645,8 +645,35 @@
                 <source>May be used to differentiate between different tiers of definitions</source>
                 <target>Kann zur Differenzierung verschiedener Definitionsstufen genutzt werden</target>
             </trans-unit>
-
-
+            <!-- Object: Transcription -->
+            <trans-unit id="object.transcription" resname="object.transcription" approved="yes">
+                <source>Transcription</source>
+                <target>Transkription</target>
+            </trans-unit>
+            <trans-unit id="object.transcription.parentPronunciation" resname="object.transcription.parentPronunciation" approved="yes">
+                <source>Parent pronunciation</source>
+                <target>Übergeordnete Aussprache</target>
+            </trans-unit>
+            <trans-unit id="object.transcription.parentPronunciation.description" resname="object.transcription.parentPronunciation.description" approved="yes">
+                <source>Pronunciation that this transcription belongs to</source>
+                <target>Aussprache, zu der diese Transkription gehört</target>
+            </trans-unit>
+            <trans-unit id="object.transcription.text" resname="object.transcription.text" approved="yes">
+                <source>Text</source>
+                <target>Text</target>
+            </trans-unit>
+            <trans-unit id="object.transcription.text.description" resname="object.transcription.text.description" approved="yes">
+                <source>Transcribed version of the pronunciation</source>
+                <target>Transkribierte Version der Aussprache</target>
+            </trans-unit>
+            <trans-unit id="object.transcription.scheme" resname="object.transcription.scheme" approved="yes">
+                <source>Scheme</source>
+                <target>Schema</target>
+            </trans-unit>
+            <trans-unit id="object.transcription.scheme.description" resname="object.transcription.scheme.description" approved="yes">
+                <source>Transcription scheme used here</source>
+                <target>Verwendetes Transkriptionsschema</target>
+            </trans-unit>
 
 
 
@@ -742,27 +769,6 @@
             <trans-unit id="database.example.label.description" resname="database.example.label.description" approved="yes">
                 <source>Label to group the example into</source>
                 <target>Label zum Gliedern von Beispielen</target>
-            </trans-unit>
-            <!-- Database: Transcription -->
-            <trans-unit id="database.transcription" resname="database.transcription" approved="yes">
-                <source>Transcription</source>
-                <target>Transkription</target>
-            </trans-unit>
-            <trans-unit id="database.transcription.text" resname="database.transcription.text" approved="yes">
-                <source>Text</source>
-                <target>Text</target>
-            </trans-unit>
-            <trans-unit id="database.transcription.text.description" resname="database.transcription.text.description" approved="yes">
-                <source>Transcribed version of the pronunciation</source>
-                <target>Transkribierte Version der Aussprache</target>
-            </trans-unit>
-            <trans-unit id="database.transcription.scheme" resname="database.transcription.scheme" approved="yes">
-                <source>Scheme</source>
-                <target>Schema</target>
-            </trans-unit>
-            <trans-unit id="database.transcription.scheme.description" resname="database.transcription.scheme.description" approved="yes">
-                <source>Transcription scheme used here</source>
-                <target>Verwendetes Transkriptionsschema</target>
             </trans-unit>
             <!-- Database: Frequency -->
             <trans-unit id="database.frequency" resname="database.frequency" approved="yes">
