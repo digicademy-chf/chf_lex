@@ -19,7 +19,7 @@ defined('TYPO3') or die();
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency',
+        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency',
         'label'                    => 'tokens',
         'label_alt'                => 'tokensSecondary',
         'tstamp'                   => 'tstamp',
@@ -35,37 +35,23 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'tokens,tokensSecondary,dateCirca,dateStart,dateEnd,sourceElaboration',
+        'searchFields'             => 'tokens,tokensSecondary',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
         ],
     ],
     'columns' => [
-        'hidden' => [
-            'exclude' => true,
-            'label'   => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
-            'config'  => [
-                'type'       => 'check',
-                'renderType' => 'checkboxToggle',
-                'items'      => [
-                    [
-                        'label' => '',
-                        'invertStateDisplay' => true,
-                    ]
-                ],
-            ]
-        ],
         'fe_group' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
             'config' => [
-                'type'       => 'select',
+                'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'size'       => 5,
-                'maxitems'   => 20,
-                'items'      => [
+                'size' => 5,
+                'maxitems' => 20,
+                'items' => [
                     [
                         'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
                         'value' => -1,
@@ -85,27 +71,27 @@ return [
         ],
         'sys_language_uid' => [
             'exclude' => true,
-            'label'   => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-            'config'  => [
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'config' => [
                 'type' => 'language',
             ],
         ],
         'l18n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label'       => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
-            'config'      => [
-                'type'       => 'select',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'config' => [
+                'type' => 'select',
                 'renderType' => 'selectSingle',
-                'items'      => [
+                'items' => [
                     [
                         'label' => '',
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_chflex_domain_model_frequency',
+                'foreign_table' => 'tx_chflex_domain_model_frequency',
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_frequency}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chflex_domain_model_frequency}.{#sys_language_uid} IN (-1,0)',
-                'default'             => 0,
+                'default' => 0,
             ],
         ],
         'l10n_source' => [
@@ -115,136 +101,114 @@ return [
         ],
         'l18n_diffsource' => [
             'config' => [
-                'type'    => 'passthrough',
+                'type' => 'passthrough',
                 'default' => '',
             ],
         ],
-        'type' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.type',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.type.description',
-            'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_chflex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'frequencyType\'',
-                'MM'                  => 'tx_chflex_domain_model_frequency_tag_type_mm',
+        'hidden' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.hidden.description',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'invertStateDisplay' => true,
+                    ]
+                ],
+            ]
+        ],
+        'parentEntry' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.parentEntry',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.parentEntry.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
+            ],
+        ],
+        'parentSense' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.parentSense',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.parentSense.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_chflex_domain_model_sense',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_sense}.{#pid}=###CURRENT_PID###',
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
             ],
         ],
         'tokens' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.tokens',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.tokens.description',
-            'config'      => [
-                'type'     => 'number',
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.tokens',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.frequency.tokens.description',
+            'config' => [
+                'type' => 'number',
                 'required' => true,
             ],
         ],
         'tokensSecondary' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.tokensSecondary',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.tokensSecondary.description',
-            'config'      => [
-                'type'     => 'number',
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.frequency.tokensSecondary',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.frequency.tokensSecondary.description',
+            'config' => [
+                'type' => 'number',
             ],
         ],
-        'countryOrRegion' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.countryOrRegion',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.countryOrRegion.description',
-            'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_chflex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND ({#tx_chflex_domain_model_tag}.{#type}=\'country\' OR {#tx_chflex_domain_model_tag}.{#type}=\'region\')',
-                'MM'                  => 'tx_chflex_domain_model_frequency_tag_countryorregion_mm',
-            ],
-        ],
-        'dateCirca' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateCirca',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateCirca.description',
-            'config'      => [
-                'type' => 'input',
-                'size' => 40,
-                'max'  => 255,
-                'eval' => 'trim',
-            ],
-        ],
-        'dateStart' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateStart',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateStart.description',
-            'config'      => [
-                'type'    => 'datetime',
-                'format'  => 'date',
-                'eval'    => 'int',
-                'default' => 0,
-            ],
-        ],
-        'dateEnd' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateEnd',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.dateEnd.description',
-            'config'      => [
-                'type'    => 'datetime',
-                'format'  => 'date',
-                'eval'    => 'int',
-                'default' => 0,
-            ],
-        ],
-        'sourceIdentity' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.sourceIdentity',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.sourceIdentity.description',
-            'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_chflex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'sourceIdentity\'',
-                'MM'                  => 'tx_chflex_domain_model_frequency_tag_sourceidentity_mm',
-            ],
-        ],
-        'sourceElaboration' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.sourceElaboration',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.sourceElaboration.description',
-            'config'      => [
-                'type' => 'input',
-                'size' => 40,
-                'max'  => 255,
-                'eval' => 'trim',
-            ],
-        ],
-        'source' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.source',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.source.description',
-            'config'      => [
-                'type'                => 'inline',
-                'foreign_table'       => 'tx_chfbib_domain_model_reference',
-                'foreign_field'       => 'parent_id',
+        'event' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractObject.event',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractObject.event.description',
+            'config' => [
+                'type' => 'inline',
+                'foreign_table' => 'tx_chfbase_domain_model_period',
+                'foreign_field' => 'parent',
                 'foreign_table_field' => 'parent_table',
-                'behaviour'           => [
-                     'allowLanguageSynchronization' => true
-                ],
-                'appearance'          => [
-                    'collapseAll'                     => true,
-                    'expandSingle'                    => true,
-                    'newRecordLinkAddTitle'           => true,
-                    'levelLinksPosition'              => 'top',
-                    'useSortable'                     => true,
+                'appearance'=> [
+                    'collapseAll' => true,
+                    'expandSingle' => true,
+                    'newRecordLinkAddTitle' => true,
+                    'levelLinksPosition' => 'top',
+                    'useSortable' => true,
                     'showPossibleLocalizationRecords' => true,
-                    'showAllLocalizationLink'         => true,
-                    'showSynchronizationLink'         => true,
+                    'showAllLocalizationLink' => true,
+                    'showSynchronizationLink' => true,
                 ],
+                'maxitems' => 1,
             ],
         ],
-        'geodata' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.geodata',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.geodata.description',
-            'config'      => [
-                'type'          => 'group',
-                'allowed'       => 'tx_chfmap_domain_model_feature',
-                'foreign_table' => 'tx_chfmap_domain_model_feature', // Needed by Extbase
-                'MM'            => 'tx_chflex_domain_model_frequency_feature_geodata_mm',
-                'maxitems'      => 1,
-                'minitems'      => 0,
-                'size'          => 1,
-                'fieldControl'  => [
+        'locationRelation' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.locationRelation',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.locationRelation.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_chfbase_domain_model_relation',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'locationRelation\'',
+                'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
+                'MM_opposite_field' => 'record',
+                'size' => 5,
+                'autoSizeMax' => 10,
+                'fieldControl' => [
                     'editPopup' => [
                         'disabled' => false,
                     ],
@@ -259,22 +223,16 @@ return [
         ],
     ],
     'palettes' => [
+        'hiddenParentEntryParentSense' => [
+            'showitem' => 'hidden,parentEntry,parentSense,',
+        ],
         'tokensTokensSecondary' => [
             'showitem' => 'tokens,tokensSecondary,',
-        ],
-        'countryOrRegionDateCirca' => [
-            'showitem' => 'countryOrRegion,dateCirca,',
-        ],
-        'dateStartDateEnd' => [
-            'showitem' => 'dateStart,dateEnd,',
-        ],
-        'sourceIdentitySourceElaboration' => [
-            'showitem' => 'sourceIdentity,sourceElaboration,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,type,tokensTokensSecondary,countryOrRegionDateCirca,dateStartDateEnd,sourceIdentitySourceElaboration,source,geodata,',
+            'showitem' => 'hiddenParentEntryParentSense,tokensTokensSecondary,geodata,event,locationRelation,sourceRelation,',
         ],
     ],
 ];

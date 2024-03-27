@@ -711,101 +711,42 @@
                 <source>File that reads out the example</source>
                 <target>Datei, in der das Beispiel vorgelesen wird</target>
             </trans-unit>
-
-
-
-            <!-- Database: Frequency -->
-            <trans-unit id="database.frequency" resname="database.frequency" approved="yes">
+            <!-- Object: Frequency -->
+            <trans-unit id="object.frequency" resname="object.frequency" approved="yes">
                 <source>Frequency</source>
                 <target>Häufigkeit</target>
             </trans-unit>
-            <trans-unit id="database.frequency.type" resname="database.frequency.type" approved="yes">
-                <source>Type</source>
-                <target>Art</target>
+            <trans-unit id="object.frequency.parentEntry" resname="object.frequency.parentEntry" approved="yes">
+                <source>Parent entry</source>
+                <target>Übergeordneter Eintrag</target>
             </trans-unit>
-            <trans-unit id="database.frequency.type.description" resname="database.frequency.type.description" approved="yes">
-                <source>Type of frequency</source>
-                <target>Art der Häufigkeit</target>
+            <trans-unit id="object.frequency.parentEntry.description" resname="object.frequency.parentEntry.description" approved="yes">
+                <source>Dictionary entry that this frequency is part of</source>
+                <target>Wörterbucheintrag, zu dem diese Häufigkeit gehört</target>
             </trans-unit>
-            <trans-unit id="database.frequency.tokens" resname="database.frequency.tokens" approved="yes">
+            <trans-unit id="object.frequency.parentSense" resname="object.frequency.parentSense" approved="yes">
+                <source>Parent sense</source>
+                <target>Übergeordnete Bedeutung</target>
+            </trans-unit>
+            <trans-unit id="object.frequency.parentSense.description" resname="object.frequency.parentSense.description" approved="yes">
+                <source>Sense that this frequency is part of</source>
+                <target>Bedeutung, zu der diese Häufigkeit gehört</target>
+            </trans-unit>
+            <trans-unit id="object.frequency.tokens" resname="object.frequency.tokens" approved="yes">
                 <source>Tokens</source>
                 <target>Tokens</target>
             </trans-unit>
-            <trans-unit id="database.frequency.tokens.description" resname="database.frequency.tokens.description" approved="yes">
+            <trans-unit id="object.frequency.tokens.description" resname="object.frequency.tokens.description" approved="yes">
                 <source>Number of occurrences</source>
                 <target>Anzahl der Vorkommen</target>
             </trans-unit>
-            <trans-unit id="database.frequency.tokensSecondary" resname="database.frequency.tokensSecondary" approved="yes">
+            <trans-unit id="object.frequency.tokensSecondary" resname="object.frequency.tokensSecondary" approved="yes">
                 <source>Secondary tokens</source>
                 <target>Sekundäre Tokens</target>
             </trans-unit>
-            <trans-unit id="database.frequency.tokensSecondary.description" resname="database.frequency.tokensSecondary.description" approved="yes">
+            <trans-unit id="object.frequency.tokensSecondary.description" resname="object.frequency.tokensSecondary.description" approved="yes">
                 <source>Occurrences in second position</source>
                 <target>Vorkommen an zweiter Stelle</target>
-            </trans-unit>
-            <trans-unit id="database.frequency.countryOrRegion" resname="database.frequency.countryOrRegion" approved="yes">
-                <source>Country or region</source>
-                <target>Land oder Region</target>
-            </trans-unit>
-            <trans-unit id="database.frequency.countryOrRegion.description" resname="database.frequency.countryOrRegion.description" approved="yes">
-                <source>Place that the frequency is accounted for</source>
-                <target>Ort, für den die Häufigkeit bestimmt wurde</target>
-            </trans-unit>
-            <trans-unit id="database.frequency.dateCirca" resname="database.frequency.dateCirca" approved="yes">
-                <source>Date</source>
-                <target>Datumsangabe</target>
-            </trans-unit>
-            <trans-unit id="database.frequency.dateCirca.description" resname="database.frequency.dateCirca.description" approved="yes">
-                <source>Approximate date that the frequency is accounted for</source>
-                <target>Grobes Datum, zu dem die Häufigkeit bestimmt wurde</target>
-            </trans-unit>
-            <trans-unit id="database.frequency.dateStart" resname="database.frequency.dateStart" approved="yes">
-                <source>Start of the date period</source>
-                <target>Beginn des Datumszeitraums</target>
-            </trans-unit>
-            <trans-unit id="database.frequency.dateStart.description" resname="database.frequency.dateStart.description" approved="yes">
-                <source>Exact onset of the period that the frequency is accounted for</source>
-                <target>Genaues Anfangsdatum des Zeitraums, für den die Häufigkeit bestimmt wurde</target>
-            </trans-unit>
-            <trans-unit id="database.frequency.dateEnd" resname="database.frequency.dateEnd" approved="yes">
-                <source>End of the date period</source>
-                <target>Ende des Datumszeitraums</target>
-            </trans-unit>
-            <trans-unit id="database.frequency.dateEnd.description" resname="database.frequency.dateEnd.description" approved="yes">
-                <source>Exact ending of the period that the frequency is accounted for</source>
-                <target>Genaues Enddatum des Zeitraums, für den die Häufigkeit bestimmt wurde</target>
-            </trans-unit>
-            <trans-unit id="database.frequency.sourceIdentity" resname="database.frequency.sourceIdentity" approved="yes">
-                <source>Source identity</source>
-                <target>Quellen-ID</target>
-            </trans-unit>
-            <trans-unit id="database.frequency.sourceIdentity.description" resname="database.frequency.sourceIdentity.description" approved="yes">
-                <source>Token to identify a source</source>
-                <target>Kürzel zur Identifikation einer Quelle</target>
-            </trans-unit>
-            <trans-unit id="database.frequency.sourceElaboration" resname="database.frequency.sourceElaboration" approved="yes">
-                <source>Source elaboration</source>
-                <target>Einzelheit der Quelle</target>
-            </trans-unit>
-            <trans-unit id="database.frequency.sourceElaboration.description" resname="database.frequency.sourceElaboration.description" approved="yes">
-                <source>Detailed reference, e.g., a page number</source>
-                <target>Detaillierte Referenz, z.B. eine Seitenzahl</target>
-            </trans-unit>
-            <trans-unit id="database.frequency.source" resname="database.frequency.source" approved="yes">
-                <source>Source</source>
-                <target>Quelle</target>
-            </trans-unit>
-            <trans-unit id="database.frequency.source.description" resname="database.frequency.source.description" approved="yes">
-                <source>Full-blown reference as a source of the frequency</source>
-                <target>Angabe einer vollständigen Referenz als Quelle der Häufigkeit</target>
-            </trans-unit>
-            <trans-unit id="database.frequency.geodata" resname="database.frequency.geodata" approved="yes">
-                <source>Geodata</source>
-                <target>Geodaten</target>
-            </trans-unit>
-            <trans-unit id="database.frequency.geodata.description" resname="database.frequency.geodata.description" approved="yes">
-                <source>Option to connect a geographical feature</source>
-                <target>Möglichkeit zur Angabe eines geografischen Merkmals</target>
             </trans-unit>
         </body>
     </file>
