@@ -19,14 +19,13 @@ defined('TYPO3') or die();
  */
 return [
     'ctrl' => [
-        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example',
+        'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example',
         'label'                    => 'text',
-        'label_alt'                => 'dateCirca,locationLabel',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'text ASC,dateCirca ASC,locationLabel ASC',
+        'default_sortby'           => 'text ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/Example.svg',
         'origUid'                  => 't3_origuid',
@@ -35,37 +34,23 @@ return [
         'transOrigPointerField'    => 'l18n_parent',
         'transOrigDiffSourceField' => 'l18n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'text,dateCirca,dateStart,dateEnd,locationLabel,sourceElaboration',
+        'searchFields'             => 'text',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'fe_group' => 'fe_group',
         ],
     ],
     'columns' => [
-        'hidden' => [
-            'exclude' => true,
-            'label'   => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
-            'config'  => [
-                'type'       => 'check',
-                'renderType' => 'checkboxToggle',
-                'items'      => [
-                    [
-                        'label' => '',
-                        'invertStateDisplay' => true,
-                    ]
-                ],
-            ]
-        ],
         'fe_group' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
             'config' => [
-                'type'       => 'select',
+                'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'size'       => 5,
-                'maxitems'   => 20,
-                'items'      => [
+                'size' => 5,
+                'maxitems' => 20,
+                'items' => [
                     [
                         'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
                         'value' => -1,
@@ -85,27 +70,27 @@ return [
         ],
         'sys_language_uid' => [
             'exclude' => true,
-            'label'   => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-            'config'  => [
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'config' => [
                 'type' => 'language',
             ],
         ],
         'l18n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label'       => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
-            'config'      => [
-                'type'       => 'select',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'config' => [
+                'type' => 'select',
                 'renderType' => 'selectSingle',
-                'items'      => [
+                'items' => [
                     [
                         'label' => '',
                         'value' => 0,
                     ],
                 ],
-                'foreign_table'       => 'tx_chflex_domain_model_example',
+                'foreign_table' => 'tx_chflex_domain_model_example',
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_example}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chflex_domain_model_example}.{#sys_language_uid} IN (-1,0)',
-                'default'             => 0,
+                'default' => 0,
             ],
         ],
         'l10n_source' => [
@@ -115,72 +100,138 @@ return [
         ],
         'l18n_diffsource' => [
             'config' => [
-                'type'    => 'passthrough',
+                'type' => 'passthrough',
                 'default' => '',
             ],
         ],
+        'hidden' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.hidden.description',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'invertStateDisplay' => true,
+                    ]
+                ],
+            ]
+        ],
+        'parentEntry' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.parentEntry',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.parentEntry.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
+            ],
+        ],
+        'parentSense' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.parentSense',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.parentSense.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_chflex_domain_model_sense',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_sense}.{#pid}=###CURRENT_PID###',
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
+            ],
+        ],
         'text' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.text',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.text.description',
-            'config'      => [
-                'type'                  => 'text',
-                'enableRichtext'        => true,
-                'richtextConfiguration' => 'chf_lex_text',
-                'required'              => true,
-            ],
-        ],
-        'dateCirca' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.dateCirca',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.dateCirca.description',
-            'config'      => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.text',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.text.description',
+            'config' => [
                 'type' => 'input',
                 'size' => 40,
-                'max'  => 255,
+                'max' => 255,
                 'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+                'required' => true,
             ],
         ],
-        'dateStart' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.dateStart',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.dateStart.description',
-            'config'      => [
-                'type'    => 'datetime',
-                'format'  => 'date',
-                'eval'    => 'int',
-                'default' => 0,
+        'event' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractObject.event',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractObject.event.description',
+            'config' => [
+                'type' => 'inline',
+                'foreign_table' => 'tx_chfbase_domain_model_period',
+                'foreign_field' => 'parent',
+                'foreign_table_field' => 'parent_table',
+                'appearance'=> [
+                    'collapseAll' => true,
+                    'expandSingle' => true,
+                    'newRecordLinkAddTitle' => true,
+                    'levelLinksPosition' => 'top',
+                    'useSortable' => true,
+                    'showPossibleLocalizationRecords' => true,
+                    'showAllLocalizationLink' => true,
+                    'showSynchronizationLink' => true,
+                ],
+                'maxitems' => 1,
             ],
         ],
-        'dateEnd' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.dateEnd',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.dateEnd.description',
-            'config'      => [
-                'type'    => 'datetime',
-                'format'  => 'date',
-                'eval'    => 'int',
-                'default' => 0,
+        'agentRelation' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.agentRelation',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.agentRelation.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_chfbase_domain_model_relation',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'agentRelation\'',
+                'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
+                'MM_opposite_field' => 'record',
+                'size' => 5,
+                'autoSizeMax' => 10,
+                'fieldControl' => [
+                    'editPopup' => [
+                        'disabled' => false,
+                    ],
+                    'addRecord' => [
+                        'disabled' => false,
+                    ],
+                    'listModule' => [
+                        'disabled' => false,
+                    ],
+                ],
             ],
         ],
-        'locationLabel' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.locationLabel',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.locationLab.description',
-            'config'      => [
-                'type' => 'input',
-                'size' => 40,
-                'max'  => 255,
-                'eval' => 'trim',
-            ],
-        ],
-        'locationGeodata' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.locationGeodata',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.frequency.locationGeodata.description',
-            'config'      => [
-                'type'          => 'group',
-                'allowed'       => 'tx_chfmap_domain_model_feature',
-                'foreign_table' => 'tx_chfmap_domain_model_feature', // Needed by Extbase
-                'MM'            => 'tx_chflex_domain_model_example_feature_locationgeodata_mm',
-                'maxitems'      => 1,
-                'minitems'      => 0,
-                'size'          => 1,
-                'fieldControl'  => [
+        'locationRelation' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.locationRelation',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.locationRelation.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_chfbase_domain_model_relation',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'locationRelation\'',
+                'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
+                'MM_opposite_field' => 'record',
+                'size' => 5,
+                'autoSizeMax' => 10,
+                'fieldControl' => [
                     'editPopup' => [
                         'disabled' => false,
                     ],
@@ -194,76 +245,34 @@ return [
             ],
         ],
         'soundFile' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.soundFile',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.soundFile.description',
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.soundFile',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.soundFile.description',
             'config' => [
-                'type'     => 'file',
-                'maxitems' => 1,
-                'allowed'  => 'common-media-types'
-            ],
-        ],
-        'sourceIdentity' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.sourceIdentity',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.sourceIdentity.description',
-            'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectSingle',
-                'foreign_table'       => 'tx_chflex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'sourceIdentity\'',
-                'MM'                  => 'tx_chflex_domain_model_example_tag_sourceidentity_mm',
-            ],
-        ],
-        'sourceElaboration' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.sourceElaboration',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.sourceElaboration.description',
-            'config'      => [
-                'type' => 'input',
-                'size' => 40,
-                'max'  => 255,
-                'eval' => 'trim',
-            ],
-        ],
-        'source' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.source',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.source.description',
-            'config'      => [
-                'type'                => 'inline',
-                'foreign_table'       => 'tx_chfbib_domain_model_reference',
-                'foreign_field'       => 'parent_id',
-                'foreign_table_field' => 'parent_table',
-                'behaviour'           => [
-                     'allowLanguageSynchronization' => true
-                ],
-                'appearance'          => [
-                    'collapseAll'                     => true,
-                    'expandSingle'                    => true,
-                    'newRecordLinkAddTitle'           => true,
-                    'levelLinksPosition'              => 'top',
-                    'useSortable'                     => true,
-                    'showPossibleLocalizationRecords' => true,
-                    'showAllLocalizationLink'         => true,
-                    'showSynchronizationLink'         => true,
-                ],
+                'type' => 'file',
+                'allowed' => 'common-media-types',
             ],
         ],
         'label' => [
-            'label'       => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.label',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:database.example.label.description',
-            'config'      => [
-                'type'                => 'select',
-                'renderType'          => 'selectMultipleSideBySide',
-                'foreign_table'       => 'tx_chflex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'label\'',
-                'MM'                  => 'tx_chflex_domain_model_example_tag_label_mm',
-                'size'                => 5,
-                'autoSizeMax'         => 10,
-                'fieldControl'        => [
-                    'editPopup'  => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.label',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.label.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_chfbase_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'label\'',
+                'MM' => 'tx_chflex_domain_model_example_tag_label_mm',
+                'size' => 5,
+                'autoSizeMax' => 10,
+                'fieldControl' => [
+                    'editPopup' => [
                         'disabled' => false,
                     ],
-                    'addRecord'  => [
+                    'addRecord' => [
                         'disabled' => false,
                     ],
                     'listModule' => [
@@ -272,24 +281,19 @@ return [
                 ],
             ],
         ],
+
     ],
     'palettes' => [
-        'textDateCirca' => [
-            'showitem' => 'text,dateCirca,',
+        'hiddenParentEntryParentSense' => [
+            'showitem' => 'hidden,parentEntry,parentSense,',
         ],
-        'dateStartDateEnd' => [
-            'showitem' => 'textdateStart,dateEnd,',
-        ],
-        'locationLabelLocationGeodata' => [
-            'showitem' => 'locationLabel,locationGeodata,',
-        ],
-        'sourceIdentitySourceElaboration' => [
-            'showitem' => 'sourceIdentity,sourceElaboration,',
+        'textEvent' => [
+            'showitem' => 'text,event,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hidden,textDateCirca,dateStartDateEnd,locationLabelLocationGeodata,soundFile,sourceIdentitySourceElaboration,source,label,',
+            'showitem' => 'hiddenParentEntryParentSense,textEvent,agentRelation,locationRelation,soundFile,sourceRelation,label,',
         ],
     ],
 ];

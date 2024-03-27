@@ -674,102 +674,46 @@
                 <source>Transcription scheme used here</source>
                 <target>Verwendetes Transkriptionsschema</target>
             </trans-unit>
-
-
-
-            <!-- Database: Example -->
-            <trans-unit id="database.example" resname="database.example" approved="yes">
+            <!-- Object: Example -->
+            <trans-unit id="object.example" resname="object.example" approved="yes">
                 <source>Example</source>
                 <target>Beispiel</target>
             </trans-unit>
-            <trans-unit id="database.example.text" resname="database.example.text" approved="yes">
+            <trans-unit id="object.example.parentEntry" resname="object.example.parentEntry" approved="yes">
+                <source>Parent entry</source>
+                <target>Übergeordneter Eintrag</target>
+            </trans-unit>
+            <trans-unit id="object.example.parentEntry.description" resname="object.example.parentEntry.description" approved="yes">
+                <source>Dictionary entry that this example is part of</source>
+                <target>Wörterbucheintrag, zu dem dieses Beispiel gehört</target>
+            </trans-unit>
+            <trans-unit id="object.example.parentSense" resname="object.example.parentSense" approved="yes">
+                <source>Parent sense</source>
+                <target>Übergeordnete Bedeutung</target>
+            </trans-unit>
+            <trans-unit id="object.example.parentSense.description" resname="object.example.parentSense.description" approved="yes">
+                <source>Sense that this example is part of</source>
+                <target>Bedeutung, zu der dieses Beispiel gehört</target>
+            </trans-unit>
+            <trans-unit id="object.example.text" resname="object.example.text" approved="yes">
                 <source>Text</source>
                 <target>Text</target>
             </trans-unit>
-            <trans-unit id="database.example.text.description" resname="database.example.text.description" approved="yes">
-                <source>Sample text, e.g. a full sentence</source>
-                <target>Beispieltext, z.B. ein vollständiger Satz</target>
+            <trans-unit id="object.example.text.description" resname="object.example.text.description" approved="yes">
+                <source>String that exemplifies the headword or the sense</source>
+                <target>Zeichenkette, die das zu definierende Wort oder die Bedeutung illustriert</target>
             </trans-unit>
-            <trans-unit id="database.example.dateCirca" resname="database.example.dateCirca" approved="yes">
-                <source>Date</source>
-                <target>Datumsangabe</target>
-            </trans-unit>
-            <trans-unit id="database.example.dateCirca.description" resname="database.example.dateCirca.description" approved="yes">
-                <source>Approximate date that the sample text is attested for</source>
-                <target>Grobes Datum, an dem der Beispieltext nachgewiesen ist</target>
-            </trans-unit>
-            <trans-unit id="database.example.dateStart" resname="database.example.dateStart" approved="yes">
-                <source>Start of the date period</source>
-                <target>Beginn des Datumszeitraums</target>
-            </trans-unit>
-            <trans-unit id="database.example.dateStart.description" resname="database.example.dateStart.description" approved="yes">
-                <source>Exact onset of the period that the sample text is attested for</source>
-                <target>Genaues Anfangsdatum des Zeitraums, für den der Beispieltext nachgewiesen ist</target>
-            </trans-unit>
-            <trans-unit id="database.example.dateEnd" resname="database.example.dateEnd" approved="yes">
-                <source>End of the date period</source>
-                <target>Ende des Datumszeitraums</target>
-            </trans-unit>
-            <trans-unit id="database.example.dateEnd.description" resname="database.example.dateEnd.description" approved="yes">
-                <source>Exact ending of the period that the sample text is attested for</source>
-                <target>Genaues Enddatum des Zeitraums, für den der Beispieltext nachgewiesen ist</target>
-            </trans-unit>
-            <trans-unit id="database.example.locationLabel" resname="database.example.locationLabel" approved="yes">
-                <source>Location</source>
-                <target>Ortsangabe</target>
-            </trans-unit>
-            <trans-unit id="database.example.locationLabel.description" resname="database.example.locationLabel.description" approved="yes">
-                <source>Place that the sample text is attested for</source>
-                <target>Ort, an dem der Beispieltext nachgewiesen ist</target>
-            </trans-unit>
-            <trans-unit id="database.example.locationGeodata" resname="database.example.locationGeodata" approved="yes">
-                <source>Location geodata</source>
-                <target>Geodaten zur Ortsangabe</target>
-            </trans-unit>
-            <trans-unit id="database.example.locationGeodata.description" resname="database.example.locationGeodata.description" approved="yes">
-                <source>Geodata for the place that the sample text is attested for</source>
-                <target>Geodaten für den Ort, an dem der Beispieltext nachgewiesen ist</target>
-            </trans-unit>
-            <trans-unit id="database.example.soundFile" resname="database.example.soundFile" approved="yes">
+            <trans-unit id="object.example.soundFile" resname="object.example.soundFile" approved="yes">
                 <source>Sound file</source>
                 <target>Audiodatei</target>
             </trans-unit>
-            <trans-unit id="database.example.soundFile.description" resname="database.example.soundFile.description" approved="yes">
-                <source>File that reads out the sample text</source>
-                <target>Datei, in der der Beispieltext vorgelesen wird</target>
+            <trans-unit id="object.example.soundFile.description" resname="object.example.soundFile.description" approved="yes">
+                <source>File that reads out the example</source>
+                <target>Datei, in der das Beispiel vorgelesen wird</target>
             </trans-unit>
-            <trans-unit id="database.example.sourceIdentity" resname="database.example.sourceIdentity" approved="yes">
-                <source>Source identity</source>
-                <target>Quellen-ID</target>
-            </trans-unit>
-            <trans-unit id="database.example.sourceIdentity.description" resname="database.example.sourceIdentity.description" approved="yes">
-                <source>Token to identify a source</source>
-                <target>Kürzel zur Identifikation einer Quelle</target>
-            </trans-unit>
-            <trans-unit id="database.example.sourceElaboration" resname="database.example.sourceElaboration" approved="yes">
-                <source>Source elaboration</source>
-                <target>Einzelheit der Quelle</target>
-            </trans-unit>
-            <trans-unit id="database.example.sourceElaboration.description" resname="database.example.sourceElaboration.description" approved="yes">
-                <source>Detailed reference, e.g., a page number</source>
-                <target>Detaillierte Referenz, z.B. eine Seitenzahl</target>
-            </trans-unit>
-            <trans-unit id="database.example.source" resname="database.example.source" approved="yes">
-                <source>Source</source>
-                <target>Quelle</target>
-            </trans-unit>
-            <trans-unit id="database.example.source.description" resname="database.example.source.description" approved="yes">
-                <source>Full-blown reference as a source of the example</source>
-                <target>Angabe einer vollständigen Referenz als Quelle des Beispiels</target>
-            </trans-unit>
-            <trans-unit id="database.example.label" resname="database.example.label" approved="yes">
-                <source>Label</source>
-                <target>Label</target>
-            </trans-unit>
-            <trans-unit id="database.example.label.description" resname="database.example.label.description" approved="yes">
-                <source>Label to group the example into</source>
-                <target>Label zum Gliedern von Beispielen</target>
-            </trans-unit>
+
+
+
             <!-- Database: Frequency -->
             <trans-unit id="database.frequency" resname="database.frequency" approved="yes">
                 <source>Frequency</source>

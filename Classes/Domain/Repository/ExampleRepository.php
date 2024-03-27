@@ -24,7 +24,5 @@ class ExampleRepository extends Repository
     protected $defaultOrderings = [
         'sorting'       => QueryInterface::ORDER_ASCENDING,
         'text'          => QueryInterface::ORDER_ASCENDING,
-        'dateCirca'     => QueryInterface::ORDER_ASCENDING,
-        'locationLabel' => QueryInterface::ORDER_ASCENDING,
     ];
 }
