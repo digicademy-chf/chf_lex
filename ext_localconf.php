@@ -11,6 +11,5 @@ defined('TYPO3') or die();
 
 // Backend customisation
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets'] = [
-    'chf_lex_text'       => 'EXT:chf_lex/Configuration/RTE/CHFLexText.yaml',
     'chf_lex_annotation' => 'EXT:chf_lex/Configuration/RTE/CHFLexAnnotation.yaml',
 ];
