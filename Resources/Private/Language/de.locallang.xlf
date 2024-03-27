@@ -269,14 +269,6 @@
                 <source>Do not display</source>
                 <target>Nicht anzeigen</target>
             </trans-unit>
-            <trans-unit id="object.memberRoleTag.asMemberRoleOfRelationTypeTag" resname="object.memberRoleTag.asMemberRoleOfRelationTypeTag" approved="yes">
-                <source>Usage as member role of a relation type</source>
-                <target>Verwendung als Mitgliedsrolle einer Relationsart</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.asMemberRoleOfRelationTypeTag.description" resname="object.memberRoleTag.asMemberRoleOfRelationTypeTag.description" approved="yes">
-                <source>List of relation types that use this tag as a member role</source>
-                <target>Liste der Relationsarten, die dieses Schlagwort als Mitgliedsrolle verwenden</target>
-            </trans-unit>
             <trans-unit id="object.memberRoleTag.asRoleOfMember" resname="object.memberRoleTag.asRoleOfMember" approved="yes">
                 <source>Usage as role of a relation member</source>
                 <target>Verwendung als Rolle einer Mitgliedsangabe</target>

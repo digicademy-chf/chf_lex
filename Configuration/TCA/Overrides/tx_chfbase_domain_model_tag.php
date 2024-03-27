@@ -78,15 +78,33 @@ defined('TYPO3') or die();
     ]
 );
 
-// Add columns 'for', 'scopeRestriction', 'memberRole', 'memberType', 'min',
-// 'max', 'hint', 'asLabelOfDictionaryEntry', 'asLabelOfEncyclopediaEntry',
-// 'asLabelOfInflectedForm', 'asLabelOfSense', 'asLabelOfPronunciation',
-// 'asLabelOfExample', 'asPartOfSpeechOfDictionaryEntry',
-// 'asInflectionTypeOfInflectedForm', 'asDefinitionTypeOfDefinition',
-// 'asSchemeOfTranscription', 'asLexicographicRelationTypeOfLexicographicRelation',
-// 'asMemberRoleOfRelationTypeTag', 'asRoleOfMember', and 'asLabelOfFileGroup'
+// Add columns 'parentRelationTypeTag', 'for', 'scopeRestriction', 'memberRole',
+// 'memberType', 'min', 'max', 'hint', 'asLabelOfDictionaryEntry',
+// 'asLabelOfEncyclopediaEntry', 'asLabelOfInflectedForm', 'asLabelOfSense',
+// 'asLabelOfPronunciation', 'asLabelOfExample',
+// 'asPartOfSpeechOfDictionaryEntry', 'asInflectionTypeOfInflectedForm',
+// 'asDefinitionTypeOfDefinition', 'asSchemeOfTranscription',
+// 'asLexicographicRelationTypeOfLexicographicRelation', 'asRoleOfMember', and
+// 'asLabelOfFileGroup'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_relation',
     [
+        'parentRelationTypeTag' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.parentRelationTypeTag',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.parentRelationTypeTag.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectTree',
+                'foreign_table' => 'tx_chfbase_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'relationTypeTag\'',
+                'treeConfig' => [
+                    'parentField' => 'parentRelationTypeTag',
+                ],
+                'maxitems' => 1,
+            ],
+        ],
         'for' => [
             'exclude' => true,
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.inflectionTypeTag.for',
@@ -137,23 +155,32 @@ defined('TYPO3') or die();
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.relationTypeTag.memberRole',
             'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.relationTypeTag.memberRole.description',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
+                'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'memberRoleTag\'',
-                'MM' => 'tx_chfbase_domain_model_tag_tag_memberrole_mm',
-                'size' => 5,
-                'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
+                'foreign_field' => 'parentRelationTypeTag',
+                'appearance' => [
+                    'collapseAll' => true,
+                    'expandSingle' => true,
+                    'newRecordLinkAddTitle' => true,
+                    'levelLinksPosition' => 'top',
+                    'useSortable' => true,
+                    'showPossibleLocalizationRecords' => true,
+                    'showAllLocalizationLink' => true,
+                    'showSynchronizationLink' => true,
+                ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'type' => [
+                            'config' => [
+                                'items' => [
+                                    [
+                                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.type.memberRoleTag',
+                                        'value' => 'memberRoleTag',
+                                        'group' => 'chfLex',
+                                    ],
+                                ],
+                            ],
+                        ],
                     ],
                 ],
             ],
@@ -543,35 +570,6 @@ defined('TYPO3') or die();
                 'readOnly' => true,
             ],
         ],
-        'asMemberRoleOfRelationTypeTag' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.asMemberRoleOfRelationTypeTag',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.asMemberRoleOfRelationTypeTag.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chfbase_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'relationTypeTag\'',
-                'MM' => 'tx_chfbase_domain_model_tag_tag_memberrole_mm',
-                'MM_opposite_field' => 'memberRole',
-                'size' => 5,
-                'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'readOnly' => true,
-            ],
-        ],
         'asRoleOfMember' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
@@ -638,6 +636,13 @@ defined('TYPO3') or die();
     'min,max,'
 );
 
+// Create palette 'hiddenParentResourceParentRelationTypeTag'
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+    'tx_chfbase_domain_model_tag',
+    'hiddenParentResourceParentRelationTypeTag',
+    'hidden,parentResource,parentRelationTypeTag,'
+);
+
 // Add type 'partOfSpeechTag' and its 'showitem' list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
     'tx_chfbase_domain_model_tag',
@@ -683,8 +688,8 @@ defined('TYPO3') or die();
 // Add type 'memberRoleTag' and its 'showitem' list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
     'tx_chfbase_domain_model_tag',
-    'hiddenParentResource,uuidType,codeText,description,sameAs,
+    'hiddenParentResourceParentRelationTypeTag,uuidType,codeText,description,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,memberType,minMax,hint,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asMemberRoleOfRelationTypeTag,asRoleOfMember,',
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asRoleOfMember,',
     'memberRoleTag'
 );
