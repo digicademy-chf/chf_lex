@@ -1,5 +1,4 @@
 <?php
-defined('TYPO3') or die();
 declare(strict_types=1);
 
 # This file is part of the extension CHF Lex for TYPO3.
@@ -12,6 +11,8 @@ namespace Digicademy\CHFLex\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
+defined('TYPO3') or die();
 
 /**
  * Model for label-type tags
