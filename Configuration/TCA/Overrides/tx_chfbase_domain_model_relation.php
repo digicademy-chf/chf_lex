@@ -109,17 +109,10 @@ defined('TYPO3') or die();
     ]
 );
 
-// Create palette 'relatedRecordRole'
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
-    'tx_chfbase_domain_model_relation',
-    'relatedRecordRole',
-    'relatedRecord,role,'
-);
-
 // Add type 'similarityRelation' and its 'showitem' list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
    'tx_chfbase_domain_model_relation',
-   'hiddenParentResource,uuidType,record,relatedRecordRole,description,',
+   'hiddenParentResource,uuidType,record,relatedRecord,description,',
    'similarityRelation'
 );
 
