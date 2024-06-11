@@ -163,6 +163,12 @@
             <trans-unit id="object.memberRoleTag.type.memberRoleTag" resname="object.memberRoleTag.type.memberRoleTag">
                 <source>Member role</source>
             </trans-unit>
+            <trans-unit id="object.memberRoleTag.parentRelationTypeTag" resname="object.memberRoleTag.parentRelationTypeTag">
+                <source>Parent relation type</source>
+            </trans-unit>
+            <trans-unit id="object.memberRoleTag.parentRelationTypeTag.description" resname="object.memberRoleTag.parentRelationTypeTag.description">
+                <source>Relation type that this member role is part of</source>
+            </trans-unit>
             <trans-unit id="object.memberRoleTag.memberType" resname="object.memberRoleTag.memberType">
                 <source>Member type</source>
             </trans-unit>

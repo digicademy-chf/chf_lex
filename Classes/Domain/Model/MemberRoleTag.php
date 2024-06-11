@@ -9,18 +9,28 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Domain\Model;
 
-use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use Digicademy\CHFBase\Domain\Model\AbstractTag;
+use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 
 defined('TYPO3') or die();
 
 /**
- * Model for member-role tags
+ * Model for MemberRoleTag
  */
 class MemberRoleTag extends AbstractTag
 {
+    /**
+     * Relation type that this member role is part of
+     * 
+     * @var LabelTag|LazyLoadingProxy
+     */
+    #[Lazy()]
+    protected LabelTag|LazyLoadingProxy $parentRelationTypeTag;
+
     /**
      * Defines which types of members may be part of this relation
      * 
@@ -30,15 +40,13 @@ class MemberRoleTag extends AbstractTag
         'validator' => StringOptionsValidator::class,
         'options'   => [
             'allowed' => [
-                'any',
                 'entry',
-                'sense',
                 'encyclopediaEntry',
-                'glossaryEntry',
+                'sense',
             ],
         ],
     ])]
-    protected string $memberType = '';
+    protected string $memberType = 'entry';
 
     /**
      * Minimum number of members in this relation (leave empty to not set a limit)
@@ -61,7 +69,7 @@ class MemberRoleTag extends AbstractTag
     protected ?int $max = null;
 
     /**
-     * Instructs machine agents what to do when they show this relation
+     * Instructs software what to do when it shows relation members with this role
      * 
      * @var string
      */
@@ -69,50 +77,39 @@ class MemberRoleTag extends AbstractTag
         'validator' => StringOptionsValidator::class,
         'options'   => [
             'allowed' => [
+                '0',
                 'embed',
                 'navigate',
                 'none',
             ],
         ],
     ])]
-    protected string $action = '';
+    protected string $hint = '0';
 
     /**
-     * List of tags with this member role
+     * List of relation members that use this tag as a role
      * 
-     * @var ObjectStorage<RelationTypeTag>
+     * @var ?ObjectStorage<Member>
      */
     #[Lazy()]
-    protected ObjectStorage $asMemberRoleOfTag;
-
-    /**
-     * List of relation members with this role
-     * 
-     * @var ObjectStorage<Member>
-     */
-    #[Lazy()]
-    protected ObjectStorage $asRoleOfMember;
+    protected ?ObjectStorage $asRoleOfMember;
 
     /**
      * Construct object
      *
-     * @param LexicographicResource $parent_id
-     * @param string $id
+     * @param LexicographicResource $parentResource
      * @param string $uuid
+     * @param string $code
      * @param string $text
-     * @param string $action
      * @return MemberRoleTag
      */
-    public function __construct(LexicographicResource $parent_id, string $id, string $uuid, string $text, string $action)
+    public function __construct(LexicographicResource $parentResource, string $uuid, string $code, string $text, string $memberType)
     {
+        parent::__construct($parentResource, $uuid, $code, $text);
         $this->initializeObject();
 
-        $this->setParentId($parent_id);
-        $this->setId($id);
-        $this->setUuid($uuid);
-        $this->setText($text);
-        $this->setType('memberRole');
-        $this->setAction($action);
+        $this->setType('memberRoleTag');
+        $this->setMemberType($memberType);
     }
 
     /**
@@ -120,30 +117,31 @@ class MemberRoleTag extends AbstractTag
      */
     public function initializeObject(): void
     {
-        parent::initializeObject();
-
-        $this->asMemberRoleOfTag = new ObjectStorage();
-        $this->asRoleOfMember    = new ObjectStorage();
+        $this->parentRelationTypeTag = new LazyLoadingProxy();
+        $this->asRoleOfMember ??= new ObjectStorage();
     }
 
     /**
-     * Get role (alias of text for DMLex conformity)
-     *
-     * @return string
+     * Get parent relation type tag
+     * 
+     * @return RelationTypeTag
      */
-    public function getRole(): string
+    public function getParentRelationTypeTag(): RelationTypeTag
     {
-        return $this->getText();
+        if ($this->parentRelationTypeTag instanceof LazyLoadingProxy) {
+            $this->parentRelationTypeTag->_loadRealInstance();
+        }
+        return $this->parentRelationTypeTag;
     }
 
     /**
-     * Set role (alias of text for DMLex conformity)
-     *
-     * @param string $role
+     * Set parent relation type tag
+     * 
+     * @param RelationTypeTag
      */
-    public function setRole(string $role): void
+    public function setParentRelationTypeTag(RelationTypeTag $parentRelationTypeTag): void
     {
-        $this->setText($role);
+        $this->parentRelationTypeTag = $parentRelationTypeTag;
     }
 
     /**
@@ -207,72 +205,23 @@ class MemberRoleTag extends AbstractTag
     }
 
     /**
-     * Get action
+     * Get hint
      *
      * @return string
      */
-    public function getAction(): string
+    public function getHint(): string
     {
-        return $this->action;
+        return $this->hint;
     }
 
     /**
-     * Set action
+     * Set hint
      *
-     * @param string $action
+     * @param string $hint
      */
-    public function setAction(string $action): void
+    public function setHint(string $hint): void
     {
-        $this->action = $action;
-    }
-
-    /**
-     * Get as member role of tag
-     *
-     * @return ObjectStorage<RelationTypeTag>
-     */
-    public function getAsMemberRoleOfTag(): ObjectStorage
-    {
-        return $this->asMemberRoleOfTag;
-    }
-
-    /**
-     * Set as member role of tag
-     *
-     * @param ObjectStorage<RelationTypeTag> $asMemberRoleOfTag
-     */
-    public function setAsMemberRoleOfTag(ObjectStorage $asMemberRoleOfTag): void
-    {
-        $this->asMemberRoleOfTag = $asMemberRoleOfTag;
-    }
-
-    /**
-     * Add as member role of tag
-     *
-     * @param RelationTypeTag $asMemberRoleOfTag
-     */
-    public function addAsMemberRoleOfTag(RelationTypeTag $asMemberRoleOfTag): void
-    {
-        $this->asMemberRoleOfTag->attach($asMemberRoleOfTag);
-    }
-
-    /**
-     * Remove as member role of tag
-     *
-     * @param RelationTypeTag $asMemberRoleOfTag
-     */
-    public function removeAsMemberRoleOfTag(RelationTypeTag $asMemberRoleOfTag): void
-    {
-        $this->asMemberRoleOfTag->detach($asMemberRoleOfTag);
-    }
-
-    /**
-     * Remove all as member role of tags
-     */
-    public function removeAllAsMemberRoleOfTags(): void
-    {
-        $asMemberRoleOfTag = clone $this->asMemberRoleOfTag;
-        $this->asMemberRoleOfTag->removeAll($asMemberRoleOfTag);
+        $this->hint = $hint;
     }
 
     /**
@@ -280,7 +229,7 @@ class MemberRoleTag extends AbstractTag
      *
      * @return ObjectStorage<Member>
      */
-    public function getAsRoleOfMember(): ObjectStorage
+    public function getAsRoleOfMember(): ?ObjectStorage
     {
         return $this->asRoleOfMember;
     }
@@ -302,7 +251,7 @@ class MemberRoleTag extends AbstractTag
      */
     public function addAsRoleOfMember(Member $asRoleOfMember): void
     {
-        $this->asRoleOfMember->attach($asRoleOfMember);
+        $this->asRoleOfMember?->attach($asRoleOfMember);
     }
 
     /**
@@ -312,20 +261,15 @@ class MemberRoleTag extends AbstractTag
      */
     public function removeAsRoleOfMember(Member $asRoleOfMember): void
     {
-        $this->asRoleOfMember->detach($asRoleOfMember);
+        $this->asRoleOfMember?->detach($asRoleOfMember);
     }
 
     /**
      * Remove all as role of members
      */
-    public function removeAllAsRoleOfMembers(): void
+    public function removeAllAsRoleOfMember(): void
     {
         $asRoleOfMember = clone $this->asRoleOfMember;
         $this->asRoleOfMember->removeAll($asRoleOfMember);
     }
 }
-
-/**
- * Alias for DMLex conformity since the class above is implemented as a type of tag
- */
-class_alias('MemberRoleTag', 'MemberType');

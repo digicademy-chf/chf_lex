@@ -213,6 +213,14 @@
                 <source>Member role</source>
                 <target>Mitgliedsrolle</target>
             </trans-unit>
+            <trans-unit id="object.memberRoleTag.parentRelationTypeTag" resname="object.memberRoleTag.parentRelationTypeTag" approved="yes">
+                <source>Parent relation type</source>
+                <target>Übergeordnete Relationsart</target>
+            </trans-unit>
+            <trans-unit id="object.memberRoleTag.parentRelationTypeTag.description" resname="object.memberRoleTag.parentRelationTypeTag.description" approved="yes">
+                <source>Relation type that this member role is part of</source>
+                <target>Relationsart, zu der diese Mitgliedsrolle gehört</target>
+            </trans-unit>
             <trans-unit id="object.memberRoleTag.memberType" resname="object.memberRoleTag.memberType" approved="yes">
                 <source>Member type</source>
                 <target>Mitgliedsart</target>

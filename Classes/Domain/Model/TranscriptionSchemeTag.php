@@ -11,40 +11,38 @@ namespace Digicademy\CHFLex\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use Digicademy\CHFBase\Domain\Model\AbstractTag;
 
 defined('TYPO3') or die();
 
 /**
- * Model for transcription-scheme tags
+ * Model for TranscriptionSchemeTag
  */
 class TranscriptionSchemeTag extends AbstractTag
 {
     /**
-     * List of transcriptions with this scheme
+     * List of transcriptions that use this tag as a scheme
      * 
-     * @var ObjectStorage<Transcription>
+     * @var ?ObjectStorage<Transcription>
      */
     #[Lazy()]
-    protected ObjectStorage $asSchemeOfTranscription;
+    protected ?ObjectStorage $asSchemeOfTranscription;
 
     /**
      * Construct object
      *
-     * @param LexicographicResource $parent_id
-     * @param string $id
+     * @param LexicographicResource $parentResource
      * @param string $uuid
+     * @param string $code
      * @param string $text
      * @return TranscriptionSchemeTag
      */
-    public function __construct(LexicographicResource $parent_id, string $id, string $uuid, string $text)
+    public function __construct(LexicographicResource $parentResource, string $uuid, string $code, string $text)
     {
+        parent::__construct($parentResource, $uuid, $code, $text);
         $this->initializeObject();
 
-        $this->setParentId($parent_id);
-        $this->setId($id);
-        $this->setUuid($uuid);
-        $this->setText($text);
-        $this->setType('transcriptionScheme');
+        $this->setType('transcriptionSchemeTag');
     }
 
     /**
@@ -52,9 +50,7 @@ class TranscriptionSchemeTag extends AbstractTag
      */
     public function initializeObject(): void
     {
-        parent::initializeObject();
-
-        $this->asSchemeOfTranscription = new ObjectStorage();
+        $this->asSchemeOfTranscription ??= new ObjectStorage();
     }
 
     /**
@@ -62,7 +58,7 @@ class TranscriptionSchemeTag extends AbstractTag
      *
      * @return ObjectStorage<Transcription>
      */
-    public function getAsSchemeOfTranscription(): ObjectStorage
+    public function getAsSchemeOfTranscription(): ?ObjectStorage
     {
         return $this->asSchemeOfTranscription;
     }
@@ -84,7 +80,7 @@ class TranscriptionSchemeTag extends AbstractTag
      */
     public function addAsSchemeOfTranscription(Transcription $asSchemeOfTranscription): void
     {
-        $this->asSchemeOfTranscription->attach($asSchemeOfTranscription);
+        $this->asSchemeOfTranscription?->attach($asSchemeOfTranscription);
     }
 
     /**
@@ -94,13 +90,13 @@ class TranscriptionSchemeTag extends AbstractTag
      */
     public function removeAsSchemeOfTranscription(Transcription $asSchemeOfTranscription): void
     {
-        $this->asSchemeOfTranscription->detach($asSchemeOfTranscription);
+        $this->asSchemeOfTranscription?->detach($asSchemeOfTranscription);
     }
 
     /**
      * Remove all as scheme of transcriptions
      */
-    public function removeAllAsSchemeOfTranscriptions(): void
+    public function removeAllAsSchemeOfTranscription(): void
     {
         $asSchemeOfTranscription = clone $this->asSchemeOfTranscription;
         $this->asSchemeOfTranscription->removeAll($asSchemeOfTranscription);
