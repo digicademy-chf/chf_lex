@@ -11,25 +11,33 @@ namespace Digicademy\CHFLex\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 defined('TYPO3') or die();
 
 /**
- * Model for transcriptions
+ * Model for Transcription
  */
 class Transcription extends AbstractEntity
 {
     /**
-     * Whether the record should be visisible or not
+     * Whether the record should be visible or not
      * 
      * @var bool
      */
     #[Validate([
         'validator' => 'Boolean',
     ])]
-    protected bool $hidden = false;
+    protected bool $hidden = true;
+
+    /**
+     * Pronunciation that this transcription belongs to
+     * 
+     * @var Pronunciation|LazyLoadingProxy
+     */
+    #[Lazy()]
+    protected Pronunciation|LazyLoadingProxy $parentPronunciation;
 
     /**
      * Transcribed version of the pronunciation
@@ -39,7 +47,6 @@ class Transcription extends AbstractEntity
     #[Validate([
         'validator' => 'StringLength',
         'options'   => [
-            'minimum' => 1,
             'maximum' => 255,
         ],
     ])]
@@ -48,21 +55,23 @@ class Transcription extends AbstractEntity
     /**
      * Transcription scheme used here
      * 
-     * @var ObjectStorage<TranscriptionSchemeTag>
+     * @var TranscriptionSchemeTag|LazyLoadingProxy
      */
     #[Lazy()]
-    protected ObjectStorage $scheme;
+    protected TranscriptionSchemeTag|LazyLoadingProxy $scheme;
 
     /**
      * Construct object
      *
+     * @param Pronunciation $parentPronunciation
      * @param string $text
      * @return Transcription
      */
-    public function __construct(string $text)
+    public function __construct(Pronunciation $parentPronunciation, string $text)
     {
         $this->initializeObject();
 
+        $this->setParentPronunciation($parentPronunciation);
         $this->setText($text);
     }
 
@@ -71,7 +80,8 @@ class Transcription extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->scheme = new ObjectStorage();
+        $this->parentPronunciation = new LazyLoadingProxy();
+        $this->scheme = new LazyLoadingProxy();
     }
 
     /**
@@ -92,6 +102,29 @@ class Transcription extends AbstractEntity
     public function setHidden(bool $hidden): void
     {
         $this->hidden = $hidden;
+    }
+
+    /**
+     * Get parent pronunciation
+     * 
+     * @return Pronunciation
+     */
+    public function getParentPronunciation(): Pronunciation
+    {
+        if ($this->parentPronunciation instanceof LazyLoadingProxy) {
+            $this->parentPronunciation->_loadRealInstance();
+        }
+        return $this->parentPronunciation;
+    }
+
+    /**
+     * Set parent pronunciation
+     * 
+     * @param Pronunciation
+     */
+    public function setParentPronunciation(Pronunciation $parentPronunciation): void
+    {
+        $this->parentPronunciation = $parentPronunciation;
     }
 
     /**
@@ -116,50 +149,24 @@ class Transcription extends AbstractEntity
 
     /**
      * Get scheme
-     *
-     * @return ObjectStorage<TranscriptionSchemeTag>
+     * 
+     * @return TranscriptionSchemeTag
      */
-    public function getScheme(): ObjectStorage
+    public function getScheme(): TranscriptionSchemeTag
     {
+        if ($this->scheme instanceof LazyLoadingProxy) {
+            $this->scheme->_loadRealInstance();
+        }
         return $this->scheme;
     }
 
     /**
      * Set scheme
-     *
-     * @param ObjectStorage<TranscriptionSchemeTag> $scheme
+     * 
+     * @param TranscriptionSchemeTag
      */
-    public function setScheme(ObjectStorage $scheme): void
+    public function setScheme(TranscriptionSchemeTag $scheme): void
     {
         $this->scheme = $scheme;
-    }
-
-    /**
-     * Add scheme
-     *
-     * @param TranscriptionSchemeTag $scheme
-     */
-    public function addScheme(TranscriptionSchemeTag $scheme): void
-    {
-        $this->scheme->attach($scheme);
-    }
-
-    /**
-     * Remove scheme
-     *
-     * @param TranscriptionSchemeTag $scheme
-     */
-    public function removeScheme(TranscriptionSchemeTag $scheme): void
-    {
-        $this->scheme->detach($scheme);
-    }
-
-    /**
-     * Remove all schemes
-     */
-    public function removeAllSchemes(): void
-    {
-        $scheme = clone $this->scheme;
-        $this->scheme->removeAll($scheme);
     }
 }

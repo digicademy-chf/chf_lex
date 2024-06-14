@@ -164,17 +164,17 @@ return [
         'tokensSecondary' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.frequency.tokensSecondary',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.frequency.tokensSecondary.description',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.tokensSecondary',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.tokensSecondary.description',
             'config' => [
                 'type' => 'number',
             ],
         ],
-        'event' => [
+        'date' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractObject.event',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractObject.event.description',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.date',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.date.description',
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_period',
@@ -232,7 +232,7 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hiddenParentEntryParentSense,tokensTokensSecondary,geodata,event,locationRelation,sourceRelation,',
+            'showitem' => 'hiddenParentEntryParentSense,tokensTokensSecondary,geodata,date,locationRelation,sourceRelation,',
         ],
     ],
 ];

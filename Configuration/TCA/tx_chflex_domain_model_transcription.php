@@ -163,18 +163,15 @@ return [
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'transcriptionSchemeTag\'',
                 'MM' => 'tx_chflex_domain_model_transcription_tag_scheme_mm',
-                'size' => 5,
-                'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
+                'maxitems' => 1,
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => '0',
                     ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
+                ],
+                'sortItems' => [
+                    'label' => 'asc',
                 ],
             ],
         ],

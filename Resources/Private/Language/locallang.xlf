@@ -533,6 +533,12 @@
             <trans-unit id="object.example.text.description" resname="object.example.text.description">
                 <source>String that exemplifies the headword or the sense</source>
             </trans-unit>
+            <trans-unit id="object.example.date" resname="object.example.date">
+                <source>Date</source>
+            </trans-unit>
+            <trans-unit id="object.example.date.description" resname="object.example.date.description">
+                <source>Date when this example was in use</source>
+            </trans-unit>
             <trans-unit id="object.example.soundFile" resname="object.example.soundFile">
                 <source>Sound file</source>
             </trans-unit>
@@ -566,6 +572,12 @@
             </trans-unit>
             <trans-unit id="object.frequency.tokensSecondary.description" resname="object.frequency.tokensSecondary.description">
                 <source>Occurrences in second position</source>
+            </trans-unit>
+            <trans-unit id="object.frequency.date" resname="object.frequency.date">
+                <source>Date</source>
+            </trans-unit>
+            <trans-unit id="object.frequency.date.description" resname="object.frequency.date.description">
+                <source>Date when this frequency applied</source>
             </trans-unit>
         </body>
     </file>

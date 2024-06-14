@@ -165,11 +165,11 @@ return [
                 'required' => true,
             ],
         ],
-        'event' => [
+        'date' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractObject.event',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractObject.event.description',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.date',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.date.description',
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_period',
@@ -287,13 +287,13 @@ return [
         'hiddenParentEntryParentSense' => [
             'showitem' => 'hidden,parentEntry,parentSense,',
         ],
-        'textEvent' => [
-            'showitem' => 'text,event,',
+        'textDate' => [
+            'showitem' => 'text,date,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'hiddenParentEntryParentSense,textEvent,agentRelation,locationRelation,soundFile,sourceRelation,label,',
+            'showitem' => 'hiddenParentEntryParentSense,textDate,agentRelation,locationRelation,soundFile,sourceRelation,label,',
         ],
     ],
 ];

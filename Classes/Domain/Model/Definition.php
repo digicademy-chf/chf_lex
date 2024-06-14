@@ -11,28 +11,36 @@ namespace Digicademy\CHFLex\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 defined('TYPO3') or die();
 
 /**
- * Model for definitions
+ * Model for Definition
  */
 class Definition extends AbstractEntity
 {
     /**
-     * Whether the record should be visisible or not
+     * Whether the record should be visible or not
      * 
      * @var bool
      */
     #[Validate([
         'validator' => 'Boolean',
     ])]
-    protected bool $hidden = false;
+    protected bool $hidden = true;
 
     /**
-     * Definition of the headword
+     * Sense that this definition belongs to
+     * 
+     * @var Sense|LazyLoadingProxy
+     */
+    #[Lazy()]
+    protected Sense|LazyLoadingProxy $parentSense;
+
+    /**
+     * Definition of the sense
      * 
      * @var string
      */
@@ -44,21 +52,23 @@ class Definition extends AbstractEntity
     /**
      * May be used to differentiate between different tiers of definitions
      * 
-     * @var ObjectStorage<DefinitionTypeTag>
+     * @var DefinitionTypeTag|LazyLoadingProxy
      */
     #[Lazy()]
-    protected ObjectStorage $definitionType;
+    protected DefinitionTypeTag|LazyLoadingProxy $definitionType;
 
     /**
      * Construct object
      *
+     * @param Sense $parentSense
      * @param string $text
      * @return Definition
      */
-    public function __construct(string $text)
+    public function __construct(Sense $parentSense, string $text)
     {
         $this->initializeObject();
 
+        $this->setParentSense($parentSense);
         $this->setText($text);
     }
 
@@ -67,7 +77,8 @@ class Definition extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->definitionType = new ObjectStorage();
+        $this->parentSense = new LazyLoadingProxy();
+        $this->definitionType = new LazyLoadingProxy();
     }
 
     /**
@@ -88,6 +99,29 @@ class Definition extends AbstractEntity
     public function setHidden(bool $hidden): void
     {
         $this->hidden = $hidden;
+    }
+
+    /**
+     * Get parent sense
+     * 
+     * @return Sense
+     */
+    public function getParentSense(): Sense
+    {
+        if ($this->parentSense instanceof LazyLoadingProxy) {
+            $this->parentSense->_loadRealInstance();
+        }
+        return $this->parentSense;
+    }
+
+    /**
+     * Set parent sense
+     * 
+     * @param Sense
+     */
+    public function setParentSense(Sense $parentSense): void
+    {
+        $this->parentSense = $parentSense;
     }
 
     /**
@@ -112,50 +146,24 @@ class Definition extends AbstractEntity
 
     /**
      * Get definition type
-     *
-     * @return ObjectStorage<DefinitionTypeTag>
+     * 
+     * @return DefinitionTypeTag
      */
-    public function getDefinitionType(): ObjectStorage
+    public function getDefinitionType(): DefinitionTypeTag
     {
+        if ($this->definitionType instanceof LazyLoadingProxy) {
+            $this->definitionType->_loadRealInstance();
+        }
         return $this->definitionType;
     }
 
     /**
      * Set definition type
-     *
-     * @param ObjectStorage<DefinitionTypeTag> $definitionType
+     * 
+     * @param DefinitionTypeTag
      */
-    public function setDefinitionType(ObjectStorage $definitionType): void
+    public function setDefinitionType(DefinitionTypeTag $definitionType): void
     {
         $this->definitionType = $definitionType;
-    }
-
-    /**
-     * Add definition type
-     *
-     * @param DefinitionTypeTag $definitionType
-     */
-    public function addDefinitionType(DefinitionTypeTag $definitionType): void
-    {
-        $this->definitionType->attach($definitionType);
-    }
-
-    /**
-     * Remove definition type
-     *
-     * @param DefinitionTypeTag $definitionType
-     */
-    public function removeDefinitionType(DefinitionTypeTag $definitionType): void
-    {
-        $this->definitionType->detach($definitionType);
-    }
-
-    /**
-     * Remove all definition types
-     */
-    public function removeAllDefinitionTypes(): void
-    {
-        $definitionType = clone $this->definitionType;
-        $this->definitionType->removeAll($definitionType);
     }
 }

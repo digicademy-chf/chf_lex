@@ -703,6 +703,14 @@
                 <source>String that exemplifies the headword or the sense</source>
                 <target>Zeichenkette, die das zu definierende Wort oder die Bedeutung illustriert</target>
             </trans-unit>
+            <trans-unit id="object.example.date" resname="object.example.date" approved="yes">
+                <source>Date</source>
+                <target>Datum</target>
+            </trans-unit>
+            <trans-unit id="object.example.date.description" resname="object.example.date.description" approved="yes">
+                <source>Date when this example was in use</source>
+                <target>Zeitpunkt oder -raum, zu dem das Beispiel in Gebrauch war</target>
+            </trans-unit>
             <trans-unit id="object.example.soundFile" resname="object.example.soundFile" approved="yes">
                 <source>Sound file</source>
                 <target>Audiodatei</target>
@@ -747,6 +755,14 @@
             <trans-unit id="object.frequency.tokensSecondary.description" resname="object.frequency.tokensSecondary.description" approved="yes">
                 <source>Occurrences in second position</source>
                 <target>Vorkommen an zweiter Stelle</target>
+            </trans-unit>
+            <trans-unit id="object.frequency.date" resname="object.frequency.date" approved="yes">
+                <source>Date</source>
+                <target>Datum</target>
+            </trans-unit>
+            <trans-unit id="object.frequency.date.description" resname="object.frequency.date.description" approved="yes">
+                <source>Date when this frequency applied</source>
+                <target>Zeitpunkt, zu dem die Häufigkeitsangabe zutrifft</target>
             </trans-unit>
         </body>
     </file>

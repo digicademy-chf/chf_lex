@@ -163,18 +163,15 @@ return [
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'inflectionTypeTag\'',
                 'MM' => 'tx_chflex_domain_model_inflected_form_tag_inflectiontype_mm',
-                'size' => 5,
-                'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
+                'maxitems' => 1,
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => '0',
                     ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
+                ],
+                'sortItems' => [
+                    'label' => 'asc',
                 ],
             ],
         ],
