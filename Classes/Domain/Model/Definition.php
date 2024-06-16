@@ -66,19 +66,8 @@ class Definition extends AbstractEntity
      */
     public function __construct(Sense $parentSense, string $text)
     {
-        $this->initializeObject();
-
         $this->setParentSense($parentSense);
         $this->setText($text);
-    }
-
-    /**
-     * Initialize object
-     */
-    public function initializeObject(): void
-    {
-        $this->parentSense = new LazyLoadingProxy();
-        $this->definitionType = new LazyLoadingProxy();
     }
 
     /**

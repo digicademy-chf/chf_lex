@@ -69,19 +69,8 @@ class Transcription extends AbstractEntity
      */
     public function __construct(Pronunciation $parentPronunciation, string $text)
     {
-        $this->initializeObject();
-
         $this->setParentPronunciation($parentPronunciation);
         $this->setText($text);
-    }
-
-    /**
-     * Initialize object
-     */
-    public function initializeObject(): void
-    {
-        $this->parentPronunciation = new LazyLoadingProxy();
-        $this->scheme = new LazyLoadingProxy();
     }
 
     /**

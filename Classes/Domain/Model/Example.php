@@ -149,12 +149,8 @@ class Example extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->parentEntry = new LazyLoadingProxy();
-        $this->parentSense = new LazyLoadingProxy();
-        $this->date = new LazyLoadingProxy();
         $this->agentRelation ??= new ObjectStorage();
         $this->locationRelation ??= new ObjectStorage();
-        $this->soundFile = new LazyLoadingProxy();
         $this->sourceRelation ??= new ObjectStorage();
         $this->label ??= new ObjectStorage();
     }

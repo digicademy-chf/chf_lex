@@ -150,7 +150,6 @@ class Sense extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->parentEntry = new LazyLoadingProxy();
         $this->definition ??= new ObjectStorage();
         $this->example ??= new ObjectStorage();
         $this->frequency ??= new ObjectStorage();

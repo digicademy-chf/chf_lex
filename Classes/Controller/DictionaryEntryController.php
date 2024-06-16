@@ -10,31 +10,31 @@ declare(strict_types=1);
 namespace Digicademy\CHFLex\Controller;
 
 use Psr\Http\Message\ResponseInterface;
-use Digicademy\CHFLex\Domain\Model\AbstractEntry;
-use Digicademy\CHFLex\Domain\Repository\AbstractEntryRepository;
+use Digicademy\CHFLex\Domain\Model\DictionaryEntry;
+use Digicademy\CHFLex\Domain\Repository\DictionaryEntryRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 defined('TYPO3') or die();
 
 /**
- * Controller for AbstractEntry
+ * Controller for DictionaryEntry
  */
-class AbstractEntryController extends ActionController
+class DictionaryEntryController extends ActionController
 {
-    private AbstractEntryRepository $abstractEntryRepository;
+    private DictionaryEntryRepository $dictionaryEntryRepository;
 
-    public function injectAbstractEntryRepository(AbstractEntryRepository $abstractEntryRepository): void
+    public function injectDictionaryEntryRepository(DictionaryEntryRepository $dictionaryEntryRepository): void
     {
-        $this->abstractEntryRepository = $abstractEntryRepository;
+        $this->dictionaryEntryRepository = $dictionaryEntryRepository;
     }
 
     public function indexAction(): ResponseInterface
     {
-        $this->view->assign('dictionaryEntries', $this->abstractEntryRepository->findAll());
+        $this->view->assign('dictionaryEntries', $this->dictionaryEntryRepository->findAll());
         return $this->htmlResponse();
     }
 
-    public function showAction(AbstractEntry $entry): ResponseInterface
+    public function showAction(DictionaryEntry $entry): ResponseInterface
     {
         $this->view->assign('dictionaryEntry', $entry);
         return $this->htmlResponse();

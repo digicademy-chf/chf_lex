@@ -16,6 +16,7 @@ use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use Digicademy\CHFBase\Domain\Model\LabelTag;
 
 defined('TYPO3') or die();
 
@@ -95,9 +96,6 @@ class Pronunciation extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->parentEntry = new LazyLoadingProxy();
-        $this->parentInflectedForm = new LazyLoadingProxy();
-        $this->soundFile = new LazyLoadingProxy();
         $this->label ??= new ObjectStorage();
     }
 

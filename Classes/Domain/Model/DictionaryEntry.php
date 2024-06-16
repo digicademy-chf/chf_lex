@@ -150,7 +150,6 @@ class DictionaryEntry extends AbstractEntry
      */
     public function initializeObject(): void
     {
-        $this->partOfSpeech = new LazyLoadingProxy();
         $this->sense ??= new ObjectStorage();
         $this->example ??= new ObjectStorage();
         $this->frequency ??= new ObjectStorage();

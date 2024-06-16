@@ -76,7 +76,6 @@ class Member extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->parentRelation = new LazyLoadingProxy();
         $this->role ??= new ObjectStorage();
         $this->ref ??= new ObjectStorage();
     }

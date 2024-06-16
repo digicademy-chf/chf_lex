@@ -73,7 +73,6 @@ class LexicographicResource extends AbstractResource
      */
     public function initializeObject(): void
     {
-        $this->glossary = new LazyLoadingProxy();
         $this->allDictionaryEntries ??= new ObjectStorage();
         $this->allEncyclopediaEntries ??= new ObjectStorage();
     }

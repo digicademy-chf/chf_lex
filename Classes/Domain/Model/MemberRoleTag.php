@@ -26,10 +26,10 @@ class MemberRoleTag extends AbstractTag
     /**
      * Relation type that this member role is part of
      * 
-     * @var LabelTag|LazyLoadingProxy
+     * @var RelationTypeTag|LazyLoadingProxy
      */
     #[Lazy()]
-    protected LabelTag|LazyLoadingProxy $parentRelationTypeTag;
+    protected RelationTypeTag|LazyLoadingProxy $parentRelationTypeTag;
 
     /**
      * Defines which types of members may be part of this relation
@@ -117,7 +117,6 @@ class MemberRoleTag extends AbstractTag
      */
     public function initializeObject(): void
     {
-        $this->parentRelationTypeTag = new LazyLoadingProxy();
         $this->asRoleOfMember ??= new ObjectStorage();
     }
 

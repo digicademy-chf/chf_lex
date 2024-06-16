@@ -133,10 +133,6 @@ class Frequency extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->parentEntry = new LazyLoadingProxy();
-        $this->parentSense = new LazyLoadingProxy();
-        $this->geodata = new LazyLoadingProxy();
-        $this->date = new LazyLoadingProxy();
         $this->locationRelation ??= new ObjectStorage();
         $this->sourceRelation ??= new ObjectStorage();
     }

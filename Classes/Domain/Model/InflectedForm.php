@@ -102,8 +102,6 @@ class InflectedForm extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->parentEntry = new LazyLoadingProxy();
-        $this->inflectionType = new LazyLoadingProxy();
         $this->pronunciation ??= new ObjectStorage();
         $this->label ??= new ObjectStorage();
     }
