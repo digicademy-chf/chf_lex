@@ -38,7 +38,7 @@ class DictionaryEntry extends AbstractEntry
     /**
      * Optional number to distinguish lemmas that are spelled the same
      * 
-     * @var int|null
+     * @var ?int
      */
     #[Validate([
         'validator' => 'Number',
@@ -48,10 +48,10 @@ class DictionaryEntry extends AbstractEntry
     /**
      * Define the headword's part of speech
      * 
-     * @var PartOfSpeechTag|LazyLoadingProxy
+     * @var PartOfSpeechTag|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected PartOfSpeechTag|LazyLoadingProxy $partOfSpeech;
+    protected PartOfSpeechTag|LazyLoadingProxy|null $partOfSpeech = null;
 
     /**
      * Database query that identifies entries edited in a single run

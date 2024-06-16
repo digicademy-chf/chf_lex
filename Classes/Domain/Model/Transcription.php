@@ -34,10 +34,10 @@ class Transcription extends AbstractEntity
     /**
      * Pronunciation that this transcription belongs to
      * 
-     * @var Pronunciation|LazyLoadingProxy
+     * @var Pronunciation|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected Pronunciation|LazyLoadingProxy $parentPronunciation;
+    protected Pronunciation|LazyLoadingProxy|null $parentPronunciation = null;
 
     /**
      * Transcribed version of the pronunciation
@@ -55,10 +55,10 @@ class Transcription extends AbstractEntity
     /**
      * Transcription scheme used here
      * 
-     * @var TranscriptionSchemeTag|LazyLoadingProxy
+     * @var TranscriptionSchemeTag|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected TranscriptionSchemeTag|LazyLoadingProxy $scheme;
+    protected TranscriptionSchemeTag|LazyLoadingProxy|null $scheme = null;
 
     /**
      * Construct object

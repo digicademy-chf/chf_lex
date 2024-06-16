@@ -25,10 +25,10 @@ class LexicographicRelation extends AbstractRelation
     /**
      * Specifies the type of lexicographic relation
      * 
-     * @var RelationTypeTag|LazyLoadingProxy
+     * @var RelationTypeTag|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected RelationTypeTag|LazyLoadingProxy $lexicographicRelationType;
+    protected RelationTypeTag|LazyLoadingProxy|null $lexicographicRelationType = null;
 
     /**
      * List of members of this lexicographic relation

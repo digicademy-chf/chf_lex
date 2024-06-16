@@ -38,10 +38,10 @@ class Sense extends AbstractEntity
     /**
      * Dictionary entry that this sense belongs to
      * 
-     * @var DictionaryEntry|LazyLoadingProxy
+     * @var DictionaryEntry|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected DictionaryEntry|LazyLoadingProxy $parentEntry;
+    protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
 
     /**
      * Unique identifier of this database record

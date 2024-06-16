@@ -41,23 +41,23 @@ class Frequency extends AbstractEntity
     /**
      * Dictionary entry that this frequency is part of
      * 
-     * @var DictionaryEntry|LazyLoadingProxy
+     * @var DictionaryEntry|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected DictionaryEntry|LazyLoadingProxy $parentEntry;
+    protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
 
     /**
      * Sense that this frequency is part of
      * 
-     * @var Sense|LazyLoadingProxy
+     * @var Sense|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected Sense|LazyLoadingProxy $parentSense;
+    protected Sense|LazyLoadingProxy|null $parentSense = null;
 
     /**
      * Number of occurrences
      * 
-     * @var int|null
+     * @var ?int
      */
     #[Validate([
         'validator' => 'Number',
@@ -67,7 +67,7 @@ class Frequency extends AbstractEntity
     /**
      * Occurrences in second position
      * 
-     * @var int|null
+     * @var ?int
      */
     #[Validate([
         'validator' => 'Number',
@@ -77,21 +77,21 @@ class Frequency extends AbstractEntity
     /**
      * Feature to use as geodata of this frequency
      * 
-     * @var Feature|FeatureCollection|LazyLoadingProxy
+     * @var Feature|FeatureCollection|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected Feature|FeatureCollection|LazyLoadingProxy $geodata;
+    protected Feature|FeatureCollection|LazyLoadingProxy|null $geodata = null;
 
     /**
      * Date when this example was in use
      * 
-     * @var Period|LazyLoadingProxy
+     * @var Period|LazyLoadingProxy|null
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected Period|LazyLoadingProxy $date;
+    protected Period|LazyLoadingProxy|null $date = null;
 
     /**
      * Location of this database record described by a relation

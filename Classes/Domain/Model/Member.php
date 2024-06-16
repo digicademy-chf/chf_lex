@@ -35,10 +35,10 @@ class Member extends AbstractEntity
     /**
      * Lexicographic relation that this record is a member of
      * 
-     * @var LexicographicRelation|LazyLoadingProxy
+     * @var LexicographicRelation|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected LexicographicRelation|LazyLoadingProxy $parentRelation;
+    protected LexicographicRelation|LazyLoadingProxy|null $parentRelation = null;
 
     /**
      * Role in the relation

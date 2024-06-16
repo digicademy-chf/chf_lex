@@ -37,10 +37,10 @@ class InflectedForm extends AbstractEntity
     /**
      * Dictionary entry that this inflected form is part of
      * 
-     * @var DictionaryEntry|LazyLoadingProxy
+     * @var DictionaryEntry|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected DictionaryEntry|LazyLoadingProxy $parentEntry;
+    protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
 
     /**
      * String of the inflected form
@@ -58,10 +58,10 @@ class InflectedForm extends AbstractEntity
     /**
      * Type of inflection provided here
      * 
-     * @var InflectionTypeTag|LazyLoadingProxy
+     * @var InflectionTypeTag|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected InflectionTypeTag|LazyLoadingProxy $inflectionType;
+    protected InflectionTypeTag|LazyLoadingProxy|null $inflectionType = null;
 
     /**
      * Pronunciation of the inflected form

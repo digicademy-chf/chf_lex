@@ -42,18 +42,18 @@ class Example extends AbstractEntity
     /**
      * Dictionary entry that this example is part of
      * 
-     * @var DictionaryEntry|LazyLoadingProxy
+     * @var DictionaryEntry|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected DictionaryEntry|LazyLoadingProxy $parentEntry;
+    protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
 
     /**
      * Sense that this example is part of
      * 
-     * @var Sense|LazyLoadingProxy
+     * @var Sense|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected Sense|LazyLoadingProxy $parentSense;
+    protected Sense|LazyLoadingProxy|null $parentSense = null;
 
     /**
      * String that exemplifies the headword or the sense
@@ -71,13 +71,13 @@ class Example extends AbstractEntity
     /**
      * Date when this example was in use
      * 
-     * @var Period|LazyLoadingProxy
+     * @var Period|LazyLoadingProxy|null
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected Period|LazyLoadingProxy $date;
+    protected Period|LazyLoadingProxy|null $date = null;
 
     /**
      * Agent of this database record described by a relation
@@ -104,13 +104,13 @@ class Example extends AbstractEntity
     /**
      * File that reads out the example
      * 
-     * @var FileReference|LazyLoadingProxy
+     * @var FileReference|LazyLoadingProxy|null
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected FileReference|LazyLoadingProxy $soundFile;
+    protected FileReference|LazyLoadingProxy|null $soundFile = null;
 
     /**
      * Source of this database record described by a relation

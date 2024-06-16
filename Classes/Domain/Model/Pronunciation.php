@@ -38,29 +38,29 @@ class Pronunciation extends AbstractEntity
     /**
      * Dictionary entry that this pronunciation belongs to
      * 
-     * @var DictionaryEntry|LazyLoadingProxy
+     * @var DictionaryEntry|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected DictionaryEntry|LazyLoadingProxy $parentEntry;
+    protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
 
     /**
      * Inflected form that this pronunciation belongs to
      * 
-     * @var InflectedForm|LazyLoadingProxy
+     * @var InflectedForm|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected InflectedForm|LazyLoadingProxy $parentInflectedForm;
+    protected InflectedForm|LazyLoadingProxy|null $parentInflectedForm = null;
 
     /**
      * File that reads out the pronunciation
      * 
-     * @var FileReference|LazyLoadingProxy
+     * @var FileReference|LazyLoadingProxy|null
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected FileReference|LazyLoadingProxy $soundFile;
+    protected FileReference|LazyLoadingProxy|null $soundFile = null;
 
     /**
      * List of possible transcriptions of the pronuncation

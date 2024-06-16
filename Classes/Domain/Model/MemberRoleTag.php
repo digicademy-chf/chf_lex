@@ -26,10 +26,10 @@ class MemberRoleTag extends AbstractTag
     /**
      * Relation type that this member role is part of
      * 
-     * @var RelationTypeTag|LazyLoadingProxy
+     * @var RelationTypeTag|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected RelationTypeTag|LazyLoadingProxy $parentRelationTypeTag;
+    protected RelationTypeTag|LazyLoadingProxy|null $parentRelationTypeTag = null;
 
     /**
      * Defines which types of members may be part of this relation
@@ -51,7 +51,7 @@ class MemberRoleTag extends AbstractTag
     /**
      * Minimum number of members in this relation (leave empty to not set a limit)
      * 
-     * @var int|null
+     * @var ?int
      */
     #[Validate([
         'validator' => 'Number',
@@ -61,7 +61,7 @@ class MemberRoleTag extends AbstractTag
     /**
      * Maximum number of members in this relation (leave empty to not set a limit)
      * 
-     * @var int|null
+     * @var ?int
      */
     #[Validate([
         'validator' => 'Number',

@@ -34,10 +34,10 @@ class Definition extends AbstractEntity
     /**
      * Sense that this definition belongs to
      * 
-     * @var Sense|LazyLoadingProxy
+     * @var Sense|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected Sense|LazyLoadingProxy $parentSense;
+    protected Sense|LazyLoadingProxy|null $parentSense = null;
 
     /**
      * Definition of the sense
@@ -52,10 +52,10 @@ class Definition extends AbstractEntity
     /**
      * May be used to differentiate between different tiers of definitions
      * 
-     * @var DefinitionTypeTag|LazyLoadingProxy
+     * @var DefinitionTypeTag|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected DefinitionTypeTag|LazyLoadingProxy $definitionType;
+    protected DefinitionTypeTag|LazyLoadingProxy|null $definitionType = null;
 
     /**
      * Construct object
