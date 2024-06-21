@@ -21,7 +21,7 @@ defined('TYPO3') or die();
 // Add select item 'lexicographicResource'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem('tx_chfbase_domain_model_resource', 'type',
     [
-        'label' => 'LLL:EXT:chf_bib/Resources/Private/Language/locallang.xlf:object.lexicographicResource.type.lexicographicResource',
+        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.lexicographicResource.type.lexicographicResource',
         'value' => 'lexicographicResource',
     ]
 );
@@ -43,7 +43,7 @@ defined('TYPO3') or die();
                     'collapseAll' => true,
                     'expandSingle' => true,
                     'newRecordLinkAddTitle' => true,
-                    'levelLinksPosition' => 'top',
+                    'levelLinksPosition' => 'bottom',
                     'useSortable' => false,
                     'showPossibleLocalizationRecords' => true,
                     'showAllLocalizationLink' => true,
@@ -65,7 +65,7 @@ defined('TYPO3') or die();
                     'collapseAll' => true,
                     'expandSingle' => true,
                     'newRecordLinkAddTitle' => true,
-                    'levelLinksPosition' => 'top',
+                    'levelLinksPosition' => 'bottom',
                     'useSortable' => false,
                     'showPossibleLocalizationRecords' => true,
                     'showAllLocalizationLink' => true,
@@ -79,8 +79,8 @@ defined('TYPO3') or die();
 // Add type 'lexicographicResource' and its 'showitem' list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
    'tx_chfbase_domain_model_resource',
-   'hidden,uuidType,titleLangCode,glossary,description,sameAs,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,authorshipRelation,licenceRelation,publicationDateRevisionNumberRevisionDate,editorialNote,
+   '--palette--;;typeUuid,--palette--;;titleLangCodeDescriptionGlossary,sameAs,
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,authorshipRelation,licenceRelation,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.content,allAgents,allFileGroups,allLocations,allPeriods,allRelations,allTags,allDictionaryEntries,allEncyclopediaEntries,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,importOrigin,importState,',
    'lexicographicResource'

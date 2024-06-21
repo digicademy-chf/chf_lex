@@ -54,6 +54,14 @@ class AbstractEntry extends AbstractHeritage
     protected ?ObjectStorage $similarityRelation = null;
 
     /**
+     * List of similarity relations that use this entry as a related database record
+     * 
+     * @var ?ObjectStorage<SimilarityRelation>
+     */
+    #[Lazy()]
+    protected ?ObjectStorage $asRelatedRecordOfSimilarityRelation = null;
+
+    /**
      * Construct object
      *
      * @param object $parentResource
@@ -72,6 +80,7 @@ class AbstractEntry extends AbstractHeritage
     public function initializeObject(): void
     {
         $this->similarityRelation ??= new ObjectStorage();
+        $this->asRelatedRecordOfSimilarityRelation ??= new ObjectStorage();
     }
 
     /**
@@ -161,5 +170,54 @@ class AbstractEntry extends AbstractHeritage
     {
         $similarityRelation = clone $this->similarityRelation;
         $this->similarityRelation->removeAll($similarityRelation);
+    }
+
+    /**
+     * Get as related record of similarity relation
+     *
+     * @return ObjectStorage<SimilarityRelation>
+     */
+    public function getAsRelatedRecordOfSimilarityRelation(): ?ObjectStorage
+    {
+        return $this->asRelatedRecordOfSimilarityRelation;
+    }
+
+    /**
+     * Set as related record of similarity relation
+     *
+     * @param ObjectStorage<SimilarityRelation> $asRelatedRecordOfSimilarityRelation
+     */
+    public function setAsRelatedRecordOfSimilarityRelation(ObjectStorage $asRelatedRecordOfSimilarityRelation): void
+    {
+        $this->asRelatedRecordOfSimilarityRelation = $asRelatedRecordOfSimilarityRelation;
+    }
+
+    /**
+     * Add as related record of similarity relation
+     *
+     * @param SimilarityRelation $asRelatedRecordOfSimilarityRelation
+     */
+    public function addAsRelatedRecordOfSimilarityRelation(SimilarityRelation $asRelatedRecordOfSimilarityRelation): void
+    {
+        $this->asRelatedRecordOfSimilarityRelation?->attach($asRelatedRecordOfSimilarityRelation);
+    }
+
+    /**
+     * Remove as related record of similarity relation
+     *
+     * @param SimilarityRelation $asRelatedRecordOfSimilarityRelation
+     */
+    public function removeAsRelatedRecordOfSimilarityRelation(SimilarityRelation $asRelatedRecordOfSimilarityRelation): void
+    {
+        $this->asRelatedRecordOfSimilarityRelation?->detach($asRelatedRecordOfSimilarityRelation);
+    }
+
+    /**
+     * Remove all as related record of similarity relations
+     */
+    public function removeAllAsRelatedRecordOfSimilarityRelation(): void
+    {
+        $asRelatedRecordOfSimilarityRelation = clone $this->asRelatedRecordOfSimilarityRelation;
+        $this->asRelatedRecordOfSimilarityRelation->removeAll($asRelatedRecordOfSimilarityRelation);
     }
 }

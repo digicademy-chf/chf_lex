@@ -101,8 +101,13 @@ defined('TYPO3') or die();
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'relationTypeTag\'',
                 'treeConfig' => [
                     'parentField' => 'parentRelationTypeTag',
+                    'appearance' => [
+                        'showHeader' => true,
+                        'expandAll' => true,
+                    ],
                 ],
                 'maxitems' => 1,
+                'size' => 8,
             ],
         ],
         'for' => [
@@ -162,7 +167,7 @@ defined('TYPO3') or die();
                     'collapseAll' => true,
                     'expandSingle' => true,
                     'newRecordLinkAddTitle' => true,
-                    'levelLinksPosition' => 'top',
+                    'levelLinksPosition' => 'bottom',
                     'useSortable' => true,
                     'showPossibleLocalizationRecords' => true,
                     'showAllLocalizationLink' => true,
@@ -220,6 +225,10 @@ defined('TYPO3') or die();
             'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.min.description',
             'config' => [
                 'type' => 'number',
+                'size' => 13,
+                'range' => [
+                    'lower' => 1,
+                ],
             ],
         ],
         'max' => [
@@ -229,6 +238,10 @@ defined('TYPO3') or die();
             'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.min.description',
             'config' => [
                 'type' => 'number',
+                'size' => 13,
+                'range' => [
+                    'lower' => 1,
+                ],
             ],
         ],
         'hint' => [
@@ -273,6 +286,10 @@ defined('TYPO3') or die();
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chflex_domain_model_dictionary_entry_tag_label_mm',
                 'MM_opposite_field' => 'label',
+                'MM_match_fields' => [
+                    'fieldname' => 'asLabelOfDictionaryEntry',
+                    'tablename' => 'tx_chfbase_domain_model_tag',
+                ],
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [
@@ -301,6 +318,10 @@ defined('TYPO3') or die();
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_encyclopedia_entry}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chflex_domain_model_encyclopedia_entry_tag_label_mm',
                 'MM_opposite_field' => 'label',
+                'MM_match_fields' => [
+                    'fieldname' => 'asLabelOfEncyclopediaEntry',
+                    'tablename' => 'tx_chfbase_domain_model_tag',
+                ],
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [
@@ -329,6 +350,10 @@ defined('TYPO3') or die();
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_inflected_form}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chflex_domain_model_inflected_form_tag_label_mm',
                 'MM_opposite_field' => 'label',
+                'MM_match_fields' => [
+                    'fieldname' => 'asLabelOfInflectedForm',
+                    'tablename' => 'tx_chfbase_domain_model_tag',
+                ],
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [
@@ -357,6 +382,10 @@ defined('TYPO3') or die();
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_sense}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chflex_domain_model_sense_tag_label_mm',
                 'MM_opposite_field' => 'label',
+                'MM_match_fields' => [
+                    'fieldname' => 'asLabelOfSense',
+                    'tablename' => 'tx_chfbase_domain_model_tag',
+                ],
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [
@@ -385,6 +414,10 @@ defined('TYPO3') or die();
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_pronunciation}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chflex_domain_model_pronunciation_tag_label_mm',
                 'MM_opposite_field' => 'label',
+                'MM_match_fields' => [
+                    'fieldname' => 'asLabelOfPronunciation',
+                    'tablename' => 'tx_chfbase_domain_model_tag',
+                ],
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [
@@ -413,6 +446,10 @@ defined('TYPO3') or die();
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_example}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chflex_domain_model_example_tag_label_mm',
                 'MM_opposite_field' => 'label',
+                'MM_match_fields' => [
+                    'fieldname' => 'asLabelOfExample',
+                    'tablename' => 'tx_chfbase_domain_model_tag',
+                ],
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [
@@ -441,6 +478,10 @@ defined('TYPO3') or die();
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chflex_domain_model_dictionary_entry_tag_partofspeech_mm',
                 'MM_opposite_field' => 'partOfSpeech',
+                'MM_match_fields' => [
+                    'fieldname' => 'asPartOfSpeechOfDictionaryEntry',
+                    'tablename' => 'tx_chfbase_domain_model_tag',
+                ],
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [
@@ -469,6 +510,10 @@ defined('TYPO3') or die();
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_inflected_form}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chflex_domain_model_inflected_form_tag_inflectiontype_mm',
                 'MM_opposite_field' => 'inflectionType',
+                'MM_match_fields' => [
+                    'fieldname' => 'asInflectionTypeOfInflectedForm',
+                    'tablename' => 'tx_chfbase_domain_model_tag',
+                ],
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [
@@ -497,6 +542,10 @@ defined('TYPO3') or die();
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_definition}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chflex_domain_model_definition_tag_definitiontype_mm',
                 'MM_opposite_field' => 'definitionType',
+                'MM_match_fields' => [
+                    'fieldname' => 'asDefinitionTypeOfDefinition',
+                    'tablename' => 'tx_chfbase_domain_model_tag',
+                ],
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [
@@ -525,6 +574,10 @@ defined('TYPO3') or die();
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_transcription}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chflex_domain_model_transcription_tag_scheme_mm',
                 'MM_opposite_field' => 'scheme',
+                'MM_match_fields' => [
+                    'fieldname' => 'asSchemeOfTranscription',
+                    'tablename' => 'tx_chfbase_domain_model_tag',
+                ],
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [
@@ -552,8 +605,12 @@ defined('TYPO3') or die();
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'lexicographicRelation\'',
-                'MM' => 'tx_chfbase_domain_model_relation_tag_lexicographicrelationtype_mm',
+                'MM' => 'tx_chfbase_domain_model_relation_tag_lexrelationtype_mm',
                 'MM_opposite_field' => 'lexicographicRelationType',
+                'MM_match_fields' => [
+                    'fieldname' => 'asLexicographicRelationTypeOfLexicographicRelation',
+                    'tablename' => 'tx_chfbase_domain_model_tag',
+                ],
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [
@@ -582,34 +639,10 @@ defined('TYPO3') or die();
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_member}.{#pid}=###CURRENT_PID###',
                 'MM' => 'tx_chflex_domain_model_member_tag_role_mm',
                 'MM_opposite_field' => 'role',
-                'size' => 5,
-                'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
+                'MM_match_fields' => [
+                    'fieldname' => 'asRoleOfMember',
+                    'tablename' => 'tx_chfbase_domain_model_tag',
                 ],
-                'readOnly' => true,
-            ],
-        ],
-        'asLabelOfFileGroup' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfFileGroup',
-            'description' => 'LLL:EXT:chf_media/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfFileGroup.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chfmedia_domain_model_file_group',
-                'foreign_table_where' => 'AND {#tx_chfmedia_domain_model_file_group}.{#pid}=###CURRENT_PID###',
-                'MM' => 'tx_chfmedia_domain_model_file_group_tag_label_mm',
-                'MM_opposite_field' => 'label',
                 'size' => 5,
                 'autoSizeMax' => 10,
                 'fieldControl' => [
@@ -636,17 +669,17 @@ defined('TYPO3') or die();
     'min,max,'
 );
 
-// Create palette 'hiddenParentResourceParentRelationTypeTag'
+// Create palette 'parentResourceParentRelationTypeTag'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
     'tx_chfbase_domain_model_tag',
-    'hiddenParentResourceParentRelationTypeTag',
-    'hidden,parentResource,parentRelationTypeTag,'
+    'parentResourceParentRelationTypeTag',
+    'parentResource,parentRelationTypeTag,'
 );
 
 // Add type 'partOfSpeechTag' and its 'showitem' list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
     'tx_chfbase_domain_model_tag',
-    'hiddenParentResource,uuidType,codeText,description,sameAs,
+    '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asPartOfSpeechOfDictionaryEntry,',
     'partOfSpeechTag'
 );
@@ -654,7 +687,7 @@ defined('TYPO3') or die();
 // Add type 'inflectionTypeTag' and its 'showitem' list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
     'tx_chfbase_domain_model_tag',
-    'hiddenParentResource,uuidType,codeText,description,sameAs,
+    '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,for,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asInflectionTypeOfInflectedForm,',
     'inflectionTypeTag'
@@ -663,7 +696,7 @@ defined('TYPO3') or die();
 // Add type 'definitionTypeTag' and its 'showitem' list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
     'tx_chfbase_domain_model_tag',
-    'hiddenParentResource,uuidType,codeText,description,sameAs,
+    '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asDefinitionTypeOfDefinition,',
     'definitionTypeTag'
 );
@@ -671,7 +704,7 @@ defined('TYPO3') or die();
 // Add type 'transcriptionSchemeTag' and its 'showitem' list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
     'tx_chfbase_domain_model_tag',
-    'hiddenParentResource,uuidType,codeText,description,sameAs,
+    '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asSchemeOfTranscription,',
     'transcriptionSchemeTag'
 );
@@ -679,7 +712,7 @@ defined('TYPO3') or die();
 // Add type 'relationTypeTag' and its 'showitem' list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
     'tx_chfbase_domain_model_tag',
-    'hiddenParentResource,uuidType,codeText,description,sameAs,
+    '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,scopeRestriction,memberRole,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asLexicographicRelationTypeOfLexicographicRelation,',
     'relationTypeTag'
@@ -688,8 +721,8 @@ defined('TYPO3') or die();
 // Add type 'memberRoleTag' and its 'showitem' list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
     'tx_chfbase_domain_model_tag',
-    'hiddenParentResourceParentRelationTypeTag,uuidType,codeText,description,sameAs,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,memberType,minMax,hint,
+    '--palette--;;typeUuid,--palette--;;textCodeDescription,--palette--;;parentResourceParentRelationTypeTag,sameAs,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,memberType,--palette--;;minMax,hint,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asRoleOfMember,',
     'memberRoleTag'
 );

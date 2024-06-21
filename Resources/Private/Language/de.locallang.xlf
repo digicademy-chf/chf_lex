@@ -358,6 +358,14 @@
                 <source>Similarities relevant to this entry described by a relation</source>
                 <target>Ähnlichkeiten, die für diesen Eintrag relevant sind, beschrieben durch eine Relation</target>
             </trans-unit>
+            <trans-unit id="object.abstractEntry.asRelatedRecordOfSimilarityRelation" resname="object.abstractEntry.asRelatedRecordOfSimilarityRelation" approved="yes">
+                <source>Usage as related database record of a similarity relation</source>
+                <target>Verwendung als ähnlicher Datenbankeintrag einer Ähnlichkeitsrelation</target>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.asRelatedRecordOfSimilarityRelation.description" resname="object.abstractEntry.asRelatedRecordOfSimilarityRelation.description" approved="yes">
+                <source>List of similarity relations that use this entry as a related database record</source>
+                <target>Liste der Ähnlichkeitsrelation, die diesen Eintrag als ähnlichen Datenbankeintrag verwenden</target>
+            </trans-unit>
             <!-- Object: DictionaryEntry -->
             <trans-unit id="object.dictionaryEntry" resname="object.dictionaryEntry" approved="yes">
                 <source>Dictionary entry</source>

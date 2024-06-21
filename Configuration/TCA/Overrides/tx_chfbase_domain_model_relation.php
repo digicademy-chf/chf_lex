@@ -80,7 +80,7 @@ defined('TYPO3') or die();
                 'foreign_table' => 'tx_chflex_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'relationType\'',
-                'MM' => 'tx_chflex_domain_model_relation_tag_lexicographicrelationtype_mm',
+                'MM' => 'tx_chfbase_domain_model_relation_tag_lexrelationtype_mm',
             ],
         ],
         'member' => [
@@ -97,7 +97,7 @@ defined('TYPO3') or die();
                     'collapseAll' => true,
                     'expandSingle' => true,
                     'newRecordLinkAddTitle' => true,
-                    'levelLinksPosition' => 'top',
+                    'levelLinksPosition' => 'bottom',
                     'useSortable' => false,
                     'showPossibleLocalizationRecords' => true,
                     'showAllLocalizationLink' => true,
@@ -112,13 +112,13 @@ defined('TYPO3') or die();
 // Add type 'similarityRelation' and its 'showitem' list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
    'tx_chfbase_domain_model_relation',
-   'hiddenParentResource,uuidType,record,relatedRecord,description,',
+   'parentResource,--palette--;;typeUuid,record,relatedRecord,description,',
    'similarityRelation'
 );
 
 // Add type 'lexicographicRelation' and its 'showitem' list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
    'tx_chfbase_domain_model_relation',
-   'hiddenParentResource,uuidType,lexicographicRelationType,member,description,',
+   'parentResource,--palette--;;typeUuid,lexicographicRelationType,member,description,',
    'lexicographicRelation'
 );

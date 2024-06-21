@@ -272,6 +272,12 @@
             <trans-unit id="object.abstractEntry.similarityRelation.description" resname="object.abstractEntry.similarityRelation.description">
                 <source>Similarities relevant to this entry described by a relation</source>
             </trans-unit>
+            <trans-unit id="object.abstractEntry.asRelatedRecordOfSimilarityRelation" resname="object.abstractEntry.asRelatedRecordOfSimilarityRelation">
+                <source>Usage as related database record of a similarity relation</source>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.asRelatedRecordOfSimilarityRelation.description" resname="object.abstractEntry.asRelatedRecordOfSimilarityRelation.description">
+                <source>List of similarity relations that use this entry as a related database record</source>
+            </trans-unit>
             <!-- Object: DictionaryEntry -->
             <trans-unit id="object.dictionaryEntry" resname="object.dictionaryEntry">
                 <source>Dictionary entry</source>
