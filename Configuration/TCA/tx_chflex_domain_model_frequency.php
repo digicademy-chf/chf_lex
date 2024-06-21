@@ -246,7 +246,6 @@ return [
                 'MM_opposite_field' => 'record',
                 'MM_match_fields' => [
                     'fieldname' => 'locationRelation',
-                    'tablename' => 'tx_chflex_domain_model_frequency',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,

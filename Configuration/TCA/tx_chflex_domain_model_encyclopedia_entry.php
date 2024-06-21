@@ -272,7 +272,6 @@ return [
                 'MM_opposite_field' => 'record',
                 'MM_match_fields' => [
                     'fieldname' => 'authorshipRelation',
-                    'tablename' => 'tx_chflex_domain_model_encyclopedia_entry',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -304,7 +303,6 @@ return [
                 'MM_opposite_field' => 'record',
                 'MM_match_fields' => [
                     'fieldname' => 'licenceRelation',
-                    'tablename' => 'tx_chflex_domain_model_encyclopedia_entry',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -524,7 +522,6 @@ return [
                 'MM_opposite_field' => 'record',
                 'MM_match_fields' => [
                     'fieldname' => 'similarityRelation',
-                    'tablename' => 'tx_chflex_domain_model_encyclopedia_entry',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -556,7 +553,6 @@ return [
                 'MM_opposite_field' => 'record',
                 'MM_match_fields' => [
                     'fieldname' => 'linkRelation',
-                    'tablename' => 'tx_chflex_domain_model_encyclopedia_entry',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -613,7 +609,6 @@ return [
                 'MM_opposite_field' => 'relatedRecord',
                 'MM_match_fields' => [
                     'fieldname' => 'asRelatedRecordOfSimilarityRelation',
-                    'tablename' => 'tx_chflex_domain_model_dictionary_entry',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,

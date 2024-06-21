@@ -288,7 +288,6 @@ defined('TYPO3') or die();
                 'MM_opposite_field' => 'label',
                 'MM_match_fields' => [
                     'fieldname' => 'asLabelOfDictionaryEntry',
-                    'tablename' => 'tx_chfbase_domain_model_tag',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -320,7 +319,6 @@ defined('TYPO3') or die();
                 'MM_opposite_field' => 'label',
                 'MM_match_fields' => [
                     'fieldname' => 'asLabelOfEncyclopediaEntry',
-                    'tablename' => 'tx_chfbase_domain_model_tag',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -352,7 +350,6 @@ defined('TYPO3') or die();
                 'MM_opposite_field' => 'label',
                 'MM_match_fields' => [
                     'fieldname' => 'asLabelOfInflectedForm',
-                    'tablename' => 'tx_chfbase_domain_model_tag',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -384,7 +381,6 @@ defined('TYPO3') or die();
                 'MM_opposite_field' => 'label',
                 'MM_match_fields' => [
                     'fieldname' => 'asLabelOfSense',
-                    'tablename' => 'tx_chfbase_domain_model_tag',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -416,7 +412,6 @@ defined('TYPO3') or die();
                 'MM_opposite_field' => 'label',
                 'MM_match_fields' => [
                     'fieldname' => 'asLabelOfPronunciation',
-                    'tablename' => 'tx_chfbase_domain_model_tag',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -448,7 +443,6 @@ defined('TYPO3') or die();
                 'MM_opposite_field' => 'label',
                 'MM_match_fields' => [
                     'fieldname' => 'asLabelOfExample',
-                    'tablename' => 'tx_chfbase_domain_model_tag',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -480,7 +474,6 @@ defined('TYPO3') or die();
                 'MM_opposite_field' => 'partOfSpeech',
                 'MM_match_fields' => [
                     'fieldname' => 'asPartOfSpeechOfDictionaryEntry',
-                    'tablename' => 'tx_chfbase_domain_model_tag',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -512,7 +505,6 @@ defined('TYPO3') or die();
                 'MM_opposite_field' => 'inflectionType',
                 'MM_match_fields' => [
                     'fieldname' => 'asInflectionTypeOfInflectedForm',
-                    'tablename' => 'tx_chfbase_domain_model_tag',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -544,7 +536,6 @@ defined('TYPO3') or die();
                 'MM_opposite_field' => 'definitionType',
                 'MM_match_fields' => [
                     'fieldname' => 'asDefinitionTypeOfDefinition',
-                    'tablename' => 'tx_chfbase_domain_model_tag',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -576,7 +567,6 @@ defined('TYPO3') or die();
                 'MM_opposite_field' => 'scheme',
                 'MM_match_fields' => [
                     'fieldname' => 'asSchemeOfTranscription',
-                    'tablename' => 'tx_chfbase_domain_model_tag',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -609,7 +599,6 @@ defined('TYPO3') or die();
                 'MM_opposite_field' => 'lexicographicRelationType',
                 'MM_match_fields' => [
                     'fieldname' => 'asLexicographicRelationTypeOfLexicographicRelation',
-                    'tablename' => 'tx_chfbase_domain_model_tag',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -641,7 +630,6 @@ defined('TYPO3') or die();
                 'MM_opposite_field' => 'role',
                 'MM_match_fields' => [
                     'fieldname' => 'asRoleOfMember',
-                    'tablename' => 'tx_chfbase_domain_model_tag',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,

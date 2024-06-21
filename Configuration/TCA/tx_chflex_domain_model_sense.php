@@ -318,7 +318,6 @@ return [
                 'MM_opposite_field' => 'ref',
                 'MM_match_fields' => [
                     'fieldname' => 'asRefOfMember',
-                    'tablename' => 'tx_chflex_domain_model_sense',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,

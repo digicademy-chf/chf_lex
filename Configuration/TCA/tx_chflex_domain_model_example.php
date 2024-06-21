@@ -233,7 +233,6 @@ return [
                 'MM_opposite_field' => 'record',
                 'MM_match_fields' => [
                     'fieldname' => 'agentRelation',
-                    'tablename' => 'tx_chflex_domain_model_example',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -265,7 +264,6 @@ return [
                 'MM_opposite_field' => 'record',
                 'MM_match_fields' => [
                     'fieldname' => 'locationRelation',
-                    'tablename' => 'tx_chflex_domain_model_example',
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
