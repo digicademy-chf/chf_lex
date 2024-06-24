@@ -8,37 +8,37 @@
                 <source>Usage as label of a dictionary entry</source>
             </trans-unit>
             <trans-unit id="object.labelTag.asLabelOfDictionaryEntry.description" resname="object.labelTag.asLabelOfDictionaryEntry.description">
-                <source>List of dictionary entries that use this tag as a label</source>
+                <source>List of dictionary entries that use this label</source>
             </trans-unit>
             <trans-unit id="object.labelTag.asLabelOfEncyclopediaEntry" resname="object.labelTag.asLabelOfEncyclopediaEntry">
                 <source>Usage as label of a encyclopedia entry</source>
             </trans-unit>
             <trans-unit id="object.labelTag.asLabelOfEncyclopediaEntry.description" resname="object.labelTag.asLabelOfEncyclopediaEntry.description">
-                <source>List of encyclopedia entries that use this tag as a label</source>
+                <source>List of encyclopedia entries that use this label</source>
             </trans-unit>
             <trans-unit id="object.labelTag.asLabelOfInflectedForm" resname="object.labelTag.asLabelOfInflectedForm">
                 <source>Usage as label of an inflected form</source>
             </trans-unit>
             <trans-unit id="object.labelTag.asLabelOfInflectedForm.description" resname="object.labelTag.asLabelOfInflectedForm.description">
-                <source>List of inflected forms that use this tag as a label</source>
+                <source>List of inflected forms that use this label</source>
             </trans-unit>
             <trans-unit id="object.labelTag.asLabelOfSense" resname="object.labelTag.asLabelOfSense">
                 <source>Usage as label of a sense</source>
             </trans-unit>
             <trans-unit id="object.labelTag.asLabelOfSense.description" resname="object.labelTag.asLabelOfSense.description">
-                <source>List of senses that use this tag as a label</source>
+                <source>List of senses that use this label</source>
             </trans-unit>
             <trans-unit id="object.labelTag.asLabelOfPronunciation" resname="object.labelTag.asLabelOfPronunciation">
                 <source>Usage as label of a pronunciation</source>
             </trans-unit>
             <trans-unit id="object.labelTag.asLabelOfPronunciation.description" resname="object.labelTag.asLabelOfPronunciation.description">
-                <source>List of pronunciations that use this tag as a label</source>
+                <source>List of pronunciations that use this label</source>
             </trans-unit>
             <trans-unit id="object.labelTag.asLabelOfExample" resname="object.labelTag.asLabelOfExample">
                 <source>Usage as label of an example</source>
             </trans-unit>
             <trans-unit id="object.labelTag.asLabelOfExample.description" resname="object.labelTag.asLabelOfExample.description">
-                <source>List of examples that use this tag as a label</source>
+                <source>List of examples that use this label</source>
             </trans-unit>
             <!-- Object: LexicographicResource -->
             <trans-unit id="object.lexicographicResource.type.lexicographicResource" resname="object.lexicographicResource.type.lexicographicResource">
@@ -90,7 +90,7 @@
                 <source>Usage as part of speech of a dictionary entry</source>
             </trans-unit>
             <trans-unit id="object.partOfSpeechTag.asPartOfSpeechOfDictionaryEntry.description" resname="object.partOfSpeechTag.asPartOfSpeechOfDictionaryEntry.description">
-                <source>List of dictionary entries that use this tag as a part of speech</source>
+                <source>List of dictionary entries that use this part of speech</source>
             </trans-unit>
             <!-- Object: InflectionTypeTag -->
             <trans-unit id="object.inflectionTypeTag.type.inflectionTypeTag" resname="object.inflectionTypeTag.type.inflectionTypeTag">
@@ -100,13 +100,13 @@
                 <source>Intended for</source>
             </trans-unit>
             <trans-unit id="object.inflectionTypeTag.for.description" resname="object.inflectionTypeTag.for.description">
-                <source>Constraints and recommendations on where this tag may apply</source>
+                <source>Constraints and recommendations on where this inflection type may apply</source>
             </trans-unit>
             <trans-unit id="object.inflectionTypeTag.asInflectionTypeOfInflectedForm" resname="object.inflectionTypeTag.asInflectionTypeOfInflectedForm">
                 <source>Usage as inflection type of an inflected form</source>
             </trans-unit>
             <trans-unit id="object.inflectionTypeTag.asInflectionTypeOfInflectedForm.description" resname="object.inflectionTypeTag.asInflectionTypeOfInflectedForm.description">
-                <source>List of inflected forms that use this tag as an inflection type</source>
+                <source>List of inflected forms that use this inflection type</source>
             </trans-unit>
             <!-- Object: DefinitionTypeTag -->
             <trans-unit id="object.definitionTypeTag.type.definitionTypeTag" resname="object.definitionTypeTag.type.definitionTypeTag">
@@ -116,7 +116,7 @@
                 <source>Usage as definition type of a definition</source>
             </trans-unit>
             <trans-unit id="object.definitionTypeTag.asDefinitionTypeOfDefinition.description" resname="object.definitionTypeTag.asDefinitionTypeOfDefinition.description">
-                <source>List of definitions that use this tag as a definition type</source>
+                <source>List of definitions that use this definition type</source>
             </trans-unit>
             <!-- Object: TranscriptionSchemeTag -->
             <trans-unit id="object.transcriptionSchemeTag.type.transcriptionSchemeTag" resname="object.transcriptionSchemeTag.type.transcriptionSchemeTag">
@@ -126,7 +126,7 @@
                 <source>Usage as scheme of a transcription</source>
             </trans-unit>
             <trans-unit id="object.transcriptionSchemeTag.asSchemeOfTranscription.description" resname="object.transcriptionSchemeTag.asSchemeOfTranscription.description">
-                <source>List of transcriptions that use this tag as a scheme</source>
+                <source>List of transcriptions that use this scheme</source>
             </trans-unit>
             <!-- Object: RelationTypeTag -->
             <trans-unit id="object.relationTypeTag.type.relationTypeTag" resname="object.relationTypeTag.type.relationTypeTag">
@@ -157,7 +157,7 @@
                 <source>Usage as type of a lexicographic relation</source>
             </trans-unit>
             <trans-unit id="object.relationTypeTag.asLexicographicRelationTypeOfLexicographicRelation.description" resname="object.relationTypeTag.asLexicographicRelationTypeOfLexicographicRelation.description">
-                <source>List of lexicographic relations that use this tag as a type</source>
+                <source>List of lexicographic relations of this type</source>
             </trans-unit>
             <!-- Object: MemberRoleTag -->
             <trans-unit id="object.memberRoleTag.type.memberRoleTag" resname="object.memberRoleTag.type.memberRoleTag">
@@ -200,7 +200,7 @@
                 <source>Display hint</source>
             </trans-unit>
             <trans-unit id="object.memberRoleTag.hint.description" resname="object.memberRoleTag.hint.description">
-                <source>Instructs software what to do when it shows relation members with this role</source>
+                <source>Instruction what to do with members of this role</source>
             </trans-unit>
             <trans-unit id="object.memberRoleTag.hint.embed" resname="object.memberRoleTag.hint.embed">
                 <source>Embed (e.g., entries and subentries)</source>
@@ -215,7 +215,7 @@
                 <source>Usage as role of a relation member</source>
             </trans-unit>
             <trans-unit id="object.memberRoleTag.asRoleOfMember.description" resname="object.memberRoleTag.asRoleOfMember.description">
-                <source>List of relation members that use this tag as a role</source>
+                <source>List of relation members that use this role</source>
             </trans-unit>
             <!-- Object: AbstractEntry -->
             <trans-unit id="object.abstractEntry.editorialSteps" resname="object.abstractEntry.editorialSteps">
@@ -224,29 +224,35 @@
             <trans-unit id="object.abstractEntry.editorialSteps.description" resname="object.abstractEntry.editorialSteps.description">
                 <source>Steps taken in creating the entry</source>
             </trans-unit>
+            <trans-unit id="object.abstractEntry.editorialSteps.toggle" resname="object.abstractEntry.editorialSteps.toggle">
+                <source>Toggle steps</source>
+            </trans-unit>
             <trans-unit id="object.abstractEntry.editorialSteps.checkDatabase" resname="object.abstractEntry.editorialSteps.checkDatabase">
                 <source>Check database</source>
             </trans-unit>
             <trans-unit id="object.abstractEntry.editorialSteps.checkForeignLanguage" resname="object.abstractEntry.editorialSteps.checkForeignLanguage">
-                <source>Check foreign-language resources</source>
+                <source>Foreign-language resources</source>
             </trans-unit>
             <trans-unit id="object.abstractEntry.editorialSteps.checkRegional" resname="object.abstractEntry.editorialSteps.checkRegional">
-                <source>Check regional resources</source>
+                <source>Regional resources</source>
             </trans-unit>
             <trans-unit id="object.abstractEntry.editorialSteps.checkPrevious" resname="object.abstractEntry.editorialSteps.checkPrevious">
-                <source>Check preceding projects</source>
+                <source>Preceding projects</source>
             </trans-unit>
             <trans-unit id="object.abstractEntry.editorialSteps.checkFurther" resname="object.abstractEntry.editorialSteps.checkFurther">
-                <source>Check further resources</source>
+                <source>Further resources</source>
             </trans-unit>
             <trans-unit id="object.abstractEntry.editorialSteps.checkMaps" resname="object.abstractEntry.editorialSteps.checkMaps">
-                <source>Check domestic and foreign maps</source>
+                <source>Domestic and foreign maps</source>
             </trans-unit>
             <trans-unit id="object.abstractEntry.publicationSteps" resname="object.abstractEntry.publicationSteps">
                 <source>Publication steps</source>
             </trans-unit>
             <trans-unit id="object.abstractEntry.publicationSteps.description" resname="object.abstractEntry.publicationSteps.description">
                 <source>The entry's publication status</source>
+            </trans-unit>
+            <trans-unit id="object.abstractEntry.publicationSteps.toggle" resname="object.abstractEntry.publicationSteps.toggle">
+                <source>Toggle steps</source>
             </trans-unit>
             <trans-unit id="object.abstractEntry.publicationSteps.started" resname="object.abstractEntry.publicationSteps.started">
                 <source>Started</source>
@@ -295,7 +301,7 @@
                 <source>Homograph number</source>
             </trans-unit>
             <trans-unit id="object.dictionaryEntry.homographNumber.description" resname="object.dictionaryEntry.homographNumber.description">
-                <source>Optional number to distinguish lemmas that are spelled the same</source>
+                <source>Optional number to distinguish homographs</source>
             </trans-unit>
             <trans-unit id="object.dictionaryEntry.partOfSpeech" resname="object.dictionaryEntry.partOfSpeech">
                 <source>Part of speech</source>
@@ -375,7 +381,7 @@
                 <source>Reference</source>
             </trans-unit>
             <trans-unit id="object.member.ref.description" resname="object.member.ref.description">
-                <source>List of dictionary entries or senses as members of the lexicographic relation</source>
+                <source>List of dictionary entries or senses</source>
             </trans-unit>
             <!-- Object: InflectedForm -->
             <trans-unit id="object.inflectedForm" resname="object.inflectedForm">

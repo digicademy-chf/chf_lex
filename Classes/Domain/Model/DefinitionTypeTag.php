@@ -21,7 +21,7 @@ defined('TYPO3') or die();
 class DefinitionTypeTag extends AbstractTag
 {
     /**
-     * List of definitions that use this tag as a definition type
+     * List of definitions that use this definition type
      * 
      * @var ?ObjectStorage<Definition>
      */

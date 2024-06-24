@@ -159,6 +159,12 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
+                ],
                 'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
                 'sortItems' => [
@@ -174,6 +180,12 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
+                ],
                 'foreign_table' => 'tx_chflex_domain_model_sense',
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_sense}.{#pid}=###CURRENT_PID###',
                 'sortItems' => [
@@ -185,7 +197,7 @@ return [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.tokens',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.frequency.tokens.description',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.tokens.description',
             'config' => [
                 'type' => 'number',
                 'required' => true,
@@ -237,8 +249,7 @@ return [
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.locationRelation',
             'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.locationRelation.description',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
+                'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'locationRelation\'',
@@ -247,33 +258,33 @@ return [
                 'MM_match_fields' => [
                     'fieldname' => 'locationRelation',
                 ],
-                'size' => 5,
-                'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
+                'appearance' => [
+                    'collapseAll' => true,
+                    'expandSingle' => true,
+                    'newRecordLinkAddTitle' => true,
+                    'levelLinksPosition' => 'bottom',
+                    'useSortable' => true,
+                    'showPossibleLocalizationRecords' => true,
+                    'showAllLocalizationLink' => true,
+                    'showSynchronizationLink' => true,
                 ],
             ],
         ],
     ],
     'palettes' => [
+        'tokensTokensSecondaryGeodata' => [
+            'showitem' => 'tokens,tokensSecondary,geodata,',
+        ],
+        'dateLocationRelation' => [
+            'showitem' => 'date,--linebreak--,locationRelation,',
+        ],
         'parentEntryParentSense' => [
             'showitem' => 'parentEntry,parentSense,',
-        ],
-        'tokensTokensSecondary' => [
-            'showitem' => 'tokens,tokensSecondary,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'parentEntryParentSense,--palette--;;tokensTokensSecondary,geodata,date,locationRelation,sourceRelation,',
+            'showitem' => '--palette--;;tokensTokensSecondaryGeodata,--palette--;;dateLocationRelation,sourceRelation,--palette--;;parentEntryParentSense,',
         ],
     ],
 ];

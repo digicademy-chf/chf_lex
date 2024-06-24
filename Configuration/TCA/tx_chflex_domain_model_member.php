@@ -175,23 +175,16 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
+                ],
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'memberRoleTag\'',
                 'MM' => 'tx_chflex_domain_model_member_tag_role_mm',
-                'size' => 5,
-                'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
             ],
         ],
         'ref' => [ # TODO enforce min/max values based on role and type restrictions based on parent relation
@@ -204,25 +197,21 @@ return [
                 'allowed' => 'tx_chflex_domain_model_dictionary_entry,tx_chflex_domain_model_sense,',
                 'foreign_table' => 'tx_chflex_domain_model_dictionary_entry', // Needed by Extbase as of TYPO3 12, remove when possible
                 'MM' => 'tx_chflex_domain_model_any_member_ref_mm',
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
+                'elementBrowserEntryPoints' => [
+                    '_default' => '###CURRENT_PID###',
                 ],
                 'required' => true,
             ],
         ],
     ],
-    'palettes' => [],
+    'palettes' => [
+        'refRole' => [
+            'showitem' => 'ref,role,',
+        ],
+    ],
     'types' => [
         '0' => [
-            'showitem' => 'parentRelation,role,ref,',
+            'showitem' => '--palette--;;refRole,parentRelation,',
         ],
     ],
 ];

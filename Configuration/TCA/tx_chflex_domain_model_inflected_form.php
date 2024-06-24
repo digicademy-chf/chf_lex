@@ -189,17 +189,17 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
+                ],
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'inflectionTypeTag\'',
                 'MM' => 'tx_chflex_domain_model_inflected_form_tag_inflectiontype_mm',
                 'maxitems' => 1,
-                'items' => [
-                    [
-                        'label' => '',
-                        'value' => '0',
-                    ],
-                ],
                 'sortItems' => [
                     'label' => 'asc',
                 ],
@@ -233,35 +233,33 @@ return [
             'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.label.description',
             'config' => [
                 'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
+                'renderType' => 'selectTree',
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'label\'',
                 'MM' => 'tx_chflex_domain_model_inflected_form_tag_label_mm',
-                'size' => 5,
-                'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
+                'treeConfig' => [
+                    'parentField' => 'parentLabelTag',
+                    'appearance' => [
+                        'showHeader' => true,
+                        'expandAll' => true,
                     ],
                 ],
+                'size' => 8,
             ],
         ],
     ],
     'palettes' => [
-        'textInflectionType' => [
-            'showitem' => 'text,inflectionType,',
+        'textInflectionTypePronunciation' => [
+            'showitem' => 'text,inflectionType,--linebreak--,pronunciation,',
+        ],
+        'parentEntryLabel' => [
+            'showitem' => 'parentEntry,label,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'parentEntry,--palette--;;textInflectionType,pronunciation,label,',
+            'showitem' => '--palette--;;textInflectionTypePronunciation,--palette--;;parentEntryLabel,',
         ],
     ],
 ];

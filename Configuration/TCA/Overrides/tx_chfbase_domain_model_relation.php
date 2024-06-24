@@ -55,16 +55,8 @@ defined('TYPO3') or die();
                 'allowed' => 'tx_chflex_domain_model_dictionary_entry,tx_chflex_domain_model_encyclopedia_entry,',
                 'foreign_table' => 'tx_chflex_domain_model_dictionary_entry', // Needed by Extbase as of TYPO3 12, remove when possible
                 'MM' => 'tx_chfbase_domain_model_relation_any_relatedrecord_mm',
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
+                'elementBrowserEntryPoints' => [
+                    '_default' => '###CURRENT_PID###',
                 ],
                 'required' => true,
             ],
@@ -77,9 +69,15 @@ defined('TYPO3') or die();
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_chflex_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chflex_domain_model_tag}.{#type}=\'relationType\'',
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
+                ],
+                'foreign_table' => 'tx_chfbase_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'relationType\'',
                 'MM' => 'tx_chfbase_domain_model_relation_tag_lexrelationtype_mm',
             ],
         ],
@@ -109,16 +107,19 @@ defined('TYPO3') or die();
     ]
 );
 
-// Add type 'similarityRelation' and its 'showitem' list
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-   'tx_chfbase_domain_model_relation',
-   'parentResource,--palette--;;typeUuid,record,relatedRecord,description,',
-   'similarityRelation'
+// Create palette 'volumeEssayPosition'
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+    'tx_chfbase_domain_model_relation',
+    'lexicographicRelationTypeMember',
+    'lexicographicRelationType,--linebreak--,member,'
 );
 
+// Add type 'similarityRelation' and its 'showitem' list
+$GLOBALS['TCA']['tx_chfbase_domain_model_relation']['types'] += ['similarityRelation' => [
+    'showitem' => '--palette--;;typeUuid,record,relatedRecord,--palette--;;parentResourceDescription,',
+]];
+
 // Add type 'lexicographicRelation' and its 'showitem' list
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-   'tx_chfbase_domain_model_relation',
-   'parentResource,--palette--;;typeUuid,lexicographicRelationType,member,description,',
-   'lexicographicRelation'
-);
+$GLOBALS['TCA']['tx_chfbase_domain_model_relation']['types'] += ['lexicographicRelation' => [
+    'showitem' => '--palette--;;typeUuid,--palette--;;lexicographicRelationTypeMember,--palette--;;parentResourceDescription,',
+]];

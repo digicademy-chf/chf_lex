@@ -49,7 +49,7 @@ class RelationTypeTag extends AbstractTag
     protected ?ObjectStorage $memberRole;
 
     /**
-     * List of lexicographic relations that use this tag as a type
+     * List of lexicographic relations of this type
      * 
      * @var ?ObjectStorage<LexicographicRelation>
      */

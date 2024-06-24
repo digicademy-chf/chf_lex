@@ -49,7 +49,7 @@ class MemberRoleTag extends AbstractTag
     protected string $memberType = 'entry';
 
     /**
-     * Minimum number of members in this relation (leave empty to not set a limit)
+     * Minimum number of members in this relation
      * 
      * @var ?int
      */
@@ -59,7 +59,7 @@ class MemberRoleTag extends AbstractTag
     protected ?int $min = null;
 
     /**
-     * Maximum number of members in this relation (leave empty to not set a limit)
+     * Maximum number of members in this relation
      * 
      * @var ?int
      */
@@ -69,7 +69,7 @@ class MemberRoleTag extends AbstractTag
     protected ?int $max = null;
 
     /**
-     * Instructs software what to do when it shows relation members with this role
+     * Instruction what to do with members of this role
      * 
      * @var string
      */
@@ -87,7 +87,7 @@ class MemberRoleTag extends AbstractTag
     protected string $hint = '0';
 
     /**
-     * List of relation members that use this tag as a role
+     * List of relation members that use this role
      * 
      * @var ?ObjectStorage<Member>
      */

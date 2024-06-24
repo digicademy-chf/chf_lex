@@ -22,7 +22,7 @@ defined('TYPO3') or die();
 class InflectionTypeTag extends AbstractTag
 {
     /**
-     * Constraints and recommendations on where this tag may apply
+     * Constraints and recommendations on where this inflection type may apply
      * 
      * @var string
      */
@@ -35,7 +35,7 @@ class InflectionTypeTag extends AbstractTag
     protected string $for = '';
 
     /**
-     * List of inflected forms that use this tag as an inflection type
+     * List of inflected forms that use this inflection type
      * 
      * @var ?ObjectStorage<InflectedForm>
      */

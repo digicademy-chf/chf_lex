@@ -4,19 +4,29 @@ imports:
     - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml' }
     - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
 
-# Lexicography-focused TEI annotations for the editor
+# Lexicography-focused configuration for the editor
 editor:
   config:
     toolbar:
       items:
         - bold
         - italic
+        - underline
+        - strikethrough
         - subscript
         - superscript
+        - softhyphen
         - '|'
+        - findAndReplace
+        - link
+        - '|'
+        - removeFormat
         - clipboard
         - undo
         - redo
+        - '|'
+        - specialCharacters
+        - sourceEditing
 
 # Support for TEI annotations
   importModules:

@@ -86,7 +86,7 @@ defined('TYPO3') or die();
 // 'asDefinitionTypeOfDefinition', 'asSchemeOfTranscription',
 // 'asLexicographicRelationTypeOfLexicographicRelation', 'asRoleOfMember', and
 // 'asLabelOfFileGroup'
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_relation',
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_tag',
     [
         'parentRelationTypeTag' => [
             'exclude' => true,
@@ -134,6 +134,7 @@ defined('TYPO3') or die();
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
+                        'label' => '',
                         'value' => '0',
                     ],
                     [
@@ -227,20 +228,20 @@ defined('TYPO3') or die();
                 'type' => 'number',
                 'size' => 13,
                 'range' => [
-                    'lower' => 1,
+                    'lower' => 0,
                 ],
             ],
         ],
         'max' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.min',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.min.description',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.max',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.max.description',
             'config' => [
                 'type' => 'number',
                 'size' => 13,
                 'range' => [
-                    'lower' => 1,
+                    'lower' => 0,
                 ],
             ],
         ],
@@ -254,6 +255,7 @@ defined('TYPO3') or die();
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
+                        'label' => '',
                         'value' => '0',
                     ],
                     [
@@ -291,18 +293,6 @@ defined('TYPO3') or die();
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'readOnly' => true,
             ],
         ],
         'asLabelOfEncyclopediaEntry' => [
@@ -322,18 +312,6 @@ defined('TYPO3') or die();
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'readOnly' => true,
             ],
         ],
         'asLabelOfInflectedForm' => [
@@ -353,18 +331,6 @@ defined('TYPO3') or die();
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'readOnly' => true,
             ],
         ],
         'asLabelOfSense' => [
@@ -384,18 +350,6 @@ defined('TYPO3') or die();
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'readOnly' => true,
             ],
         ],
         'asLabelOfPronunciation' => [
@@ -415,18 +369,6 @@ defined('TYPO3') or die();
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'readOnly' => true,
             ],
         ],
         'asLabelOfExample' => [
@@ -446,18 +388,6 @@ defined('TYPO3') or die();
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'readOnly' => true,
             ],
         ],
         'asPartOfSpeechOfDictionaryEntry' => [
@@ -477,18 +407,6 @@ defined('TYPO3') or die();
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'readOnly' => true,
             ],
         ],
         'asInflectionTypeOfInflectedForm' => [
@@ -508,18 +426,6 @@ defined('TYPO3') or die();
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'readOnly' => true,
             ],
         ],
         'asDefinitionTypeOfDefinition' => [
@@ -539,18 +445,6 @@ defined('TYPO3') or die();
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'readOnly' => true,
             ],
         ],
         'asSchemeOfTranscription' => [
@@ -570,18 +464,6 @@ defined('TYPO3') or die();
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'readOnly' => true,
             ],
         ],
         'asLexicographicRelationTypeOfLexicographicRelation' => [
@@ -602,18 +484,6 @@ defined('TYPO3') or die();
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'readOnly' => true,
             ],
         ],
         'asRoleOfMember' => [
@@ -633,21 +503,16 @@ defined('TYPO3') or die();
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'readOnly' => true,
             ],
         ],
     ]
+);
+
+// Create palette 'memberTypeHint'
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+    'tx_chfbase_domain_model_tag',
+    'memberTypeHint',
+    'memberType,hint,'
 );
 
 // Create palette 'minMax'
@@ -665,52 +530,40 @@ defined('TYPO3') or die();
 );
 
 // Add type 'partOfSpeechTag' and its 'showitem' list
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-    'tx_chfbase_domain_model_tag',
-    '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
+$GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['partOfSpeechTag' => [
+    'showitem' => '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asPartOfSpeechOfDictionaryEntry,',
-    'partOfSpeechTag'
-);
+]];
 
 // Add type 'inflectionTypeTag' and its 'showitem' list
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-    'tx_chfbase_domain_model_tag',
-    '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
+$GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['inflectionTypeTag' => [
+    'showitem' => '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,for,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asInflectionTypeOfInflectedForm,',
-    'inflectionTypeTag'
-);
+]];
 
 // Add type 'definitionTypeTag' and its 'showitem' list
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-    'tx_chfbase_domain_model_tag',
-    '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
+$GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['definitionTypeTag' => [
+    'showitem' => '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asDefinitionTypeOfDefinition,',
-    'definitionTypeTag'
-);
+]];
 
 // Add type 'transcriptionSchemeTag' and its 'showitem' list
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-    'tx_chfbase_domain_model_tag',
-    '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
+$GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['transcriptionSchemeTag' => [
+    'showitem' => '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asSchemeOfTranscription,',
-    'transcriptionSchemeTag'
-);
+]];
 
 // Add type 'relationTypeTag' and its 'showitem' list
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-    'tx_chfbase_domain_model_tag',
-    '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
+$GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['relationTypeTag' => [
+    'showitem' => '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,scopeRestriction,memberRole,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asLexicographicRelationTypeOfLexicographicRelation,',
-    'relationTypeTag'
-);
+]];
 
 // Add type 'memberRoleTag' and its 'showitem' list
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-    'tx_chfbase_domain_model_tag',
-    '--palette--;;typeUuid,--palette--;;textCodeDescription,--palette--;;parentResourceParentRelationTypeTag,sameAs,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,memberType,--palette--;;minMax,hint,
+$GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['memberRoleTag' => [
+    'showitem' => '--palette--;;typeUuid,--palette--;;textCodeDescription,--palette--;;parentResourceParentRelationTypeTag,sameAs,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,--palette--;;memberTypeHint,--palette--;;minMax,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asRoleOfMember,',
-    'memberRoleTag'
-);
+]];

@@ -26,7 +26,7 @@ return [
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'text ASC',
+        'default_sortby'           => 'indicator ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/Sense.svg',
         'origUid'                  => 't3_origuid',
@@ -190,7 +190,6 @@ return [
                 'behaviour' => [
                     'allowLanguageSynchronization' => true,
                 ],
-                'required' => true,
             ],
         ],
         'definition' => [
@@ -263,24 +262,19 @@ return [
             'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.label.description',
             'config' => [
                 'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
+                'renderType' => 'selectTree',
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'label\'',
                 'MM' => 'tx_chflex_domain_model_sense_tag_label_mm',
-                'size' => 5,
-                'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
+                'treeConfig' => [
+                    'parentField' => 'parentLabelTag',
+                    'appearance' => [
+                        'showHeader' => true,
+                        'expandAll' => true,
                     ],
                 ],
+                'size' => 8,
             ],
         ],
         'sameAs' => [
@@ -321,29 +315,23 @@ return [
                 ],
                 'size' => 5,
                 'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'readOnly' => true,
             ],
         ],
     ],
     'palettes' => [
-        'uuidIndicator' => [
-            'showitem' => 'uuidIndicator,',
+        'indicatorUuid' => [
+            'showitem' => 'indicator,uuid,',
+        ],
+        'exampleFrequency' => [
+            'showitem' => 'example,--linebreak--,frequency,',
+        ],
+        'parentEntryLabel' => [
+            'showitem' => 'parentEntry,label,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'parentEntry,--palette--;;uuidIndicator,definition,example,frequency,label,sameAs,
+            'showitem' => '--palette--;;indicatorUuid,definition,--palette--;;exampleFrequency,--palette--;;parentEntryLabel,sameAs,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asRefOfMember,',
         ],
     ],

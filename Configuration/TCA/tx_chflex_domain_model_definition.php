@@ -158,8 +158,8 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_chfbase_domain_model_sense',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_sense}.{#pid}=###CURRENT_PID###',
+                'foreign_table' => 'tx_chflex_domain_model_sense',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_sense}.{#pid}=###CURRENT_PID###',
                 'sortItems' => [
                     'label' => 'asc',
                 ],
@@ -189,27 +189,31 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
+                ],
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'definitionTypeTag\'',
                 'MM' => 'tx_chflex_domain_model_definition_tag_definitiontype_mm',
                 'maxitems' => 1,
-                'items' => [
-                    [
-                        'label' => '',
-                        'value' => '0',
-                    ],
-                ],
                 'sortItems' => [
                     'label' => 'asc',
                 ],
             ],
         ],
     ],
-    'palettes' => [],
+    'palettes' => [
+        'parentSenseDefinitionType' => [
+            'showitem' => 'parentSense,definitionType,',
+        ],
+    ],
     'types' => [
         '0' => [
-            'showitem' => 'parentSense,text,definitionType,',
+            'showitem' => 'text,--palette--;;parentSenseDefinitionType,',
         ],
     ],
 ];

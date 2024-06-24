@@ -43,10 +43,10 @@ class Member extends AbstractEntity
     /**
      * Role in the relation
      * 
-     * @var ?ObjectStorage<MemberRoleTag>
+     * @var MemberRoleTag|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected ?ObjectStorage $role = null;
+    protected MemberRoleTag|LazyLoadingProxy|null $role = null;
 
     /**
      * List of dictionary entries or senses as members of the lexicographic relation
@@ -76,7 +76,6 @@ class Member extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->role ??= new ObjectStorage();
         $this->ref ??= new ObjectStorage();
     }
 
@@ -125,51 +124,25 @@ class Member extends AbstractEntity
 
     /**
      * Get role
-     *
-     * @return ObjectStorage<MemberRoleTag>
+     * 
+     * @return MemberRoleTag
      */
-    public function getRole(): ?ObjectStorage
+    public function getRole(): MemberRoleTag
     {
+        if ($this->role instanceof LazyLoadingProxy) {
+            $this->role->_loadRealInstance();
+        }
         return $this->role;
     }
 
     /**
      * Set role
-     *
-     * @param ObjectStorage<MemberRoleTag> $role
+     * 
+     * @param MemberRoleTag
      */
-    public function setRole(ObjectStorage $role): void
+    public function setRole(MemberRoleTag $role): void
     {
         $this->role = $role;
-    }
-
-    /**
-     * Add role
-     *
-     * @param MemberRoleTag $role
-     */
-    public function addRole(MemberRoleTag $role): void
-    {
-        $this->role?->attach($role);
-    }
-
-    /**
-     * Remove role
-     *
-     * @param MemberRoleTag $role
-     */
-    public function removeRole(MemberRoleTag $role): void
-    {
-        $this->role?->detach($role);
-    }
-
-    /**
-     * Remove all roles
-     */
-    public function removeAllRole(): void
-    {
-        $role = clone $this->role;
-        $this->role->removeAll($role);
     }
 
     /**

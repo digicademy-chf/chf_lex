@@ -158,6 +158,12 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
+                ],
                 'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
                 'sortItems' => [
@@ -173,6 +179,12 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
+                ],
                 'foreign_table' => 'tx_chflex_domain_model_inflected_form',
                 'foreign_table_where' => 'AND {#tx_chflex_domain_model_inflected_form}.{#pid}=###CURRENT_PID###',
                 'sortItems' => [
@@ -218,38 +230,33 @@ return [
             'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.label.description',
             'config' => [
                 'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
+                'renderType' => 'selectTree',
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'label\'',
                 'MM' => 'tx_chflex_domain_model_pronunciation_tag_label_mm',
-                'size' => 5,
-                'autoSizeMax' => 10,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
+                'treeConfig' => [
+                    'parentField' => 'parentLabelTag',
+                    'appearance' => [
+                        'showHeader' => true,
+                        'expandAll' => true,
                     ],
                 ],
+                'size' => 8,
             ],
         ],
     ],
     'palettes' => [
-        'parentEntryParentInflectedForm' => [
-            'showitem' => 'parentEntry,parentInflectedForm,',
-        ],
         'soundFileTranscription' => [
-            'showitem' => 'soundFile,transcription,',
+            'showitem' => 'soundFile,--linebreak--,transcription,',
+        ],
+        'parentEntryParentInflectedFormLabel' => [
+            'showitem' => 'parentEntry,parentInflectedForm,--linebreak--,label,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => 'parentEntryParentInflectedForm,--palette--;;soundFileTranscription,label,',
+            'showitem' => '--palette--;;soundFileTranscription,--palette--;;parentEntryParentInflectedFormLabel,',
         ],
     ],
 ];

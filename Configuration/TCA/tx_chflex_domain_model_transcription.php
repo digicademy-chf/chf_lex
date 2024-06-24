@@ -158,8 +158,8 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_chfbase_domain_model_pronunciation',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_pronunciation}.{#pid}=###CURRENT_PID###',
+                'foreign_table' => 'tx_chflex_domain_model_pronunciation',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_pronunciation}.{#pid}=###CURRENT_PID###',
                 'sortItems' => [
                     'label' => 'asc',
                 ],
@@ -189,17 +189,17 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
+                ],
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'transcriptionSchemeTag\'',
                 'MM' => 'tx_chflex_domain_model_transcription_tag_scheme_mm',
                 'maxitems' => 1,
-                'items' => [
-                    [
-                        'label' => '',
-                        'value' => '0',
-                    ],
-                ],
                 'sortItems' => [
                     'label' => 'asc',
                 ],
@@ -213,7 +213,7 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => 'parentPronunciation,--palette--;;textScheme,',
+            'showitem' => '--palette--;;textScheme,parentPronunciation,',
         ],
     ],
 ];

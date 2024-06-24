@@ -36,7 +36,7 @@ class DictionaryEntry extends AbstractEntry
     protected string $headword = '';
 
     /**
-     * Optional number to distinguish lemmas that are spelled the same
+     * Optional number to distinguish homographs
      * 
      * @var ?int
      */

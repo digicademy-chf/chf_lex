@@ -21,7 +21,7 @@ defined('TYPO3') or die();
 class TranscriptionSchemeTag extends AbstractTag
 {
     /**
-     * List of transcriptions that use this tag as a scheme
+     * List of transcriptions that use this scheme
      * 
      * @var ?ObjectStorage<Transcription>
      */

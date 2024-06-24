@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 defined('TYPO3') or die();
 
-// Backend customisation
-$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets'] = [
+// Customisations of the rich-text editor
+$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets'] += [
     'chf_lex_annotation' => 'EXT:chf_lex/Configuration/RTE/CHFLexAnnotation.yaml',
 ];

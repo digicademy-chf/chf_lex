@@ -21,7 +21,7 @@ defined('TYPO3') or die();
 class PartOfSpeechTag extends AbstractTag
 {
     /**
-     * List of dictionary entries that use this tag as a part of speech
+     * List of dictionary entries that use this part of speech
      * 
      * @var ?ObjectStorage<DictionaryEntry>
      */
