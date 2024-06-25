@@ -33,6 +33,16 @@ CREATE TABLE tx_chfbase_domain_model_tag (
 
 # Remove when forge.typo3.org/issues/98322 is fixed to auto-generate these fields
 
+CREATE TABLE tx_chfbase_domain_model_relation_any_relatedrecord_mm (
+	fieldname varchar(63) DEFAULT '' NOT NULL,
+	tablenames varchar(63) DEFAULT '' NOT NULL
+);
+
+CREATE TABLE tx_chfbase_domain_model_relation_tag_lexrelationtype_mm (
+	fieldname varchar(63) DEFAULT '' NOT NULL,
+	tablenames varchar(63) DEFAULT '' NOT NULL
+);
+
 CREATE TABLE tx_chflex_domain_model_any_member_ref_mm (
 	fieldname varchar(63) DEFAULT '' NOT NULL,
 	tablenames varchar(63) DEFAULT '' NOT NULL
