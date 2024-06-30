@@ -185,6 +185,7 @@ return [
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'memberRoleTag\'',
                 'MM' => 'tx_chflex_domain_model_member_tag_role_mm',
+                'multiple' => 1,
             ],
         ],
         'ref' => [ # TODO enforce min/max values based on role and type restrictions based on parent relation
@@ -197,6 +198,7 @@ return [
                 'allowed' => 'tx_chflex_domain_model_dictionary_entry,tx_chflex_domain_model_sense,',
                 'foreign_table' => 'tx_chflex_domain_model_dictionary_entry', // Needed by Extbase as of TYPO3 12, remove when possible
                 'MM' => 'tx_chflex_domain_model_any_member_ref_mm',
+                'multiple' => 1,
                 'elementBrowserEntryPoints' => [
                     '_default' => '###CURRENT_PID###',
                 ],

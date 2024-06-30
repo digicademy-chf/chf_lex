@@ -55,6 +55,7 @@ defined('TYPO3') or die();
                 'allowed' => 'tx_chflex_domain_model_dictionary_entry,tx_chflex_domain_model_encyclopedia_entry,',
                 'foreign_table' => 'tx_chflex_domain_model_dictionary_entry', // Needed by Extbase as of TYPO3 12, remove when possible
                 'MM' => 'tx_chfbase_domain_model_relation_any_relatedrecord_mm',
+                'multiple' => 1,
                 'elementBrowserEntryPoints' => [
                     '_default' => '###CURRENT_PID###',
                 ],
@@ -79,6 +80,7 @@ defined('TYPO3') or die();
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'relationType\'',
                 'MM' => 'tx_chfbase_domain_model_relation_tag_lexrelationtype_mm',
+                'multiple' => 1,
             ],
         ],
         'member' => [

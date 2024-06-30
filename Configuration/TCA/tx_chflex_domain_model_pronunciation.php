@@ -233,8 +233,9 @@ return [
                 'renderType' => 'selectTree',
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'label\'',
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
                 'MM' => 'tx_chflex_domain_model_pronunciation_tag_label_mm',
+                'multiple' => 1,
                 'treeConfig' => [
                     'parentField' => 'parentLabelTag',
                     'appearance' => [

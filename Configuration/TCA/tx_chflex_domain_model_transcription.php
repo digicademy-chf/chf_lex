@@ -199,6 +199,7 @@ return [
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'transcriptionSchemeTag\'',
                 'MM' => 'tx_chflex_domain_model_transcription_tag_scheme_mm',
+                'multiple' => 1,
                 'maxitems' => 1,
                 'sortItems' => [
                     'label' => 'asc',

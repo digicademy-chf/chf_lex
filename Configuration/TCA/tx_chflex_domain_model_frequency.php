@@ -22,6 +22,7 @@ return [
         'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency',
         'label'                    => 'tokens',
         'label_alt'                => 'tokensSecondary',
+        'label_alt_force'          => true,
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
@@ -255,9 +256,7 @@ return [
                     . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'locationRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_opposite_field' => 'record',
-                'MM_match_fields' => [
-                    'fieldname' => 'locationRelation',
-                ],
+                'multiple' => 1,
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -267,6 +266,15 @@ return [
                     'showPossibleLocalizationRecords' => true,
                     'showAllLocalizationLink' => true,
                     'showSynchronizationLink' => true,
+                ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'type' => [
+                            'config' => [
+                                'default' => 'locationRelation',
+                            ],
+                        ],
+                    ],
                 ],
             ],
         ],

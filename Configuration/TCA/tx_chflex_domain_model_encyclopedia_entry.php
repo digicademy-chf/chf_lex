@@ -218,8 +218,9 @@ return [
                 'renderType' => 'selectTree',
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'label\'',
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
                 'MM' => 'tx_chflex_domain_model_encyclopedia_entry_tag_label_mm',
+                'multiple' => 1,
                 'treeConfig' => [
                     'parentField' => 'parentLabelTag',
                     'appearance' => [
@@ -264,9 +265,7 @@ return [
                     . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'authorshipRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_opposite_field' => 'record',
-                'MM_match_fields' => [
-                    'fieldname' => 'authorshipRelation',
-                ],
+                'multiple' => 1,
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -276,6 +275,15 @@ return [
                     'showPossibleLocalizationRecords' => true,
                     'showAllLocalizationLink' => true,
                     'showSynchronizationLink' => true,
+                ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'type' => [
+                            'config' => [
+                                'default' => 'authorshipRelation',
+                            ],
+                        ],
+                    ],
                 ],
             ],
         ],
@@ -291,9 +299,7 @@ return [
                     . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'licenceRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_opposite_field' => 'record',
-                'MM_match_fields' => [
-                    'fieldname' => 'licenceRelation',
-                ],
+                'multiple' => 1,
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -303,6 +309,15 @@ return [
                     'showPossibleLocalizationRecords' => true,
                     'showAllLocalizationLink' => true,
                     'showSynchronizationLink' => true,
+                ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'type' => [
+                            'config' => [
+                                'default' => 'licenceRelation',
+                            ],
+                        ],
+                    ],
                 ],
             ],
         ],
@@ -520,9 +535,7 @@ return [
                     . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'linkRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_opposite_field' => 'record',
-                'MM_match_fields' => [
-                    'fieldname' => 'similarityRelation',
-                ],
+                'multiple' => 1,
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -532,6 +545,15 @@ return [
                     'showPossibleLocalizationRecords' => true,
                     'showAllLocalizationLink' => true,
                     'showSynchronizationLink' => true,
+                ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'type' => [
+                            'config' => [
+                                'default' => 'similarityRelation',
+                            ],
+                        ],
+                    ],
                 ],
             ],
         ],
@@ -547,9 +569,7 @@ return [
                     . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'linkRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_opposite_field' => 'record',
-                'MM_match_fields' => [
-                    'fieldname' => 'linkRelation',
-                ],
+                'multiple' => 1,
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -559,6 +579,15 @@ return [
                     'showPossibleLocalizationRecords' => true,
                     'showAllLocalizationLink' => true,
                     'showSynchronizationLink' => true,
+                ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'type' => [
+                            'config' => [
+                                'default' => 'linkRelation',
+                            ],
+                        ],
+                    ],
                 ],
             ],
         ],
@@ -600,9 +629,7 @@ return [
                     . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'similarityRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_relatedrecord_mm',
                 'MM_opposite_field' => 'relatedRecord',
-                'MM_match_fields' => [
-                    'fieldname' => 'asRelatedRecordOfSimilarityRelation',
-                ],
+                'multiple' => 1,
                 'size' => 5,
                 'autoSizeMax' => 10,
             ],
