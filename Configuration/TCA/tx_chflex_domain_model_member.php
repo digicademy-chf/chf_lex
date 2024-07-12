@@ -198,6 +198,14 @@ return [
                 'allowed' => 'tx_chflex_domain_model_dictionary_entry,tx_chflex_domain_model_sense,',
                 'foreign_table' => 'tx_chflex_domain_model_dictionary_entry', // Needed by Extbase as of TYPO3 12, remove when possible
                 'MM' => 'tx_chflex_domain_model_any_member_ref_mm',
+                'MM_oppositeUsage' => [
+                    'tx_chflex_domain_model_dictionary_entry' => [
+                        'asRefOfMember',
+                    ],
+                    'tx_chflex_domain_model_sense' => [
+                        'asRefOfMember',
+                    ],
+                ],
                 'multiple' => 1,
                 'elementBrowserEntryPoints' => [
                     '_default' => '###CURRENT_PID###',
@@ -213,7 +221,8 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => '--palette--;;refRole,parentRelation,',
+            'showitem' => '--palette--;;refRole,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentRelation,',
         ],
     ],
 ];

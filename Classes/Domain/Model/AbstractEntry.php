@@ -23,26 +23,6 @@ defined('TYPO3') or die();
 class AbstractEntry extends AbstractHeritage
 {
     /**
-     * Steps taken in creating the entry
-     * 
-     * @var string
-     */
-    #[Validate([
-        'validator' => 'String',
-    ])]
-    protected string $editorialSteps = '';
-
-    /**
-     * The entry's publication status
-     * 
-     * @var string
-     */
-    #[Validate([
-        'validator' => 'String',
-    ])]
-    protected string $publicationSteps = '';
-
-    /**
      * Similarities relevant to this entry described by a relation
      * 
      * @var ?ObjectStorage<SimilarityRelation>
@@ -81,46 +61,6 @@ class AbstractEntry extends AbstractHeritage
     {
         $this->similarityRelation ??= new ObjectStorage();
         $this->asRelatedRecordOfSimilarityRelation ??= new ObjectStorage();
-    }
-
-    /**
-     * Get editorial steps
-     *
-     * @return string
-     */
-    public function getEditorialSteps(): string
-    {
-        return $this->editorialSteps;
-    }
-
-    /**
-     * Set editorial steps
-     *
-     * @param string $editorialSteps
-     */
-    public function setEditorialSteps(string $editorialSteps): void
-    {
-        $this->editorialSteps = $editorialSteps;
-    }
-
-    /**
-     * Get publication steps
-     *
-     * @return string
-     */
-    public function getPublicationSteps(): string
-    {
-        return $this->publicationSteps;
-    }
-
-    /**
-     * Set publication steps
-     *
-     * @param string $publicationSteps
-     */
-    public function setPublicationSteps(string $publicationSteps): void
-    {
-        $this->publicationSteps = $publicationSteps;
     }
 
     /**

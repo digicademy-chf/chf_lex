@@ -227,8 +227,10 @@ defined('TYPO3') or die();
             'config' => [
                 'type' => 'number',
                 'size' => 13,
+                'nullable' => true,
+                'default' => null,
                 'range' => [
-                    'lower' => 0,
+                    'lower' => 1,
                 ],
             ],
         ],
@@ -240,8 +242,10 @@ defined('TYPO3') or die();
             'config' => [
                 'type' => 'number',
                 'size' => 13,
+                'nullable' => true,
+                'default' => null,
                 'range' => [
-                    'lower' => 0,
+                    'lower' => 1,
                 ],
             ],
         ],
@@ -507,39 +511,45 @@ defined('TYPO3') or die();
 
 // Add type 'partOfSpeechTag' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['partOfSpeechTag' => [
-    'showitem' => '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
+    'showitem' => 'type,--palette--;;textCodeDescription,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asPartOfSpeechOfDictionaryEntry,',
 ]];
 
 // Add type 'inflectionTypeTag' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['inflectionTypeTag' => [
-    'showitem' => '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
+    'showitem' => 'type,--palette--;;textCodeDescription,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,for,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asInflectionTypeOfInflectedForm,',
 ]];
 
 // Add type 'definitionTypeTag' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['definitionTypeTag' => [
-    'showitem' => '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
+    'showitem' => 'type,--palette--;;textCodeDescription,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asDefinitionTypeOfDefinition,',
 ]];
 
 // Add type 'transcriptionSchemeTag' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['transcriptionSchemeTag' => [
-    'showitem' => '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
+    'showitem' => 'type,--palette--;;textCodeDescription,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asSchemeOfTranscription,',
 ]];
 
 // Add type 'relationTypeTag' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['relationTypeTag' => [
-    'showitem' => '--palette--;;typeUuid,--palette--;;textCodeDescription,parentResource,sameAs,
+    'showitem' => 'type,--palette--;;textCodeDescription,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,scopeRestriction,memberRole,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asLexicographicRelationTypeOfLexicographicRelation,',
 ]];
 
 // Add type 'memberRoleTag' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['memberRoleTag' => [
-    'showitem' => '--palette--;;typeUuid,--palette--;;textCodeDescription,--palette--;;parentResourceParentRelationTypeTag,sameAs,
+    'showitem' => 'type,--palette--;;textCodeDescription,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,--palette--;;memberTypeHint,--palette--;;minMax,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,sameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asRoleOfMember,',
 ]];

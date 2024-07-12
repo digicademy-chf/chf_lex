@@ -54,7 +54,10 @@ class MemberRoleTag extends AbstractTag
      * @var ?int
      */
     #[Validate([
-        'validator' => 'Number',
+        'validator' => 'NumberRange',
+        'options' => [
+            'minimum' => 1,
+        ],
     ])]
     protected ?int $min = null;
 
@@ -64,7 +67,10 @@ class MemberRoleTag extends AbstractTag
      * @var ?int
      */
     #[Validate([
-        'validator' => 'Number',
+        'validator' => 'NumberRange',
+        'options' => [
+            'minimum' => 1,
+        ],
     ])]
     protected ?int $max = null;
 

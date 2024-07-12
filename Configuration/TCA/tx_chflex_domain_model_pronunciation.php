@@ -248,16 +248,17 @@ return [
         ],
     ],
     'palettes' => [
-        'soundFileTranscription' => [
-            'showitem' => 'soundFile,--linebreak--,transcription,',
+        'transcriptionSoundFile' => [
+            'showitem' => 'transcription,--linebreak--,soundFile,',
         ],
-        'parentEntryParentInflectedFormLabel' => [
-            'showitem' => 'parentEntry,parentInflectedForm,--linebreak--,label,',
+        'parentInflectedFormParentEntry' => [
+            'showitem' => 'parentInflectedForm,parentEntry,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => '--palette--;;soundFileTranscription,--palette--;;parentEntryParentInflectedFormLabel,',
+            'showitem' => '--palette--;;transcriptionSoundFile,label,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;parentInflectedFormParentEntry,',
         ],
     ],
 ];

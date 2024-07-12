@@ -177,8 +177,8 @@
                 <target>Anwendungsfeld</target>
             </trans-unit>
             <trans-unit id="object.relationTypeTag.scopeRestriction.description" resname="object.relationTypeTag.scopeRestriction.description" approved="yes">
-                <source>Indicator of how close members of this type of relation need to be</source>
-                <target>Angabe wie ähnlich Mitglieder einer Relation dieser Art sein sollen</target>
+                <source>How close members of this type of relation need to be</source>
+                <target>Wie ähnlich Mitglieder einer Relation dieser Art sein sollen</target>
             </trans-unit>
             <trans-unit id="object.relationTypeTag.scopeRestriction.any" resname="object.relationTypeTag.scopeRestriction.any" approved="yes">
                 <source>Any</source>
@@ -286,78 +286,6 @@
                 <target>Liste der Mitgliedsangaben, die diese Rolle verwenden</target>
             </trans-unit>
             <!-- Object: AbstractEntry -->
-            <trans-unit id="object.abstractEntry.editorialSteps" resname="object.abstractEntry.editorialSteps" approved="yes">
-                <source>Editorial steps</source>
-                <target>Redaktionsschritte</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.editorialSteps.description" resname="object.abstractEntry.editorialSteps.description" approved="yes">
-                <source>Steps taken in creating the entry</source>
-                <target>Vorgehen beim Bearbeiten des Eintrags</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.editorialSteps.toggle" resname="object.abstractEntry.editorialSteps.toggle" approved="yes">
-                <source>Toggle steps</source>
-                <target>Schritte ein-/ausblenden</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.editorialSteps.checkDatabase" resname="object.abstractEntry.editorialSteps.checkDatabase" approved="yes">
-                <source>Check database</source>
-                <target>Datenbankabfrage</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.editorialSteps.checkForeignLanguage" resname="object.abstractEntry.editorialSteps.checkForeignLanguage" approved="yes">
-                <source>Foreign-language resources</source>
-                <target>Fremdsprachige Nachschlagewerke</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.editorialSteps.checkRegional" resname="object.abstractEntry.editorialSteps.checkRegional" approved="yes">
-                <source>Regional resources</source>
-                <target>Regionale Nachschlagewerke</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.editorialSteps.checkPrevious" resname="object.abstractEntry.editorialSteps.checkPrevious" approved="yes">
-                <source>Preceding projects</source>
-                <target>Vorgängerprojekte</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.editorialSteps.checkFurther" resname="object.abstractEntry.editorialSteps.checkFurther" approved="yes">
-                <source>Further resources</source>
-                <target>Weitere Nachschlagewerke</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.editorialSteps.checkMaps" resname="object.abstractEntry.editorialSteps.checkMaps" approved="yes">
-                <source>Domestic and foreign maps</source>
-                <target>Kartierung im In- und Ausland</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps" resname="object.abstractEntry.publicationSteps" approved="yes">
-                <source>Publication steps</source>
-                <target>Publikationsschritte</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps.description" resname="object.abstractEntry.publicationSteps.description" approved="yes">
-                <source>The entry's publication status</source>
-                <target>Veröffentlichungsstatus des Eintrags</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps.toggle" resname="object.abstractEntry.publicationSteps.toggle" approved="yes">
-                <source>Toggle steps</source>
-                <target>Schritte ein-/ausblenden</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps.started" resname="object.abstractEntry.publicationSteps.started" approved="yes">
-                <source>Started</source>
-                <target>Angefangen</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps.edited" resname="object.abstractEntry.publicationSteps.edited" approved="yes">
-                <source>Edited</source>
-                <target>Redaktionell bearbeitet</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps.checked" resname="object.abstractEntry.publicationSteps.checked" approved="yes">
-                <source>Checked</source>
-                <target>Überprüft</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps.deferred" resname="object.abstractEntry.publicationSteps.deferred" approved="yes">
-                <source>Deferred</source>
-                <target>Zurückgestellt</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps.revised" resname="object.abstractEntry.publicationSteps.revised" approved="yes">
-                <source>Revised</source>
-                <target>Überarbeitet</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps.publicationReady" resname="object.abstractEntry.publicationSteps.publicationReady" approved="yes">
-                <source>Publication-ready</source>
-                <target>Publikationsfreigabe</target>
-            </trans-unit>
             <trans-unit id="object.abstractEntry.similarityRelation" resname="object.abstractEntry.similarityRelation" approved="yes">
                 <source>Similarity relation</source>
                 <target>Ähnlichkeitsrelation</target>
@@ -378,10 +306,6 @@
             <trans-unit id="object.dictionaryEntry" resname="object.dictionaryEntry" approved="yes">
                 <source>Dictionary entry</source>
                 <target>Wörterbucheintrag</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.details" resname="object.dictionaryEntry.details" approved="yes">
-                <source>Details</source>
-                <target>Details</target>
             </trans-unit>
             <trans-unit id="object.dictionaryEntry.headword" resname="object.dictionaryEntry.headword" approved="yes">
                 <source>Headword</source>
@@ -409,11 +333,11 @@
             </trans-unit>
             <trans-unit id="object.dictionaryEntry.editorialQuery" resname="object.dictionaryEntry.editorialQuery" approved="yes">
                 <source>Editorial query</source>
-                <target>Redaktionsabfrage</target>
+                <target>Datenbankabfrage</target>
             </trans-unit>
             <trans-unit id="object.dictionaryEntry.editorialQuery.description" resname="object.dictionaryEntry.editorialQuery.description" approved="yes">
                 <source>Database query that identifies entries edited in a single run</source>
-                <target>Datenbankabfrage zur Identifikation von Einträgen, die gemeinsam bearbeitet wurden</target>
+                <target>Abfrage zur Identifikation von Einträgen, die gemeinsam bearbeitet wurden</target>
             </trans-unit>
             <trans-unit id="object.dictionaryEntry.sense" resname="object.dictionaryEntry.sense" approved="yes">
                 <source>Sense</source>

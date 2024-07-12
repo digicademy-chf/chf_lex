@@ -238,9 +238,11 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'agentRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
+                'MM_match_fields' => [
+                    'tablenames' => 'tx_chflex_domain_model_example',
+                    'fieldname' => 'agentRelation',
+                ],
                 'MM_opposite_field' => 'record',
                 'multiple' => 1,
                 'appearance' => [
@@ -272,9 +274,11 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'locationRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
+                'MM_match_fields' => [
+                    'tablenames' => 'tx_chflex_domain_model_example',
+                    'fieldname' => 'locationRelation',
+                ],
                 'MM_opposite_field' => 'record',
                 'multiple' => 1,
                 'appearance' => [
@@ -340,13 +344,16 @@ return [
         'dateAgentRelationLocationRelation' => [
             'showitem' => 'date,--linebreak--,agentRelation,--linebreak--,locationRelation,',
         ],
-        'parentEntryParentSenseLabel' => [
-            'showitem' => 'parentEntry,parentSense,--linebreak--,label,',
+        'parentSenseParentEntry' => [
+            'showitem' => 'parentSense,parentEntry,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => '--palette--;;textSoundFile,--palette--;;dateAgentRelationLocationRelation,sourceRelation,--palette--;;parentEntryParentSenseLabel,',
+            'showitem' => '--palette--;;textSoundFile,label,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,--palette--;;dateAgentRelationLocationRelation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,sourceRelation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;parentSenseParentEntry,',
         ],
     ],
 ];

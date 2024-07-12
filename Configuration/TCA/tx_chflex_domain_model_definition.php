@@ -208,13 +208,13 @@ return [
         ],
     ],
     'palettes' => [
-        'parentSenseDefinitionType' => [
-            'showitem' => 'parentSense,definitionType,',
-        ],
-    ],
+        'definitionTypeText' => [
+            'showitem' => 'definitionType,--linebreak--,text,',
+        ],],
     'types' => [
         '0' => [
-            'showitem' => 'text,--palette--;;parentSenseDefinitionType,',
+            'showitem' => '--palette--;;definitionTypeText,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentSense,',
         ],
     ],
 ];

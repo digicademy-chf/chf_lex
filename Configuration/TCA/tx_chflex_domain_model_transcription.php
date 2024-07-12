@@ -214,7 +214,8 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => '--palette--;;textScheme,parentPronunciation,',
+            'showitem' => '--palette--;;textScheme,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentPronunciation,',
         ],
     ],
 ];

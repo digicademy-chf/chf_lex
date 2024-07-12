@@ -136,7 +136,7 @@
                 <source>Scope restriction</source>
             </trans-unit>
             <trans-unit id="object.relationTypeTag.scopeRestriction.description" resname="object.relationTypeTag.scopeRestriction.description">
-                <source>Indicator of how close members of this type of relation need to be</source>
+                <source>How close members of this type of relation need to be</source>
             </trans-unit>
             <trans-unit id="object.relationTypeTag.scopeRestriction.any" resname="object.relationTypeTag.scopeRestriction.any">
                 <source>Any</source>
@@ -218,60 +218,6 @@
                 <source>List of relation members that use this role</source>
             </trans-unit>
             <!-- Object: AbstractEntry -->
-            <trans-unit id="object.abstractEntry.editorialSteps" resname="object.abstractEntry.editorialSteps">
-                <source>Editorial steps</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.editorialSteps.description" resname="object.abstractEntry.editorialSteps.description">
-                <source>Steps taken in creating the entry</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.editorialSteps.toggle" resname="object.abstractEntry.editorialSteps.toggle">
-                <source>Toggle steps</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.editorialSteps.checkDatabase" resname="object.abstractEntry.editorialSteps.checkDatabase">
-                <source>Check database</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.editorialSteps.checkForeignLanguage" resname="object.abstractEntry.editorialSteps.checkForeignLanguage">
-                <source>Foreign-language resources</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.editorialSteps.checkRegional" resname="object.abstractEntry.editorialSteps.checkRegional">
-                <source>Regional resources</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.editorialSteps.checkPrevious" resname="object.abstractEntry.editorialSteps.checkPrevious">
-                <source>Preceding projects</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.editorialSteps.checkFurther" resname="object.abstractEntry.editorialSteps.checkFurther">
-                <source>Further resources</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.editorialSteps.checkMaps" resname="object.abstractEntry.editorialSteps.checkMaps">
-                <source>Domestic and foreign maps</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps" resname="object.abstractEntry.publicationSteps">
-                <source>Publication steps</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps.description" resname="object.abstractEntry.publicationSteps.description">
-                <source>The entry's publication status</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps.toggle" resname="object.abstractEntry.publicationSteps.toggle">
-                <source>Toggle steps</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps.started" resname="object.abstractEntry.publicationSteps.started">
-                <source>Started</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps.edited" resname="object.abstractEntry.publicationSteps.edited">
-                <source>Edited</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps.checked" resname="object.abstractEntry.publicationSteps.checked">
-                <source>Checked</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps.deferred" resname="object.abstractEntry.publicationSteps.deferred">
-                <source>Deferred</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps.revised" resname="object.abstractEntry.publicationSteps.revised">
-                <source>Revised</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.publicationSteps.publicationReady" resname="object.abstractEntry.publicationSteps.publicationReady">
-                <source>Publication-ready</source>
-            </trans-unit>
             <trans-unit id="object.abstractEntry.similarityRelation" resname="object.abstractEntry.similarityRelation">
                 <source>Similarity relation</source>
             </trans-unit>
@@ -287,9 +233,6 @@
             <!-- Object: DictionaryEntry -->
             <trans-unit id="object.dictionaryEntry" resname="object.dictionaryEntry">
                 <source>Dictionary entry</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.details" resname="object.dictionaryEntry.details">
-                <source>Details</source>
             </trans-unit>
             <trans-unit id="object.dictionaryEntry.headword" resname="object.dictionaryEntry.headword">
                 <source>Headword</source>

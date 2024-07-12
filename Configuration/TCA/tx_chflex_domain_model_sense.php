@@ -310,6 +310,10 @@ return [
                 'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_chflex_domain_model_member',
                 'MM' => 'tx_chflex_domain_model_any_member_ref_mm',
+                'MM_match_fields' => [
+                    'tablenames' => 'tx_chflex_domain_model_sense',
+                    'fieldname' => 'asRefOfMember',
+                ],
                 'MM_opposite_field' => 'ref',
                 'multiple' => 1,
                 'size' => 5,
@@ -318,19 +322,21 @@ return [
         ],
     ],
     'palettes' => [
-        'indicatorUuid' => [
-            'showitem' => 'indicator,uuid,',
+        'definitionIndicator' => [
+            'showitem' => 'definition,--linebreak--,indicator,',
         ],
         'exampleFrequency' => [
             'showitem' => 'example,--linebreak--,frequency,',
         ],
-        'parentEntryLabel' => [
-            'showitem' => 'parentEntry,label,',
+        'iriUuid' => [
+            'showitem' => 'iri,uuid,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => '--palette--;;indicatorUuid,definition,--palette--;;exampleFrequency,--palette--;;parentEntryLabel,sameAs,
+            'showitem' => '--palette--;;definitionIndicator,label,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,--palette--;;exampleFrequency,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentEntry,sameAs,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asRefOfMember,',
         ],
     ],

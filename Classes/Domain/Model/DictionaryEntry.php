@@ -41,7 +41,10 @@ class DictionaryEntry extends AbstractEntry
      * @var ?int
      */
     #[Validate([
-        'validator' => 'Number',
+        'validator' => 'NumberRange',
+        'options' => [
+            'minimum' => 1,
+        ],
     ])]
     protected ?int $homographNumber = null;
 

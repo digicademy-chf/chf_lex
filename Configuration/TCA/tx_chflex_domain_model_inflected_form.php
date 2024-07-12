@@ -252,16 +252,14 @@ return [
         ],
     ],
     'palettes' => [
-        'textInflectionTypePronunciation' => [
-            'showitem' => 'text,inflectionType,--linebreak--,pronunciation,',
-        ],
-        'parentEntryLabel' => [
-            'showitem' => 'parentEntry,label,',
+        'textInflectionType' => [
+            'showitem' => 'text,inflectionType,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => '--palette--;;textInflectionTypePronunciation,--palette--;;parentEntryLabel,',
+            'showitem' => '--palette--;;textInflectionType,pronunciation,label,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentEntry,',
         ],
     ],
 ];

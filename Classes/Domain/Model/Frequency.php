@@ -57,12 +57,15 @@ class Frequency extends AbstractEntity
     /**
      * Number of occurrences
      * 
-     * @var ?int
+     * @var int
      */
     #[Validate([
-        'validator' => 'Number',
+        'validator' => 'NumberRange',
+        'options' => [
+            'minimum' => 0,
+        ],
     ])]
-    protected ?int $tokens = null;
+    protected int $tokens = 0;
 
     /**
      * Occurrences in second position
@@ -70,7 +73,10 @@ class Frequency extends AbstractEntity
      * @var ?int
      */
     #[Validate([
-        'validator' => 'Number',
+        'validator' => 'NumberRange',
+        'options' => [
+            'minimum' => 0,
+        ],
     ])]
     protected ?int $tokensSecondary = null;
 

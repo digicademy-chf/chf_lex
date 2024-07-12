@@ -23,7 +23,7 @@ defined('TYPO3') or die();
 class RelationTypeTag extends AbstractTag
 {
     /**
-     * Indicator of how close members of this type of relation need to be
+     * How close members of this type of relation need to be
      * 
      * @var string
      */

@@ -55,6 +55,14 @@ defined('TYPO3') or die();
                 'allowed' => 'tx_chflex_domain_model_dictionary_entry,tx_chflex_domain_model_encyclopedia_entry,',
                 'foreign_table' => 'tx_chflex_domain_model_dictionary_entry', // Needed by Extbase as of TYPO3 12, remove when possible
                 'MM' => 'tx_chfbase_domain_model_relation_any_relatedrecord_mm',
+                'MM_oppositeUsage' => [
+                    'tx_chflex_domain_model_dictionary_entry' => [
+                        'asRelatedRecordOfSimilarityRelation',
+                    ],
+                    'tx_chflex_domain_model_encyclopedia_entry' => [
+                        'asRelatedRecordOfSimilarityRelation',
+                    ],
+                ],
                 'multiple' => 1,
                 'elementBrowserEntryPoints' => [
                     '_default' => '###CURRENT_PID###',
@@ -118,10 +126,12 @@ defined('TYPO3') or die();
 
 // Add type 'similarityRelation' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_relation']['types'] += ['similarityRelation' => [
-    'showitem' => '--palette--;;typeUuid,record,relatedRecord,--palette--;;parentResourceDescription,',
+    'showitem' => 'type,record,relatedRecord,description,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,',
 ]];
 
 // Add type 'lexicographicRelation' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_relation']['types'] += ['lexicographicRelation' => [
-    'showitem' => '--palette--;;typeUuid,--palette--;;lexicographicRelationTypeMember,--palette--;;parentResourceDescription,',
+    'showitem' => 'type,--palette--;;lexicographicRelationTypeMember,description,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,',
 ]];
