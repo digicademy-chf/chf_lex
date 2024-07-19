@@ -260,6 +260,7 @@ return [
                         'type' => [
                             'config' => [
                                 'default' => 'agentRelation',
+                                'readOnly' => true,
                             ],
                         ],
                     ],
@@ -296,6 +297,7 @@ return [
                         'type' => [
                             'config' => [
                                 'default' => 'locationRelation',
+                                'readOnly' => true,
                             ],
                         ],
                     ],

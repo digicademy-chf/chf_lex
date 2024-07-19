@@ -210,7 +210,8 @@ return [
     'palettes' => [
         'definitionTypeText' => [
             'showitem' => 'definitionType,--linebreak--,text,',
-        ],],
+        ],
+    ],
     'types' => [
         '0' => [
             'showitem' => '--palette--;;definitionTypeText,

@@ -178,13 +178,8 @@ defined('TYPO3') or die();
                     'columns' => [
                         'type' => [
                             'config' => [
-                                'items' => [
-                                    [
-                                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.type.memberRoleTag',
-                                        'value' => 'memberRoleTag',
-                                        'group' => 'chfLex',
-                                    ],
-                                ],
+                                'default' => 'memberRoleTag',
+                                'readOnly' => true,
                             ],
                         ],
                     ],

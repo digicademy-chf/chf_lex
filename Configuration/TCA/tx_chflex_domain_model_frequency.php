@@ -277,6 +277,7 @@ return [
                         'type' => [
                             'config' => [
                                 'default' => 'locationRelation',
+                                'readOnly' => true,
                             ],
                         ],
                     ],
