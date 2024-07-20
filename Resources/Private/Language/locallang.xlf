@@ -534,6 +534,20 @@
             <trans-unit id="object.frequency.date.description" resname="object.frequency.date.description">
                 <source>Date when this frequency applied</source>
             </trans-unit>
+            <!-- Plugin: LexDictionary -->
+            <trans-unit id="plugin.lexDictionary" resname="plugin.lexDictionary">
+                <source>Dictionary</source>
+            </trans-unit>
+            <trans-unit id="plugin.lexDictionary.description" resname="plugin.lexDictionary.description">
+                <source>View dictionary entries</source>
+            </trans-unit>
+            <!-- Plugin: LexEncyclopedia -->
+            <trans-unit id="plugin.lexEncyclopedia" resname="plugin.lexEncyclopedia">
+                <source>Encyclopedia</source>
+            </trans-unit>
+            <trans-unit id="plugin.lexEncyclopedia.description" resname="plugin.lexEncyclopedia.description">
+                <source>View encyclopedia entries</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -27,7 +27,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'soundFile ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/Pronunciation.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/TablePronunciation.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',

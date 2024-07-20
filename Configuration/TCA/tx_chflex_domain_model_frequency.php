@@ -29,7 +29,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'tokens ASC,tokensSecondary ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/Frequency.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/TableFrequency.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',

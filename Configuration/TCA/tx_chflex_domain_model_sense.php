@@ -28,7 +28,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'indicator ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/Sense.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/TableSense.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',

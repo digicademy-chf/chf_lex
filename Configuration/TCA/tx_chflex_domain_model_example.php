@@ -27,7 +27,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'text ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/Example.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/TableExample.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',

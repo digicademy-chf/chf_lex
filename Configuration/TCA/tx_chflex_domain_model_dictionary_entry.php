@@ -30,7 +30,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'isHighlight ASC,headword ASC,homographNumber ASC,',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/DictionaryEntry.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/TableDictionaryEntry.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',

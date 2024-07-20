@@ -7,9 +7,34 @@ declare(strict_types=1);
 # LICENSE.txt file that was distributed with this source code.
 
 
+use Digicademy\CHFLex\Controller\DictionaryEntryController;
+use Digicademy\CHFLex\Controller\EncyclopediaEntryController;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
 defined('TYPO3') or die();
 
 // Customisations of the rich-text editor
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets'] += [
     'chf_lex_annotation' => 'EXT:chf_lex/Configuration/RTE/CHFLexAnnotation.yaml',
 ];
+
+// Register 'LexDictionary' content element
+ExtensionUtility::configurePlugin(
+    'CHFLex',
+    'LexDictionary',
+    [
+        DictionaryEntryController::class => 'index',
+        DictionaryEntryController::class => 'show',
+    ],
+);
+
+// Register 'LexEncyclopedia' content element
+ExtensionUtility::configurePlugin(
+    'CHFLex',
+    'LexEncyclopedia',
+    [
+        EncyclopediaEntryController::class => 'index',
+        EncyclopediaEntryController::class => 'show',
+    ],
+);
+

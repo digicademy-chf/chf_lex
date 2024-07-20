@@ -28,7 +28,7 @@ return [
         'sortby'                   => 'sorting',
         'default_sortby'           => 'isHighlight ASC,title ASC',
         'versioningWS'             => true,
-        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/EncyclopediaEntry.svg',
+        'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/TableEncyclopediaEntry.svg',
         'origUid'                  => 't3_origuid',
         'hideAtCopy'               => true,
         'languageField'            => 'sys_language_uid',
