@@ -7,6 +7,8 @@ declare(strict_types=1);
 # LICENSE.txt file that was distributed with this source code.
 
 
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
 defined('TYPO3') or die();
 
 /**
@@ -19,7 +21,7 @@ defined('TYPO3') or die();
  */
 
 // Add plugin 'LexDictionary'
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+ExtensionUtility::registerPlugin(
     'CHFLex',
     'LexDictionary',
     'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:plugin.lexDictionary',
@@ -29,7 +31,7 @@ defined('TYPO3') or die();
 );
 
 // Add plugin 'LexEncyclopedia'
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+ExtensionUtility::registerPlugin(
     'CHFLex',
     'LexEncyclopedia',
     'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:plugin.lexEncyclopedia',

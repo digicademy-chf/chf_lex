@@ -13,7 +13,7 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') or die();
 
-// Customisations of the rich-text editor
+// Rich-text editor customisations
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets'] += [
     'chf_lex_annotation' => 'EXT:chf_lex/Configuration/RTE/CHFLexAnnotation.yaml',
 ];
