@@ -732,21 +732,21 @@
                 <source>Date when this frequency applied</source>
                 <target>Zeitpunkt, zu dem die Häufigkeitsangabe zutrifft</target>
             </trans-unit>
-            <!-- Plugin: LexDictionary -->
-            <trans-unit id="plugin.lexDictionary" resname="plugin.lexDictionary" approved="yes">
+            <!-- Plugin: Dictionary -->
+            <trans-unit id="plugin.dictionary" resname="plugin.dictionary" approved="yes">
                 <source>Dictionary</source>
                 <target>Wörterbuch</target>
             </trans-unit>
-            <trans-unit id="plugin.lexDictionary.description" resname="plugin.lexDictionary.description" approved="yes">
+            <trans-unit id="plugin.dictionary.description" resname="plugin.dictionary.description" approved="yes">
                 <source>View dictionary entries</source>
                 <target>Anzeige von Wörterbucheinträgen</target>
             </trans-unit>
-            <!-- Plugin: LexEncyclopedia -->
-            <trans-unit id="plugin.lexEncyclopedia" resname="plugin.lexEncyclopedia" approved="yes">
+            <!-- Plugin: Encyclopedia -->
+            <trans-unit id="plugin.encyclopedia" resname="plugin.encyclopedia" approved="yes">
                 <source>Encyclopedia</source>
                 <target>Lexikon</target>
             </trans-unit>
-            <trans-unit id="plugin.lexEncyclopedia.description" resname="plugin.lexEncyclopedia.description" approved="yes">
+            <trans-unit id="plugin.encyclopedia.description" resname="plugin.encyclopedia.description" approved="yes">
                 <source>View encyclopedia entries</source>
                 <target>Anzeige von Lexikoneinträgen</target>
             </trans-unit>

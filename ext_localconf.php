@@ -18,20 +18,20 @@ $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets'] += [
     'chf_lex_annotation' => 'EXT:chf_lex/Configuration/RTE/CHFLexAnnotation.yaml',
 ];
 
-// Register 'LexDictionary' content element
+// Register 'Dictionary' content element
 ExtensionUtility::configurePlugin(
     'CHFLex',
-    'LexDictionary',
+    'Dictionary',
     [
         DictionaryEntryController::class => 'index',
         DictionaryEntryController::class => 'show',
     ],
 );
 
-// Register 'LexEncyclopedia' content element
+// Register 'Encyclopedia' content element
 ExtensionUtility::configurePlugin(
     'CHFLex',
-    'LexEncyclopedia',
+    'Encyclopedia',
     [
         EncyclopediaEntryController::class => 'index',
         EncyclopediaEntryController::class => 'show',

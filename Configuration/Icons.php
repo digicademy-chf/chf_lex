@@ -58,12 +58,12 @@ return [
         'provider' => SvgIconProvider::class,
         'source' => 'EXT:chf_lex/Resources/Public/Icons/TableTranscription.svg',
     ],
-    'tx-chflex-plugin-lex-dictionary' => [
+    'tx-chflex-plugin-dictionary' => [
         'provider' => SvgIconProvider::class,
-        'source' => 'EXT:chf_lex/Resources/Public/Icons/PluginLexDictionary.svg',
+        'source' => 'EXT:chf_lex/Resources/Public/Icons/PluginDictionary.svg',
     ],
-    'tx-chflex-plugin-lex-encyclopedia' => [
+    'tx-chflex-plugin-encyclopedia' => [
         'provider' => SvgIconProvider::class,
-        'source' => 'EXT:chf_lex/Resources/Public/Icons/PluginLexEncyclopedia.svg',
+        'source' => 'EXT:chf_lex/Resources/Public/Icons/PluginEncyclopedia.svg',
     ],
 ];

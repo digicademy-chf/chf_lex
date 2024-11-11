@@ -20,22 +20,22 @@ defined('TYPO3') or die();
  * https://docs.typo3.org/m/typo3/reference-tca/main/en-us/.
  */
 
-// Add plugin 'LexDictionary'
+// Add plugin 'Dictionary'
 ExtensionUtility::registerPlugin(
     'CHFLex',
-    'LexDictionary',
-    'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:plugin.lexDictionary',
-    'tx-chflex-plugin-lex-dictionary',
+    'Dictionary',
+    'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:plugin.dictionary',
+    'tx-chflex-plugin-dictionary',
     'heritage',
-    'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:plugin.lexDictionary.description',
+    'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:plugin.dictionary.description',
 );
 
-// Add plugin 'LexEncyclopedia'
+// Add plugin 'Encyclopedia'
 ExtensionUtility::registerPlugin(
     'CHFLex',
-    'LexEncyclopedia',
-    'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:plugin.lexEncyclopedia',
-    'tx-chflex-plugin-lex-encyclopedia',
+    'Encyclopedia',
+    'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:plugin.encyclopedia',
+    'tx-chflex-plugin-encyclopedia',
     'heritage',
-    'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:plugin.lexEncyclopedia.description',
+    'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:plugin.encyclopedia.description',
 );

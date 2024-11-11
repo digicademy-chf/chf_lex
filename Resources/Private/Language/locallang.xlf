@@ -555,18 +555,18 @@
             <trans-unit id="object.frequency.date.description" resname="object.frequency.date.description">
                 <source>Date when this frequency applied</source>
             </trans-unit>
-            <!-- Plugin: LexDictionary -->
-            <trans-unit id="plugin.lexDictionary" resname="plugin.lexDictionary">
+            <!-- Plugin: Dictionary -->
+            <trans-unit id="plugin.dictionary" resname="plugin.dictionary">
                 <source>Dictionary</source>
             </trans-unit>
-            <trans-unit id="plugin.lexDictionary.description" resname="plugin.lexDictionary.description">
+            <trans-unit id="plugin.dictionary.description" resname="plugin.dictionary.description">
                 <source>View dictionary entries</source>
             </trans-unit>
-            <!-- Plugin: LexEncyclopedia -->
-            <trans-unit id="plugin.lexEncyclopedia" resname="plugin.lexEncyclopedia">
+            <!-- Plugin: Encyclopedia -->
+            <trans-unit id="plugin.encyclopedia" resname="plugin.encyclopedia">
                 <source>Encyclopedia</source>
             </trans-unit>
-            <trans-unit id="plugin.lexEncyclopedia.description" resname="plugin.lexEncyclopedia.description">
+            <trans-unit id="plugin.encyclopedia.description" resname="plugin.encyclopedia.description">
                 <source>View encyclopedia entries</source>
             </trans-unit>
         </body>
