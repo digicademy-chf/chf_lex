@@ -78,38 +78,9 @@ defined('TYPO3') or die();
     ]
 );
 
-// Add columns 'parentRelationTypeTag', 'for', 'scopeRestriction', 'memberRole',
-// 'memberType', 'min', 'max', 'hint', 'asLabelOfDictionaryEntry',
-// 'asLabelOfEncyclopediaEntry', 'asLabelOfInflectedForm', 'asLabelOfSense',
-// 'asLabelOfPronunciation', 'asLabelOfExample',
-// 'asPartOfSpeechOfDictionaryEntry', 'asInflectionTypeOfInflectedForm',
-// 'asDefinitionTypeOfDefinition', 'asSchemeOfTranscription',
-// 'asLexicographicRelationTypeOfLexicographicRelation', 'asRoleOfMember', and
-// 'asLabelOfFileGroup'
+// Add various colums
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_tag',
     [
-        'parentRelationTypeTag' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.parentRelationTypeTag',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.parentRelationTypeTag.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectTree',
-                'foreign_table' => 'tx_chfbase_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'relationTypeTag\'',
-                'treeConfig' => [
-                    'parentField' => 'parentRelationTypeTag',
-                    'appearance' => [
-                        'showHeader' => true,
-                        'expandAll' => true,
-                    ],
-                ],
-                'maxitems' => 1,
-                'size' => 8,
-            ],
-        ],
         'for' => [
             'exclude' => true,
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.inflectionTypeTag.for',
@@ -208,10 +179,42 @@ defined('TYPO3') or die();
                         'value' => 'sense',
                     ],
                 ],
+                'default' => 'entry',
                 'sortItems' => [
                     'label' => 'asc',
                 ],
                 'required' => true,
+            ],
+        ],
+        'hint' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.hint',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.hint.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => '0',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.hint.embed',
+                        'value' => 'embed',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.hint.navigate',
+                        'value' => 'navigate',
+                    ],
+                    [
+                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.hint.none',
+                        'value' => 'none',
+                    ],
+                ],
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
             ],
         ],
         'min' => [
@@ -244,35 +247,26 @@ defined('TYPO3') or die();
                 ],
             ],
         ],
-        'hint' => [
+        'parentRelationTypeTag' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.hint',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.hint.description',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.parentRelationTypeTag',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.parentRelationTypeTag.description',
             'config' => [
                 'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [
-                        'label' => '',
-                        'value' => '0',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.hint.embed',
-                        'value' => 'embed',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.hint.navigate',
-                        'value' => 'navigate',
-                    ],
-                    [
-                        'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.hint.none',
-                        'value' => 'none',
+                'renderType' => 'selectTree',
+                'foreign_table' => 'tx_chfbase_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'relationTypeTag\'',
+                'treeConfig' => [
+                    'parentField' => 'parentRelationTypeTag',
+                    'appearance' => [
+                        'showHeader' => true,
+                        'expandAll' => true,
                     ],
                 ],
-                'sortItems' => [
-                    'label' => 'asc',
-                ],
+                'maxitems' => 1,
+                'size' => 8,
             ],
         ],
         'asLabelOfDictionaryEntry' => [
@@ -500,14 +494,14 @@ defined('TYPO3') or die();
 // Create palette 'parentResourceParentRelationTypeTag'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
     'tx_chfbase_domain_model_tag',
-    'parentResourceParentRelationTypeTag',
-    'parentResource,parentRelationTypeTag,'
+    'parentRelationTypeTagParentResource',
+    'parentRelationTypeTag,parentResource,'
 );
 
 // Add type 'partOfSpeechTag' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['partOfSpeechTag' => [
     'showitem' => 'type,--palette--;;textCodeDescription,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,sameAs,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentResource,--palette--;;iriUuidSameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asPartOfSpeechOfDictionaryEntry,',
 ]];
 
@@ -515,21 +509,21 @@ $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['partOfSpeechTag' =>
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['inflectionTypeTag' => [
     'showitem' => 'type,--palette--;;textCodeDescription,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,for,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,sameAs,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentResource,--palette--;;iriUuidSameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asInflectionTypeOfInflectedForm,',
 ]];
 
 // Add type 'definitionTypeTag' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['definitionTypeTag' => [
     'showitem' => 'type,--palette--;;textCodeDescription,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,sameAs,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentResource,--palette--;;iriUuidSameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asDefinitionTypeOfDefinition,',
 ]];
 
 // Add type 'transcriptionSchemeTag' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['transcriptionSchemeTag' => [
     'showitem' => 'type,--palette--;;textCodeDescription,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,sameAs,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentResource,--palette--;;iriUuidSameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asSchemeOfTranscription,',
 ]];
 
@@ -537,7 +531,7 @@ $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['transcriptionScheme
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['relationTypeTag' => [
     'showitem' => 'type,--palette--;;textCodeDescription,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,scopeRestriction,memberRole,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,sameAs,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentResource,--palette--;;iriUuidSameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asLexicographicRelationTypeOfLexicographicRelation,',
 ]];
 
@@ -545,6 +539,6 @@ $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['relationTypeTag' =>
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['memberRoleTag' => [
     'showitem' => 'type,--palette--;;textCodeDescription,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,--palette--;;memberTypeHint,--palette--;;minMax,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,sameAs,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;parentRelationTypeTagParentResource,--palette--;;iriUuidSameAs,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asRoleOfMember,',
 ]];

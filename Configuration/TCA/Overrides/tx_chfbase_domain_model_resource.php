@@ -80,7 +80,7 @@ defined('TYPO3') or die();
 $GLOBALS['TCA']['tx_chfbase_domain_model_resource']['types'] += ['lexicographicResource' => [
    'showitem' => 'type,--palette--;;titleLangCodeDescriptionGlossary,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,allDictionaryEntries,allEncyclopediaEntries,allAgents,allLocations,allPeriods,allTags,allKeywords,allRelations,allFileGroups,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,sameAs,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;authorshipRelationLicenceRelation,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuidSameAs,
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,--palette--;;authorshipRelationLicenceRelation,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,--palette--;;importOriginImportState,',
 ]];

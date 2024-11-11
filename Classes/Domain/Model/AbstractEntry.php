@@ -11,7 +11,6 @@ namespace Digicademy\CHFLex\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
-use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Digicademy\CHFBase\Domain\Model\AbstractHeritage;
 
@@ -23,7 +22,7 @@ defined('TYPO3') or die();
 class AbstractEntry extends AbstractHeritage
 {
     /**
-     * Similarities relevant to this entry described by a relation
+     * Similar lexicographic entries related to this record
      * 
      * @var ?ObjectStorage<SimilarityRelation>
      */
@@ -34,7 +33,7 @@ class AbstractEntry extends AbstractHeritage
     protected ?ObjectStorage $similarityRelation = null;
 
     /**
-     * List of similarity relations that use this entry as a related database record
+     * List of similarity relations that use this entry as a related record
      * 
      * @var ?ObjectStorage<SimilarityRelation>
      */

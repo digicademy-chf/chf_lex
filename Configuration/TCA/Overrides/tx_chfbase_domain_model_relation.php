@@ -127,11 +127,11 @@ defined('TYPO3') or die();
 // Add type 'similarityRelation' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_relation']['types'] += ['similarityRelation' => [
     'showitem' => 'type,record,relatedRecord,description,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,',
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentResource,--palette--;;iriUuid,',
 ]];
 
 // Add type 'lexicographicRelation' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_relation']['types'] += ['lexicographicRelation' => [
     'showitem' => 'type,--palette--;;lexicographicRelationTypeMember,description,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentResource,',
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentResource,--palette--;;iriUuid,',
 ]];

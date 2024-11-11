@@ -40,13 +40,13 @@ class SimilarityRelation extends AbstractRelation
     /**
      * Construct object
      *
-     * @param object $parentResource
-     * @param string $uuid
      * @param object $record
      * @param DictionaryEntry|EncyclopediaEntry $relatedRecord
+     * @param object $parentResource
+     * @param string $uuid
      * @return SimilarityRelation
      */
-    public function __construct(object $parentResource, string $uuid, object $record, DictionaryEntry|EncyclopediaEntry $relatedRecord)
+    public function __construct(object $record, DictionaryEntry|EncyclopediaEntry $relatedRecord, object $parentResource, string $uuid)
     {
         parent::__construct($parentResource, $uuid);
         $this->initializeObject();

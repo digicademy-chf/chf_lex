@@ -34,12 +34,12 @@ class EncyclopediaEntry extends AbstractEntry
     /**
      * Construct object
      *
+     * @param string $title
      * @param object $parentResource
      * @param string $uuid
-     * @param string $title
      * @return EncyclopediaEntry
      */
-    public function __construct(object $parentResource, string $uuid, string $title)
+    public function __construct(string $title, object $parentResource, string $uuid)
     {
         parent::__construct($parentResource, $uuid);
 

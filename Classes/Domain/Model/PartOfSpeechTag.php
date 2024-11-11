@@ -37,9 +37,9 @@ class PartOfSpeechTag extends AbstractTag
      * @param string $text
      * @return PartOfSpeechTag
      */
-    public function __construct(LexicographicResource $parentResource, string $uuid, string $code, string $text)
+    public function __construct(string $text, string $code, LexicographicResource $parentResource, string $uuid)
     {
-        parent::__construct($parentResource, $uuid, $code, $text);
+        parent::__construct($text, $code, $parentResource, $uuid);
         $this->initializeObject();
 
         $this->setType('partOfSpeechTag');

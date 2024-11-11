@@ -36,6 +36,14 @@ class DictionaryEntry extends AbstractEntry
     protected string $headword = '';
 
     /**
+     * Define the headword's part of speech
+     * 
+     * @var PartOfSpeechTag|LazyLoadingProxy|null
+     */
+    #[Lazy()]
+    protected PartOfSpeechTag|LazyLoadingProxy|null $partOfSpeech = null;
+
+    /**
      * Optional number to distinguish homographs
      * 
      * @var ?int
@@ -47,27 +55,6 @@ class DictionaryEntry extends AbstractEntry
         ],
     ])]
     protected ?int $homographNumber = null;
-
-    /**
-     * Define the headword's part of speech
-     * 
-     * @var PartOfSpeechTag|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    protected PartOfSpeechTag|LazyLoadingProxy|null $partOfSpeech = null;
-
-    /**
-     * Database query that identifies entries edited in a single run
-     * 
-     * @var string
-     */
-    #[Validate([
-        'validator' => 'StringLength',
-        'options'   => [
-            'maximum' => 255,
-        ],
-    ])]
-    protected string $editorialQuery = '';
 
     /**
      * List of senses for this entry
@@ -125,6 +112,19 @@ class DictionaryEntry extends AbstractEntry
     protected ?ObjectStorage $inflectedForm = null;
 
     /**
+     * Database query that identifies entries edited in a single run
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options'   => [
+            'maximum' => 255,
+        ],
+    ])]
+    protected string $editorialQuery = '';
+
+    /**
      * List of memberships in a lexicographic relation
      * 
      * @var ?ObjectStorage<Member>
@@ -135,12 +135,12 @@ class DictionaryEntry extends AbstractEntry
     /**
      * Construct object
      *
+     * @param string $headword
      * @param object $parentResource
      * @param string $uuid
-     * @param string $headword
      * @return DictionaryEntry
      */
-    public function __construct(object $parentResource, string $uuid, string $headword)
+    public function __construct(string $headword, object $parentResource, string $uuid)
     {
         parent::__construct($parentResource, $uuid);
         $this->initializeObject();
@@ -182,26 +182,6 @@ class DictionaryEntry extends AbstractEntry
     }
 
     /**
-     * Get homograph number
-     *
-     * @return int
-     */
-    public function getHomographNumber(): int
-    {
-        return $this->homographNumber;
-    }
-
-    /**
-     * Set homograph number
-     *
-     * @param int $homographNumber
-     */
-    public function setHomographNumber(int $homographNumber): void
-    {
-        $this->homographNumber = $homographNumber;
-    }
-
-    /**
      * Get part of speech
      * 
      * @return PartOfSpeechTag
@@ -225,23 +205,23 @@ class DictionaryEntry extends AbstractEntry
     }
 
     /**
-     * Get editorial query
+     * Get homograph number
      *
-     * @return string
+     * @return int
      */
-    public function getEditorialQuery(): string
+    public function getHomographNumber(): int
     {
-        return $this->editorialQuery;
+        return $this->homographNumber;
     }
 
     /**
-     * Set editorial query
+     * Set homograph number
      *
-     * @param string $editorialQuery
+     * @param int $homographNumber
      */
-    public function setEditorialQuery(string $editorialQuery): void
+    public function setHomographNumber(int $homographNumber): void
     {
-        $this->editorialQuery = $editorialQuery;
+        $this->homographNumber = $homographNumber;
     }
 
     /**
@@ -383,7 +363,7 @@ class DictionaryEntry extends AbstractEntry
     }
 
     /**
-     * Remove all frequencys
+     * Remove all frequencies
      */
     public function removeAllFrequency(): void
     {
@@ -487,6 +467,26 @@ class DictionaryEntry extends AbstractEntry
     {
         $inflectedForm = clone $this->inflectedForm;
         $this->inflectedForm->removeAll($inflectedForm);
+    }
+
+    /**
+     * Get editorial query
+     *
+     * @return string
+     */
+    public function getEditorialQuery(): string
+    {
+        return $this->editorialQuery;
+    }
+
+    /**
+     * Set editorial query
+     *
+     * @param string $editorialQuery
+     */
+    public function setEditorialQuery(string $editorialQuery): void
+    {
+        $this->editorialQuery = $editorialQuery;
     }
 
     /**

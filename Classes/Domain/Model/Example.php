@@ -30,7 +30,7 @@ defined('TYPO3') or die();
 class Example extends AbstractEntity
 {
     /**
-     * Whether the record should be visible or not
+     * Record visible or not
      * 
      * @var bool
      */
@@ -38,22 +38,6 @@ class Example extends AbstractEntity
         'validator' => 'Boolean',
     ])]
     protected bool $hidden = true;
-
-    /**
-     * Dictionary entry that this example is part of
-     * 
-     * @var DictionaryEntry|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
-
-    /**
-     * Sense that this example is part of
-     * 
-     * @var Sense|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    protected Sense|LazyLoadingProxy|null $parentSense = null;
 
     /**
      * String that exemplifies the headword or the sense
@@ -69,39 +53,6 @@ class Example extends AbstractEntity
     protected string $text = '';
 
     /**
-     * Date when this example was in use
-     * 
-     * @var Period|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected Period|LazyLoadingProxy|null $date = null;
-
-    /**
-     * Agent of this database record described by a relation
-     * 
-     * @var ?ObjectStorage<AgentRelation>
-     */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected ?ObjectStorage $agentRelation = null;
-
-    /**
-     * Location of this database record described by a relation
-     * 
-     * @var ?ObjectStorage<LocationRelation>
-     */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected ?ObjectStorage $locationRelation = null;
-
-    /**
      * File that reads out the example
      * 
      * @var FileReference|LazyLoadingProxy|null
@@ -113,7 +64,48 @@ class Example extends AbstractEntity
     protected FileReference|LazyLoadingProxy|null $soundFile = null;
 
     /**
-     * Source of this database record described by a relation
+     * Label to group the database record into
+     * 
+     * @var ?ObjectStorage<LabelTag>
+     */
+    #[Lazy()]
+    protected ?ObjectStorage $label = null;
+
+    /**
+     * Date when this example was in use
+     * 
+     * @var Period|LazyLoadingProxy|null
+     */
+    #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected Period|LazyLoadingProxy|null $date = null;
+
+    /**
+     * Agent related to this record
+     * 
+     * @var ?ObjectStorage<AgentRelation>
+     */
+    #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ?ObjectStorage $agentRelation = null;
+
+    /**
+     * Location related to this record
+     * 
+     * @var ?ObjectStorage<LocationRelation>
+     */
+    #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ?ObjectStorage $locationRelation = null;
+
+    /**
+     * Sources of this database record
      * 
      * @var ?ObjectStorage<SourceRelation>
      */
@@ -124,12 +116,20 @@ class Example extends AbstractEntity
     protected ?ObjectStorage $sourceRelation = null;
 
     /**
-     * Label to group the database record into
+     * Sense that this example is part of
      * 
-     * @var ?ObjectStorage<LabelTag>
+     * @var Sense|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected ?ObjectStorage $label = null;
+    protected Sense|LazyLoadingProxy|null $parentSense = null;
+
+    /**
+     * Dictionary entry that this example is part of
+     * 
+     * @var DictionaryEntry|LazyLoadingProxy|null
+     */
+    #[Lazy()]
+    protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
 
     /**
      * Construct object
@@ -149,10 +149,10 @@ class Example extends AbstractEntity
      */
     public function initializeObject(): void
     {
+        $this->label ??= new ObjectStorage();
         $this->agentRelation ??= new ObjectStorage();
         $this->locationRelation ??= new ObjectStorage();
         $this->sourceRelation ??= new ObjectStorage();
-        $this->label ??= new ObjectStorage();
     }
 
     /**
@@ -176,52 +176,6 @@ class Example extends AbstractEntity
     }
 
     /**
-     * Get parent entry
-     * 
-     * @return DictionaryEntry
-     */
-    public function getParentEntry(): DictionaryEntry
-    {
-        if ($this->parentEntry instanceof LazyLoadingProxy) {
-            $this->parentEntry->_loadRealInstance();
-        }
-        return $this->parentEntry;
-    }
-
-    /**
-     * Set parent entry
-     * 
-     * @param DictionaryEntry
-     */
-    public function setParentEntry(DictionaryEntry $parentEntry): void
-    {
-        $this->parentEntry = $parentEntry;
-    }
-
-    /**
-     * Get parent sense
-     * 
-     * @return Sense
-     */
-    public function getParentSense(): Sense
-    {
-        if ($this->parentSense instanceof LazyLoadingProxy) {
-            $this->parentSense->_loadRealInstance();
-        }
-        return $this->parentSense;
-    }
-
-    /**
-     * Set parent sense
-     * 
-     * @param Sense
-     */
-    public function setParentSense(Sense $parentSense): void
-    {
-        $this->parentSense = $parentSense;
-    }
-
-    /**
      * Get text
      *
      * @return string
@@ -239,6 +193,78 @@ class Example extends AbstractEntity
     public function setText(string $text): void
     {
         $this->text = $text;
+    }
+
+    /**
+     * Get sound file
+     * 
+     * @return FileReference
+     */
+    public function getSoundFile(): FileReference
+    {
+        if ($this->soundFile instanceof LazyLoadingProxy) {
+            $this->soundFile->_loadRealInstance();
+        }
+        return $this->soundFile;
+    }
+
+    /**
+     * Set sound file
+     * 
+     * @param FileReference
+     */
+    public function setSoundFile(FileReference $soundFile): void
+    {
+        $this->soundFile = $soundFile;
+    }
+
+    /**
+     * Get label
+     *
+     * @return ObjectStorage<LabelTag>
+     */
+    public function getLabel(): ?ObjectStorage
+    {
+        return $this->label;
+    }
+
+    /**
+     * Set label
+     *
+     * @param ObjectStorage<LabelTag> $label
+     */
+    public function setLabel(ObjectStorage $label): void
+    {
+        $this->label = $label;
+    }
+
+    /**
+     * Add label
+     *
+     * @param LabelTag $label
+     */
+    public function addLabel(LabelTag $label): void
+    {
+        $this->label?->attach($label);
+    }
+
+    /**
+     * Remove label
+     *
+     * @param LabelTag $label
+     */
+    public function removeLabel(LabelTag $label): void
+    {
+        $this->label?->detach($label);
+    }
+
+    /**
+     * Remove all labels
+     */
+    public function removeAllLabel(): void
+    {
+        $label = clone $this->label;
+        $this->label->removeAll($label);
     }
 
     /**
@@ -363,29 +389,6 @@ class Example extends AbstractEntity
     }
 
     /**
-     * Get sound file
-     * 
-     * @return FileReference
-     */
-    public function getSoundFile(): FileReference
-    {
-        if ($this->soundFile instanceof LazyLoadingProxy) {
-            $this->soundFile->_loadRealInstance();
-        }
-        return $this->soundFile;
-    }
-
-    /**
-     * Set sound file
-     * 
-     * @param FileReference
-     */
-    public function setSoundFile(FileReference $soundFile): void
-    {
-        $this->soundFile = $soundFile;
-    }
-
-    /**
      * Get source relation
      *
      * @return ObjectStorage<SourceRelation>
@@ -435,51 +438,48 @@ class Example extends AbstractEntity
     }
 
     /**
-     * Get label
-     *
-     * @return ObjectStorage<LabelTag>
+     * Get parent sense
+     * 
+     * @return Sense
      */
-    public function getLabel(): ?ObjectStorage
+    public function getParentSense(): Sense
     {
-        return $this->label;
+        if ($this->parentSense instanceof LazyLoadingProxy) {
+            $this->parentSense->_loadRealInstance();
+        }
+        return $this->parentSense;
     }
 
     /**
-     * Set label
-     *
-     * @param ObjectStorage<LabelTag> $label
+     * Set parent sense
+     * 
+     * @param Sense
      */
-    public function setLabel(ObjectStorage $label): void
+    public function setParentSense(Sense $parentSense): void
     {
-        $this->label = $label;
+        $this->parentSense = $parentSense;
     }
 
     /**
-     * Add label
-     *
-     * @param LabelTag $label
+     * Get parent entry
+     * 
+     * @return DictionaryEntry
      */
-    public function addLabel(LabelTag $label): void
+    public function getParentEntry(): DictionaryEntry
     {
-        $this->label?->attach($label);
+        if ($this->parentEntry instanceof LazyLoadingProxy) {
+            $this->parentEntry->_loadRealInstance();
+        }
+        return $this->parentEntry;
     }
 
     /**
-     * Remove label
-     *
-     * @param LabelTag $label
+     * Set parent entry
+     * 
+     * @param DictionaryEntry
      */
-    public function removeLabel(LabelTag $label): void
+    public function setParentEntry(DictionaryEntry $parentEntry): void
     {
-        $this->label?->detach($label);
-    }
-
-    /**
-     * Remove all labels
-     */
-    public function removeAllLabel(): void
-    {
-        $label = clone $this->label;
-        $this->label->removeAll($label);
+        $this->parentEntry = $parentEntry;
     }
 }

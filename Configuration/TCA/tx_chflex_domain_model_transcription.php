@@ -150,22 +150,6 @@ return [
                 ],
             ],
         ],
-        'parentPronunciation' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.transcription.parentPronunciation',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.transcription.parentPronunciation.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_chflex_domain_model_pronunciation',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_pronunciation}.{#pid}=###CURRENT_PID###',
-                'sortItems' => [
-                    'label' => 'asc',
-                ],
-                'required' => true,
-            ],
-        ],
         'text' => [
             'exclude' => true,
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.transcription.text',
@@ -204,6 +188,22 @@ return [
                 'sortItems' => [
                     'label' => 'asc',
                 ],
+            ],
+        ],
+        'parentPronunciation' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.transcription.parentPronunciation',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.transcription.parentPronunciation.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_chflex_domain_model_pronunciation',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_pronunciation}.{#pid}=###CURRENT_PID###',
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
+                'required' => true,
             ],
         ],
     ],

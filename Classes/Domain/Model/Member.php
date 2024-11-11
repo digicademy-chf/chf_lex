@@ -23,7 +23,7 @@ defined('TYPO3') or die();
 class Member extends AbstractEntity
 {
     /**
-     * Whether the record should be visible or not
+     * Record visible or not
      * 
      * @var bool
      */
@@ -33,12 +33,12 @@ class Member extends AbstractEntity
     protected bool $hidden = true;
 
     /**
-     * Lexicographic relation that this record is a member of
+     * List of dictionary entries or senses
      * 
-     * @var LexicographicRelation|LazyLoadingProxy|null
+     * @var ?ObjectStorage<DictionaryEntry|Sense>
      */
     #[Lazy()]
-    protected LexicographicRelation|LazyLoadingProxy|null $parentRelation = null;
+    protected ?ObjectStorage $ref = null;
 
     /**
      * Role in the relation
@@ -49,26 +49,26 @@ class Member extends AbstractEntity
     protected MemberRoleTag|LazyLoadingProxy|null $role = null;
 
     /**
-     * List of dictionary entries or senses as members of the lexicographic relation
+     * Lexicographic relation that this record is a member of
      * 
-     * @var ?ObjectStorage<DictionaryEntry|Sense>
+     * @var LexicographicRelation|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected ?ObjectStorage $ref = null;
+    protected LexicographicRelation|LazyLoadingProxy|null $parentRelation = null;
 
     /**
      * Construct object
      *
-     * @param LexicographicRelation $parentRelation
      * @param DictionaryEntry|Sense $ref
+     * @param LexicographicRelation $parentRelation
      * @return Member
      */
-    public function __construct(LexicographicRelation $parentRelation, DictionaryEntry|Sense $ref)
+    public function __construct(DictionaryEntry|Sense $ref, LexicographicRelation $parentRelation)
     {
         $this->initializeObject();
 
-        $this->setParentRelation($parentRelation);
         $this->addRef($ref);
+        $this->setParentRelation($parentRelation);
     }
 
     /**
@@ -97,52 +97,6 @@ class Member extends AbstractEntity
     public function setHidden(bool $hidden): void
     {
         $this->hidden = $hidden;
-    }
-
-    /**
-     * Get parent relation
-     * 
-     * @return LexicographicRelation
-     */
-    public function getParentRelation(): LexicographicRelation
-    {
-        if ($this->parentRelation instanceof LazyLoadingProxy) {
-            $this->parentRelation->_loadRealInstance();
-        }
-        return $this->parentRelation;
-    }
-
-    /**
-     * Set parent relation
-     * 
-     * @param LexicographicRelation
-     */
-    public function setParentRelation(LexicographicRelation $parentRelation): void
-    {
-        $this->parentRelation = $parentRelation;
-    }
-
-    /**
-     * Get role
-     * 
-     * @return MemberRoleTag
-     */
-    public function getRole(): MemberRoleTag
-    {
-        if ($this->role instanceof LazyLoadingProxy) {
-            $this->role->_loadRealInstance();
-        }
-        return $this->role;
-    }
-
-    /**
-     * Set role
-     * 
-     * @param MemberRoleTag
-     */
-    public function setRole(MemberRoleTag $role): void
-    {
-        $this->role = $role;
     }
 
     /**
@@ -192,5 +146,51 @@ class Member extends AbstractEntity
     {
         $ref = clone $this->ref;
         $this->ref->removeAll($ref);
+    }
+
+    /**
+     * Get role
+     * 
+     * @return MemberRoleTag
+     */
+    public function getRole(): MemberRoleTag
+    {
+        if ($this->role instanceof LazyLoadingProxy) {
+            $this->role->_loadRealInstance();
+        }
+        return $this->role;
+    }
+
+    /**
+     * Set role
+     * 
+     * @param MemberRoleTag
+     */
+    public function setRole(MemberRoleTag $role): void
+    {
+        $this->role = $role;
+    }
+
+    /**
+     * Get parent relation
+     * 
+     * @return LexicographicRelation
+     */
+    public function getParentRelation(): LexicographicRelation
+    {
+        if ($this->parentRelation instanceof LazyLoadingProxy) {
+            $this->parentRelation->_loadRealInstance();
+        }
+        return $this->parentRelation;
+    }
+
+    /**
+     * Set parent relation
+     * 
+     * @param LexicographicRelation
+     */
+    public function setParentRelation(LexicographicRelation $parentRelation): void
+    {
+        $this->parentRelation = $parentRelation;
     }
 }

@@ -22,7 +22,7 @@ defined('TYPO3') or die();
 class Transcription extends AbstractEntity
 {
     /**
-     * Whether the record should be visible or not
+     * Record visible or not
      * 
      * @var bool
      */
@@ -30,14 +30,6 @@ class Transcription extends AbstractEntity
         'validator' => 'Boolean',
     ])]
     protected bool $hidden = true;
-
-    /**
-     * Pronunciation that this transcription belongs to
-     * 
-     * @var Pronunciation|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    protected Pronunciation|LazyLoadingProxy|null $parentPronunciation = null;
 
     /**
      * Transcribed version of the pronunciation
@@ -61,16 +53,24 @@ class Transcription extends AbstractEntity
     protected TranscriptionSchemeTag|LazyLoadingProxy|null $scheme = null;
 
     /**
+     * Pronunciation that this transcription belongs to
+     * 
+     * @var Pronunciation|LazyLoadingProxy|null
+     */
+    #[Lazy()]
+    protected Pronunciation|LazyLoadingProxy|null $parentPronunciation = null;
+
+    /**
      * Construct object
      *
-     * @param Pronunciation $parentPronunciation
      * @param string $text
+     * @param Pronunciation $parentPronunciation
      * @return Transcription
      */
-    public function __construct(Pronunciation $parentPronunciation, string $text)
+    public function __construct(string $text, Pronunciation $parentPronunciation)
     {
-        $this->setParentPronunciation($parentPronunciation);
         $this->setText($text);
+        $this->setParentPronunciation($parentPronunciation);
     }
 
     /**
@@ -91,29 +91,6 @@ class Transcription extends AbstractEntity
     public function setHidden(bool $hidden): void
     {
         $this->hidden = $hidden;
-    }
-
-    /**
-     * Get parent pronunciation
-     * 
-     * @return Pronunciation
-     */
-    public function getParentPronunciation(): Pronunciation
-    {
-        if ($this->parentPronunciation instanceof LazyLoadingProxy) {
-            $this->parentPronunciation->_loadRealInstance();
-        }
-        return $this->parentPronunciation;
-    }
-
-    /**
-     * Set parent pronunciation
-     * 
-     * @param Pronunciation
-     */
-    public function setParentPronunciation(Pronunciation $parentPronunciation): void
-    {
-        $this->parentPronunciation = $parentPronunciation;
     }
 
     /**
@@ -157,5 +134,28 @@ class Transcription extends AbstractEntity
     public function setScheme(TranscriptionSchemeTag $scheme): void
     {
         $this->scheme = $scheme;
+    }
+
+    /**
+     * Get parent pronunciation
+     * 
+     * @return Pronunciation
+     */
+    public function getParentPronunciation(): Pronunciation
+    {
+        if ($this->parentPronunciation instanceof LazyLoadingProxy) {
+            $this->parentPronunciation->_loadRealInstance();
+        }
+        return $this->parentPronunciation;
+    }
+
+    /**
+     * Set parent pronunciation
+     * 
+     * @param Pronunciation
+     */
+    public function setParentPronunciation(Pronunciation $parentPronunciation): void
+    {
+        $this->parentPronunciation = $parentPronunciation;
     }
 }

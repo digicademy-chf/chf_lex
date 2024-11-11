@@ -22,7 +22,7 @@ defined('TYPO3') or die();
 class Definition extends AbstractEntity
 {
     /**
-     * Whether the record should be visible or not
+     * Record visible or not
      * 
      * @var bool
      */
@@ -32,12 +32,12 @@ class Definition extends AbstractEntity
     protected bool $hidden = true;
 
     /**
-     * Sense that this definition belongs to
+     * May be used to differentiate between different tiers of definitions
      * 
-     * @var Sense|LazyLoadingProxy|null
+     * @var DefinitionTypeTag|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected Sense|LazyLoadingProxy|null $parentSense = null;
+    protected DefinitionTypeTag|LazyLoadingProxy|null $definitionType = null;
 
     /**
      * Definition of the sense
@@ -50,24 +50,24 @@ class Definition extends AbstractEntity
     protected string $text = '';
 
     /**
-     * May be used to differentiate between different tiers of definitions
+     * Sense that this definition belongs to
      * 
-     * @var DefinitionTypeTag|LazyLoadingProxy|null
+     * @var Sense|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected DefinitionTypeTag|LazyLoadingProxy|null $definitionType = null;
+    protected Sense|LazyLoadingProxy|null $parentSense = null;
 
     /**
      * Construct object
      *
-     * @param Sense $parentSense
      * @param string $text
+     * @param Sense $parentSense
      * @return Definition
      */
-    public function __construct(Sense $parentSense, string $text)
+    public function __construct(string $text, Sense $parentSense)
     {
-        $this->setParentSense($parentSense);
         $this->setText($text);
+        $this->setParentSense($parentSense);
     }
 
     /**
@@ -91,26 +91,26 @@ class Definition extends AbstractEntity
     }
 
     /**
-     * Get parent sense
+     * Get definition type
      * 
-     * @return Sense
+     * @return DefinitionTypeTag
      */
-    public function getParentSense(): Sense
+    public function getDefinitionType(): DefinitionTypeTag
     {
-        if ($this->parentSense instanceof LazyLoadingProxy) {
-            $this->parentSense->_loadRealInstance();
+        if ($this->definitionType instanceof LazyLoadingProxy) {
+            $this->definitionType->_loadRealInstance();
         }
-        return $this->parentSense;
+        return $this->definitionType;
     }
 
     /**
-     * Set parent sense
+     * Set definition type
      * 
-     * @param Sense
+     * @param DefinitionTypeTag
      */
-    public function setParentSense(Sense $parentSense): void
+    public function setDefinitionType(DefinitionTypeTag $definitionType): void
     {
-        $this->parentSense = $parentSense;
+        $this->definitionType = $definitionType;
     }
 
     /**
@@ -134,25 +134,25 @@ class Definition extends AbstractEntity
     }
 
     /**
-     * Get definition type
+     * Get parent sense
      * 
-     * @return DefinitionTypeTag
+     * @return Sense
      */
-    public function getDefinitionType(): DefinitionTypeTag
+    public function getParentSense(): Sense
     {
-        if ($this->definitionType instanceof LazyLoadingProxy) {
-            $this->definitionType->_loadRealInstance();
+        if ($this->parentSense instanceof LazyLoadingProxy) {
+            $this->parentSense->_loadRealInstance();
         }
-        return $this->definitionType;
+        return $this->parentSense;
     }
 
     /**
-     * Set definition type
+     * Set parent sense
      * 
-     * @param DefinitionTypeTag
+     * @param Sense
      */
-    public function setDefinitionType(DefinitionTypeTag $definitionType): void
+    public function setParentSense(Sense $parentSense): void
     {
-        $this->definitionType = $definitionType;
+        $this->parentSense = $parentSense;
     }
 }

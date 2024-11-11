@@ -24,7 +24,7 @@ defined('TYPO3') or die();
 class LexicographicResource extends AbstractResource
 {
     /**
-     * Resource to use as a glossary for this resource
+     * Glossary of this resource
      * 
      * @var GlossaryResource|LazyLoadingProxy|null
      */
@@ -56,13 +56,13 @@ class LexicographicResource extends AbstractResource
     /**
      * Construct object
      *
-     * @param string $uuid
      * @param string $langCode
+     * @param string $uuid
      * @return LexicographicResource
      */
-    public function __construct(string $uuid, string $langCode)
+    public function __construct(string $langCode, string $uuid)
     {
-        parent::__construct($uuid, $langCode);
+        parent::__construct($langCode, $uuid);
         $this->initializeObject();
 
         $this->setType('lexicographicResource');

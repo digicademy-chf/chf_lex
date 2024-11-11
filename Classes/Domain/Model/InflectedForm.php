@@ -25,7 +25,7 @@ defined('TYPO3') or die();
 class InflectedForm extends AbstractEntity
 {
     /**
-     * Whether the record should be visible or not
+     * Record visible or not
      * 
      * @var bool
      */
@@ -33,14 +33,6 @@ class InflectedForm extends AbstractEntity
         'validator' => 'Boolean',
     ])]
     protected bool $hidden = true;
-
-    /**
-     * Dictionary entry that this inflected form is part of
-     * 
-     * @var DictionaryEntry|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
 
     /**
      * String of the inflected form
@@ -83,18 +75,26 @@ class InflectedForm extends AbstractEntity
     protected ?ObjectStorage $label = null;
 
     /**
+     * Dictionary entry that this inflected form is part of
+     * 
+     * @var DictionaryEntry|LazyLoadingProxy|null
+     */
+    #[Lazy()]
+    protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
+
+    /**
      * Construct object
      *
-     * @param DictionaryEntry $parentEntry
      * @param string $text
+     * @param DictionaryEntry $parentEntry
      * @return InflectedForm
      */
-    public function __construct(DictionaryEntry $parentEntry, string $text)
+    public function __construct(string $text, DictionaryEntry $parentEntry)
     {
         $this->initializeObject();
 
-        $this->setParentEntry($parentEntry);
         $this->setText($text);
+        $this->setParentEntry($parentEntry);
     }
 
     /**
@@ -124,29 +124,6 @@ class InflectedForm extends AbstractEntity
     public function setHidden(bool $hidden): void
     {
         $this->hidden = $hidden;
-    }
-
-    /**
-     * Get parent entry
-     * 
-     * @return DictionaryEntry
-     */
-    public function getParentEntry(): DictionaryEntry
-    {
-        if ($this->parentEntry instanceof LazyLoadingProxy) {
-            $this->parentEntry->_loadRealInstance();
-        }
-        return $this->parentEntry;
-    }
-
-    /**
-     * Set parent entry
-     * 
-     * @param DictionaryEntry
-     */
-    public function setParentEntry(DictionaryEntry $parentEntry): void
-    {
-        $this->parentEntry = $parentEntry;
     }
 
     /**
@@ -288,5 +265,28 @@ class InflectedForm extends AbstractEntity
     {
         $label = clone $this->label;
         $this->label->removeAll($label);
+    }
+
+    /**
+     * Get parent entry
+     * 
+     * @return DictionaryEntry
+     */
+    public function getParentEntry(): DictionaryEntry
+    {
+        if ($this->parentEntry instanceof LazyLoadingProxy) {
+            $this->parentEntry->_loadRealInstance();
+        }
+        return $this->parentEntry;
+    }
+
+    /**
+     * Set parent entry
+     * 
+     * @param DictionaryEntry
+     */
+    public function setParentEntry(DictionaryEntry $parentEntry): void
+    {
+        $this->parentEntry = $parentEntry;
     }
 }

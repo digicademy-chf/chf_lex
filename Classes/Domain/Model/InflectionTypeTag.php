@@ -45,15 +45,15 @@ class InflectionTypeTag extends AbstractTag
     /**
      * Construct object
      *
+     * @param string $text
+     * @param string $code
      * @param LexicographicResource $parentResource
      * @param string $uuid
-     * @param string $code
-     * @param string $text
      * @return InflectionTypeTag
      */
-    public function __construct(LexicographicResource $parentResource, string $uuid, string $code, string $text)
+    public function __construct(string $text, string $code, LexicographicResource $parentResource, string $uuid)
     {
-        parent::__construct($parentResource, $uuid, $code, $text);
+        parent::__construct($text, $code, $parentResource, $uuid);
         $this->initializeObject();
 
         $this->setType('inflectionTypeTag');

@@ -150,22 +150,6 @@ return [
                 ],
             ],
         ],
-        'parentSense' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.definition.parentSense',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.definition.parentSense.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_chflex_domain_model_sense',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_sense}.{#pid}=###CURRENT_PID###',
-                'sortItems' => [
-                    'label' => 'asc',
-                ],
-                'required' => true,
-            ],
-        ],
         'text' => [
             'exclude' => true,
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.definition.text',
@@ -204,6 +188,22 @@ return [
                 'sortItems' => [
                     'label' => 'asc',
                 ],
+            ],
+        ],
+        'parentSense' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.definition.parentSense',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.definition.parentSense.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_chflex_domain_model_sense',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_sense}.{#pid}=###CURRENT_PID###',
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
+                'required' => true,
             ],
         ],
     ],

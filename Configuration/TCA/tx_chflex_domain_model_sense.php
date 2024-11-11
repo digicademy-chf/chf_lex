@@ -35,7 +35,7 @@ return [
         'transOrigPointerField'    => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'uuid,indicator',
+        'searchFields'             => 'indicator,uuid',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
@@ -151,47 +151,6 @@ return [
                 ],
             ],
         ],
-        'parentEntry' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.sense.parentEntry',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.sense.parentEntry.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
-                'sortItems' => [
-                    'label' => 'asc',
-                ],
-                'required' => true,
-            ],
-        ],
-        'uuid' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.uuid',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.uuid.description',
-            'config' => [
-                'type' => 'uuid',
-                'size' => 40,
-                'required' => true,
-            ],
-        ],
-        'indicator' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.sense.indicator',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.sense.indicator.description',
-            'config' => [
-                'type' => 'input',
-                'size' => 40,
-                'max' => 255,
-                'eval' => 'trim',
-                'behaviour' => [
-                    'allowLanguageSynchronization' => true,
-                ],
-            ],
-        ],
         'definition' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
@@ -211,6 +170,43 @@ return [
                     'showAllLocalizationLink' => true,
                     'showSynchronizationLink' => true,
                 ],
+            ],
+        ],
+        'indicator' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.sense.indicator',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.sense.indicator.description',
+            'config' => [
+                'type' => 'input',
+                'size' => 40,
+                'max' => 255,
+                'eval' => 'trim',
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ],
+        ],
+        'label' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.label',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.label.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectTree',
+                'foreign_table' => 'tx_chfbase_domain_model_tag',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
+                'MM' => 'tx_chflex_domain_model_sense_tag_label_mm',
+                'multiple' => 1,
+                'treeConfig' => [
+                    'parentField' => 'parentLabelTag',
+                    'appearance' => [
+                        'showHeader' => true,
+                        'expandAll' => true,
+                    ],
+                ],
+                'size' => 8,
             ],
         ],
         'example' => [
@@ -255,27 +251,31 @@ return [
                 ],
             ],
         ],
-        'label' => [
+        'parentEntry' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.label',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.label.description',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.sense.parentEntry',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.sense.parentEntry.description',
             'config' => [
                 'type' => 'select',
-                'renderType' => 'selectTree',
-                'foreign_table' => 'tx_chfbase_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
-                'MM' => 'tx_chflex_domain_model_sense_tag_label_mm',
-                'multiple' => 1,
-                'treeConfig' => [
-                    'parentField' => 'parentLabelTag',
-                    'appearance' => [
-                        'showHeader' => true,
-                        'expandAll' => true,
-                    ],
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
+                'sortItems' => [
+                    'label' => 'asc',
                 ],
-                'size' => 8,
+                'required' => true,
+            ],
+        ],
+        'uuid' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.uuid',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.uuid.description',
+            'config' => [
+                'type' => 'uuid',
+                'size' => 40,
+                'required' => true,
             ],
         ],
         'sameAs' => [
@@ -328,15 +328,15 @@ return [
         'exampleFrequency' => [
             'showitem' => 'example,--linebreak--,frequency,',
         ],
-        'iriUuid' => [
-            'showitem' => 'iri,uuid,',
+        'iriUuidSameAs' => [
+            'showitem' => 'iri,uuid,--linebreak--,sameAs',
         ],
     ],
     'types' => [
         '0' => [
             'showitem' => '--palette--;;definitionIndicator,label,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,--palette--;;exampleFrequency,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,parentEntry,sameAs,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentEntry,--palette--;;iriUuidSameAs,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asRefOfMember,',
         ],
     ],

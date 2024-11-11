@@ -26,7 +26,7 @@ defined('TYPO3') or die();
 class Sense extends AbstractEntity
 {
     /**
-     * Whether the record should be visible or not
+     * Record visible or not
      * 
      * @var bool
      */
@@ -36,26 +36,15 @@ class Sense extends AbstractEntity
     protected bool $hidden = true;
 
     /**
-     * Dictionary entry that this sense belongs to
+     * Specific description of the sense
      * 
-     * @var DictionaryEntry|LazyLoadingProxy|null
+     * @var ?ObjectStorage<Definition>
      */
     #[Lazy()]
-    protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
-
-    /**
-     * Unique identifier of this database record
-     * 
-     * @var string
-     */
-    #[Validate([
-        'validator' => 'RegularExpression',
-        'options' => [
-            'regularExpression' => '^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$',
-            'errorMessage' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:validator.regularExpression.noUuid',
-        ],
+    #[Cascade([
+        'value' => 'remove',
     ])]
-    protected string $uuid = '';
+    protected ?ObjectStorage $definition = null;
 
     /**
      * Brief note differentiating this sense from the others
@@ -71,15 +60,12 @@ class Sense extends AbstractEntity
     protected string $indicator = '';
 
     /**
-     * Specific description of the sense
+     * Label to group the database record into
      * 
-     * @var ?ObjectStorage<Definition>
+     * @var ?ObjectStorage<LabelTag>
      */
     #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected ?ObjectStorage $definition = null;
+    protected ?ObjectStorage $label = null;
 
     /**
      * List of contemporary or historical examples of this sense
@@ -104,15 +90,29 @@ class Sense extends AbstractEntity
     protected ?ObjectStorage $frequency = null;
 
     /**
-     * Label to group the database record into
+     * Dictionary entry that this sense belongs to
      * 
-     * @var ?ObjectStorage<LabelTag>
+     * @var DictionaryEntry|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected ?ObjectStorage $label = null;
+    protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
 
     /**
-     * Reference web address to identify an entity across the web
+     * Unique identifier of this record
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => 'RegularExpression',
+        'options' => [
+            'regularExpression' => '^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$',
+            'errorMessage' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:validator.regularExpression.noUuid',
+        ],
+    ])]
+    protected string $uuid = '';
+
+    /**
+     * Authoritative web address to identify an entity across the web
      * 
      * @var ?ObjectStorage<SameAs>
      */
@@ -151,9 +151,9 @@ class Sense extends AbstractEntity
     public function initializeObject(): void
     {
         $this->definition ??= new ObjectStorage();
+        $this->label ??= new ObjectStorage();
         $this->example ??= new ObjectStorage();
         $this->frequency ??= new ObjectStorage();
-        $this->label ??= new ObjectStorage();
         $this->sameAs ??= new ObjectStorage();
         $this->asRefOfMember ??= new ObjectStorage();
     }
@@ -176,69 +176,6 @@ class Sense extends AbstractEntity
     public function setHidden(bool $hidden): void
     {
         $this->hidden = $hidden;
-    }
-
-    /**
-     * Get parent entry
-     * 
-     * @return DictionaryEntry
-     */
-    public function getParentEntry(): DictionaryEntry
-    {
-        if ($this->parentEntry instanceof LazyLoadingProxy) {
-            $this->parentEntry->_loadRealInstance();
-        }
-        return $this->parentEntry;
-    }
-
-    /**
-     * Set parent entry
-     * 
-     * @param DictionaryEntry
-     */
-    public function setParentEntry(DictionaryEntry $parentEntry): void
-    {
-        $this->parentEntry = $parentEntry;
-    }
-
-    /**
-     * Get UUID
-     *
-     * @return string
-     */
-    public function getUuid(): string
-    {
-        return $this->uuid;
-    }
-
-    /**
-     * Set UUID
-     *
-     * @param string $uuid
-     */
-    public function setUuid(string $uuid): void
-    {
-        $this->uuid = $uuid;
-    }
-
-    /**
-     * Get indicator
-     *
-     * @return string
-     */
-    public function getIndicator(): string
-    {
-        return $this->indicator;
-    }
-
-    /**
-     * Set indicator
-     *
-     * @param string $indicator
-     */
-    public function setIndicator(string $indicator): void
-    {
-        $this->indicator = $indicator;
     }
 
     /**
@@ -288,6 +225,75 @@ class Sense extends AbstractEntity
     {
         $definition = clone $this->definition;
         $this->definition->removeAll($definition);
+    }
+
+    /**
+     * Get indicator
+     *
+     * @return string
+     */
+    public function getIndicator(): string
+    {
+        return $this->indicator;
+    }
+
+    /**
+     * Set indicator
+     *
+     * @param string $indicator
+     */
+    public function setIndicator(string $indicator): void
+    {
+        $this->indicator = $indicator;
+    }
+
+    /**
+     * Get label
+     *
+     * @return ObjectStorage<LabelTag>
+     */
+    public function getLabel(): ?ObjectStorage
+    {
+        return $this->label;
+    }
+
+    /**
+     * Set label
+     *
+     * @param ObjectStorage<LabelTag> $label
+     */
+    public function setLabel(ObjectStorage $label): void
+    {
+        $this->label = $label;
+    }
+
+    /**
+     * Add label
+     *
+     * @param LabelTag $label
+     */
+    public function addLabel(LabelTag $label): void
+    {
+        $this->label?->attach($label);
+    }
+
+    /**
+     * Remove label
+     *
+     * @param LabelTag $label
+     */
+    public function removeLabel(LabelTag $label): void
+    {
+        $this->label?->detach($label);
+    }
+
+    /**
+     * Remove all labels
+     */
+    public function removeAllLabel(): void
+    {
+        $label = clone $this->label;
+        $this->label->removeAll($label);
     }
 
     /**
@@ -380,7 +386,7 @@ class Sense extends AbstractEntity
     }
 
     /**
-     * Remove all frequencys
+     * Remove all frequencies
      */
     public function removeAllFrequency(): void
     {
@@ -389,52 +395,46 @@ class Sense extends AbstractEntity
     }
 
     /**
-     * Get label
-     *
-     * @return ObjectStorage<LabelTag>
+     * Get parent entry
+     * 
+     * @return DictionaryEntry
      */
-    public function getLabel(): ?ObjectStorage
+    public function getParentEntry(): DictionaryEntry
     {
-        return $this->label;
+        if ($this->parentEntry instanceof LazyLoadingProxy) {
+            $this->parentEntry->_loadRealInstance();
+        }
+        return $this->parentEntry;
     }
 
     /**
-     * Set label
-     *
-     * @param ObjectStorage<LabelTag> $label
+     * Set parent entry
+     * 
+     * @param DictionaryEntry
      */
-    public function setLabel(ObjectStorage $label): void
+    public function setParentEntry(DictionaryEntry $parentEntry): void
     {
-        $this->label = $label;
+        $this->parentEntry = $parentEntry;
     }
 
     /**
-     * Add label
+     * Get UUID
      *
-     * @param LabelTag $label
+     * @return string
      */
-    public function addLabel(LabelTag $label): void
+    public function getUuid(): string
     {
-        $this->label?->attach($label);
+        return $this->uuid;
     }
 
     /**
-     * Remove label
+     * Set UUID
      *
-     * @param LabelTag $label
+     * @param string $uuid
      */
-    public function removeLabel(LabelTag $label): void
+    public function setUuid(string $uuid): void
     {
-        $this->label?->detach($label);
-    }
-
-    /**
-     * Remove all labels
-     */
-    public function removeAllLabel(): void
-    {
-        $label = clone $this->label;
-        $this->label->removeAll($label);
+        $this->uuid = $uuid;
     }
 
     /**

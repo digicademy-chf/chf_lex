@@ -26,7 +26,7 @@ defined('TYPO3') or die();
 class Pronunciation extends AbstractEntity
 {
     /**
-     * Whether the record should be visible or not
+     * Record visible or not
      * 
      * @var bool
      */
@@ -34,33 +34,6 @@ class Pronunciation extends AbstractEntity
         'validator' => 'Boolean',
     ])]
     protected bool $hidden = true;
-
-    /**
-     * Dictionary entry that this pronunciation belongs to
-     * 
-     * @var DictionaryEntry|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
-
-    /**
-     * Inflected form that this pronunciation belongs to
-     * 
-     * @var InflectedForm|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    protected InflectedForm|LazyLoadingProxy|null $parentInflectedForm = null;
-
-    /**
-     * File that reads out the pronunciation
-     * 
-     * @var FileReference|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected FileReference|LazyLoadingProxy|null $soundFile = null;
 
     /**
      * List of possible transcriptions of the pronuncation
@@ -74,12 +47,39 @@ class Pronunciation extends AbstractEntity
     protected ?ObjectStorage $transcription = null;
 
     /**
+     * File that reads out the pronunciation
+     * 
+     * @var FileReference|LazyLoadingProxy|null
+     */
+    #[Lazy()]
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected FileReference|LazyLoadingProxy|null $soundFile = null;
+
+    /**
      * Label to group the database record into
      * 
      * @var ?ObjectStorage<LabelTag>
      */
     #[Lazy()]
     protected ?ObjectStorage $label = null;
+
+    /**
+     * Inflected form that this pronunciation belongs to
+     * 
+     * @var InflectedForm|LazyLoadingProxy|null
+     */
+    #[Lazy()]
+    protected InflectedForm|LazyLoadingProxy|null $parentInflectedForm = null;
+
+    /**
+     * Dictionary entry that this pronunciation belongs to
+     * 
+     * @var DictionaryEntry|LazyLoadingProxy|null
+     */
+    #[Lazy()]
+    protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
 
     /**
      * Construct object
@@ -117,75 +117,6 @@ class Pronunciation extends AbstractEntity
     public function setHidden(bool $hidden): void
     {
         $this->hidden = $hidden;
-    }
-
-    /**
-     * Get parent entry
-     * 
-     * @return DictionaryEntry
-     */
-    public function getParentEntry(): DictionaryEntry
-    {
-        if ($this->parentEntry instanceof LazyLoadingProxy) {
-            $this->parentEntry->_loadRealInstance();
-        }
-        return $this->parentEntry;
-    }
-
-    /**
-     * Set parent entry
-     * 
-     * @param DictionaryEntry
-     */
-    public function setParentEntry(DictionaryEntry $parentEntry): void
-    {
-        $this->parentEntry = $parentEntry;
-    }
-
-    /**
-     * Get parent inflected form
-     * 
-     * @return InflectedForm
-     */
-    public function getParentInflectedForm(): InflectedForm
-    {
-        if ($this->parentInflectedForm instanceof LazyLoadingProxy) {
-            $this->parentInflectedForm->_loadRealInstance();
-        }
-        return $this->parentInflectedForm;
-    }
-
-    /**
-     * Set parent inflected form
-     * 
-     * @param InflectedForm
-     */
-    public function setParentInflectedForm(InflectedForm $parentInflectedForm): void
-    {
-        $this->parentInflectedForm = $parentInflectedForm;
-    }
-
-    /**
-     * Get sound file
-     * 
-     * @return FileReference
-     */
-    public function getSoundFile(): FileReference
-    {
-        if ($this->soundFile instanceof LazyLoadingProxy) {
-            $this->soundFile->_loadRealInstance();
-        }
-        return $this->soundFile;
-    }
-
-    /**
-     * Set sound file
-     * 
-     * @param FileReference
-     */
-    public function setSoundFile(FileReference $soundFile): void
-    {
-        $this->soundFile = $soundFile;
     }
 
     /**
@@ -238,6 +169,29 @@ class Pronunciation extends AbstractEntity
     }
 
     /**
+     * Get sound file
+     * 
+     * @return FileReference
+     */
+    public function getSoundFile(): FileReference
+    {
+        if ($this->soundFile instanceof LazyLoadingProxy) {
+            $this->soundFile->_loadRealInstance();
+        }
+        return $this->soundFile;
+    }
+
+    /**
+     * Set sound file
+     * 
+     * @param FileReference
+     */
+    public function setSoundFile(FileReference $soundFile): void
+    {
+        $this->soundFile = $soundFile;
+    }
+
+    /**
      * Get label
      *
      * @return ObjectStorage<LabelTag>
@@ -284,5 +238,51 @@ class Pronunciation extends AbstractEntity
     {
         $label = clone $this->label;
         $this->label->removeAll($label);
+    }
+
+    /**
+     * Get parent inflected form
+     * 
+     * @return InflectedForm
+     */
+    public function getParentInflectedForm(): InflectedForm
+    {
+        if ($this->parentInflectedForm instanceof LazyLoadingProxy) {
+            $this->parentInflectedForm->_loadRealInstance();
+        }
+        return $this->parentInflectedForm;
+    }
+
+    /**
+     * Set parent inflected form
+     * 
+     * @param InflectedForm
+     */
+    public function setParentInflectedForm(InflectedForm $parentInflectedForm): void
+    {
+        $this->parentInflectedForm = $parentInflectedForm;
+    }
+
+    /**
+     * Get parent entry
+     * 
+     * @return DictionaryEntry
+     */
+    public function getParentEntry(): DictionaryEntry
+    {
+        if ($this->parentEntry instanceof LazyLoadingProxy) {
+            $this->parentEntry->_loadRealInstance();
+        }
+        return $this->parentEntry;
+    }
+
+    /**
+     * Set parent entry
+     * 
+     * @param DictionaryEntry
+     */
+    public function setParentEntry(DictionaryEntry $parentEntry): void
+    {
+        $this->parentEntry = $parentEntry;
     }
 }

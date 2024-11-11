@@ -150,22 +150,6 @@ return [
                 ],
             ],
         ],
-        'parentEntry' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.inflectedForm.parentEntry',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.inflectedForm.parentEntry.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
-                'sortItems' => [
-                    'label' => 'asc',
-                ],
-                'required' => true,
-            ],
-        ],
         'text' => [
             'exclude' => true,
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.inflectedForm.text',
@@ -248,6 +232,22 @@ return [
                     ],
                 ],
                 'size' => 8,
+            ],
+        ],
+        'parentEntry' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.inflectedForm.parentEntry',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.inflectedForm.parentEntry.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
+                'required' => true,
             ],
         ],
     ],

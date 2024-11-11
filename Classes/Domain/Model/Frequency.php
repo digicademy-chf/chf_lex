@@ -17,6 +17,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Digicademy\CHFBase\Domain\Model\LocationRelation;
 use Digicademy\CHFBase\Domain\Model\Period;
+use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 use Digicademy\CHFBib\Domain\Model\SourceRelation;
 use Digicademy\CHFMap\Domain\Model\Feature;
 use Digicademy\CHFMap\Domain\Model\FeatureCollection;
@@ -29,7 +30,7 @@ defined('TYPO3') or die();
 class Frequency extends AbstractEntity
 {
     /**
-     * Whether the record should be visible or not
+     * Record visible or not
      * 
      * @var bool
      */
@@ -37,22 +38,6 @@ class Frequency extends AbstractEntity
         'validator' => 'Boolean',
     ])]
     protected bool $hidden = true;
-
-    /**
-     * Dictionary entry that this frequency is part of
-     * 
-     * @var DictionaryEntry|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
-
-    /**
-     * Sense that this frequency is part of
-     * 
-     * @var Sense|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    protected Sense|LazyLoadingProxy|null $parentSense = null;
 
     /**
      * Number of occurrences
@@ -81,6 +66,25 @@ class Frequency extends AbstractEntity
     protected ?int $tokensSecondary = null;
 
     /**
+     * Type of occurrences
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => StringOptionsValidator::class,
+        'options'   => [
+            'allowed' => [
+                'unknown',
+                'population',
+                'families',
+                'births',
+                'landlines',
+            ],
+        ],
+    ])]
+    protected string $tokenType = 'unknown';
+
+    /**
      * Feature to use as geodata of this frequency
      * 
      * @var Feature|FeatureCollection|LazyLoadingProxy|null
@@ -89,7 +93,7 @@ class Frequency extends AbstractEntity
     protected Feature|FeatureCollection|LazyLoadingProxy|null $geodata = null;
 
     /**
-     * Date when this example was in use
+     * Date when this frequency applied
      * 
      * @var Period|LazyLoadingProxy|null
      */
@@ -100,7 +104,7 @@ class Frequency extends AbstractEntity
     protected Period|LazyLoadingProxy|null $date = null;
 
     /**
-     * Location of this database record described by a relation
+     * Location related to this record
      * 
      * @var ?ObjectStorage<LocationRelation>
      */
@@ -111,7 +115,7 @@ class Frequency extends AbstractEntity
     protected ?ObjectStorage $locationRelation = null;
 
     /**
-     * Source of this database record described by a relation
+     * Sources of this database record
      * 
      * @var ?ObjectStorage<SourceRelation>
      */
@@ -120,6 +124,22 @@ class Frequency extends AbstractEntity
         'value' => 'remove',
     ])]
     protected ?ObjectStorage $sourceRelation = null;
+
+    /**
+     * Sense that this frequency is part of
+     * 
+     * @var Sense|LazyLoadingProxy|null
+     */
+    #[Lazy()]
+    protected Sense|LazyLoadingProxy|null $parentSense = null;
+
+    /**
+     * Dictionary entry that this frequency is part of
+     * 
+     * @var DictionaryEntry|LazyLoadingProxy|null
+     */
+    #[Lazy()]
+    protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
 
     /**
      * Construct object
@@ -164,52 +184,6 @@ class Frequency extends AbstractEntity
     }
 
     /**
-     * Get parent entry
-     * 
-     * @return DictionaryEntry
-     */
-    public function getParentEntry(): DictionaryEntry
-    {
-        if ($this->parentEntry instanceof LazyLoadingProxy) {
-            $this->parentEntry->_loadRealInstance();
-        }
-        return $this->parentEntry;
-    }
-
-    /**
-     * Set parent entry
-     * 
-     * @param DictionaryEntry
-     */
-    public function setParentEntry(DictionaryEntry $parentEntry): void
-    {
-        $this->parentEntry = $parentEntry;
-    }
-
-    /**
-     * Get parent sense
-     * 
-     * @return Sense
-     */
-    public function getParentSense(): Sense
-    {
-        if ($this->parentSense instanceof LazyLoadingProxy) {
-            $this->parentSense->_loadRealInstance();
-        }
-        return $this->parentSense;
-    }
-
-    /**
-     * Set parent sense
-     * 
-     * @param Sense
-     */
-    public function setParentSense(Sense $parentSense): void
-    {
-        $this->parentSense = $parentSense;
-    }
-
-    /**
      * Get tokens
      *
      * @return int
@@ -247,6 +221,26 @@ class Frequency extends AbstractEntity
     public function setTokensSecondary(int $tokensSecondary): void
     {
         $this->tokensSecondary = $tokensSecondary;
+    }
+
+    /**
+     * Get token type
+     *
+     * @return string
+     */
+    public function getTokenType(): string
+    {
+        return $this->tokenType;
+    }
+
+    /**
+     * Set token type
+     *
+     * @param string $tokenType
+     */
+    public function setTokenType(string $tokenType): void
+    {
+        $this->tokenType = $tokenType;
     }
 
     /**
@@ -391,5 +385,51 @@ class Frequency extends AbstractEntity
     {
         $sourceRelation = clone $this->sourceRelation;
         $this->sourceRelation->removeAll($sourceRelation);
+    }
+
+    /**
+     * Get parent sense
+     * 
+     * @return Sense
+     */
+    public function getParentSense(): Sense
+    {
+        if ($this->parentSense instanceof LazyLoadingProxy) {
+            $this->parentSense->_loadRealInstance();
+        }
+        return $this->parentSense;
+    }
+
+    /**
+     * Set parent sense
+     * 
+     * @param Sense
+     */
+    public function setParentSense(Sense $parentSense): void
+    {
+        $this->parentSense = $parentSense;
+    }
+
+    /**
+     * Get parent entry
+     * 
+     * @return DictionaryEntry
+     */
+    public function getParentEntry(): DictionaryEntry
+    {
+        if ($this->parentEntry instanceof LazyLoadingProxy) {
+            $this->parentEntry->_loadRealInstance();
+        }
+        return $this->parentEntry;
+    }
+
+    /**
+     * Set parent entry
+     * 
+     * @param DictionaryEntry
+     */
+    public function setParentEntry(DictionaryEntry $parentEntry): void
+    {
+        $this->parentEntry = $parentEntry;
     }
 }

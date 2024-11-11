@@ -150,19 +150,27 @@ return [
                 ],
             ],
         ],
-        'parentRelation' => [
+        'ref' => [ # TODO enforce min/max values based on role and type restrictions based on parent relation
             'exclude' => true,
             'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member.parentRelation',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member.parentRelation.description',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member.ref',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member.ref.description',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'lexicographicRelation\'',
-                'sortItems' => [
-                    'label' => 'asc',
+                'type' => 'group',
+                'allowed' => 'tx_chflex_domain_model_dictionary_entry,tx_chflex_domain_model_sense,',
+                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry', // Needed by Extbase as of TYPO3 12, remove when possible
+                'MM' => 'tx_chflex_domain_model_any_member_ref_mm',
+                'MM_oppositeUsage' => [
+                    'tx_chflex_domain_model_dictionary_entry' => [
+                        'asRefOfMember',
+                    ],
+                    'tx_chflex_domain_model_sense' => [
+                        'asRefOfMember',
+                    ],
+                ],
+                'multiple' => 1,
+                'elementBrowserEntryPoints' => [
+                    '_default' => '###CURRENT_PID###',
                 ],
                 'required' => true,
             ],
@@ -188,27 +196,19 @@ return [
                 'multiple' => 1,
             ],
         ],
-        'ref' => [ # TODO enforce min/max values based on role and type restrictions based on parent relation
+        'parentRelation' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member.ref',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member.ref.description',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member.parentRelation',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member.parentRelation.description',
             'config' => [
-                'type' => 'group',
-                'allowed' => 'tx_chflex_domain_model_dictionary_entry,tx_chflex_domain_model_sense,',
-                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry', // Needed by Extbase as of TYPO3 12, remove when possible
-                'MM' => 'tx_chflex_domain_model_any_member_ref_mm',
-                'MM_oppositeUsage' => [
-                    'tx_chflex_domain_model_dictionary_entry' => [
-                        'asRefOfMember',
-                    ],
-                    'tx_chflex_domain_model_sense' => [
-                        'asRefOfMember',
-                    ],
-                ],
-                'multiple' => 1,
-                'elementBrowserEntryPoints' => [
-                    '_default' => '###CURRENT_PID###',
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_chfbase_domain_model_relation',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'lexicographicRelation\'',
+                'sortItems' => [
+                    'label' => 'asc',
                 ],
                 'required' => true,
             ],

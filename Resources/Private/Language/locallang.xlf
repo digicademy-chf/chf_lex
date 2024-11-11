@@ -222,13 +222,13 @@
                 <source>Similarity relation</source>
             </trans-unit>
             <trans-unit id="object.abstractEntry.similarityRelation.description" resname="object.abstractEntry.similarityRelation.description">
-                <source>Similarities relevant to this entry described by a relation</source>
+                <source>Similar lexicographic entries related to this record</source>
             </trans-unit>
             <trans-unit id="object.abstractEntry.asRelatedRecordOfSimilarityRelation" resname="object.abstractEntry.asRelatedRecordOfSimilarityRelation">
                 <source>Usage as related database record of a similarity relation</source>
             </trans-unit>
             <trans-unit id="object.abstractEntry.asRelatedRecordOfSimilarityRelation.description" resname="object.abstractEntry.asRelatedRecordOfSimilarityRelation.description">
-                <source>List of similarity relations that use this entry as a related database record</source>
+                <source>List of similarity relations that use this entry as a related record</source>
             </trans-unit>
             <!-- Object: DictionaryEntry -->
             <trans-unit id="object.dictionaryEntry" resname="object.dictionaryEntry">
@@ -521,6 +521,27 @@
             </trans-unit>
             <trans-unit id="object.frequency.tokens.description" resname="object.frequency.tokens.description">
                 <source>Number of occurrences</source>
+            </trans-unit>
+            <trans-unit id="object.frequency.tokenType" resname="object.frequency.tokenType">
+                <source>Token type</source>
+            </trans-unit>
+            <trans-unit id="object.frequency.tokenType.description" resname="object.frequency.tokenType.description">
+                <source>Type of occurrences</source>
+            </trans-unit>
+            <trans-unit id="object.frequency.tokenType.unknown" resname="object.frequency.tokenType.unknown">
+                <source>Unknown</source>
+            </trans-unit>
+            <trans-unit id="object.frequency.tokenType.population" resname="object.frequency.tokenType.population">
+                <source>Population</source>
+            </trans-unit>
+            <trans-unit id="object.frequency.tokenType.families" resname="object.frequency.tokenType.families">
+                <source>Families</source>
+            </trans-unit>
+            <trans-unit id="object.frequency.tokenType.births" resname="object.frequency.tokenType.births">
+                <source>Births</source>
+            </trans-unit>
+            <trans-unit id="object.frequency.tokenType.landlines" resname="object.frequency.tokenType.landlines">
+                <source>Landlines</source>
             </trans-unit>
             <trans-unit id="object.frequency.tokensSecondary" resname="object.frequency.tokensSecondary">
                 <source>Secondary tokens</source>

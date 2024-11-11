@@ -24,14 +24,6 @@ defined('TYPO3') or die();
 class MemberRoleTag extends AbstractTag
 {
     /**
-     * Relation type that this member role is part of
-     * 
-     * @var RelationTypeTag|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    protected RelationTypeTag|LazyLoadingProxy|null $parentRelationTypeTag = null;
-
-    /**
      * Defines which types of members may be part of this relation
      * 
      * @var string
@@ -47,6 +39,24 @@ class MemberRoleTag extends AbstractTag
         ],
     ])]
     protected string $memberType = 'entry';
+
+    /**
+     * Instruction what to do with members of this role
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => StringOptionsValidator::class,
+        'options'   => [
+            'allowed' => [
+                '0',
+                'embed',
+                'navigate',
+                'none',
+            ],
+        ],
+    ])]
+    protected string $hint = '0';
 
     /**
      * Minimum number of members in this relation
@@ -75,22 +85,12 @@ class MemberRoleTag extends AbstractTag
     protected ?int $max = null;
 
     /**
-     * Instruction what to do with members of this role
+     * Relation type that this member role is part of
      * 
-     * @var string
+     * @var RelationTypeTag|LazyLoadingProxy|null
      */
-    #[Validate([
-        'validator' => StringOptionsValidator::class,
-        'options'   => [
-            'allowed' => [
-                '0',
-                'embed',
-                'navigate',
-                'none',
-            ],
-        ],
-    ])]
-    protected string $hint = '0';
+    #[Lazy()]
+    protected RelationTypeTag|LazyLoadingProxy|null $parentRelationTypeTag = null;
 
     /**
      * List of relation members that use this role
@@ -103,15 +103,16 @@ class MemberRoleTag extends AbstractTag
     /**
      * Construct object
      *
+     * @param string $text
+     * @param string $code
      * @param LexicographicResource $parentResource
      * @param string $uuid
-     * @param string $code
-     * @param string $text
+     * @param string $memberType
      * @return MemberRoleTag
      */
-    public function __construct(LexicographicResource $parentResource, string $uuid, string $code, string $text, string $memberType)
+    public function __construct(string $text, string $code, LexicographicResource $parentResource, string $uuid, string $memberType)
     {
-        parent::__construct($parentResource, $uuid, $code, $text);
+        parent::__construct($text, $code, $parentResource, $uuid);
         $this->initializeObject();
 
         $this->setType('memberRoleTag');
@@ -124,29 +125,6 @@ class MemberRoleTag extends AbstractTag
     public function initializeObject(): void
     {
         $this->asRoleOfMember ??= new ObjectStorage();
-    }
-
-    /**
-     * Get parent relation type tag
-     * 
-     * @return RelationTypeTag
-     */
-    public function getParentRelationTypeTag(): RelationTypeTag
-    {
-        if ($this->parentRelationTypeTag instanceof LazyLoadingProxy) {
-            $this->parentRelationTypeTag->_loadRealInstance();
-        }
-        return $this->parentRelationTypeTag;
-    }
-
-    /**
-     * Set parent relation type tag
-     * 
-     * @param RelationTypeTag
-     */
-    public function setParentRelationTypeTag(RelationTypeTag $parentRelationTypeTag): void
-    {
-        $this->parentRelationTypeTag = $parentRelationTypeTag;
     }
 
     /**
@@ -167,6 +145,26 @@ class MemberRoleTag extends AbstractTag
     public function setMemberType(string $memberType): void
     {
         $this->memberType = $memberType;
+    }
+
+    /**
+     * Get hint
+     *
+     * @return string
+     */
+    public function getHint(): string
+    {
+        return $this->hint;
+    }
+
+    /**
+     * Set hint
+     *
+     * @param string $hint
+     */
+    public function setHint(string $hint): void
+    {
+        $this->hint = $hint;
     }
 
     /**
@@ -210,23 +208,26 @@ class MemberRoleTag extends AbstractTag
     }
 
     /**
-     * Get hint
-     *
-     * @return string
+     * Get parent relation type tag
+     * 
+     * @return RelationTypeTag
      */
-    public function getHint(): string
+    public function getParentRelationTypeTag(): RelationTypeTag
     {
-        return $this->hint;
+        if ($this->parentRelationTypeTag instanceof LazyLoadingProxy) {
+            $this->parentRelationTypeTag->_loadRealInstance();
+        }
+        return $this->parentRelationTypeTag;
     }
 
     /**
-     * Set hint
-     *
-     * @param string $hint
+     * Set parent relation type tag
+     * 
+     * @param RelationTypeTag
      */
-    public function setHint(string $hint): void
+    public function setParentRelationTypeTag(RelationTypeTag $parentRelationTypeTag): void
     {
-        $this->hint = $hint;
+        $this->parentRelationTypeTag = $parentRelationTypeTag;
     }
 
     /**

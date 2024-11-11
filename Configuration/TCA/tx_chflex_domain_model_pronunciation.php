@@ -150,58 +150,6 @@ return [
                 ],
             ],
         ],
-        'parentEntry' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.parentEntry',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.parentEntry.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [
-                        'label' => '',
-                        'value' => 0,
-                    ],
-                ],
-                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
-                'sortItems' => [
-                    'label' => 'asc',
-                ],
-            ],
-        ],
-        'parentInflectedForm' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.parentInflectedForm',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.parentInflectedForm.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [
-                        'label' => '',
-                        'value' => 0,
-                    ],
-                ],
-                'foreign_table' => 'tx_chflex_domain_model_inflected_form',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_inflected_form}.{#pid}=###CURRENT_PID###',
-                'sortItems' => [
-                    'label' => 'asc',
-                ],
-            ],
-        ],
-        'soundFile' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.soundFile',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.soundFile.description',
-            'config' => [
-                'type' => 'file',
-                'allowed' => 'common-media-types',
-            ],
-        ],
         'transcription' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
@@ -221,6 +169,16 @@ return [
                     'showAllLocalizationLink' => true,
                     'showSynchronizationLink' => true,
                 ],
+            ],
+        ],
+        'soundFile' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.soundFile',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.soundFile.description',
+            'config' => [
+                'type' => 'file',
+                'allowed' => 'common-media-types',
             ],
         ],
         'label' => [
@@ -244,6 +202,48 @@ return [
                     ],
                 ],
                 'size' => 8,
+            ],
+        ],
+        'parentInflectedForm' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.parentInflectedForm',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.parentInflectedForm.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
+                ],
+                'foreign_table' => 'tx_chflex_domain_model_inflected_form',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_inflected_form}.{#pid}=###CURRENT_PID###',
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
+            ],
+        ],
+        'parentEntry' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.parentEntry',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.parentEntry.description',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
+                ],
+                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
             ],
         ],
     ],
