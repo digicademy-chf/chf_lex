@@ -23,9 +23,10 @@ ExtensionUtility::configurePlugin(
     'CHFLex',
     'Dictionary',
     [
-        DictionaryEntryController::class => 'index',
-        DictionaryEntryController::class => 'show',
+        DictionaryEntryController::class => 'index, show',
     ],
+    [], // None of the actions are non-cacheable
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
 // Register 'Encyclopedia' content element
@@ -33,8 +34,8 @@ ExtensionUtility::configurePlugin(
     'CHFLex',
     'Encyclopedia',
     [
-        EncyclopediaEntryController::class => 'index',
-        EncyclopediaEntryController::class => 'show',
+        EncyclopediaEntryController::class => 'index, show',
     ],
+    [], // None of the actions are non-cacheable
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
-
