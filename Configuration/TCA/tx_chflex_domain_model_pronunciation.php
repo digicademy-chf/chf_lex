@@ -20,12 +20,12 @@ defined('TYPO3') or die();
 return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation',
-        'label'                    => 'soundFile',
+        'label'                    => 'sound_file',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'soundFile ASC',
+        'default_sortby'           => 'sound_file ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/TablePronunciation.svg',
         'origUid'                  => 't3_origuid',
@@ -34,7 +34,7 @@ return [
         'transOrigPointerField'    => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'soundFile',
+        'searchFields'             => 'sound_file',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
@@ -158,7 +158,7 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chflex_domain_model_transcription',
-                'foreign_field' => 'parentPronunciation',
+                'foreign_field' => 'parent_pronunciation',
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -171,7 +171,7 @@ return [
                 ],
             ],
         ],
-        'soundFile' => [
+        'sound_file' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.soundFile',
@@ -195,7 +195,7 @@ return [
                 'MM' => 'tx_chflex_domain_model_pronunciation_tag_label_mm',
                 'multiple' => 1,
                 'treeConfig' => [
-                    'parentField' => 'parentLabelTag',
+                    'parentField' => 'parent_label_tag',
                     'appearance' => [
                         'showHeader' => true,
                         'expandAll' => true,
@@ -204,7 +204,7 @@ return [
                 'size' => 8,
             ],
         ],
-        'parentInflectedForm' => [
+        'parent_inflected_form' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.parentInflectedForm',
@@ -225,7 +225,7 @@ return [
                 ],
             ],
         ],
-        'parentEntry' => [
+        'parent_entry' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.pronunciation.parentEntry',
@@ -249,10 +249,10 @@ return [
     ],
     'palettes' => [
         'transcriptionSoundFile' => [
-            'showitem' => 'transcription,--linebreak--,soundFile,',
+            'showitem' => 'transcription,--linebreak--,sound_file,',
         ],
         'parentInflectedFormParentEntry' => [
-            'showitem' => 'parentInflectedForm,parentEntry,',
+            'showitem' => 'parent_inflected_form,parent_entry,',
         ],
     ],
     'types' => [

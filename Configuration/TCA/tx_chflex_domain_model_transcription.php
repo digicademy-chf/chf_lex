@@ -190,7 +190,7 @@ return [
                 ],
             ],
         ],
-        'parentPronunciation' => [
+        'parent_pronunciation' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.transcription.parentPronunciation',
@@ -215,7 +215,7 @@ return [
     'types' => [
         '0' => [
             'showitem' => '--palette--;;textScheme,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentPronunciation,',
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_pronunciation,',
         ],
     ],
 ];

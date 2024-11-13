@@ -21,13 +21,13 @@ return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency',
         'label'                    => 'tokens',
-        'label_alt'                => 'tokensSecondary,tokenType',
+        'label_alt'                => 'tokens_secondary,token_type',
         'label_alt_force'          => true,
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'tokens ASC,tokensSecondary ASC',
+        'default_sortby'           => 'tokens ASC,tokens_secondary ASC',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/TableFrequency.svg',
         'origUid'                  => 't3_origuid',
@@ -36,7 +36,7 @@ return [
         'transOrigPointerField'    => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'tokens,tokensSecondary,tokenType',
+        'searchFields'             => 'tokens,tokens_secondary,token_type',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
@@ -167,7 +167,7 @@ return [
                 'required' => true,
             ],
         ],
-        'tokensSecondary' => [
+        'tokens_secondary' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.tokensSecondary',
@@ -182,7 +182,7 @@ return [
                 ],
             ],
         ],
-        'tokenType' => [
+        'token_type' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.tokenType',
@@ -239,7 +239,7 @@ return [
                 'maxitems' => 1,
             ],
         ],
-        'locationRelation' => [
+        'location_relation' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.locationRelation',
@@ -250,7 +250,7 @@ return [
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
                     'tablenames' => 'tx_chflex_domain_model_frequency',
-                    'fieldname' => 'locationRelation',
+                    'fieldname' => 'location_relation',
                 ],
                 'MM_opposite_field' => 'record',
                 'multiple' => 1,
@@ -276,7 +276,7 @@ return [
                 ],
             ],
         ],
-        'parentSense' => [
+        'parent_sense' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.parentSense',
@@ -297,7 +297,7 @@ return [
                 ],
             ],
         ],
-        'parentEntry' => [
+        'parent_entry' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.parentEntry',
@@ -321,20 +321,20 @@ return [
     ],
     'palettes' => [
         'tokensTokensSecondaryTokenType' => [
-            'showitem' => 'tokens,tokensSecondary,--linebreak--,tokenType,',
+            'showitem' => 'tokens,tokens_secondary,--linebreak--,token_type,',
         ],
         'dateLocationRelation' => [
-            'showitem' => 'date,--linebreak--,locationRelation,',
+            'showitem' => 'date,--linebreak--,location_relation,',
         ],
         'parentSenseParentEntry' => [
-            'showitem' => 'parentSense,parentEntry,',
+            'showitem' => 'parent_sense,parent_entry,',
         ],
     ],
     'types' => [
         '0' => [
             'showitem' => '--palette--;;tokensTokensSecondaryTokenType,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,geodata,--palette--;;dateLocationRelation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,sourceRelation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;parentSenseParentEntry,',
         ],
     ],

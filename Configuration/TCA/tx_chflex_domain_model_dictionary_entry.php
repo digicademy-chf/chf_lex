@@ -21,14 +21,14 @@ return [
     'ctrl' => [
         'title'                    => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.dictionaryEntry',
         'label'                    => 'headword',
-        'label_alt'                => 'homographNumber',
+        'label_alt'                => 'homograph_number',
         'label_alt_force'          => true,
-        'descriptionColumn'        => 'editorialNote',
+        'descriptionColumn'        => 'editorial_note',
         'tstamp'                   => 'tstamp',
         'crdate'                   => 'crdate',
         'delete'                   => 'deleted',
         'sortby'                   => 'sorting',
-        'default_sortby'           => 'isHighlight ASC,headword ASC,homographNumber ASC,',
+        'default_sortby'           => 'is_highlight ASC,headword ASC,homograph_number ASC,',
         'versioningWS'             => true,
         'iconfile'                 => 'EXT:chf_lex/Resources/Public/Icons/TableDictionaryEntry.svg',
         'origUid'                  => 't3_origuid',
@@ -37,7 +37,7 @@ return [
         'transOrigPointerField'    => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'headword,homographNumber,uuid,publicationDate,revisionDate,revisionNumber,editorialNote,editorialQuery,editorialSteps,publicationSteps,importOrigin,import',
+        'searchFields'             => 'headword,homograph_number,uuid,publication_date,revision_date,revision_number,editorial_note,editorial_query,import_origin,import',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
@@ -168,7 +168,7 @@ return [
                 'required' => true,
             ],
         ],
-        'partOfSpeech' => [
+        'part_of_speech' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.dictionaryEntry.partOfSpeech',
@@ -189,7 +189,7 @@ return [
                 'multiple' => 1,
             ],
         ],
-        'homographNumber' => [
+        'homograph_number' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.dictionaryEntry.homographNumber',
@@ -212,7 +212,7 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chflex_domain_model_sense',
-                'foreign_field' => 'parentEntry',
+                'foreign_field' => 'parent_entry',
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -239,7 +239,7 @@ return [
                 'MM' => 'tx_chflex_domain_model_dictionary_entry_tag_label_mm',
                 'multiple' => 1,
                 'treeConfig' => [
-                    'parentField' => 'parentLabelTag',
+                    'parentField' => 'parent_label_tag',
                     'appearance' => [
                         'showHeader' => true,
                         'expandAll' => true,
@@ -256,7 +256,7 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chflex_domain_model_example',
-                'foreign_field' => 'parentEntry',
+                'foreign_field' => 'parent_entry',
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -277,7 +277,7 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chflex_domain_model_frequency',
-                'foreign_field' => 'parentEntry',
+                'foreign_field' => 'parent_entry',
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -298,7 +298,7 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chflex_domain_model_pronunciation',
-                'foreign_field' => 'parentEntry',
+                'foreign_field' => 'parent_entry',
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -311,7 +311,7 @@ return [
                 ],
             ],
         ],
-        'inflectedForm' => [
+        'inflected_form' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.dictionaryEntry.inflectedForm',
@@ -319,7 +319,7 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chflex_domain_model_inflected_form',
-                'foreign_field' => 'parentEntry',
+                'foreign_field' => 'parent_entry',
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -332,7 +332,7 @@ return [
                 ],
             ],
         ],
-        'similarityRelation' => [
+        'similarity_relation' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.abstractEntry.similarityRelation',
@@ -343,7 +343,7 @@ return [
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
                     'tablenames' => 'tx_chflex_domain_model_dictionary_entry',
-                    'fieldname' => 'similarityRelation',
+                    'fieldname' => 'similarity_relation',
                 ],
                 'MM_opposite_field' => 'record',
                 'multiple' => 1,
@@ -369,7 +369,7 @@ return [
                 ],
             ],
         ],
-        'contentElement' => [
+        'content_element' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.contentElement',
@@ -432,7 +432,7 @@ return [
                 'type' => 'file',
             ],
         ],
-        'linkRelation' => [
+        'link_relation' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.linkRelation',
@@ -443,7 +443,7 @@ return [
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
                     'tablenames' => 'tx_chflex_domain_model_dictionary_entry',
-                    'fieldname' => 'linkRelation',
+                    'fieldname' => 'link_relation',
                 ],
                 'MM_opposite_field' => 'record',
                 'multiple' => 1,
@@ -469,7 +469,7 @@ return [
                 ],
             ],
         ],
-        'isTeaser' => [
+        'is_teaser' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.isTeaser',
@@ -484,7 +484,7 @@ return [
                 ],
             ]
         ],
-        'isHighlight' => [
+        'is_highlight' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.isHighlight',
@@ -499,7 +499,7 @@ return [
                 ],
             ]
         ],
-        'parentResource' => [
+        'parent_resource' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.parentResource',
@@ -527,7 +527,7 @@ return [
                 'required' => true,
             ],
         ],
-        'sameAs' => [
+        'same_as' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.sameAs',
@@ -549,7 +549,7 @@ return [
                 ],
             ],
         ],
-        'publicationDate' => [
+        'publication_date' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractBase.publicationDate',
@@ -560,7 +560,7 @@ return [
                 'default' => 0,
             ],
         ],
-        'revisionDate' => [
+        'revision_date' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractBase.revisionDate',
@@ -571,7 +571,7 @@ return [
                 'default' => 0,
             ],
         ],
-        'revisionNumber' => [
+        'revision_number' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractBase.revisionNumber',
@@ -586,7 +586,7 @@ return [
                 'required' => true,
             ],
         ],
-        'editorialNote' => [
+        'editorial_note' => [
             'exclude' => true,
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractBase.editorialNote',
             'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractBase.editorialNote.description',
@@ -601,7 +601,7 @@ return [
                 ],
             ],
         ],
-        'authorshipRelation' => [
+        'authorship_relation' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.authorshipRelation',
@@ -612,7 +612,7 @@ return [
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
                     'tablenames' => 'tx_chflex_domain_model_dictionary_entry',
-                    'fieldname' => 'authorshipRelation',
+                    'fieldname' => 'authorship_relation',
                 ],
                 'MM_opposite_field' => 'record',
                 'multiple' => 1,
@@ -638,7 +638,7 @@ return [
                 ],
             ],
         ],
-        'licenceRelation' => [
+        'licence_relation' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.licenceRelation',
@@ -649,7 +649,7 @@ return [
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
                     'tablenames' => 'tx_chflex_domain_model_dictionary_entry',
-                    'fieldname' => 'licenceRelation',
+                    'fieldname' => 'licence_relation',
                 ],
                 'MM_opposite_field' => 'record',
                 'multiple' => 1,
@@ -675,7 +675,7 @@ return [
                 ],
             ],
         ],
-        'editorialQuery' => [
+        'editorial_query' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.dictionaryEntry.editorialQuery',
@@ -687,7 +687,7 @@ return [
                 'eval' => 'trim',
             ],
         ],
-        'editorialSteps' => [
+        'editorial_steps' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.editorialSteps',
@@ -723,7 +723,7 @@ return [
                 ],
             ],
         ],
-        'publicationSteps' => [
+        'publication_steps' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.abstractHeritage.publicationSteps',
@@ -759,7 +759,7 @@ return [
                 ],
             ],
         ],
-        'importOrigin' => [
+        'import_origin' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.importOrigin',
@@ -784,7 +784,7 @@ return [
                 'eval' => 'trim',
             ],
         ],
-        'asRefOfMember' => [
+        'as_ref_of_member' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.dictionaryEntry.asRefOfMember',
@@ -796,7 +796,7 @@ return [
                 'MM' => 'tx_chflex_domain_model_any_member_ref_mm',
                 'MM_match_fields' => [
                     'tablenames' => 'tx_chflex_domain_model_dictionary_entry',
-                    'fieldname' => 'asRefOfMember',
+                    'fieldname' => 'as_ref_of_member',
                 ],
                 'MM_opposite_field' => 'ref',
                 'multiple' => 1,
@@ -804,7 +804,7 @@ return [
                 'autoSizeMax' => 10,
             ],
         ],
-        'asRelatedRecordOfSimilarityRelation' => [
+        'as_related_record_of_similarity_relation' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.abstractEntry.asRelatedRecordOfSimilarityRelation',
@@ -818,9 +818,9 @@ return [
                 'MM' => 'tx_chfbase_domain_model_relation_any_relatedrecord_mm',
                 'MM_match_fields' => [
                     'tablenames' => 'tx_chflex_domain_model_dictionary_entry',
-                    'fieldname' => 'asRelatedRecordOfSimilarityRelation',
+                    'fieldname' => 'as_related_record_of_similarity_relation',
                 ],
-                'MM_opposite_field' => 'relatedRecord',
+                'MM_opposite_field' => 'related_record',
                 'multiple' => 1,
                 'size' => 5,
                 'autoSizeMax' => 10,
@@ -829,52 +829,52 @@ return [
     ],
     'palettes' => [
         'headwordPartOfSpeechHomographNumber' => [
-            'showitem' => 'headword,partOfSpeech,--linebreak--,homographNumber,',
+            'showitem' => 'headword,part_of_speech,--linebreak--,homograph_number,',
         ],
         'exampleFrequency' => [
             'showitem' => 'example,--linebreak--,frequency,',
         ],
         'pronunciationInflectedForm' => [
-            'showitem' => 'pronunciation,--linebreak--,inflectedForm,',
+            'showitem' => 'pronunciation,--linebreak--,inflected_form,',
         ],
         'contentElementFootnote' => [
-            'showitem' => 'contentElement,--linebreak--,footnote,',
+            'showitem' => 'content_element,--linebreak--,footnote,',
         ],
         'mediaFile' => [
             'showitem' => 'media,--linebreak--,file,',
         ],
         'sourceRelationLinkRelation' => [
-            'showitem' => 'sourceRelation,--linebreak--,linkRelation,',
+            'showitem' => 'source_relation,--linebreak--,link_relation,',
         ],
         'isTeaserIsHighlight' => [
-            'showitem' => 'isTeaser,isHighlight,',
+            'showitem' => 'is_teaser,is_highlight,',
         ],
         'iriUuidSameAs' => [
-            'showitem' => 'iri,uuid,--linebreak--,sameAs,',
+            'showitem' => 'iri,uuid,--linebreak--,same_as,',
         ],
         'publicationDateRevisionDateRevisionNumberEditorialNote' => [
-            'showitem' => 'publicationDate,revisionDate,revisionNumber,--linebreak--,editorialNote,',
+            'showitem' => 'publication_date,revision_date,revision_number,--linebreak--,editorial_note,',
         ],
         'authorshipRelationLicenceRelation' => [
-            'showitem' => 'authorshipRelation,--linebreak--,licenceRelation,',
+            'showitem' => 'authorship_relation,--linebreak--,licence_relation,',
         ],
         'editorialQueryEditorialStepsPublicationSteps' => [
-            'showitem' => 'editorialQuery,--linebreak--,editorialSteps,publicationSteps,',
+            'showitem' => 'editorial_query,--linebreak--,editorial_steps,publication_steps,',
         ],
         'importOriginImport' => [
-            'showitem' => 'importOrigin,--linebreak--,import,',
+            'showitem' => 'import_origin,--linebreak--,import,',
         ],
     ],
     'types' => [
         '0' => [
             'showitem' => '--palette--;;headwordPartOfSpeechHomographNumber,sense,label,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,--palette--;;exampleFrequency,--palette--;;pronunciationInflectedForm,similarityRelation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,--palette--;;exampleFrequency,--palette--;;pronunciationInflectedForm,similarity_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.unstructured,--palette--;;contentElementFootnote,--palette--;;mediaFile,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,--palette--;;sourceRelationLinkRelation,publicationRelation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;isTeaserIsHighlight,parentResource,--palette--;;iriUuidSameAs,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,--palette--;;sourceRelationLinkRelation,publication_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;isTeaserIsHighlight,parent_resource,--palette--;;iriUuidSameAs,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,--palette--;;authorshipRelationLicenceRelation,--palette--;;editorialQueryEditorialStepsPublicationSteps,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,--palette--;;importOriginImport,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asRefOfMember,asRelatedRecordOfSimilarityRelation,',
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,as_ref_of_member,as_related_record_of_similarity_relation,',
         ],
     ],
 ];

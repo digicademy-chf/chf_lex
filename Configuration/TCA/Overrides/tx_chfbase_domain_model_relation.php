@@ -42,10 +42,10 @@ defined('TYPO3') or die();
     ]
 );
 
-// Add columns 'relatedRecord', 'lexicographicRelationType', and 'member'
+// Add columns 'related_record', 'lexicographic_relation_type', and 'member'
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_relation',
     [
-        'relatedRecord' => [
+        'related_record' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.similarityRelation.relatedRecord',
@@ -57,10 +57,10 @@ defined('TYPO3') or die();
                 'MM' => 'tx_chfbase_domain_model_relation_any_relatedrecord_mm',
                 'MM_oppositeUsage' => [
                     'tx_chflex_domain_model_dictionary_entry' => [
-                        'asRelatedRecordOfSimilarityRelation',
+                        'as_related_record_of_similarity_relation',
                     ],
                     'tx_chflex_domain_model_encyclopedia_entry' => [
-                        'asRelatedRecordOfSimilarityRelation',
+                        'as_related_record_of_similarity_relation',
                     ],
                 ],
                 'multiple' => 1,
@@ -70,7 +70,7 @@ defined('TYPO3') or die();
                 'required' => true,
             ],
         ],
-        'lexicographicRelationType' => [
+        'lexicographic_relation_type' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.lexicographicRelation.lexicographicRelationType',
@@ -99,7 +99,7 @@ defined('TYPO3') or die();
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chflex_domain_model_member',
-                'foreign_field' => 'parentRelation',
+                'foreign_field' => 'parent_relation',
                 'foreign_sortby' => 'sorting',
                 'appearance' => [
                     'collapseAll' => true,
@@ -121,17 +121,17 @@ defined('TYPO3') or die();
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
     'tx_chfbase_domain_model_relation',
     'lexicographicRelationTypeMember',
-    'lexicographicRelationType,--linebreak--,member,'
+    'lexicographic_relation_type,--linebreak--,member,'
 );
 
 // Add type 'similarityRelation' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_relation']['types'] += ['similarityRelation' => [
-    'showitem' => 'type,record,relatedRecord,description,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentResource,--palette--;;iriUuid,',
+    'showitem' => 'type,record,related_record,description,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_resource,--palette--;;iriUuid,',
 ]];
 
 // Add type 'lexicographicRelation' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_relation']['types'] += ['lexicographicRelation' => [
     'showitem' => 'type,--palette--;;lexicographicRelationTypeMember,description,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentResource,--palette--;;iriUuid,',
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_resource,--palette--;;iriUuid,',
 ]];

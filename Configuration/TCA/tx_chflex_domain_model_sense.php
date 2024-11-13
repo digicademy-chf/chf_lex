@@ -159,7 +159,7 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chflex_domain_model_definition',
-                'foreign_field' => 'parentSense',
+                'foreign_field' => 'parent_sense',
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -200,7 +200,7 @@ return [
                 'MM' => 'tx_chflex_domain_model_sense_tag_label_mm',
                 'multiple' => 1,
                 'treeConfig' => [
-                    'parentField' => 'parentLabelTag',
+                    'parentField' => 'parent_label_tag',
                     'appearance' => [
                         'showHeader' => true,
                         'expandAll' => true,
@@ -217,7 +217,7 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chflex_domain_model_example',
-                'foreign_field' => 'parentSense',
+                'foreign_field' => 'parent_sense',
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -238,7 +238,7 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chflex_domain_model_frequency',
-                'foreign_field' => 'parentSense',
+                'foreign_field' => 'parent_sense',
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -251,7 +251,7 @@ return [
                 ],
             ],
         ],
-        'parentEntry' => [
+        'parent_entry' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.sense.parentEntry',
@@ -278,7 +278,7 @@ return [
                 'required' => true,
             ],
         ],
-        'sameAs' => [
+        'same_as' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.sameAs',
@@ -300,7 +300,7 @@ return [
                 ],
             ],
         ],
-        'asRefOfMember' => [
+        'as_ref_of_member' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.sense.asRefOfMember',
@@ -312,7 +312,7 @@ return [
                 'MM' => 'tx_chflex_domain_model_any_member_ref_mm',
                 'MM_match_fields' => [
                     'tablenames' => 'tx_chflex_domain_model_sense',
-                    'fieldname' => 'asRefOfMember',
+                    'fieldname' => 'as_ref_of_member',
                 ],
                 'MM_opposite_field' => 'ref',
                 'multiple' => 1,
@@ -329,15 +329,15 @@ return [
             'showitem' => 'example,--linebreak--,frequency,',
         ],
         'iriUuidSameAs' => [
-            'showitem' => 'iri,uuid,--linebreak--,sameAs',
+            'showitem' => 'iri,uuid,--linebreak--,same_as',
         ],
     ],
     'types' => [
         '0' => [
             'showitem' => '--palette--;;definitionIndicator,label,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,--palette--;;exampleFrequency,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentEntry,--palette--;;iriUuidSameAs,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,asRefOfMember,',
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_entry,--palette--;;iriUuidSameAs,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,as_ref_of_member,',
         ],
     ],
 ];

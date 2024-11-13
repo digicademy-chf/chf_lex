@@ -165,7 +165,7 @@ return [
                 'required' => true,
             ],
         ],
-        'soundFile' => [
+        'sound_file' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.soundFile',
@@ -189,7 +189,7 @@ return [
                 'MM' => 'tx_chflex_domain_model_example_tag_label_mm',
                 'multiple' => 1,
                 'treeConfig' => [
-                    'parentField' => 'parentLabelTag',
+                    'parentField' => 'parent_label_tag',
                     'appearance' => [
                         'showHeader' => true,
                         'expandAll' => true,
@@ -221,7 +221,7 @@ return [
                 'maxitems' => 1,
             ],
         ],
-        'agentRelation' => [
+        'agent_relation' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.agentRelation',
@@ -232,7 +232,7 @@ return [
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
                     'tablenames' => 'tx_chflex_domain_model_example',
-                    'fieldname' => 'agentRelation',
+                    'fieldname' => 'agent_relation',
                 ],
                 'MM_opposite_field' => 'record',
                 'multiple' => 1,
@@ -258,7 +258,7 @@ return [
                 ],
             ],
         ],
-        'locationRelation' => [
+        'location_relation' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.locationRelation',
@@ -269,7 +269,7 @@ return [
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
                     'tablenames' => 'tx_chflex_domain_model_example',
-                    'fieldname' => 'locationRelation',
+                    'fieldname' => 'location_relation',
                 ],
                 'MM_opposite_field' => 'record',
                 'multiple' => 1,
@@ -295,7 +295,7 @@ return [
                 ],
             ],
         ],
-        'parentSense' => [
+        'parent_sense' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.parentSense',
@@ -316,7 +316,7 @@ return [
                 ],
             ],
         ],
-        'parentEntry' => [
+        'parent_entry' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.parentEntry',
@@ -341,20 +341,20 @@ return [
     ],
     'palettes' => [
         'textSoundFile' => [
-            'showitem' => 'text,--linebreak--,soundFile,',
+            'showitem' => 'text,--linebreak--,sound_file,',
         ],
         'dateAgentRelationLocationRelation' => [
-            'showitem' => 'date,--linebreak--,agentRelation,--linebreak--,locationRelation,',
+            'showitem' => 'date,--linebreak--,agent_relation,--linebreak--,location_relation,',
         ],
         'parentSenseParentEntry' => [
-            'showitem' => 'parentSense,parentEntry,',
+            'showitem' => 'parent_sense,parent_entry,',
         ],
     ],
     'types' => [
         '0' => [
             'showitem' => '--palette--;;textSoundFile,label,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,--palette--;;dateAgentRelationLocationRelation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,sourceRelation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;parentSenseParentEntry,',
         ],
     ],

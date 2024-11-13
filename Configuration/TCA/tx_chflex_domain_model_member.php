@@ -162,10 +162,10 @@ return [
                 'MM' => 'tx_chflex_domain_model_any_member_ref_mm',
                 'MM_oppositeUsage' => [
                     'tx_chflex_domain_model_dictionary_entry' => [
-                        'asRefOfMember',
+                        'as_ref_of_member',
                     ],
                     'tx_chflex_domain_model_sense' => [
-                        'asRefOfMember',
+                        'as_ref_of_member',
                     ],
                 ],
                 'multiple' => 1,
@@ -196,7 +196,7 @@ return [
                 'multiple' => 1,
             ],
         ],
-        'parentRelation' => [
+        'parent_relation' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member.parentRelation',
@@ -222,7 +222,7 @@ return [
     'types' => [
         '0' => [
             'showitem' => '--palette--;;refRole,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentRelation,',
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_relation,',
         ],
     ],
 ];

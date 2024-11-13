@@ -165,7 +165,7 @@ return [
                 'required' => true,
             ],
         ],
-        'inflectionType' => [
+        'inflection_type' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.inflectedForm.inflectionType',
@@ -198,7 +198,7 @@ return [
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chflex_domain_model_pronunciation',
-                'foreign_field' => 'parentInflectedForm',
+                'foreign_field' => 'parent_inflected_form',
                 'appearance' => [
                     'collapseAll' => true,
                     'expandSingle' => true,
@@ -225,7 +225,7 @@ return [
                 'MM' => 'tx_chflex_domain_model_inflected_form_tag_label_mm',
                 'multiple' => 1,
                 'treeConfig' => [
-                    'parentField' => 'parentLabelTag',
+                    'parentField' => 'parent_label_tag',
                     'appearance' => [
                         'showHeader' => true,
                         'expandAll' => true,
@@ -234,7 +234,7 @@ return [
                 'size' => 8,
             ],
         ],
-        'parentEntry' => [
+        'parent_entry' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.inflectedForm.parentEntry',
@@ -253,13 +253,13 @@ return [
     ],
     'palettes' => [
         'textInflectionType' => [
-            'showitem' => 'text,inflectionType,',
+            'showitem' => 'text,inflection_type,',
         ],
     ],
     'types' => [
         '0' => [
             'showitem' => '--palette--;;textInflectionType,pronunciation,label,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentEntry,',
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_entry,',
         ],
     ],
 ];

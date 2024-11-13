@@ -165,7 +165,7 @@ return [
                 'required' => true,
             ],
         ],
-        'definitionType' => [
+        'definition_type' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.definition.definitionType',
@@ -190,7 +190,7 @@ return [
                 ],
             ],
         ],
-        'parentSense' => [
+        'parent_sense' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.definition.parentSense',
@@ -209,13 +209,13 @@ return [
     ],
     'palettes' => [
         'definitionTypeText' => [
-            'showitem' => 'definitionType,--linebreak--,text,',
+            'showitem' => 'definition_type,--linebreak--,text,',
         ],
     ],
     'types' => [
         '0' => [
             'showitem' => '--palette--;;definitionTypeText,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parentSense,',
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_sense,',
         ],
     ],
 ];
