@@ -267,6 +267,15 @@ return [
                     'showAllLocalizationLink' => true,
                     'showSynchronizationLink' => true,
                 ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'parent_sense' => [
+                            'config' => [
+                                'readOnly' => true,
+                            ],
+                        ],
+                    ],
+                ],
             ],
         ],
         'frequency' => [
@@ -288,6 +297,15 @@ return [
                     'showAllLocalizationLink' => true,
                     'showSynchronizationLink' => true,
                 ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'parent_sense' => [
+                            'config' => [
+                                'readOnly' => true,
+                            ],
+                        ],
+                    ],
+                ],
             ],
         ],
         'pronunciation' => [
@@ -308,6 +326,15 @@ return [
                     'showPossibleLocalizationRecords' => true,
                     'showAllLocalizationLink' => true,
                     'showSynchronizationLink' => true,
+                ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'parent_inflected_form' => [
+                            'config' => [
+                                'readOnly' => true,
+                            ],
+                        ],
+                    ],
                 ],
             ],
         ],
@@ -634,6 +661,11 @@ return [
                                 'readOnly' => true,
                             ],
                         ],
+                        'role' => [
+                            'config' => [
+                                'default' => 'author',
+                            ],
+                        ],
                     ],
                 ],
             ],
@@ -669,6 +701,11 @@ return [
                             'config' => [
                                 'default' => 'licenceRelation',
                                 'readOnly' => true,
+                            ],
+                        ],
+                        'role' => [
+                            'config' => [
+                                'default' => 'allContent',
                             ],
                         ],
                     ],

@@ -16,7 +16,6 @@ use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Digicademy\CHFBase\Domain\Model\LocationRelation;
-use Digicademy\CHFBase\Domain\Model\Period;
 use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 use Digicademy\CHFBib\Domain\Model\SourceRelation;
 use Digicademy\CHFMap\Domain\Model\Feature;
@@ -85,23 +84,32 @@ class Frequency extends AbstractEntity
     protected string $tokenType = 'unknown';
 
     /**
+     * Date when this frequency applied
+     * 
+     * @var ?\DateTime
+     */
+    protected ?\DateTime $date = null;
+
+    /**
+     * Non-standard date of the frequency
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options' => [
+            'maximum' => 255,
+        ],
+    ])]
+    protected string $dateText = '';
+
+    /**
      * Feature to use as geodata of this frequency
      * 
      * @var Feature|FeatureCollection|LazyLoadingProxy|null
      */
     #[Lazy()]
     protected Feature|FeatureCollection|LazyLoadingProxy|null $geodata = null;
-
-    /**
-     * Date when this frequency applied
-     * 
-     * @var Period|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected Period|LazyLoadingProxy|null $date = null;
 
     /**
      * Location related to this record
@@ -244,6 +252,46 @@ class Frequency extends AbstractEntity
     }
 
     /**
+     * Get date
+     *
+     * @return ?\DateTime
+     */
+    public function getDate(): ?\DateTime
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     */
+    public function setDate(\DateTime $date): void
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * Get date text
+     *
+     * @return string
+     */
+    public function getDateText(): string
+    {
+        return $this->dateText;
+    }
+
+    /**
+     * Set date text
+     *
+     * @param string $dateText
+     */
+    public function setDateText(string $dateText): void
+    {
+        $this->dateText = $dateText;
+    }
+
+    /**
      * Get geodata
      * 
      * @return Feature|FeatureCollection
@@ -264,29 +312,6 @@ class Frequency extends AbstractEntity
     public function setGeodata(Feature|FeatureCollection $geodata): void
     {
         $this->geodata = $geodata;
-    }
-
-    /**
-     * Get date
-     * 
-     * @return Period
-     */
-    public function getDate(): Period
-    {
-        if ($this->date instanceof LazyLoadingProxy) {
-            $this->date->_loadRealInstance();
-        }
-        return $this->date;
-    }
-
-    /**
-     * Set date
-     * 
-     * @param Period
-     */
-    public function setDate(Period $date): void
-    {
-        $this->date = $date;
     }
 
     /**

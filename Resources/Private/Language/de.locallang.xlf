@@ -649,7 +649,15 @@
             </trans-unit>
             <trans-unit id="object.example.date.description" resname="object.example.date.description" approved="yes">
                 <source>Date when this example was in use</source>
-                <target>Zeitpunkt oder -raum, zu dem das Beispiel in Gebrauch war</target>
+                <target>Zeitpunkt, zu dem das Beispiel in Gebrauch war</target>
+            </trans-unit>
+            <trans-unit id="object.example.dateText" resname="object.example.dateText" approved="yes">
+                <source>Date (text)</source>
+                <target>Datum (Text)</target>
+            </trans-unit>
+            <trans-unit id="object.example.dateText.description" resname="object.example.dateText.description" approved="yes">
+                <source>Non-standard date of the example</source>
+                <target>Nicht standardiesiertes Datum des Beispiels</target>
             </trans-unit>
             <trans-unit id="object.example.soundFile" resname="object.example.soundFile" approved="yes">
                 <source>Sound file</source>
@@ -730,7 +738,15 @@
             </trans-unit>
             <trans-unit id="object.frequency.date.description" resname="object.frequency.date.description" approved="yes">
                 <source>Date when this frequency applied</source>
-                <target>Zeitpunkt, zu dem die Häufigkeitsangabe zutrifft</target>
+                <target>Zeitpunkt, zu dem die Häufigkeitsangabe zutraf</target>
+            </trans-unit>
+            <trans-unit id="object.frequency.dateText" resname="object.frequency.dateText" approved="yes">
+                <source>Date (text)</source>
+                <target>Datum (Text)</target>
+            </trans-unit>
+            <trans-unit id="object.frequency.dateText.description" resname="object.frequency.dateText.description" approved="yes">
+                <source>Non-standard date of the frequency</source>
+                <target>Nicht standardiesierter Zeitpunkt der Häufigkeit</target>
             </trans-unit>
             <!-- Plugin: Dictionary -->
             <trans-unit id="plugin.dictionary" resname="plugin.dictionary" approved="yes">

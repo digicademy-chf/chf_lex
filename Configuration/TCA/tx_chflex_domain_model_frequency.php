@@ -222,21 +222,20 @@ return [
             'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.date',
             'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.date.description',
             'config' => [
-                'type' => 'inline',
-                'foreign_table' => 'tx_chfbase_domain_model_period',
-                'foreign_field' => 'parent',
-                'foreign_table_field' => 'parent_table',
-                'appearance'=> [
-                    'collapseAll' => true,
-                    'expandSingle' => true,
-                    'newRecordLinkAddTitle' => true,
-                    'levelLinksPosition' => 'bottom',
-                    'useSortable' => true,
-                    'showPossibleLocalizationRecords' => true,
-                    'showAllLocalizationLink' => true,
-                    'showSynchronizationLink' => true,
-                ],
-                'maxitems' => 1,
+                'type' => 'datetime',
+                'format' => 'date',
+                'default' => 0,
+            ],
+        ],
+        'date_text' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.dateText',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.frequency.dateText.description',
+            'config' => [
+                'type' => 'input',
+                'size' => 40,
+                'max' => 255,
+                'eval' => 'trim',
             ],
         ],
         'location_relation' => [
@@ -270,6 +269,11 @@ return [
                             'config' => [
                                 'default' => 'locationRelation',
                                 'readOnly' => true,
+                            ],
+                        ],
+                        'role' => [
+                            'config' => [
+                                'default' => 'genericLocation',
                             ],
                         ],
                     ],
@@ -323,8 +327,8 @@ return [
         'tokensTokensSecondaryTokenType' => [
             'showitem' => 'tokens,tokens_secondary,--linebreak--,token_type,',
         ],
-        'dateLocationRelation' => [
-            'showitem' => 'date,--linebreak--,location_relation,',
+        'dateDateText' => [
+            'showitem' => 'date,date_text,',
         ],
         'parentSenseParentEntry' => [
             'showitem' => 'parent_sense,parent_entry,',
@@ -332,8 +336,8 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => '--palette--;;tokensTokensSecondaryTokenType,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,geodata,--palette--;;dateLocationRelation,
+            'showitem' => '--palette--;;tokensTokensSecondaryTokenType,--palette--;;dateDateText,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,geodata,location_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;parentSenseParentEntry,',
         ],

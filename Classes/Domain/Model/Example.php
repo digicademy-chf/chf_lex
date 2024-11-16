@@ -19,7 +19,6 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Digicademy\CHFBase\Domain\Model\AgentRelation;
 use Digicademy\CHFBase\Domain\Model\LocationRelation;
 use Digicademy\CHFBase\Domain\Model\LabelTag;
-use Digicademy\CHFBase\Domain\Model\Period;
 use Digicademy\CHFBib\Domain\Model\SourceRelation;
 
 defined('TYPO3') or die();
@@ -64,23 +63,32 @@ class Example extends AbstractEntity
     protected FileReference|LazyLoadingProxy|null $soundFile = null;
 
     /**
+     * Date when this example was in use
+     * 
+     * @var ?\DateTime
+     */
+    protected ?\DateTime $date = null;
+
+    /**
+     * Non-standard date of the example
+     * 
+     * @var string
+     */
+    #[Validate([
+        'validator' => 'StringLength',
+        'options' => [
+            'maximum' => 255,
+        ],
+    ])]
+    protected string $dateText = '';
+
+    /**
      * Label to group the database record into
      * 
      * @var ?ObjectStorage<LabelTag>
      */
     #[Lazy()]
     protected ?ObjectStorage $label = null;
-
-    /**
-     * Date when this example was in use
-     * 
-     * @var Period|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected Period|LazyLoadingProxy|null $date = null;
 
     /**
      * Agent related to this record
@@ -219,6 +227,46 @@ class Example extends AbstractEntity
     }
 
     /**
+     * Get date
+     *
+     * @return ?\DateTime
+     */
+    public function getDate(): ?\DateTime
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     */
+    public function setDate(\DateTime $date): void
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * Get date text
+     *
+     * @return string
+     */
+    public function getDateText(): string
+    {
+        return $this->dateText;
+    }
+
+    /**
+     * Set date text
+     *
+     * @param string $dateText
+     */
+    public function setDateText(string $dateText): void
+    {
+        $this->dateText = $dateText;
+    }
+
+    /**
      * Get label
      *
      * @return ObjectStorage<LabelTag>
@@ -265,29 +313,6 @@ class Example extends AbstractEntity
     {
         $label = clone $this->label;
         $this->label->removeAll($label);
-    }
-
-    /**
-     * Get date
-     * 
-     * @return Period
-     */
-    public function getDate(): Period
-    {
-        if ($this->date instanceof LazyLoadingProxy) {
-            $this->date->_loadRealInstance();
-        }
-        return $this->date;
-    }
-
-    /**
-     * Set date
-     * 
-     * @param Period
-     */
-    public function setDate(Period $date): void
-    {
-        $this->date = $date;
     }
 
     /**

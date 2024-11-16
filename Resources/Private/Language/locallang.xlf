@@ -494,6 +494,12 @@
             <trans-unit id="object.example.date.description" resname="object.example.date.description">
                 <source>Date when this example was in use</source>
             </trans-unit>
+            <trans-unit id="object.example.dateText" resname="object.example.dateText">
+                <source>Date (text)</source>
+            </trans-unit>
+            <trans-unit id="object.example.dateText.description" resname="object.example.dateText.description">
+                <source>Non-standard date of the example</source>
+            </trans-unit>
             <trans-unit id="object.example.soundFile" resname="object.example.soundFile">
                 <source>Sound file</source>
             </trans-unit>
@@ -554,6 +560,12 @@
             </trans-unit>
             <trans-unit id="object.frequency.date.description" resname="object.frequency.date.description">
                 <source>Date when this frequency applied</source>
+            </trans-unit>
+            <trans-unit id="object.frequency.dateText" resname="object.frequency.dateText">
+                <source>Date (text)</source>
+            </trans-unit>
+            <trans-unit id="object.frequency.dateText.description" resname="object.frequency.dateText.description">
+                <source>Non-standard date of the frequency</source>
             </trans-unit>
             <!-- Plugin: Dictionary -->
             <trans-unit id="plugin.dictionary" resname="plugin.dictionary">

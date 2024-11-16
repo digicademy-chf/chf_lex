@@ -209,6 +209,15 @@ return [
                     'showAllLocalizationLink' => true,
                     'showSynchronizationLink' => true,
                 ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'parent_entry' => [
+                            'config' => [
+                                'readOnly' => true,
+                            ],
+                        ],
+                    ],
+                ],
             ],
         ],
         'label' => [

@@ -175,6 +175,28 @@ return [
                 'allowed' => 'common-media-types',
             ],
         ],
+        'date' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.date',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.date.description',
+            'config' => [
+                'type' => 'datetime',
+                'format' => 'date',
+                'default' => 0,
+            ],
+        ],
+        'date_text' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.dateText',
+            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.dateText.description',
+            'config' => [
+                'type' => 'input',
+                'size' => 40,
+                'max' => 255,
+                'eval' => 'trim',
+            ],
+        ],
         'label' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
@@ -196,29 +218,6 @@ return [
                     ],
                 ],
                 'size' => 8,
-            ],
-        ],
-        'date' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.date',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.example.date.description',
-            'config' => [
-                'type' => 'inline',
-                'foreign_table' => 'tx_chfbase_domain_model_period',
-                'foreign_field' => 'parent',
-                'foreign_table_field' => 'parent_table',
-                'appearance'=> [
-                    'collapseAll' => true,
-                    'expandSingle' => true,
-                    'newRecordLinkAddTitle' => true,
-                    'levelLinksPosition' => 'bottom',
-                    'useSortable' => true,
-                    'showPossibleLocalizationRecords' => true,
-                    'showAllLocalizationLink' => true,
-                    'showSynchronizationLink' => true,
-                ],
-                'maxitems' => 1,
             ],
         ],
         'agent_relation' => [
@@ -252,6 +251,11 @@ return [
                             'config' => [
                                 'default' => 'agentRelation',
                                 'readOnly' => true,
+                            ],
+                        ],
+                        'role' => [
+                            'config' => [
+                                'default' => 'artist',
                             ],
                         ],
                     ],
@@ -289,6 +293,11 @@ return [
                             'config' => [
                                 'default' => 'locationRelation',
                                 'readOnly' => true,
+                            ],
+                        ],
+                        'role' => [
+                            'config' => [
+                                'default' => 'genericLocation',
                             ],
                         ],
                     ],
@@ -343,8 +352,11 @@ return [
         'textSoundFile' => [
             'showitem' => 'text,--linebreak--,sound_file,',
         ],
-        'dateAgentRelationLocationRelation' => [
-            'showitem' => 'date,--linebreak--,agent_relation,--linebreak--,location_relation,',
+        'dateDateText' => [
+            'showitem' => 'date,date_text,',
+        ],
+        'agentRelationLocationRelation' => [
+            'showitem' => 'agent_relation,--linebreak--,location_relation,',
         ],
         'parentSenseParentEntry' => [
             'showitem' => 'parent_sense,parent_entry,',
@@ -352,8 +364,8 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => '--palette--;;textSoundFile,label,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,--palette--;;dateAgentRelationLocationRelation,
+            'showitem' => '--palette--;;textSoundFile,--palette--;;dateDateText,label,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,--palette--;;agentRelationLocationRelation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;parentSenseParentEntry,',
         ],

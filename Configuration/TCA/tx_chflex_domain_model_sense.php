@@ -228,6 +228,15 @@ return [
                     'showAllLocalizationLink' => true,
                     'showSynchronizationLink' => true,
                 ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'parent_entry' => [
+                            'config' => [
+                                'readOnly' => true,
+                            ],
+                        ],
+                    ],
+                ],
             ],
         ],
         'frequency' => [
@@ -248,6 +257,15 @@ return [
                     'showPossibleLocalizationRecords' => true,
                     'showAllLocalizationLink' => true,
                     'showSynchronizationLink' => true,
+                ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'parent_entry' => [
+                            'config' => [
+                                'readOnly' => true,
+                            ],
+                        ],
+                    ],
                 ],
             ],
         ],
