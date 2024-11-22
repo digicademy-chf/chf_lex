@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Domain\Repository;
 
+use Digicademy\CHFBase\Domain\Repository\Traits\StoragePageAgnosticTrait;
 use Digicademy\CHFLex\Domain\Model\Sense;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
@@ -22,6 +23,8 @@ defined('TYPO3') or die();
  */
 class SenseRepository extends Repository
 {
+    use StoragePageAgnosticTrait;
+
     protected $defaultOrderings = [
         'sorting'   => QueryInterface::ORDER_ASCENDING,
         'indicator' => QueryInterface::ORDER_ASCENDING,
