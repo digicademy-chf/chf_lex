@@ -93,9 +93,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chflex_domain_model_dictionary_entry}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table' => 'tx_chflex_domain_model_dictionaryentry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionaryentry}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_dictionaryentry}.{#sys_language_uid} IN (-1,0)',
                 'default' => 0,
             ],
         ],
@@ -185,7 +185,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'partOfSpeechTag\'',
-                'MM' => 'tx_chflex_domain_model_dictionary_entry_tag_partofspeech_mm',
+                'MM' => 'tx_chflex_domain_model_dictionaryentry_tag_partofspeech_mm',
                 'multiple' => 1,
             ],
         ],
@@ -236,7 +236,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
-                'MM' => 'tx_chflex_domain_model_dictionary_entry_tag_label_mm',
+                'MM' => 'tx_chflex_domain_model_dictionaryentry_tag_label_mm',
                 'multiple' => 1,
                 'treeConfig' => [
                     'parentField' => 'parent_label_tag',
@@ -345,7 +345,7 @@ return [
             'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.dictionaryEntry.inflectedForm.description',
             'config' => [
                 'type' => 'inline',
-                'foreign_table' => 'tx_chflex_domain_model_inflected_form',
+                'foreign_table' => 'tx_chflex_domain_model_inflectedform',
                 'foreign_field' => 'parent_entry',
                 'appearance' => [
                     'collapseAll' => true,
@@ -369,7 +369,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chflex_domain_model_dictionary_entry',
+                    'tablenames' => 'tx_chflex_domain_model_dictionaryentry',
                     'fieldname' => 'similarity_relation',
                 ],
                 'MM_opposite_field' => 'record',
@@ -469,7 +469,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chflex_domain_model_dictionary_entry',
+                    'tablenames' => 'tx_chflex_domain_model_dictionaryentry',
                     'fieldname' => 'link_relation',
                 ],
                 'MM_opposite_field' => 'record',
@@ -561,7 +561,7 @@ return [
             'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.sameAs.description',
             'config' => [
                 'type' => 'inline',
-                'foreign_table' => 'tx_chfbase_domain_model_same_as',
+                'foreign_table' => 'tx_chfbase_domain_model_sameas',
                 'foreign_field' => 'parent',
                 'foreign_table_field' => 'parent_table',
                 'appearance' => [
@@ -638,7 +638,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chflex_domain_model_dictionary_entry',
+                    'tablenames' => 'tx_chflex_domain_model_dictionaryentry',
                     'fieldname' => 'authorship_relation',
                 ],
                 'MM_opposite_field' => 'record',
@@ -680,7 +680,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chflex_domain_model_dictionary_entry',
+                    'tablenames' => 'tx_chflex_domain_model_dictionaryentry',
                     'fieldname' => 'licence_relation',
                 ],
                 'MM_opposite_field' => 'record',
@@ -832,7 +832,7 @@ return [
                 'foreign_table' => 'tx_chflex_domain_model_member',
                 'MM' => 'tx_chflex_domain_model_any_member_ref_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chflex_domain_model_dictionary_entry',
+                    'tablenames' => 'tx_chflex_domain_model_dictionaryentry',
                     'fieldname' => 'as_ref_of_member',
                 ],
                 'MM_opposite_field' => 'ref',
@@ -854,7 +854,7 @@ return [
                     . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'similarityRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_relatedrecord_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chflex_domain_model_dictionary_entry',
+                    'tablenames' => 'tx_chflex_domain_model_dictionaryentry',
                     'fieldname' => 'as_related_record_of_similarity_relation',
                 ],
                 'MM_opposite_field' => 'related_record',

@@ -90,9 +90,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table' => 'tx_chflex_domain_model_inflected_form',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_inflected_form}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chflex_domain_model_inflected_form}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table' => 'tx_chflex_domain_model_inflectedform',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_inflectedform}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_inflectedform}.{#sys_language_uid} IN (-1,0)',
                 'default' => 0,
             ],
         ],
@@ -182,7 +182,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'inflectionTypeTag\'',
-                'MM' => 'tx_chflex_domain_model_inflected_form_tag_inflectiontype_mm',
+                'MM' => 'tx_chflex_domain_model_inflectedform_tag_inflectiontype_mm',
                 'multiple' => 1,
                 'maxitems' => 1,
                 'sortItems' => [
@@ -231,7 +231,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
-                'MM' => 'tx_chflex_domain_model_inflected_form_tag_label_mm',
+                'MM' => 'tx_chflex_domain_model_inflectedform_tag_label_mm',
                 'multiple' => 1,
                 'treeConfig' => [
                     'parentField' => 'parent_label_tag',
@@ -251,8 +251,8 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
+                'foreign_table' => 'tx_chflex_domain_model_dictionaryentry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionaryentry}.{#pid}=###CURRENT_PID###',
                 'sortItems' => [
                     'label' => 'asc',
                 ],

@@ -277,8 +277,8 @@ return [
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
+                'foreign_table' => 'tx_chflex_domain_model_dictionaryentry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionaryentry}.{#pid}=###CURRENT_PID###',
                 'sortItems' => [
                     'label' => 'asc',
                 ],
@@ -303,7 +303,7 @@ return [
             'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.sameAs.description',
             'config' => [
                 'type' => 'inline',
-                'foreign_table' => 'tx_chfbase_domain_model_same_as',
+                'foreign_table' => 'tx_chfbase_domain_model_sameas',
                 'foreign_field' => 'parent',
                 'foreign_table_field' => 'parent_table',
                 'appearance' => [

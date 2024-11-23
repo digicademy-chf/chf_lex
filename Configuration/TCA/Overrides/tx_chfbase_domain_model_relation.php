@@ -52,14 +52,14 @@ defined('TYPO3') or die();
             'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.similarityRelation.relatedRecord.description',
             'config' => [
                 'type' => 'group',
-                'allowed' => 'tx_chflex_domain_model_dictionary_entry,tx_chflex_domain_model_encyclopedia_entry,',
-                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry', // Needed by Extbase as of TYPO3 12, remove when possible
+                'allowed' => 'tx_chflex_domain_model_dictionaryentry,tx_chflex_domain_model_encyclopediaentry,',
+                'foreign_table' => 'tx_chflex_domain_model_dictionaryentry', // Needed by Extbase as of TYPO3 12, remove when possible
                 'MM' => 'tx_chfbase_domain_model_relation_any_relatedrecord_mm',
                 'MM_oppositeUsage' => [
-                    'tx_chflex_domain_model_dictionary_entry' => [
+                    'tx_chflex_domain_model_dictionaryentry' => [
                         'as_related_record_of_similarity_relation',
                     ],
-                    'tx_chflex_domain_model_encyclopedia_entry' => [
+                    'tx_chflex_domain_model_encyclopediaentry' => [
                         'as_related_record_of_similarity_relation',
                     ],
                 ],

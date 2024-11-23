@@ -20,17 +20,17 @@ CREATE TABLE tx_chflex_domain_model_definition_tag_definitiontype_mm (
 	tablenames varchar(63) DEFAULT '' NOT NULL
 );
 
-CREATE TABLE tx_chflex_domain_model_dictionary_entry_tag_label_mm (
+CREATE TABLE tx_chflex_domain_model_dictionaryentry_tag_label_mm (
 	fieldname varchar(63) DEFAULT '' NOT NULL,
 	tablenames varchar(63) DEFAULT '' NOT NULL
 );
 
-CREATE TABLE tx_chflex_domain_model_dictionary_entry_tag_partofspeech_mm (
+CREATE TABLE tx_chflex_domain_model_dictionaryentry_tag_partofspeech_mm (
 	fieldname varchar(63) DEFAULT '' NOT NULL,
 	tablenames varchar(63) DEFAULT '' NOT NULL
 );
 
-CREATE TABLE tx_chflex_domain_model_encyclopedia_entry_tag_label_mm (
+CREATE TABLE tx_chflex_domain_model_encyclopediaentry_tag_label_mm (
 	fieldname varchar(63) DEFAULT '' NOT NULL,
 	tablenames varchar(63) DEFAULT '' NOT NULL
 );
@@ -45,12 +45,12 @@ CREATE TABLE tx_chflex_domain_model_frequency_feature_geodata_mm (
 	tablenames varchar(63) DEFAULT '' NOT NULL
 );
 
-CREATE TABLE tx_chflex_domain_model_inflected_form_tag_inflectiontype_mm (
+CREATE TABLE tx_chflex_domain_model_inflectedform_tag_inflectiontype_mm (
 	fieldname varchar(63) DEFAULT '' NOT NULL,
 	tablenames varchar(63) DEFAULT '' NOT NULL
 );
 
-CREATE TABLE tx_chflex_domain_model_inflected_form_tag_label_mm (
+CREATE TABLE tx_chflex_domain_model_inflectedform_tag_label_mm (
 	fieldname varchar(63) DEFAULT '' NOT NULL,
 	tablenames varchar(63) DEFAULT '' NOT NULL
 );

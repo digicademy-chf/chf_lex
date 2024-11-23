@@ -35,11 +35,11 @@ class EncyclopediaEntry extends AbstractEntry
      * Construct object
      *
      * @param string $title
-     * @param object $parentResource
+     * @param LexicographicResource $parentResource
      * @param string $uuid
      * @return EncyclopediaEntry
      */
-    public function __construct(string $title, object $parentResource, string $uuid)
+    public function __construct(string $title, LexicographicResource $parentResource, string $uuid)
     {
         parent::__construct($parentResource, $uuid);
 

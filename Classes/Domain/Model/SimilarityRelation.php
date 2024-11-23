@@ -24,10 +24,10 @@ class SimilarityRelation extends AbstractRelation
     /**
      * Record to connect a relation to
      * 
-     * @var object|LazyLoadingProxy|null
+     * @var DictionaryEntry|EncyclopediaEntry|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected object|null $record = null;
+    protected DictionaryEntry|EncyclopediaEntry|null $record = null;
 
     /**
      * Similar record to connect the previous record to
@@ -40,13 +40,13 @@ class SimilarityRelation extends AbstractRelation
     /**
      * Construct object
      *
-     * @param object $record
+     * @param DictionaryEntry|EncyclopediaEntry $record
      * @param DictionaryEntry|EncyclopediaEntry $relatedRecord
-     * @param object $parentResource
+     * @param LexicographicRelation $parentResource
      * @param string $uuid
      * @return SimilarityRelation
      */
-    public function __construct(object $record, DictionaryEntry|EncyclopediaEntry $relatedRecord, object $parentResource, string $uuid)
+    public function __construct(DictionaryEntry|EncyclopediaEntry $record, DictionaryEntry|EncyclopediaEntry $relatedRecord, LexicographicRelation $parentResource, string $uuid)
     {
         parent::__construct($parentResource, $uuid);
         $this->initializeObject();
@@ -67,9 +67,9 @@ class SimilarityRelation extends AbstractRelation
     /**
      * Get record
      * 
-     * @return object
+     * @return DictionaryEntry|EncyclopediaEntry
      */
-    public function getRecord(): object
+    public function getRecord(): DictionaryEntry|EncyclopediaEntry
     {
         if ($this->record instanceof LazyLoadingProxy) {
             $this->record->_loadRealInstance();
@@ -80,9 +80,9 @@ class SimilarityRelation extends AbstractRelation
     /**
      * Set record
      * 
-     * @param object
+     * @param DictionaryEntry|EncyclopediaEntry
      */
-    public function setRecord(object $record): void
+    public function setRecord(DictionaryEntry|EncyclopediaEntry $record): void
     {
         $this->record = $record;
     }

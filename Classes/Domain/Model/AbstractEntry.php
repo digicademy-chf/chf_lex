@@ -43,11 +43,11 @@ class AbstractEntry extends AbstractHeritage
     /**
      * Construct object
      *
-     * @param object $parentResource
+     * @param LexicographicResource $parentResource
      * @param string $uuid
      * @return AbstractEntry
      */
-    public function __construct(object $parentResource, string $uuid)
+    public function __construct(LexicographicResource $parentResource, string $uuid)
     {
         parent::__construct($parentResource, $uuid);
         $this->initializeObject();

@@ -157,11 +157,11 @@ return [
             'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.member.ref.description',
             'config' => [
                 'type' => 'group',
-                'allowed' => 'tx_chflex_domain_model_dictionary_entry,tx_chflex_domain_model_sense,',
-                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry', // Needed by Extbase as of TYPO3 12, remove when possible
+                'allowed' => 'tx_chflex_domain_model_dictionaryentry,tx_chflex_domain_model_sense,',
+                'foreign_table' => 'tx_chflex_domain_model_dictionaryentry', // Needed by Extbase as of TYPO3 12, remove when possible
                 'MM' => 'tx_chflex_domain_model_any_member_ref_mm',
                 'MM_oppositeUsage' => [
-                    'tx_chflex_domain_model_dictionary_entry' => [
+                    'tx_chflex_domain_model_dictionaryentry' => [
                         'as_ref_of_member',
                     ],
                     'tx_chflex_domain_model_sense' => [

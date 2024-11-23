@@ -36,7 +36,7 @@ defined('TYPO3') or die();
             'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.lexicographicResource.allDictionaryEntries.description',
             'config' => [
                 'type' => 'inline',
-                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
+                'foreign_table' => 'tx_chflex_domain_model_dictionaryentry',
                 'foreign_field' => 'parent_resource',
                 'foreign_sortby' => 'sorting',
                 'appearance' => [
@@ -58,7 +58,7 @@ defined('TYPO3') or die();
             'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.lexicographicResource.allEncyclopediaEntries.description',
             'config' => [
                 'type' => 'inline',
-                'foreign_table' => 'tx_chflex_domain_model_encyclopedia_entry',
+                'foreign_table' => 'tx_chflex_domain_model_encyclopediaentry',
                 'foreign_field' => 'parent_resource',
                 'foreign_sortby' => 'sorting',
                 'appearance' => [

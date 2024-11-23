@@ -25,6 +25,10 @@ return [
             'lexicographicResource' => Digicademy\CHFLex\Domain\Model\LexicographicResource::class,
         ],
     ],
+    Digicademy\CHFLex\Domain\Model\LexicographicResource::class => [
+        'tableName' => 'tx_chfbase_domain_model_resource',
+        'recordType' => 'lexicographicResource',
+    ],
     Digicademy\CHFBase\Domain\Model\AbstractTag::class => [
         'subclasses' => [
             'partOfSpeechTag' => Digicademy\CHFLex\Domain\Model\PartOfSpeechTag::class,
@@ -35,10 +39,42 @@ return [
             'memberRoleTag' => Digicademy\CHFLex\Domain\Model\MemberRoleTag::class,
         ],
     ],
+    Digicademy\CHFLex\Domain\Model\PartOfSpeechTag::class => [
+        'tableName' => 'tx_chfbase_domain_model_tag',
+        'recordType' => 'partOfSpeechTag',
+    ],
+    Digicademy\CHFLex\Domain\Model\InflectionTypeTag::class => [
+        'tableName' => 'tx_chfbase_domain_model_tag',
+        'recordType' => 'inflectionTypeTag',
+    ],
+    Digicademy\CHFLex\Domain\Model\DefinitionTypeTag::class => [
+        'tableName' => 'tx_chfbase_domain_model_tag',
+        'recordType' => 'definitionTypeTag',
+    ],
+    Digicademy\CHFLex\Domain\Model\TranscriptionSchemeTag::class => [
+        'tableName' => 'tx_chfbase_domain_model_tag',
+        'recordType' => 'transcriptionSchemeTag',
+    ],
+    Digicademy\CHFLex\Domain\Model\RelationTypeTag::class => [
+        'tableName' => 'tx_chfbase_domain_model_tag',
+        'recordType' => 'relationTypeTag',
+    ],
+    Digicademy\CHFLex\Domain\Model\MemberRoleTag::class => [
+        'tableName' => 'tx_chfbase_domain_model_tag',
+        'recordType' => 'memberRoleTag',
+    ],
     Digicademy\CHFBase\Domain\Model\AbstractRelation::class => [
         'subclasses' => [
             'similarityRelation' => Digicademy\CHFLex\Domain\Model\SimilarityRelation::class,
             'lexicographicRelation' => Digicademy\CHFLex\Domain\Model\LexicographicRelation::class,
         ],
+    ],
+    Digicademy\CHFLex\Domain\Model\SimilarityRelation::class => [
+        'tableName' => 'tx_chfbase_domain_model_relation',
+        'recordType' => 'similarityRelation',
+    ],
+    Digicademy\CHFLex\Domain\Model\LexicographicRelation::class => [
+        'tableName' => 'tx_chfbase_domain_model_relation',
+        'recordType' => 'lexicographicRelation',
     ],
 ];

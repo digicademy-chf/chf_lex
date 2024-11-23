@@ -315,8 +315,8 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table' => 'tx_chflex_domain_model_dictionary_entry',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionary_entry}.{#pid}=###CURRENT_PID###',
+                'foreign_table' => 'tx_chflex_domain_model_dictionaryentry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionaryentry}.{#pid}=###CURRENT_PID###',
                 'sortItems' => [
                     'label' => 'asc',
                 ],

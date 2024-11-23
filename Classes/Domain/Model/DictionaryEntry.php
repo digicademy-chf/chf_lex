@@ -136,11 +136,11 @@ class DictionaryEntry extends AbstractEntry
      * Construct object
      *
      * @param string $headword
-     * @param object $parentResource
+     * @param LexicographicResource $parentResource
      * @param string $uuid
      * @return DictionaryEntry
      */
-    public function __construct(string $headword, object $parentResource, string $uuid)
+    public function __construct(string $headword, LexicographicResource $parentResource, string $uuid)
     {
         parent::__construct($parentResource, $uuid);
         $this->initializeObject();

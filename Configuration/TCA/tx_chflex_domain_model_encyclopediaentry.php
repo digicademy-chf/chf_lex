@@ -91,9 +91,9 @@ return [
                         'value' => 0,
                     ],
                 ],
-                'foreign_table' => 'tx_chflex_domain_model_encyclopedia_entry',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_encyclopedia_entry}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chflex_domain_model_encyclopedia_entry}.{#sys_language_uid} IN (-1,0)',
+                'foreign_table' => 'tx_chflex_domain_model_encyclopediaentry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_encyclopediaentry}.{#pid}=###CURRENT_PID###'
+                    . ' AND {#tx_chflex_domain_model_encyclopediaentry}.{#sys_language_uid} IN (-1,0)',
                 'default' => 0,
             ],
         ],
@@ -177,7 +177,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
                     . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
-                'MM' => 'tx_chflex_domain_model_encyclopedia_entry_tag_label_mm',
+                'MM' => 'tx_chflex_domain_model_encyclopediaentry_tag_label_mm',
                 'multiple' => 1,
                 'treeConfig' => [
                     'parentField' => 'parent_label_tag',
@@ -199,7 +199,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chflex_domain_model_encyclopedia_entry',
+                    'tablenames' => 'tx_chflex_domain_model_encyclopediaentry',
                     'fieldname' => 'similarity_relation',
                 ],
                 'MM_opposite_field' => 'record',
@@ -299,7 +299,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chflex_domain_model_encyclopedia_entry',
+                    'tablenames' => 'tx_chflex_domain_model_encyclopediaentry',
                     'fieldname' => 'link_relation',
                 ],
                 'MM_opposite_field' => 'record',
@@ -391,7 +391,7 @@ return [
             'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.sameAs.description',
             'config' => [
                 'type' => 'inline',
-                'foreign_table' => 'tx_chfbase_domain_model_same_as',
+                'foreign_table' => 'tx_chfbase_domain_model_sameas',
                 'foreign_field' => 'parent',
                 'foreign_table_field' => 'parent_table',
                 'appearance' => [
@@ -468,7 +468,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chflex_domain_model_dictionary_entry',
+                    'tablenames' => 'tx_chflex_domain_model_dictionaryentry',
                     'fieldname' => 'authorship_relation',
                 ],
                 'MM_opposite_field' => 'record',
@@ -510,7 +510,7 @@ return [
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
                 'MM' => 'tx_chfbase_domain_model_relation_any_record_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chflex_domain_model_encyclopedia_entry',
+                    'tablenames' => 'tx_chflex_domain_model_encyclopediaentry',
                     'fieldname' => 'licence_relation',
                 ],
                 'MM_opposite_field' => 'record',
@@ -652,7 +652,7 @@ return [
                     . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'similarityRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_relatedrecord_mm',
                 'MM_match_fields' => [
-                    'tablenames' => 'tx_chflex_domain_model_encyclopedia_entry',
+                    'tablenames' => 'tx_chflex_domain_model_encyclopediaentry',
                     'fieldname' => 'as_related_record_of_similarity_relation',
                 ],
                 'MM_opposite_field' => 'related_record',
