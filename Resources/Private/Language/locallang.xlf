@@ -572,14 +572,14 @@
                 <source>Dictionary</source>
             </trans-unit>
             <trans-unit id="plugin.dictionary.description" resname="plugin.dictionary.description">
-                <source>View dictionary entries</source>
+                <source>List and show dictionary entries</source>
             </trans-unit>
             <!-- Plugin: Encyclopedia -->
             <trans-unit id="plugin.encyclopedia" resname="plugin.encyclopedia">
                 <source>Encyclopedia</source>
             </trans-unit>
             <trans-unit id="plugin.encyclopedia.description" resname="plugin.encyclopedia.description">
-                <source>View encyclopedia entries</source>
+                <source>List and show encyclopedia entries</source>
             </trans-unit>
         </body>
     </file>

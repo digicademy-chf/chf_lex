@@ -7,8 +7,8 @@ declare(strict_types=1);
 # LICENSE.txt file that was distributed with this source code.
 
 
-use Digicademy\CHFLex\Controller\DictionaryEntryController;
-use Digicademy\CHFLex\Controller\EncyclopediaEntryController;
+use Digicademy\CHFLex\Controller\DictionaryController;
+use Digicademy\CHFLex\Controller\EncyclopediaController;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') or die();
@@ -23,7 +23,7 @@ ExtensionUtility::configurePlugin(
     'CHFLex',
     'Dictionary',
     [
-        DictionaryEntryController::class => 'index, show',
+        DictionaryController::class => 'index, show',
     ],
     [], // None of the actions are non-cacheable
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
@@ -34,7 +34,7 @@ ExtensionUtility::configurePlugin(
     'CHFLex',
     'Encyclopedia',
     [
-        EncyclopediaEntryController::class => 'index, show',
+        EncyclopediaController::class => 'index, show',
     ],
     [], // None of the actions are non-cacheable
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT

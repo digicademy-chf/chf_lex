@@ -9,28 +9,28 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Controller;
 
-use Psr\Http\Message\ResponseInterface;
+use Digicademy\CHFBase\Domain\Repository\AbstractResourceRepository;
 use Digicademy\CHFLex\Domain\Model\EncyclopediaEntry;
-use Digicademy\CHFLex\Domain\Repository\EncyclopediaEntryRepository;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 defined('TYPO3') or die();
 
 /**
- * Controller for EncyclopediaEntry
+ * Controller for Encyclopedia
  */
-class EncyclopediaEntryController extends ActionController
+class EncyclopediaController extends ActionController
 {
-    private EncyclopediaEntryRepository $encyclopediaEntryRepository;
+    private AbstractResourceRepository $abstractResourceRepository;
 
-    public function injectEncyclopediaEntryRepository(EncyclopediaEntryRepository $encyclopediaEntryRepository): void
+    public function injectAbstractResourceRepository(AbstractResourceRepository $abstractResourceRepository): void
     {
-        $this->encyclopediaEntryRepository = $encyclopediaEntryRepository;
+        $this->abstractResourceRepository = $abstractResourceRepository;
     }
 
     public function indexAction(): ResponseInterface
     {
-        $this->view->assign('encyclopediaEntries', $this->encyclopediaEntryRepository->findAll());
+        $this->view->assign('resource', $this->abstractResourceRepository->findOneBy(['type' => 'lexicographicResource']));
         return $this->htmlResponse();
     }
 

@@ -754,8 +754,8 @@
                 <target>Wörterbuch</target>
             </trans-unit>
             <trans-unit id="plugin.dictionary.description" resname="plugin.dictionary.description" approved="yes">
-                <source>View dictionary entries</source>
-                <target>Anzeige von Wörterbucheinträgen</target>
+                <source>List and show dictionary entries</source>
+                <target>Wörterbucheinträge auflisten und anzeigen</target>
             </trans-unit>
             <!-- Plugin: Encyclopedia -->
             <trans-unit id="plugin.encyclopedia" resname="plugin.encyclopedia" approved="yes">
@@ -763,8 +763,8 @@
                 <target>Lexikon</target>
             </trans-unit>
             <trans-unit id="plugin.encyclopedia.description" resname="plugin.encyclopedia.description" approved="yes">
-                <source>View encyclopedia entries</source>
-                <target>Anzeige von Lexikoneinträgen</target>
+                <source>List and show encyclopedia entries</source>
+                <target>Lexikoneinträge auflisten und anzeigen</target>
             </trans-unit>
         </body>
     </file>

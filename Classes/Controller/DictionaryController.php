@@ -9,28 +9,28 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Controller;
 
-use Psr\Http\Message\ResponseInterface;
+use Digicademy\CHFBase\Domain\Repository\AbstractResourceRepository;
 use Digicademy\CHFLex\Domain\Model\DictionaryEntry;
-use Digicademy\CHFLex\Domain\Repository\DictionaryEntryRepository;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 defined('TYPO3') or die();
 
 /**
- * Controller for DictionaryEntry
+ * Controller for Dictionary
  */
-class DictionaryEntryController extends ActionController
+class DictionaryController extends ActionController
 {
-    private DictionaryEntryRepository $dictionaryEntryRepository;
+    private AbstractResourceRepository $abstractResourceRepository;
 
-    public function injectDictionaryEntryRepository(DictionaryEntryRepository $dictionaryEntryRepository): void
+    public function injectAbstractResourceRepository(AbstractResourceRepository $abstractResourceRepository): void
     {
-        $this->dictionaryEntryRepository = $dictionaryEntryRepository;
+        $this->abstractResourceRepository = $abstractResourceRepository;
     }
 
     public function indexAction(): ResponseInterface
     {
-        $this->view->assign('dictionaryEntries', $this->dictionaryEntryRepository->findAll());
+        $this->view->assign('resource', $this->abstractResourceRepository->findOneBy(['type' => 'lexicographicResource']));
         return $this->htmlResponse();
     }
 
