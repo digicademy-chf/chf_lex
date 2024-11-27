@@ -1,0 +1,4 @@
+// Include custom link/email/softref fields in link validation
+mod.linkvalidator.searchFields {
+  tx_chflex_domain_model_definition = text
+}
