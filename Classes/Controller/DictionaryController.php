@@ -12,6 +12,7 @@ namespace Digicademy\CHFLex\Controller;
 use Digicademy\CHFBase\Domain\Repository\AbstractResourceRepository;
 use Digicademy\CHFLex\Domain\Model\DictionaryEntry;
 use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Core\Cache\CacheTag;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 defined('TYPO3') or die();
@@ -28,16 +29,43 @@ class DictionaryController extends ActionController
         $this->abstractResourceRepository = $abstractResourceRepository;
     }
 
+    /**
+     * Show dictionary entry list
+     *
+     * @return ResponseInterface
+     */
     public function indexAction(): ResponseInterface
     {
+        // Get resource
         $resourceIdentifier = $this->settings['resource'];
         $this->view->assign('resource', $this->abstractResourceRepository->findByIdentifier($resourceIdentifier));
+
+        // Set cache tag
+        $this->request->getAttribute('frontend.cache.collector')->addCacheTags(
+            new CacheTag('chf')
+        );
+
+        // Create response
         return $this->htmlResponse();
     }
 
-    public function showAction(DictionaryEntry $entry): ResponseInterface
+    /**
+     * Show single dictionary entry
+     *
+     * @param DictionaryEntry $dictionaryEntry
+     * @return ResponseInterface
+     */
+    public function showAction(DictionaryEntry $dictionaryEntry): ResponseInterface
     {
-        $this->view->assign('dictionaryEntry', $entry);
+        // Get dictionary entry
+        $this->view->assign('dictionaryEntry', $dictionaryEntry);
+
+        // Set cache tag
+        $this->request->getAttribute('frontend.cache.collector')->addCacheTags(
+            new CacheTag('chf')
+        );
+
+        // Create response
         return $this->htmlResponse();
     }
 }
