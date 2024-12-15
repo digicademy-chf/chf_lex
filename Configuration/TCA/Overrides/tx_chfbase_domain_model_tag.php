@@ -478,22 +478,19 @@ defined('TYPO3') or die();
 );
 
 // Create palette 'memberTypeHint'
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
-    'tx_chfbase_domain_model_tag',
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_chfbase_domain_model_tag',
     'memberTypeHint',
     'member_type,hint,'
 );
 
 // Create palette 'minMax'
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
-    'tx_chfbase_domain_model_tag',
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_chfbase_domain_model_tag',
     'minMax',
     'min,max,'
 );
 
 // Create palette 'parentResourceParentRelationTypeTag'
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
-    'tx_chfbase_domain_model_tag',
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_chfbase_domain_model_tag',
     'parentRelationTypeTagParentResource',
     'parent_relation_type_tag,parent_resource,'
 );

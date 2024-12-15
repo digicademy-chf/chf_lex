@@ -118,8 +118,7 @@ defined('TYPO3') or die();
 );
 
 // Create palette 'volumeEssayPosition'
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
-    'tx_chfbase_domain_model_relation',
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_chfbase_domain_model_relation',
     'lexicographicRelationTypeMember',
     'lexicographic_relation_type,--linebreak--,member,'
 );
