@@ -19,7 +19,6 @@ use Digicademy\CHFBase\Domain\Model\LocationRelation;
 use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 use Digicademy\CHFBib\Domain\Model\SourceRelation;
 use Digicademy\CHFMap\Domain\Model\Feature;
-use Digicademy\CHFMap\Domain\Model\FeatureCollection;
 
 defined('TYPO3') or die();
 
@@ -106,10 +105,10 @@ class Frequency extends AbstractEntity
     /**
      * Feature to use as geodata of this frequency
      * 
-     * @var Feature|FeatureCollection|LazyLoadingProxy|null
+     * @var Feature|LazyLoadingProxy|null
      */
     #[Lazy()]
-    protected Feature|FeatureCollection|LazyLoadingProxy|null $geodata = null;
+    protected Feature|LazyLoadingProxy|null $geodata = null;
 
     /**
      * Location related to this record
@@ -294,9 +293,9 @@ class Frequency extends AbstractEntity
     /**
      * Get geodata
      * 
-     * @return Feature|FeatureCollection
+     * @return Feature
      */
-    public function getGeodata(): Feature|FeatureCollection
+    public function getGeodata(): Feature
     {
         if ($this->geodata instanceof LazyLoadingProxy) {
             $this->geodata->_loadRealInstance();
@@ -307,9 +306,9 @@ class Frequency extends AbstractEntity
     /**
      * Set geodata
      * 
-     * @param Feature|FeatureCollection
+     * @param Feature
      */
-    public function setGeodata(Feature|FeatureCollection $geodata): void
+    public function setGeodata(Feature $geodata): void
     {
         $this->geodata = $geodata;
     }
