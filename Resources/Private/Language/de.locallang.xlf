@@ -748,6 +748,15 @@
                 <source>Non-standard date of the frequency</source>
                 <target>Nicht standardiesierter Zeitpunkt der Häufigkeit</target>
             </trans-unit>
+            <!-- Object: Distribution -->
+            <trans-unit id="object.distribution.parentFrequency" resname="object.distribution.parentFrequency" approved="yes">
+                <source>Parent frequency</source>
+                <target>Übergeordnete Häufigkeit</target>
+            </trans-unit>
+            <trans-unit id="object.distribution.parentFrequency.description" resname="object.distribution.parentFrequency.description" approved="yes">
+                <source>Frequency that this distribution is part of</source>
+                <target>Häufigkeit, zu der diese Verteilung gehört</target>
+            </trans-unit>
             <!-- Plugin: Dictionary -->
             <trans-unit id="plugin.dictionary" resname="plugin.dictionary" approved="yes">
                 <source>Dictionary</source>

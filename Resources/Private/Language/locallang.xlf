@@ -567,6 +567,13 @@
             <trans-unit id="object.frequency.dateText.description" resname="object.frequency.dateText.description">
                 <source>Non-standard date of the frequency</source>
             </trans-unit>
+            <!-- Object: Distribution -->
+            <trans-unit id="object.distribution.parentFrequency" resname="object.distribution.parentFrequency">
+                <source>Parent frequency</source>
+            </trans-unit>
+            <trans-unit id="object.distribution.parentFrequency.description" resname="object.distribution.parentFrequency.description">
+                <source>Frequency that this distribution is part of</source>
+            </trans-unit>
             <!-- Plugin: Dictionary -->
             <trans-unit id="plugin.dictionary" resname="plugin.dictionary">
                 <source>Dictionary</source>
