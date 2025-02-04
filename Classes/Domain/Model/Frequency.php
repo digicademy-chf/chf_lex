@@ -18,7 +18,7 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Digicademy\CHFBase\Domain\Model\LocationRelation;
 use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 use Digicademy\CHFBib\Domain\Model\SourceRelation;
-use Digicademy\CHFMap\Domain\Model\Feature;
+use Digicademy\CHFMap\Domain\Model\Distribution;
 
 defined('TYPO3') or die();
 
@@ -103,12 +103,15 @@ class Frequency extends AbstractEntity
     protected string $dateText = '';
 
     /**
-     * Feature to use as geodata of this frequency
+     * Geographic distribution of this frequency
      * 
-     * @var Feature|LazyLoadingProxy|null
+     * @var ?ObjectStorage<Distribution>
      */
     #[Lazy()]
-    protected Feature|LazyLoadingProxy|null $geodata = null;
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+    protected ?ObjectStorage $distribution = null;
 
     /**
      * Location related to this record
@@ -166,6 +169,7 @@ class Frequency extends AbstractEntity
      */
     public function initializeObject(): void
     {
+        $this->distribution ??= new ObjectStorage();
         $this->locationRelation ??= new ObjectStorage();
         $this->sourceRelation ??= new ObjectStorage();
     }
@@ -291,26 +295,52 @@ class Frequency extends AbstractEntity
     }
 
     /**
-     * Get geodata
-     * 
-     * @return Feature
+     * Get distribution
+     *
+     * @return ObjectStorage<Distribution>
      */
-    public function getGeodata(): Feature
+    public function getDistribution(): ?ObjectStorage
     {
-        if ($this->geodata instanceof LazyLoadingProxy) {
-            $this->geodata->_loadRealInstance();
-        }
-        return $this->geodata;
+        return $this->distribution;
     }
 
     /**
-     * Set geodata
-     * 
-     * @param Feature
+     * Set distribution
+     *
+     * @param ObjectStorage<Distribution> $distribution
      */
-    public function setGeodata(Feature $geodata): void
+    public function setDistribution(ObjectStorage $distribution): void
     {
-        $this->geodata = $geodata;
+        $this->distribution = $distribution;
+    }
+
+    /**
+     * Add distribution
+     *
+     * @param Distribution $distribution
+     */
+    public function addDistribution(Distribution $distribution): void
+    {
+        $this->distribution?->attach($distribution);
+    }
+
+    /**
+     * Remove distribution
+     *
+     * @param Distribution $distribution
+     */
+    public function removeDistribution(Distribution $distribution): void
+    {
+        $this->distribution?->detach($distribution);
+    }
+
+    /**
+     * Remove all distributions
+     */
+    public function removeAllDistribution(): void
+    {
+        $distribution = clone $this->distribution;
+        $this->distribution->removeAll($distribution);
     }
 
     /**

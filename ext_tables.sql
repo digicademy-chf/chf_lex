@@ -40,11 +40,6 @@ CREATE TABLE tx_chflex_domain_model_example_tag_label_mm (
 	tablenames varchar(63) DEFAULT '' NOT NULL
 );
 
-CREATE TABLE tx_chflex_domain_model_frequency_feature_geodata_mm (
-	fieldname varchar(63) DEFAULT '' NOT NULL,
-	tablenames varchar(63) DEFAULT '' NOT NULL
-);
-
 CREATE TABLE tx_chflex_domain_model_inflectedform_tag_inflectiontype_mm (
 	fieldname varchar(63) DEFAULT '' NOT NULL,
 	tablenames varchar(63) DEFAULT '' NOT NULL
