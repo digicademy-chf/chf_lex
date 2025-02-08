@@ -340,21 +340,15 @@ return [
         ],
     ],
     'palettes' => [
-        'definitionIndicator' => [
-            'showitem' => 'definition,--linebreak--,indicator,',
-        ],
-        'exampleFrequency' => [
-            'showitem' => 'example,--linebreak--,frequency,',
-        ],
-        'iriUuidSameAs' => [
-            'showitem' => 'iri,uuid,--linebreak--,same_as',
+        'iriUuid' => [
+            'showitem' => 'iri,uuid,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => '--palette--;;definitionIndicator,label,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,--palette--;;exampleFrequency,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_entry,--palette--;;iriUuidSameAs,
+            'showitem' => 'definition,indicator,label,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,example,frequency,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_entry,--palette--;;iriUuid,same_as,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,as_ref_of_member,',
         ],
     ],

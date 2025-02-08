@@ -868,49 +868,28 @@ return [
         'headwordPartOfSpeechHomographNumber' => [
             'showitem' => 'headword,part_of_speech,--linebreak--,homograph_number,',
         ],
-        'exampleFrequency' => [
-            'showitem' => 'example,--linebreak--,frequency,',
-        ],
-        'pronunciationInflectedForm' => [
-            'showitem' => 'pronunciation,--linebreak--,inflected_form,',
-        ],
-        'contentElementFootnote' => [
-            'showitem' => 'content_element,--linebreak--,footnote,',
-        ],
-        'mediaFile' => [
-            'showitem' => 'media,--linebreak--,file,',
-        ],
-        'sourceRelationLinkRelation' => [
-            'showitem' => 'source_relation,--linebreak--,link_relation,',
-        ],
         'isTeaserIsHighlight' => [
             'showitem' => 'is_teaser,is_highlight,',
         ],
-        'iriUuidSameAs' => [
-            'showitem' => 'iri,uuid,--linebreak--,same_as,',
+        'iriUuid' => [
+            'showitem' => 'iri,uuid,',
         ],
-        'publicationDateRevisionDateRevisionNumberEditorialNote' => [
-            'showitem' => 'publication_date,revision_date,revision_number,--linebreak--,editorial_note,',
+        'publicationDateRevisionDateRevisionNumber' => [
+            'showitem' => 'publication_date,revision_date,revision_number,',
         ],
-        'authorshipRelationLicenceRelation' => [
-            'showitem' => 'authorship_relation,--linebreak--,licence_relation,',
-        ],
-        'editorialQueryEditorialStepsPublicationSteps' => [
-            'showitem' => 'editorial_query,--linebreak--,editorial_steps,publication_steps,',
-        ],
-        'importOriginImport' => [
-            'showitem' => 'import_origin,--linebreak--,import,',
+        'editorialStepsPublicationSteps' => [
+            'showitem' => 'editorial_steps,publication_steps,',
         ],
     ],
     'types' => [
         '0' => [
             'showitem' => '--palette--;;headwordPartOfSpeechHomographNumber,sense,label,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,--palette--;;exampleFrequency,--palette--;;pronunciationInflectedForm,similarity_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.unstructured,--palette--;;contentElementFootnote,--palette--;;mediaFile,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,--palette--;;sourceRelationLinkRelation,publication_relation,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;isTeaserIsHighlight,parent_resource,--palette--;;iriUuidSameAs,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumberEditorialNote,--palette--;;authorshipRelationLicenceRelation,--palette--;;editorialQueryEditorialStepsPublicationSteps,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,--palette--;;importOriginImport,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,example,frequency,pronunciation,inflected_form,,similarity_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.unstructured,content_element,footnote,media,file,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,link_relation,publication_relation,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;isTeaserIsHighlight,parent_resource,--palette--;;iriUuid,same_as,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,editorial_note,authorship_relation,licence_relation,editorial_query,--palette--;;editorialStepsPublicationSteps,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,import,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,as_ref_of_member,as_related_record_of_similarity_relation,',
         ],
     ],

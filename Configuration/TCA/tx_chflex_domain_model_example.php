@@ -349,14 +349,8 @@ return [
 
     ],
     'palettes' => [
-        'textSoundFile' => [
-            'showitem' => 'text,--linebreak--,sound_file,',
-        ],
         'dateDateText' => [
             'showitem' => 'date,date_text,',
-        ],
-        'agentRelationLocationRelation' => [
-            'showitem' => 'agent_relation,--linebreak--,location_relation,',
         ],
         'parentSenseParentEntry' => [
             'showitem' => 'parent_sense,parent_entry,',
@@ -364,8 +358,8 @@ return [
     ],
     'types' => [
         '0' => [
-            'showitem' => '--palette--;;textSoundFile,--palette--;;dateDateText,label,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,--palette--;;agentRelationLocationRelation,
+            'showitem' => 'text,sound_file,--palette--;;dateDateText,label,
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,agent_relation,location_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.bibliography,source_relation,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;parentSenseParentEntry,',
         ],

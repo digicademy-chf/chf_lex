@@ -207,14 +207,10 @@ return [
             ],
         ],
     ],
-    'palettes' => [
-        'definitionTypeText' => [
-            'showitem' => 'definition_type,--linebreak--,text,',
-        ],
-    ],
+    'palettes' => [],
     'types' => [
         '0' => [
-            'showitem' => '--palette--;;definitionTypeText,
+            'showitem' => 'definition_type,text,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_sense,',
         ],
     ],

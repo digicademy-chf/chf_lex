@@ -248,16 +248,13 @@ return [
         ],
     ],
     'palettes' => [
-        'transcriptionSoundFile' => [
-            'showitem' => 'transcription,--linebreak--,sound_file,',
-        ],
         'parentInflectedFormParentEntry' => [
             'showitem' => 'parent_inflected_form,parent_entry,',
         ],
     ],
     'types' => [
         '0' => [
-            'showitem' => '--palette--;;transcriptionSoundFile,label,
+            'showitem' => 'transcription,sound_file,label,
             --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;parentInflectedFormParentEntry,',
         ],
     ],
