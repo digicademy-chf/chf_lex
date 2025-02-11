@@ -125,17 +125,13 @@ class Sense extends AbstractEntity
      * Construct object
      *
      * @param DictionaryEntry $parentEntry
-     * @param string $iri
-     * @param string $uuid
      * @return Sense
      */
-    public function __construct(DictionaryEntry $parentEntry, string $iri, string $uuid)
+    public function __construct(DictionaryEntry $parentEntry)
     {
         $this->initializeObject();
 
         $this->setParentEntry($parentEntry);
-        $this->setIri($iri);
-        $this->setUuid($uuid);
     }
 
     /**

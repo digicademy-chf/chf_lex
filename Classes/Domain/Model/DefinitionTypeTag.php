@@ -34,13 +34,11 @@ class DefinitionTypeTag extends AbstractTag
      * @param string $text
      * @param string $code
      * @param LexicographicResource $parentResource
-     * @param string $iri
-     * @param string $uuid
      * @return DefinitionTypeTag
      */
-    public function __construct(string $text, string $code, LexicographicResource $parentResource, string $iri, string $uuid)
+    public function __construct(string $text, string $code, LexicographicResource $parentResource)
     {
-        parent::__construct($text, $code, $parentResource, $iri, $uuid);
+        parent::__construct($text, $code, $parentResource);
         $this->initializeObject();
 
         $this->setType('definitionTypeTag');

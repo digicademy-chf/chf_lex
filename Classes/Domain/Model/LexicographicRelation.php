@@ -47,13 +47,11 @@ class LexicographicRelation extends AbstractRelation
      * @param RelationTypeTag $lexicographicRelationType
      * @param Member $member
      * @param LexicographicResource $parentResource
-     * @param string $iri
-     * @param string $uuid
      * @return LexicographicRelation
      */
-    public function __construct(RelationTypeTag $lexicographicRelationType, Member $member, LexicographicResource $parentResource, string $iri, string $uuid)
+    public function __construct(RelationTypeTag $lexicographicRelationType, Member $member, LexicographicResource $parentResource)
     {
-        parent::__construct($parentResource, $iri, $uuid);
+        parent::__construct($parentResource);
         $this->initializeObject();
 
         $this->setType('lexicographicRelation');

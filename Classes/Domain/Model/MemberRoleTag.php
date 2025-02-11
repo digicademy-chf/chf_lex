@@ -106,14 +106,12 @@ class MemberRoleTag extends AbstractTag
      * @param string $text
      * @param string $code
      * @param LexicographicResource $parentResource
-     * @param string $iri
-     * @param string $uuid
      * @param string $memberType
      * @return MemberRoleTag
      */
-    public function __construct(string $text, string $code, LexicographicResource $parentResource, string $iri, string $uuid, string $memberType)
+    public function __construct(string $text, string $code, LexicographicResource $parentResource, string $memberType)
     {
-        parent::__construct($text, $code, $parentResource, $iri, $uuid);
+        parent::__construct($text, $code, $parentResource);
         $this->initializeObject();
 
         $this->setType('memberRoleTag');

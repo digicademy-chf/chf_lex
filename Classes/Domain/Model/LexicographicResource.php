@@ -57,13 +57,11 @@ class LexicographicResource extends AbstractResource
      * Construct object
      *
      * @param string $langCode
-     * @param string $iri
-     * @param string $uuid
      * @return LexicographicResource
      */
-    public function __construct(string $langCode, string $iri, string $uuid)
+    public function __construct(string $langCode)
     {
-        parent::__construct($langCode, $iri, $uuid);
+        parent::__construct($langCode);
         $this->initializeObject();
 
         $this->setType('lexicographicResource');
