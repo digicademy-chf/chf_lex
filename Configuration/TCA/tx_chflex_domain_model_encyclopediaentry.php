@@ -35,7 +35,7 @@ return [
         'transOrigPointerField'    => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'translationSource'        => 'l10n_source',
-        'searchFields'             => 'title,uuid,publication_date,revision_date,revision_number,editorial_note,editorial_steps,publication_steps,import_origin,import',
+        'searchFields'             => 'title,iri,uuid,publication_date,revision_date,revision_number,editorial_note,editorial_steps,publication_steps,import_origin,import',
         'enablecolumns'            => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
@@ -371,6 +371,32 @@ return [
                     'label' => 'asc',
                 ],
                 'required' => true,
+            ],
+        ],
+        'iri' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.iri',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.iri.description',
+            'config' => [
+                'type' => 'slug',
+                'size' => 40,
+                'appearance' => [
+                    'prefix' => 'Digicademy\CHFBase\UserFunctions\FormEngine\SlugPrefix->getPrefix',
+                ],
+                'prependSlash' => false,
+                'generatorOptions' => [
+                    'fields' => [
+                        'uid',
+                    ],
+                    'fieldSeparator' => '/',
+                    'prefixParentPageSlug' => false,
+                    'replacements' => [
+                        '/' => '',
+                    ],
+                ],
+                'eval' => 'uniqueInSite',
+                'fallbackCharacter' => '',
             ],
         ],
         'uuid' => [
