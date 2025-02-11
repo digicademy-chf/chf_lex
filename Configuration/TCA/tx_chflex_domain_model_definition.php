@@ -180,8 +180,7 @@ return [
                     ],
                 ],
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'definitionTypeTag\'',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#type}=\'definitionTypeTag\'',
                 'MM' => 'tx_chflex_domain_model_definition_tag_definitiontype_mm',
                 'multiple' => 1,
                 'maxitems' => 1,
@@ -199,7 +198,6 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_chflex_domain_model_sense',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_sense}.{#pid}=###CURRENT_PID###',
                 'sortItems' => [
                     'label' => 'asc',
                 ],

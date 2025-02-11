@@ -85,8 +85,7 @@ defined('TYPO3') or die();
                     ],
                 ],
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'relationType\'',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#type}=\'relationType\'',
                 'MM' => 'tx_chfbase_domain_model_relation_tag_lexrelationtype_mm',
                 'multiple' => 1,
             ],

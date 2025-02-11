@@ -190,8 +190,7 @@ return [
                     ],
                 ],
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'memberRoleTag\'',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#type}=\'memberRoleTag\'',
                 'MM' => 'tx_chflex_domain_model_member_tag_role_mm',
                 'multiple' => 1,
             ],
@@ -205,8 +204,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'lexicographicRelation\'',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#type}=\'lexicographicRelation\'',
                 'sortItems' => [
                     'label' => 'asc',
                 ],

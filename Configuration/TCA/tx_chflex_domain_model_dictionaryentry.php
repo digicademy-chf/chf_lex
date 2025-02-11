@@ -183,8 +183,7 @@ return [
                     ],
                 ],
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'partOfSpeechTag\'',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#type}=\'partOfSpeechTag\'',
                 'MM' => 'tx_chflex_domain_model_dictionaryentry_tag_partofspeech_mm',
                 'multiple' => 1,
             ],
@@ -234,8 +233,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectTree',
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
                 'MM' => 'tx_chflex_domain_model_dictionaryentry_tag_label_mm',
                 'multiple' => 1,
                 'treeConfig' => [
@@ -535,8 +533,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingleBox',
                 'foreign_table' => 'tx_chfbase_domain_model_resource',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_resource}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_resource}.{#type}=\'lexicographicResource\'',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_resource}.{#type}=\'lexicographicResource\'',
                 'sortItems' => [
                     'label' => 'asc',
                 ],
@@ -876,8 +873,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'similarityRelation\'',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#type}=\'similarityRelation\'',
                 'MM' => 'tx_chfbase_domain_model_relation_any_relatedrecord_mm',
                 'MM_match_fields' => [
                     'tablenames' => 'tx_chflex_domain_model_dictionaryentry',

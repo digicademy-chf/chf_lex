@@ -295,7 +295,6 @@ return [
                     ],
                 ],
                 'foreign_table' => 'tx_chflex_domain_model_sense',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_sense}.{#pid}=###CURRENT_PID###',
                 'sortItems' => [
                     'label' => 'asc',
                 ],
@@ -316,7 +315,6 @@ return [
                     ],
                 ],
                 'foreign_table' => 'tx_chflex_domain_model_dictionaryentry',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionaryentry}.{#pid}=###CURRENT_PID###',
                 'sortItems' => [
                     'label' => 'asc',
                 ],

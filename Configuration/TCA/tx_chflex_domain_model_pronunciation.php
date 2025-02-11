@@ -190,8 +190,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectTree',
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
                 'MM' => 'tx_chflex_domain_model_pronunciation_tag_label_mm',
                 'multiple' => 1,
                 'treeConfig' => [
@@ -219,7 +218,6 @@ return [
                     ],
                 ],
                 'foreign_table' => 'tx_chflex_domain_model_inflectedform',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_inflectedform}.{#pid}=###CURRENT_PID###',
                 'sortItems' => [
                     'label' => 'asc',
                 ],
@@ -240,7 +238,6 @@ return [
                     ],
                 ],
                 'foreign_table' => 'tx_chflex_domain_model_dictionaryentry',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionaryentry}.{#pid}=###CURRENT_PID###',
                 'sortItems' => [
                     'label' => 'asc',
                 ],
