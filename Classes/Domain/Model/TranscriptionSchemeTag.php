@@ -9,8 +9,6 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Domain\Model;
 
-use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Digicademy\CHFBase\Domain\Model\AbstractTag;
 
 defined('TYPO3') or die();
@@ -21,82 +19,15 @@ defined('TYPO3') or die();
 class TranscriptionSchemeTag extends AbstractTag
 {
     /**
-     * List of transcriptions that use this scheme
-     * 
-     * @var ?ObjectStorage<Transcription>
-     */
-    #[Lazy()]
-    protected ?ObjectStorage $asSchemeOfTranscription;
-
-    /**
      * Construct object
      *
      * @param string $text
-     * @param LexicographicResource $parentResource
      * @return TranscriptionSchemeTag
      */
-    public function __construct(string $text, LexicographicResource $parentResource)
+    public function __construct(string $text)
     {
-        parent::__construct($text, $parentResource);
-        $this->initializeObject();
+        parent::__construct($text);
 
         $this->setType('transcriptionSchemeTag');
-    }
-
-    /**
-     * Initialize object
-     */
-    public function initializeObject(): void
-    {
-        $this->asSchemeOfTranscription ??= new ObjectStorage();
-    }
-
-    /**
-     * Get as scheme of transcription
-     *
-     * @return ObjectStorage<Transcription>
-     */
-    public function getAsSchemeOfTranscription(): ?ObjectStorage
-    {
-        return $this->asSchemeOfTranscription;
-    }
-
-    /**
-     * Set as scheme of transcription
-     *
-     * @param ObjectStorage<Transcription> $asSchemeOfTranscription
-     */
-    public function setAsSchemeOfTranscription(ObjectStorage $asSchemeOfTranscription): void
-    {
-        $this->asSchemeOfTranscription = $asSchemeOfTranscription;
-    }
-
-    /**
-     * Add as scheme of transcription
-     *
-     * @param Transcription $asSchemeOfTranscription
-     */
-    public function addAsSchemeOfTranscription(Transcription $asSchemeOfTranscription): void
-    {
-        $this->asSchemeOfTranscription?->attach($asSchemeOfTranscription);
-    }
-
-    /**
-     * Remove as scheme of transcription
-     *
-     * @param Transcription $asSchemeOfTranscription
-     */
-    public function removeAsSchemeOfTranscription(Transcription $asSchemeOfTranscription): void
-    {
-        $this->asSchemeOfTranscription?->detach($asSchemeOfTranscription);
-    }
-
-    /**
-     * Remove all as scheme of transcriptions
-     */
-    public function removeAllAsSchemeOfTranscription(): void
-    {
-        $asSchemeOfTranscription = clone $this->asSchemeOfTranscription;
-        $this->asSchemeOfTranscription->removeAll($asSchemeOfTranscription);
     }
 }

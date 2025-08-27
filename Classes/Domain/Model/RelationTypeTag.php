@@ -9,11 +9,11 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Domain\Model;
 
+use Digicademy\CHFBase\Domain\Model\AbstractTag;
+use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use Digicademy\CHFBase\Domain\Model\AbstractTag;
-use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 
 defined('TYPO3') or die();
 
@@ -49,23 +49,14 @@ class RelationTypeTag extends AbstractTag
     protected ?ObjectStorage $memberRole;
 
     /**
-     * List of lexicographic relations of this type
-     * 
-     * @var ?ObjectStorage<LexicographicRelation>
-     */
-    #[Lazy()]
-    protected ?ObjectStorage $asLexicographicRelationTypeOfLexicographicRelation;
-
-    /**
      * Construct object
      *
      * @param string $text
-     * @param LexicographicResource $parentResource
      * @return RelationTypeTag
      */
-    public function __construct(string $text, LexicographicResource $parentResource)
+    public function __construct(string $text)
     {
-        parent::__construct($text, $parentResource);
+        parent::__construct($text);
         $this->initializeObject();
 
         $this->setType('relationTypeTag');
@@ -77,7 +68,6 @@ class RelationTypeTag extends AbstractTag
     public function initializeObject(): void
     {
         $this->memberRole ??= new ObjectStorage();
-        $this->asLexicographicRelationTypeOfLexicographicRelation ??= new ObjectStorage();
     }
 
     /**
@@ -147,54 +137,5 @@ class RelationTypeTag extends AbstractTag
     {
         $memberRole = clone $this->memberRole;
         $this->memberRole->removeAll($memberRole);
-    }
-
-    /**
-     * Get as lexicographic relation type of lexicographic relation
-     *
-     * @return ObjectStorage<LexicographicRelation>
-     */
-    public function getAsLexicographicRelationTypeOfLexicographicRelation(): ?ObjectStorage
-    {
-        return $this->asLexicographicRelationTypeOfLexicographicRelation;
-    }
-
-    /**
-     * Set as lexicographic relation type of lexicographic relation
-     *
-     * @param ObjectStorage<LexicographicRelation> $asLexicographicRelationTypeOfLexicographicRelation
-     */
-    public function setAsLexicographicRelationTypeOfLexicographicRelation(ObjectStorage $asLexicographicRelationTypeOfLexicographicRelation): void
-    {
-        $this->asLexicographicRelationTypeOfLexicographicRelation = $asLexicographicRelationTypeOfLexicographicRelation;
-    }
-
-    /**
-     * Add as lexicographic relation type of lexicographic relation
-     *
-     * @param LexicographicRelation $asLexicographicRelationTypeOfLexicographicRelation
-     */
-    public function addAsLexicographicRelationTypeOfLexicographicRelation(LexicographicRelation $asLexicographicRelationTypeOfLexicographicRelation): void
-    {
-        $this->asLexicographicRelationTypeOfLexicographicRelation?->attach($asLexicographicRelationTypeOfLexicographicRelation);
-    }
-
-    /**
-     * Remove as lexicographic relation type of lexicographic relation
-     *
-     * @param LexicographicRelation $asLexicographicRelationTypeOfLexicographicRelation
-     */
-    public function removeAsLexicographicRelationTypeOfLexicographicRelation(LexicographicRelation $asLexicographicRelationTypeOfLexicographicRelation): void
-    {
-        $this->asLexicographicRelationTypeOfLexicographicRelation?->detach($asLexicographicRelationTypeOfLexicographicRelation);
-    }
-
-    /**
-     * Remove all as lexicographic relation type of lexicographic relations
-     */
-    public function removeAllAsLexicographicRelationTypeOfLexicographicRelation(): void
-    {
-        $asLexicographicRelationTypeOfLexicographicRelation = clone $this->asLexicographicRelationTypeOfLexicographicRelation;
-        $this->asLexicographicRelationTypeOfLexicographicRelation->removeAll($asLexicographicRelationTypeOfLexicographicRelation);
     }
 }

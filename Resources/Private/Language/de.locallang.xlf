@@ -3,75 +3,10 @@
     <file source-language="en" target-language="de" datatype="plaintext" original="EXT:chf_lex/Resources/Private/Language/de.locallang.xlf" date="2023-09-25T10:48:43Z" product-name="chf_lex">
         <header/>
         <body>
-            <!-- Object: LabelTag -->
-            <trans-unit id="object.labelTag.asLabelOfDictionaryEntry" resname="object.labelTag.asLabelOfDictionaryEntry" approved="yes">
-                <source>Usage as label of a dictionary entry</source>
-                <target>Verwendung als Label eines Wörterbucheintrags</target>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfDictionaryEntry.description" resname="object.labelTag.asLabelOfDictionaryEntry.description" approved="yes">
-                <source>List of dictionary entries that use this label</source>
-                <target>Liste der Wörterbucheinträge, die dieses Label verwenden</target>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfEncyclopediaEntry" resname="object.labelTag.asLabelOfEncyclopediaEntry" approved="yes">
-                <source>Usage as label of a encyclopedia entry</source>
-                <target>Verwendung als Label eines Lexikoneintrags</target>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfEncyclopediaEntry.description" resname="object.labelTag.asLabelOfEncyclopediaEntry.description" approved="yes">
-                <source>List of encyclopedia entries that use this label</source>
-                <target>Liste der Lexikoneinträge, die dieses Label verwenden</target>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfInflectedForm" resname="object.labelTag.asLabelOfInflectedForm" approved="yes">
-                <source>Usage as label of an inflected form</source>
-                <target>Verwendung als Label einer gebeugten Form</target>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfInflectedForm.description" resname="object.labelTag.asLabelOfInflectedForm.description" approved="yes">
-                <source>List of inflected forms that use this label</source>
-                <target>Liste der gebeugten Formen, die dieses Label verwenden</target>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfSense" resname="object.labelTag.asLabelOfSense" approved="yes">
-                <source>Usage as label of a sense</source>
-                <target>Verwendung als Label einer Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfSense.description" resname="object.labelTag.asLabelOfSense.description" approved="yes">
-                <source>List of senses that use this label</source>
-                <target>Liste der Bedeutungen, die dieses Label verwenden</target>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfPronunciation" resname="object.labelTag.asLabelOfPronunciation" approved="yes">
-                <source>Usage as label of a pronunciation</source>
-                <target>Verwendung als Label einer Aussprache</target>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfPronunciation.description" resname="object.labelTag.asLabelOfPronunciation.description" approved="yes">
-                <source>List of pronunciations that use this label</source>
-                <target>Liste der Aussprachen, die dieses Label verwenden</target>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfExample" resname="object.labelTag.asLabelOfExample" approved="yes">
-                <source>Usage as label of an example</source>
-                <target>Verwendung als Label eines Beispiels</target>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfExample.description" resname="object.labelTag.asLabelOfExample.description" approved="yes">
-                <source>List of examples that use this label</source>
-                <target>Liste der Beispiele, die dieses Label verwenden</target>
-            </trans-unit>
             <!-- Object: LexicographicResource -->
             <trans-unit id="object.lexicographicResource.type.lexicographicResource" resname="object.lexicographicResource.type.lexicographicResource" approved="yes">
                 <source>Lexicographic resource</source>
                 <target>Lexikografische Ressource</target>
-            </trans-unit>
-            <trans-unit id="object.lexicographicResource.allDictionaryEntries" resname="object.lexicographicResource.allDictionaryEntries" approved="yes">
-                <source>All dictionary entries</source>
-                <target>Alle Wörterbucheinträge</target>
-            </trans-unit>
-            <trans-unit id="object.lexicographicResource.allDictionaryEntries.description" resname="object.lexicographicResource.allDictionaryEntries.description" approved="yes">
-                <source>List of all dictionary entries compiled in this resource</source>
-                <target>Liste aller Wörterbucheinträge, die in dieser Ressource verzeichnet sind</target>
-            </trans-unit>
-            <trans-unit id="object.lexicographicResource.allEncyclopediaEntries" resname="object.lexicographicResource.allEncyclopediaEntries" approved="yes">
-                <source>All encyclopedia entries</source>
-                <target>Alle Lexikoneinträge</target>
-            </trans-unit>
-            <trans-unit id="object.lexicographicResource.allEncyclopediaEntries.description" resname="object.lexicographicResource.allEncyclopediaEntries.description" approved="yes">
-                <source>List of all encyclopedia entries compiled in this resource</source>
-                <target>Liste aller Lexikoneinträge, die in dieser Ressource verzeichnet sind</target>
             </trans-unit>
             <!-- Object: SimilarityRelation -->
             <trans-unit id="object.similarityRelation.type.similarityRelation" resname="object.similarityRelation.type.similarityRelation" approved="yes">
@@ -112,14 +47,6 @@
                 <source>Part of speech</source>
                 <target>Wortart</target>
             </trans-unit>
-            <trans-unit id="object.partOfSpeechTag.asPartOfSpeechOfDictionaryEntry" resname="object.partOfSpeechTag.asPartOfSpeechOfDictionaryEntry" approved="yes">
-                <source>Usage as part of speech of a dictionary entry</source>
-                <target>Verwendung als Wortart eines Wörterbucheintrags</target>
-            </trans-unit>
-            <trans-unit id="object.partOfSpeechTag.asPartOfSpeechOfDictionaryEntry.description" resname="object.partOfSpeechTag.asPartOfSpeechOfDictionaryEntry.description" approved="yes">
-                <source>List of dictionary entries that use this part of speech</source>
-                <target>Liste der Wörterbucheinträge, die diese Wortart verwenden</target>
-            </trans-unit>
             <!-- Object: InflectionTypeTag -->
             <trans-unit id="object.inflectionTypeTag.type.inflectionTypeTag" resname="object.inflectionTypeTag.type.inflectionTypeTag" approved="yes">
                 <source>Inflection type</source>
@@ -133,39 +60,15 @@
                 <source>Constraints and recommendations on where this inflection type may apply</source>
                 <target>Einschränkungen und Empfehlungen zur Nutzung dieser Beugungsart</target>
             </trans-unit>
-            <trans-unit id="object.inflectionTypeTag.asInflectionTypeOfInflectedForm" resname="object.inflectionTypeTag.asInflectionTypeOfInflectedForm" approved="yes">
-                <source>Usage as inflection type of an inflected form</source>
-                <target>Verwendung als Beugungsart einer gebeugten Form</target>
-            </trans-unit>
-            <trans-unit id="object.inflectionTypeTag.asInflectionTypeOfInflectedForm.description" resname="object.inflectionTypeTag.asInflectionTypeOfInflectedForm.description" approved="yes">
-                <source>List of inflected forms that use this inflection type</source>
-                <target>Liste der gebeugten Formen, die dieses Beugungsart verwenden</target>
-            </trans-unit>
             <!-- Object: DefinitionTypeTag -->
             <trans-unit id="object.definitionTypeTag.type.definitionTypeTag" resname="object.definitionTypeTag.type.definitionTypeTag" approved="yes">
                 <source>Definition type</source>
                 <target>Definitionsart</target>
             </trans-unit>
-            <trans-unit id="object.definitionTypeTag.asDefinitionTypeOfDefinition" resname="object.definitionTypeTag.asDefinitionTypeOfDefinition" approved="yes">
-                <source>Usage as definition type of a definition</source>
-                <target>Verwendung als Definitionsart einer Definition</target>
-            </trans-unit>
-            <trans-unit id="object.definitionTypeTag.asDefinitionTypeOfDefinition.description" resname="object.definitionTypeTag.asDefinitionTypeOfDefinition.description" approved="yes">
-                <source>List of definitions that use this definition type</source>
-                <target>Liste der Definitionen, die diese Definitionsart verwenden</target>
-            </trans-unit>
             <!-- Object: TranscriptionSchemeTag -->
             <trans-unit id="object.transcriptionSchemeTag.type.transcriptionSchemeTag" resname="object.transcriptionSchemeTag.type.transcriptionSchemeTag" approved="yes">
                 <source>Transcription scheme</source>
                 <target>Transkriptionsschema</target>
-            </trans-unit>
-            <trans-unit id="object.transcriptionSchemeTag.asSchemeOfTranscription" resname="object.transcriptionSchemeTag.asSchemeOfTranscription" approved="yes">
-                <source>Usage as scheme of a transcription</source>
-                <target>Verwendung als Schema einer Transkription</target>
-            </trans-unit>
-            <trans-unit id="object.transcriptionSchemeTag.asSchemeOfTranscription.description" resname="object.transcriptionSchemeTag.asSchemeOfTranscription.description" approved="yes">
-                <source>List of transcriptions that use this scheme</source>
-                <target>Liste der Transkriptionen, die dieses Schema verwenden</target>
             </trans-unit>
             <!-- Object: RelationTypeTag -->
             <trans-unit id="object.relationTypeTag.type.relationTypeTag" resname="object.relationTypeTag.type.relationTypeTag" approved="yes">
@@ -199,14 +102,6 @@
             <trans-unit id="object.relationTypeTag.memberRole.description" resname="object.relationTypeTag.memberRole.description" approved="yes">
                 <source>Defines which roles members of this relation may have</source>
                 <target>Legt fest, welche Rollen Mitglieder dieser Relation haben können</target>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.asLexicographicRelationTypeOfLexicographicRelation" resname="object.relationTypeTag.asLexicographicRelationTypeOfLexicographicRelation" approved="yes">
-                <source>Usage as type of a lexicographic relation</source>
-                <target>Verwendung als Art einer lexikografischen Relation</target>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.asLexicographicRelationTypeOfLexicographicRelation.description" resname="object.relationTypeTag.asLexicographicRelationTypeOfLexicographicRelation.description" approved="yes">
-                <source>List of lexicographic relations of this type</source>
-                <target>Liste der lexikografischen Relationen dieser Art</target>
             </trans-unit>
             <!-- Object: MemberRoleTag -->
             <trans-unit id="object.memberRoleTag.type.memberRoleTag" resname="object.memberRoleTag.type.memberRoleTag" approved="yes">
@@ -277,14 +172,6 @@
                 <source>Do not display</source>
                 <target>Nicht anzeigen</target>
             </trans-unit>
-            <trans-unit id="object.memberRoleTag.asRoleOfMember" resname="object.memberRoleTag.asRoleOfMember" approved="yes">
-                <source>Usage as role of a relation member</source>
-                <target>Verwendung als Rolle einer Mitgliedsangabe</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.asRoleOfMember.description" resname="object.memberRoleTag.asRoleOfMember.description" approved="yes">
-                <source>List of relation members that use this role</source>
-                <target>Liste der Mitgliedsangaben, die diese Rolle verwenden</target>
-            </trans-unit>
             <!-- Object: AbstractEntry -->
             <trans-unit id="object.abstractEntry.similarityRelation" resname="object.abstractEntry.similarityRelation" approved="yes">
                 <source>Similarity relation</source>
@@ -293,14 +180,6 @@
             <trans-unit id="object.abstractEntry.similarityRelation.description" resname="object.abstractEntry.similarityRelation.description" approved="yes">
                 <source>Similar lexicographic entries related to this record</source>
                 <target>Ähnliche lexikografische Einträge, die für diesen Eintrag relevant sind</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.asRelatedRecordOfSimilarityRelation" resname="object.abstractEntry.asRelatedRecordOfSimilarityRelation" approved="yes">
-                <source>Usage as related database record of a similarity relation</source>
-                <target>Verwendung als ähnlicher Datenbankeintrag einer Ähnlichkeitsrelation</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.asRelatedRecordOfSimilarityRelation.description" resname="object.abstractEntry.asRelatedRecordOfSimilarityRelation.description" approved="yes">
-                <source>List of similarity relations that use this entry as a related record</source>
-                <target>Liste der Ähnlichkeitsrelation, die diesen Eintrag als ähnlichen Eintrag verwenden</target>
             </trans-unit>
             <!-- Object: DictionaryEntry -->
             <trans-unit id="object.dictionaryEntry" resname="object.dictionaryEntry" approved="yes">
@@ -378,14 +257,6 @@
             <trans-unit id="object.dictionaryEntry.inflectedForm.description" resname="object.dictionaryEntry.inflectedForm.description" approved="yes">
                 <source>List of the headword's inflected forms</source>
                 <target>Liste der gebeugten Formen des Lemmas</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.asRefOfMember" resname="object.dictionaryEntry.asRefOfMember" approved="yes">
-                <source>As reference of a relation member</source>
-                <target>Als Bezugspunkt einer Mitgliedsangabe</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.asRefOfMember.description" resname="object.dictionaryEntry.asRefOfMember.description" approved="yes">
-                <source>List of memberships in a lexicographic relation</source>
-                <target>Liste der Mitgliedschaften in einer lexikografischen Relationen</target>
             </trans-unit>
             <!-- Object: EncyclopediaEntry -->
             <trans-unit id="object.encyclopediaEntry" resname="object.encyclopediaEntry" approved="yes">
@@ -510,14 +381,6 @@
             <trans-unit id="object.sense.frequency.description" resname="object.sense.frequency.description" approved="yes">
                 <source>List of domestic and foreign frequency data</source>
                 <target>Liste mit Angaben zur Häufigkeit im In- und Ausland</target>
-            </trans-unit>
-            <trans-unit id="object.sense.asRefOfMember" resname="object.sense.asRefOfMember" approved="yes">
-                <source>As reference of a relation member</source>
-                <target>Als Bezugspunkt einer Mitgliedsangabe</target>
-            </trans-unit>
-            <trans-unit id="object.sense.asRefOfMember.description" resname="object.sense.asRefOfMember.description" approved="yes">
-                <source>List of memberships in a lexicographic relation</source>
-                <target>Liste der Mitgliedschaften in einer lexikografischen Relationen</target>
             </trans-unit>
             <!-- Object: Pronunciation -->
             <trans-unit id="object.pronunciation" resname="object.pronunciation" approved="yes">

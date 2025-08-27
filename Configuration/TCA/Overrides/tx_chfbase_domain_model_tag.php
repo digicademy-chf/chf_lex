@@ -256,7 +256,9 @@ defined('TYPO3') or die();
                 'type' => 'select',
                 'renderType' => 'selectTree',
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#type}=\'relationTypeTag\'',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#pid} IN (###CURRENT_PID###, ###SITE:settings.chf.data.page###)'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'relationTypeTag\'',
                 'treeConfig' => [
                     'parentField' => 'parent_relation_type_tag',
                     'appearance' => [
@@ -266,199 +268,6 @@ defined('TYPO3') or die();
                 ],
                 'maxitems' => 1,
                 'size' => 8,
-            ],
-        ],
-        'as_label_of_dictionary_entry' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfDictionaryEntry',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfDictionaryEntry.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chflex_domain_model_dictionaryentry',
-                'MM' => 'tx_chflex_domain_model_dictionaryentry_tag_label_mm',
-                'MM_opposite_field' => 'label',
-                'multiple' => 1,
-                'size' => 5,
-                'autoSizeMax' => 10,
-            ],
-        ],
-        'as_label_of_encyclopedia_entry' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfEncyclopediaEntry',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfEncyclopediaEntry.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chflex_domain_model_encyclopediaentry',
-                'MM' => 'tx_chflex_domain_model_encyclopediaentry_tag_label_mm',
-                'MM_opposite_field' => 'label',
-                'multiple' => 1,
-                'size' => 5,
-                'autoSizeMax' => 10,
-            ],
-        ],
-        'as_label_of_inflected_form' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfInflectedForm',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfInflectedForm.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chflex_domain_model_inflectedform',
-                'MM' => 'tx_chflex_domain_model_inflectedform_tag_label_mm',
-                'MM_opposite_field' => 'label',
-                'multiple' => 1,
-                'size' => 5,
-                'autoSizeMax' => 10,
-            ],
-        ],
-        'as_label_of_sense' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfSense',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfSense.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chflex_domain_model_sense',
-                'MM' => 'tx_chflex_domain_model_sense_tag_label_mm',
-                'MM_opposite_field' => 'label',
-                'multiple' => 1,
-                'size' => 5,
-                'autoSizeMax' => 10,
-            ],
-        ],
-        'as_label_of_pronunciation' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfPronunciation',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfPronunciation.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chflex_domain_model_pronunciation',
-                'MM' => 'tx_chflex_domain_model_pronunciation_tag_label_mm',
-                'MM_opposite_field' => 'label',
-                'multiple' => 1,
-                'size' => 5,
-                'autoSizeMax' => 10,
-            ],
-        ],
-        'as_label_of_example' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfExample',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.labelTag.asLabelOfExample.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chflex_domain_model_example',
-                'MM' => 'tx_chflex_domain_model_example_tag_label_mm',
-                'MM_opposite_field' => 'label',
-                'multiple' => 1,
-                'size' => 5,
-                'autoSizeMax' => 10,
-            ],
-        ],
-        'as_part_of_speech_of_dictionary_entry' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.partOfSpeechTag.asPartOfSpeechOfDictionaryEntry',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.partOfSpeechTag.asPartOfSpeechOfDictionaryEntry.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chflex_domain_model_dictionaryentry',
-                'MM' => 'tx_chflex_domain_model_dictionaryentry_tag_partofspeech_mm',
-                'MM_opposite_field' => 'part_of_speech',
-                'multiple' => 1,
-                'size' => 5,
-                'autoSizeMax' => 10,
-            ],
-        ],
-        'as_inflection_type_of_inflected_form' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.inflectionTypeTag.asInflectionTypeOfInflectedForm',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.inflectionTypeTag.asInflectionTypeOfInflectedForm.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chflex_domain_model_inflectedform',
-                'MM' => 'tx_chflex_domain_model_inflectedform_tag_inflectiontype_mm',
-                'MM_opposite_field' => 'inflection_type',
-                'multiple' => 1,
-                'size' => 5,
-                'autoSizeMax' => 10,
-            ],
-        ],
-        'as_definition_type_of_definition' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.definitionTypeTag.asDefinitionTypeOfDefinition',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.definitionTypeTag.asDefinitionTypeOfDefinition.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chflex_domain_model_definition',
-                'MM' => 'tx_chflex_domain_model_definition_tag_definitiontype_mm',
-                'MM_opposite_field' => 'definition_type',
-                'multiple' => 1,
-                'size' => 5,
-                'autoSizeMax' => 10,
-            ],
-        ],
-        'as_scheme_of_transcription' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.transcriptionSchemeTag.asSchemeOfTranscription',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.transcriptionSchemeTag.asSchemeOfTranscription.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chflex_domain_model_transcription',
-                'MM' => 'tx_chflex_domain_model_transcription_tag_scheme_mm',
-                'MM_opposite_field' => 'scheme',
-                'multiple' => 1,
-                'size' => 5,
-                'autoSizeMax' => 10,
-            ],
-        ],
-        'as_lexicographic_relation_type_of_lexicographic_relation' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.relationTypeTag.asLexicographicRelationTypeOfLexicographicRelation',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.relationTypeTag.asLexicographicRelationTypeOfLexicographicRelation.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#type}=\'lexicographicRelation\'',
-                'MM' => 'tx_chfbase_domain_model_relation_tag_lexrelationtype_mm',
-                'MM_opposite_field' => 'lexicographic_relation_type',
-                'multiple' => 1,
-                'size' => 5,
-                'autoSizeMax' => 10,
-            ],
-        ],
-        'as_role_of_member' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.asRoleOfMember',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.memberRoleTag.asRoleOfMember.description',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_chflex_domain_model_member',
-                'MM' => 'tx_chflex_domain_model_member_tag_role_mm',
-                'MM_opposite_field' => 'role',
-                'multiple' => 1,
-                'size' => 5,
-                'autoSizeMax' => 10,
             ],
         ],
     ]
@@ -485,44 +294,55 @@ defined('TYPO3') or die();
 // Add type 'partOfSpeechTag' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['partOfSpeechTag' => [
     'showitem' => 'type,--palette--;;textCode,description,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_resource,--palette--;;iriUuid,same_as,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,as_part_of_speech_of_dictionary_entry,',
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,items,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,parent_resource,--palette--;;iriUuid,same_as,',
 ]];
 
 // Add type 'inflectionTypeTag' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['inflectionTypeTag' => [
     'showitem' => 'type,--palette--;;textCode,description,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,items,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,for,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_resource,--palette--;;iriUuid,same_as,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,as_inflection_type_of_inflected_form,',
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,parent_resource,--palette--;;iriUuid,same_as,',
 ]];
 
 // Add type 'definitionTypeTag' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['definitionTypeTag' => [
     'showitem' => 'type,--palette--;;textCode,description,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_resource,--palette--;;iriUuid,same_as,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,as_definition_type_of_definition,',
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,items,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,parent_resource,--palette--;;iriUuid,same_as,',
 ]];
 
 // Add type 'transcriptionSchemeTag' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['transcriptionSchemeTag' => [
     'showitem' => 'type,--palette--;;textCode,description,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_resource,--palette--;;iriUuid,same_as,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,as_scheme_of_transcription,',
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,items,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,parent_resource,--palette--;;iriUuid,same_as,',
 ]];
 
 // Add type 'relationTypeTag' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['relationTypeTag' => [
     'showitem' => 'type,--palette--;;textCode,description,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,items,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,scope_restriction,member_role,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_resource,--palette--;;iriUuid,same_as,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,as_lexicographic_relation_type_of_lexicographic_relation,',
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,parent_resource,--palette--;;iriUuid,same_as,',
 ]];
 
 // Add type 'memberRoleTag' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['memberRoleTag' => [
     'showitem' => 'type,--palette--;;textCode,description,
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,items,
     --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.restrictions,--palette--;;memberTypeHint,--palette--;;minMax,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;parentRelationTypeTagParentResource,--palette--;;iriUuid,same_as,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.usage,as_role_of_member,',
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;parentRelationTypeTagParentResource,--palette--;;iriUuid,same_as,',
 ]];
+
+// Add opposite usage info to 'items' column
+$GLOBALS['TCA']['tx_chfbase_domain_model_tag']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_definition'] = ['definition_type'];
+$GLOBALS['TCA']['tx_chfbase_domain_model_tag']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_dictionaryentry'] = ['part_of_speech', 'label'];
+$GLOBALS['TCA']['tx_chfbase_domain_model_tag']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_example'] = ['label'];
+$GLOBALS['TCA']['tx_chfbase_domain_model_tag']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_inflectedform'] = ['inflection_type', 'label'];
+$GLOBALS['TCA']['tx_chfbase_domain_model_tag']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_member'] = ['role'];
+$GLOBALS['TCA']['tx_chfbase_domain_model_tag']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_pronunciation'] = ['label'];
+$GLOBALS['TCA']['tx_chfbase_domain_model_tag']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_sense'] = ['label'];
+$GLOBALS['TCA']['tx_chfbase_domain_model_tag']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_transcription'] = ['scheme'];
+$GLOBALS['TCA']['tx_chfbase_domain_model_tag']['columns']['items']['config']['MM_oppositeUsage']['tx_chfbase_domain_model_relation'][] = 'lexicographic_relation_type';

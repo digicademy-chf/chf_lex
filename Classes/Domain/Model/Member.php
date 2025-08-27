@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Domain\Model;
 
+use Digicademy\CHFBase\Domain\Model\Traits\HiddenTrait;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
-use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
@@ -22,15 +22,7 @@ defined('TYPO3') or die();
  */
 class Member extends AbstractEntity
 {
-    /**
-     * Record visible or not
-     * 
-     * @var bool
-     */
-    #[Validate([
-        'validator' => 'Boolean',
-    ])]
-    protected bool $hidden = true;
+    use HiddenTrait;
 
     /**
      * List of dictionary entries or senses
@@ -77,26 +69,6 @@ class Member extends AbstractEntity
     public function initializeObject(): void
     {
         $this->ref ??= new ObjectStorage();
-    }
-
-    /**
-     * Get hidden
-     *
-     * @return bool
-     */
-    public function getHidden(): bool
-    {
-        return $this->hidden;
-    }
-
-    /**
-     * Set hidden
-     *
-     * @param bool $hidden
-     */
-    public function setHidden(bool $hidden): void
-    {
-        $this->hidden = $hidden;
     }
 
     /**

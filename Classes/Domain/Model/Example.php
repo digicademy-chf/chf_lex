@@ -9,6 +9,13 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Domain\Model;
 
+use Digicademy\CHFBase\Domain\Model\Traits\AgentRelationTrait;
+use Digicademy\CHFBase\Domain\Model\Traits\HiddenTrait;
+use Digicademy\CHFBase\Domain\Model\Traits\LabelTrait;
+use Digicademy\CHFBase\Domain\Model\Traits\LocationRelationTrait;
+use Digicademy\CHFBase\Domain\Model\Traits\ParentResourceTrait;
+use Digicademy\CHFBib\Domain\Model\Traits\SourceRelationTrait;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
@@ -16,27 +23,19 @@ use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use Digicademy\CHFBase\Domain\Model\AgentRelation;
-use Digicademy\CHFBase\Domain\Model\LocationRelation;
-use Digicademy\CHFBase\Domain\Model\LabelTag;
-use Digicademy\CHFBib\Domain\Model\SourceRelation;
 
 defined('TYPO3') or die();
 
 /**
- * Model for Example
+ * Model for AbstractExample
  */
-class Example extends AbstractEntity
+class AbstractExample extends AbstractEntity
 {
-    /**
-     * Record visible or not
-     * 
-     * @var bool
-     */
-    #[Validate([
-        'validator' => 'Boolean',
-    ])]
-    protected bool $hidden = true;
+    use AgentRelationTrait;
+    use HiddenTrait;
+    use LabelTrait;
+    use LocationRelationTrait;
+    use ParentResourceTrait;
 
     /**
      * String that exemplifies the headword or the sense
@@ -83,61 +82,20 @@ class Example extends AbstractEntity
     protected string $dateText = '';
 
     /**
-     * Label to group the database record into
-     * 
-     * @var ?ObjectStorage<LabelTag>
-     */
-    #[Lazy()]
-    protected ?ObjectStorage $label = null;
-
-    /**
-     * Agent related to this record
-     * 
-     * @var ?ObjectStorage<AgentRelation>
-     */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected ?ObjectStorage $agentRelation = null;
-
-    /**
-     * Location related to this record
-     * 
-     * @var ?ObjectStorage<LocationRelation>
-     */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected ?ObjectStorage $locationRelation = null;
-
-    /**
-     * Sources of this database record
-     * 
-     * @var ?ObjectStorage<SourceRelation>
-     */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected ?ObjectStorage $sourceRelation = null;
-
-    /**
      * Sense that this example is part of
      * 
-     * @var Sense|LazyLoadingProxy|null
+     * @var ?ObjectStorage<Sense>
      */
     #[Lazy()]
-    protected Sense|LazyLoadingProxy|null $parentSense = null;
+    protected ?ObjectStorage $parentSense = null;
 
     /**
      * Dictionary entry that this example is part of
      * 
-     * @var DictionaryEntry|LazyLoadingProxy|null
+     * @var ?ObjectStorage<DictionaryEntry>
      */
     #[Lazy()]
-    protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
+    protected ?ObjectStorage $parentEntry = null;
 
     /**
      * Construct object
@@ -160,27 +118,9 @@ class Example extends AbstractEntity
         $this->label ??= new ObjectStorage();
         $this->agentRelation ??= new ObjectStorage();
         $this->locationRelation ??= new ObjectStorage();
-        $this->sourceRelation ??= new ObjectStorage();
-    }
-
-    /**
-     * Get hidden
-     *
-     * @return bool
-     */
-    public function getHidden(): bool
-    {
-        return $this->hidden;
-    }
-
-    /**
-     * Set hidden
-     *
-     * @param bool $hidden
-     */
-    public function setHidden(bool $hidden): void
-    {
-        $this->hidden = $hidden;
+        $this->parentSense ??= new ObjectStorage();
+        $this->parentEntry ??= new ObjectStorage();
+        $this->parentResource ??= new ObjectStorage();
     }
 
     /**
@@ -267,244 +207,134 @@ class Example extends AbstractEntity
     }
 
     /**
-     * Get label
-     *
-     * @return ObjectStorage<LabelTag>
-     */
-    public function getLabel(): ?ObjectStorage
-    {
-        return $this->label;
-    }
-
-    /**
-     * Set label
-     *
-     * @param ObjectStorage<LabelTag> $label
-     */
-    public function setLabel(ObjectStorage $label): void
-    {
-        $this->label = $label;
-    }
-
-    /**
-     * Add label
-     *
-     * @param LabelTag $label
-     */
-    public function addLabel(LabelTag $label): void
-    {
-        $this->label?->attach($label);
-    }
-
-    /**
-     * Remove label
-     *
-     * @param LabelTag $label
-     */
-    public function removeLabel(LabelTag $label): void
-    {
-        $this->label?->detach($label);
-    }
-
-    /**
-     * Remove all labels
-     */
-    public function removeAllLabel(): void
-    {
-        $label = clone $this->label;
-        $this->label->removeAll($label);
-    }
-
-    /**
-     * Get agent relation
-     *
-     * @return ObjectStorage<AgentRelation>
-     */
-    public function getAgentRelation(): ?ObjectStorage
-    {
-        return $this->agentRelation;
-    }
-
-    /**
-     * Set agent relation
-     *
-     * @param ObjectStorage<AgentRelation> $agentRelation
-     */
-    public function setAgentRelation(ObjectStorage $agentRelation): void
-    {
-        $this->agentRelation = $agentRelation;
-    }
-
-    /**
-     * Add agent relation
-     *
-     * @param AgentRelation $agentRelation
-     */
-    public function addAgentRelation(AgentRelation $agentRelation): void
-    {
-        $this->agentRelation?->attach($agentRelation);
-    }
-
-    /**
-     * Remove agent relation
-     *
-     * @param AgentRelation $agentRelation
-     */
-    public function removeAgentRelation(AgentRelation $agentRelation): void
-    {
-        $this->agentRelation?->detach($agentRelation);
-    }
-
-    /**
-     * Remove all agent relations
-     */
-    public function removeAllAgentRelation(): void
-    {
-        $agentRelation = clone $this->agentRelation;
-        $this->agentRelation->removeAll($agentRelation);
-    }
-
-    /**
-     * Get location relation
-     *
-     * @return ObjectStorage<LocationRelation>
-     */
-    public function getLocationRelation(): ?ObjectStorage
-    {
-        return $this->locationRelation;
-    }
-
-    /**
-     * Set location relation
-     *
-     * @param ObjectStorage<LocationRelation> $locationRelation
-     */
-    public function setLocationRelation(ObjectStorage $locationRelation): void
-    {
-        $this->locationRelation = $locationRelation;
-    }
-
-    /**
-     * Add location relation
-     *
-     * @param LocationRelation $locationRelation
-     */
-    public function addLocationRelation(LocationRelation $locationRelation): void
-    {
-        $this->locationRelation?->attach($locationRelation);
-    }
-
-    /**
-     * Remove location relation
-     *
-     * @param LocationRelation $locationRelation
-     */
-    public function removeLocationRelation(LocationRelation $locationRelation): void
-    {
-        $this->locationRelation?->detach($locationRelation);
-    }
-
-    /**
-     * Remove all location relations
-     */
-    public function removeAllLocationRelation(): void
-    {
-        $locationRelation = clone $this->locationRelation;
-        $this->locationRelation->removeAll($locationRelation);
-    }
-
-    /**
-     * Get source relation
-     *
-     * @return ObjectStorage<SourceRelation>
-     */
-    public function getSourceRelation(): ?ObjectStorage
-    {
-        return $this->sourceRelation;
-    }
-
-    /**
-     * Set source relation
-     *
-     * @param ObjectStorage<SourceRelation> $sourceRelation
-     */
-    public function setSourceRelation(ObjectStorage $sourceRelation): void
-    {
-        $this->sourceRelation = $sourceRelation;
-    }
-
-    /**
-     * Add source relation
-     *
-     * @param SourceRelation $sourceRelation
-     */
-    public function addSourceRelation(SourceRelation $sourceRelation): void
-    {
-        $this->sourceRelation?->attach($sourceRelation);
-    }
-
-    /**
-     * Remove source relation
-     *
-     * @param SourceRelation $sourceRelation
-     */
-    public function removeSourceRelation(SourceRelation $sourceRelation): void
-    {
-        $this->sourceRelation?->detach($sourceRelation);
-    }
-
-    /**
-     * Remove all source relations
-     */
-    public function removeAllSourceRelation(): void
-    {
-        $sourceRelation = clone $this->sourceRelation;
-        $this->sourceRelation->removeAll($sourceRelation);
-    }
-
-    /**
      * Get parent sense
-     * 
-     * @return Sense
+     *
+     * @return ObjectStorage<Sense>
      */
-    public function getParentSense(): Sense
+    public function getParentSense(): ?ObjectStorage
     {
-        if ($this->parentSense instanceof LazyLoadingProxy) {
-            $this->parentSense->_loadRealInstance();
-        }
         return $this->parentSense;
     }
 
     /**
      * Set parent sense
-     * 
-     * @param Sense
+     *
+     * @param ObjectStorage<Sense> $parentSense
      */
-    public function setParentSense(Sense $parentSense): void
+    public function setParentSense(ObjectStorage $parentSense): void
     {
         $this->parentSense = $parentSense;
     }
 
     /**
-     * Get parent entry
-     * 
-     * @return DictionaryEntry
+     * Add parent sense
+     *
+     * @param Sense $parentSense
      */
-    public function getParentEntry(): DictionaryEntry
+    public function addParentSense(Sense $parentSense): void
     {
-        if ($this->parentEntry instanceof LazyLoadingProxy) {
-            $this->parentEntry->_loadRealInstance();
-        }
+        $this->parentSense?->attach($parentSense);
+    }
+
+    /**
+     * Remove parent sense
+     *
+     * @param Sense $parentSense
+     */
+    public function removeParentSense(Sense $parentSense): void
+    {
+        $this->parentSense?->detach($parentSense);
+    }
+
+    /**
+     * Remove all parent senses
+     */
+    public function removeAllParentSense(): void
+    {
+        $parentSense = clone $this->parentSense;
+        $this->parentSense->removeAll($parentSense);
+    }
+
+    /**
+     * Get parent entry
+     *
+     * @return ObjectStorage<DictionaryEntry>
+     */
+    public function getParentEntry(): ?ObjectStorage
+    {
         return $this->parentEntry;
     }
 
     /**
      * Set parent entry
-     * 
-     * @param DictionaryEntry
+     *
+     * @param ObjectStorage<DictionaryEntry> $parentEntry
      */
-    public function setParentEntry(DictionaryEntry $parentEntry): void
+    public function setParentEntry(ObjectStorage $parentEntry): void
     {
         $this->parentEntry = $parentEntry;
     }
+
+    /**
+     * Add parent entry
+     *
+     * @param DictionaryEntry $parentEntry
+     */
+    public function addParentEntry(DictionaryEntry $parentEntry): void
+    {
+        $this->parentEntry?->attach($parentEntry);
+    }
+
+    /**
+     * Remove parent entry
+     *
+     * @param DictionaryEntry $parentEntry
+     */
+    public function removeParentEntry(DictionaryEntry $parentEntry): void
+    {
+        $this->parentEntry?->detach($parentEntry);
+    }
+
+    /**
+     * Remove all parent entries
+     */
+    public function removeAllParentEntry(): void
+    {
+        $parentEntry = clone $this->parentEntry;
+        $this->parentEntry->removeAll($parentEntry);
+    }
+}
+
+# If CHF Bib is available
+if (ExtensionManagementUtility::isLoaded('chf_bib')) {
+
+    /**
+     * Model for Example (with source-relation property)
+     */
+    class Example extends AbstractExample
+    {
+        use SourceRelationTrait;
+
+        /**
+         * Initialize object
+         */
+        public function initializeObject(): void
+        {
+            $this->label ??= new ObjectStorage();
+            $this->agentRelation ??= new ObjectStorage();
+            $this->locationRelation ??= new ObjectStorage();
+            $this->sourceRelation ??= new ObjectStorage();
+            $this->parentSense ??= new ObjectStorage();
+            $this->parentEntry ??= new ObjectStorage();
+        }
+    }
+
+# If no relevant extensions are available
+} else {
+
+    /**
+     * Model for Example
+     */
+    class Example extends AbstractExample
+    {}
 }

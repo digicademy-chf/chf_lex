@@ -9,10 +9,10 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Domain\Model;
 
-use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
-use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Digicademy\CHFBase\Domain\Model\AbstractRelation;
+use Digicademy\CHFBase\Domain\Model\Traits\RecordTrait;
+use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 defined('TYPO3') or die();
 
@@ -21,13 +21,7 @@ defined('TYPO3') or die();
  */
 class SimilarityRelation extends AbstractRelation
 {
-    /**
-     * Record to connect a relation to
-     * 
-     * @var DictionaryEntry|EncyclopediaEntry|LazyLoadingProxy|null
-     */
-    #[Lazy()]
-    protected DictionaryEntry|EncyclopediaEntry|null $record = null;
+    use RecordTrait;
 
     /**
      * Similar record to connect the previous record to
@@ -42,12 +36,11 @@ class SimilarityRelation extends AbstractRelation
      *
      * @param DictionaryEntry|EncyclopediaEntry $record
      * @param DictionaryEntry|EncyclopediaEntry $relatedRecord
-     * @param LexicographicRelation $parentResource
      * @return SimilarityRelation
      */
-    public function __construct(DictionaryEntry|EncyclopediaEntry $record, DictionaryEntry|EncyclopediaEntry $relatedRecord, LexicographicRelation $parentResource)
+    public function __construct(DictionaryEntry|EncyclopediaEntry $record, DictionaryEntry|EncyclopediaEntry $relatedRecord)
     {
-        parent::__construct($parentResource);
+        parent::__construct();
         $this->initializeObject();
 
         $this->setType('similarityRelation');
@@ -61,29 +54,6 @@ class SimilarityRelation extends AbstractRelation
     public function initializeObject(): void
     {
         $this->relatedRecord ??= new ObjectStorage();
-    }
-
-    /**
-     * Get record
-     * 
-     * @return DictionaryEntry|EncyclopediaEntry
-     */
-    public function getRecord(): DictionaryEntry|EncyclopediaEntry
-    {
-        if ($this->record instanceof LazyLoadingProxy) {
-            $this->record->_loadRealInstance();
-        }
-        return $this->record;
-    }
-
-    /**
-     * Set record
-     * 
-     * @param DictionaryEntry|EncyclopediaEntry
-     */
-    public function setRecord(DictionaryEntry|EncyclopediaEntry $record): void
-    {
-        $this->record = $record;
     }
 
     /**

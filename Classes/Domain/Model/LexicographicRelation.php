@@ -9,11 +9,11 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Domain\Model;
 
+use Digicademy\CHFBase\Domain\Model\AbstractRelation;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use Digicademy\CHFBase\Domain\Model\AbstractRelation;
 
 defined('TYPO3') or die();
 
@@ -46,12 +46,11 @@ class LexicographicRelation extends AbstractRelation
      *
      * @param RelationTypeTag $lexicographicRelationType
      * @param Member $member
-     * @param LexicographicResource $parentResource
      * @return LexicographicRelation
      */
-    public function __construct(RelationTypeTag $lexicographicRelationType, Member $member, LexicographicResource $parentResource)
+    public function __construct(RelationTypeTag $lexicographicRelationType, Member $member)
     {
-        parent::__construct($parentResource);
+        parent::__construct();
         $this->initializeObject();
 
         $this->setType('lexicographicRelation');

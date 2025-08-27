@@ -125,26 +125,18 @@ class DictionaryEntry extends AbstractEntry
     protected string $editorialQuery = '';
 
     /**
-     * List of memberships in a lexicographic relation
-     * 
-     * @var ?ObjectStorage<Member>
-     */
-    #[Lazy()]
-    protected ?ObjectStorage $asRefOfMember = null;
-
-    /**
      * Construct object
      *
      * @param string $headword
-     * @param LexicographicResource $parentResource
      * @return DictionaryEntry
      */
-    public function __construct(string $headword, LexicographicResource $parentResource)
+    public function __construct(string $headword)
     {
-        parent::__construct($parentResource);
+        parent::__construct();
         $this->initializeObject();
 
         $this->setHeadword($headword);
+        $this->setIri('de');
     }
 
     /**
@@ -157,7 +149,6 @@ class DictionaryEntry extends AbstractEntry
         $this->frequency ??= new ObjectStorage();
         $this->pronunciation ??= new ObjectStorage();
         $this->inflectedForm ??= new ObjectStorage();
-        $this->asRefOfMember ??= new ObjectStorage();
     }
 
     /**
@@ -486,54 +477,5 @@ class DictionaryEntry extends AbstractEntry
     public function setEditorialQuery(string $editorialQuery): void
     {
         $this->editorialQuery = $editorialQuery;
-    }
-
-    /**
-     * Get as ref of member
-     *
-     * @return ObjectStorage<Member>
-     */
-    public function getAsRefOfMember(): ?ObjectStorage
-    {
-        return $this->asRefOfMember;
-    }
-
-    /**
-     * Set as ref of member
-     *
-     * @param ObjectStorage<Member> $asRefOfMember
-     */
-    public function setAsRefOfMember(ObjectStorage $asRefOfMember): void
-    {
-        $this->asRefOfMember = $asRefOfMember;
-    }
-
-    /**
-     * Add as ref of member
-     *
-     * @param Member $asRefOfMember
-     */
-    public function addAsRefOfMember(Member $asRefOfMember): void
-    {
-        $this->asRefOfMember?->attach($asRefOfMember);
-    }
-
-    /**
-     * Remove as ref of member
-     *
-     * @param Member $asRefOfMember
-     */
-    public function removeAsRefOfMember(Member $asRefOfMember): void
-    {
-        $this->asRefOfMember?->detach($asRefOfMember);
-    }
-
-    /**
-     * Remove all as ref of members
-     */
-    public function removeAllAsRefOfMember(): void
-    {
-        $asRefOfMember = clone $this->asRefOfMember;
-        $this->asRefOfMember->removeAll($asRefOfMember);
     }
 }

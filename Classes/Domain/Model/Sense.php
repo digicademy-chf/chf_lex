@@ -9,7 +9,11 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Domain\Model;
 
+use Digicademy\CHFBase\Domain\Model\Traits\HiddenTrait;
 use Digicademy\CHFBase\Domain\Model\Traits\IriTrait;
+use Digicademy\CHFBase\Domain\Model\Traits\LabelTrait;
+use Digicademy\CHFBase\Domain\Model\Traits\ParentResourceTrait;
+use Digicademy\CHFBase\Domain\Model\Traits\SameAsTrait;
 use Digicademy\CHFBase\Domain\Model\Traits\UuidTrait;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
@@ -17,8 +21,6 @@ use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use Digicademy\CHFBase\Domain\Model\LabelTag;
-use Digicademy\CHFBase\Domain\Model\SameAs;
 
 defined('TYPO3') or die();
 
@@ -27,18 +29,12 @@ defined('TYPO3') or die();
  */
 class Sense extends AbstractEntity
 {
+    use HiddenTrait;
     use IriTrait;
+    use LabelTrait;
+    use ParentResourceTrait;
+    use SameAsTrait;
     use UuidTrait;
-
-    /**
-     * Record visible or not
-     * 
-     * @var bool
-     */
-    #[Validate([
-        'validator' => 'Boolean',
-    ])]
-    protected bool $hidden = true;
 
     /**
      * Specific description of the sense
@@ -63,14 +59,6 @@ class Sense extends AbstractEntity
         ],
     ])]
     protected string $indicator = '';
-
-    /**
-     * Label to group the database record into
-     * 
-     * @var ?ObjectStorage<LabelTag>
-     */
-    #[Lazy()]
-    protected ?ObjectStorage $label = null;
 
     /**
      * List of contemporary or historical examples of this sense
@@ -103,25 +91,6 @@ class Sense extends AbstractEntity
     protected DictionaryEntry|LazyLoadingProxy|null $parentEntry = null;
 
     /**
-     * Authoritative web address to identify an entity across the web
-     * 
-     * @var ?ObjectStorage<SameAs>
-     */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected ?ObjectStorage $sameAs = null;
-
-    /**
-     * List of memberships in a lexicographic relation
-     * 
-     * @var ?ObjectStorage<Member>
-     */
-    #[Lazy()]
-    protected ?ObjectStorage $asRefOfMember = null;
-
-    /**
      * Construct object
      *
      * @param DictionaryEntry $parentEntry
@@ -132,6 +101,7 @@ class Sense extends AbstractEntity
         $this->initializeObject();
 
         $this->setParentEntry($parentEntry);
+        $this->setIri('se');
     }
 
     /**
@@ -143,28 +113,8 @@ class Sense extends AbstractEntity
         $this->label ??= new ObjectStorage();
         $this->example ??= new ObjectStorage();
         $this->frequency ??= new ObjectStorage();
+        $this->parentResource ??= new ObjectStorage();
         $this->sameAs ??= new ObjectStorage();
-        $this->asRefOfMember ??= new ObjectStorage();
-    }
-
-    /**
-     * Get hidden
-     *
-     * @return bool
-     */
-    public function getHidden(): bool
-    {
-        return $this->hidden;
-    }
-
-    /**
-     * Set hidden
-     *
-     * @param bool $hidden
-     */
-    public function setHidden(bool $hidden): void
-    {
-        $this->hidden = $hidden;
     }
 
     /**
@@ -234,55 +184,6 @@ class Sense extends AbstractEntity
     public function setIndicator(string $indicator): void
     {
         $this->indicator = $indicator;
-    }
-
-    /**
-     * Get label
-     *
-     * @return ObjectStorage<LabelTag>
-     */
-    public function getLabel(): ?ObjectStorage
-    {
-        return $this->label;
-    }
-
-    /**
-     * Set label
-     *
-     * @param ObjectStorage<LabelTag> $label
-     */
-    public function setLabel(ObjectStorage $label): void
-    {
-        $this->label = $label;
-    }
-
-    /**
-     * Add label
-     *
-     * @param LabelTag $label
-     */
-    public function addLabel(LabelTag $label): void
-    {
-        $this->label?->attach($label);
-    }
-
-    /**
-     * Remove label
-     *
-     * @param LabelTag $label
-     */
-    public function removeLabel(LabelTag $label): void
-    {
-        $this->label?->detach($label);
-    }
-
-    /**
-     * Remove all labels
-     */
-    public function removeAllLabel(): void
-    {
-        $label = clone $this->label;
-        $this->label->removeAll($label);
     }
 
     /**
@@ -404,103 +305,5 @@ class Sense extends AbstractEntity
     public function setParentEntry(DictionaryEntry $parentEntry): void
     {
         $this->parentEntry = $parentEntry;
-    }
-
-    /**
-     * Get same as
-     *
-     * @return ObjectStorage<SameAs>
-     */
-    public function getSameAs(): ?ObjectStorage
-    {
-        return $this->sameAs;
-    }
-
-    /**
-     * Set same as
-     *
-     * @param ObjectStorage<SameAs> $sameAs
-     */
-    public function setSameAs(ObjectStorage $sameAs): void
-    {
-        $this->sameAs = $sameAs;
-    }
-
-    /**
-     * Add same as
-     *
-     * @param SameAs $sameAs
-     */
-    public function addSameAs(SameAs $sameAs): void
-    {
-        $this->sameAs?->attach($sameAs);
-    }
-
-    /**
-     * Remove same as
-     *
-     * @param SameAs $sameAs
-     */
-    public function removeSameAs(SameAs $sameAs): void
-    {
-        $this->sameAs?->detach($sameAs);
-    }
-
-    /**
-     * Remove all same as
-     */
-    public function removeAllSameAs(): void
-    {
-        $sameAs = clone $this->sameAs;
-        $this->sameAs->removeAll($sameAs);
-    }
-
-    /**
-     * Get as ref of member
-     *
-     * @return ObjectStorage<Member>
-     */
-    public function getAsRefOfMember(): ?ObjectStorage
-    {
-        return $this->asRefOfMember;
-    }
-
-    /**
-     * Set as ref of member
-     *
-     * @param ObjectStorage<Member> $asRefOfMember
-     */
-    public function setAsRefOfMember(ObjectStorage $asRefOfMember): void
-    {
-        $this->asRefOfMember = $asRefOfMember;
-    }
-
-    /**
-     * Add as ref of member
-     *
-     * @param Member $asRefOfMember
-     */
-    public function addAsRefOfMember(Member $asRefOfMember): void
-    {
-        $this->asRefOfMember?->attach($asRefOfMember);
-    }
-
-    /**
-     * Remove as ref of member
-     *
-     * @param Member $asRefOfMember
-     */
-    public function removeAsRefOfMember(Member $asRefOfMember): void
-    {
-        $this->asRefOfMember?->detach($asRefOfMember);
-    }
-
-    /**
-     * Remove all as ref of members
-     */
-    public function removeAllAsRefOfMember(): void
-    {
-        $asRefOfMember = clone $this->asRefOfMember;
-        $this->asRefOfMember->removeAll($asRefOfMember);
     }
 }

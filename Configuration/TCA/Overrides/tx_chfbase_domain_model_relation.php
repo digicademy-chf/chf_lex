@@ -53,17 +53,6 @@ defined('TYPO3') or die();
             'config' => [
                 'type' => 'group',
                 'allowed' => 'tx_chflex_domain_model_dictionaryentry,tx_chflex_domain_model_encyclopediaentry,',
-                'foreign_table' => 'tx_chflex_domain_model_dictionaryentry', // Needed by Extbase as of TYPO3 12, remove when possible
-                'MM' => 'tx_chfbase_domain_model_relation_any_relatedrecord_mm',
-                'MM_oppositeUsage' => [
-                    'tx_chflex_domain_model_dictionaryentry' => [
-                        'as_related_record_of_similarity_relation',
-                    ],
-                    'tx_chflex_domain_model_encyclopediaentry' => [
-                        'as_related_record_of_similarity_relation',
-                    ],
-                ],
-                'multiple' => 1,
                 'elementBrowserEntryPoints' => [
                     '_default' => '###CURRENT_PID###',
                 ],
@@ -85,9 +74,18 @@ defined('TYPO3') or die();
                     ],
                 ],
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#type}=\'relationType\'',
-                'MM' => 'tx_chfbase_domain_model_relation_tag_lexrelationtype_mm',
-                'multiple' => 1,
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#pid} IN (###CURRENT_PID###, ###SITE:settings.chf.data.page###)'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'relationType\'',
+                'MM' => 'tx_chfbase_domain_model_tag_record_mm',
+                'MM_match_fields' => [
+                    'fieldname' => 'lexicographic_relation_type',
+                    'tablenames' => 'tx_chfbase_domain_model_relation',
+                ],
+                'MM_opposite_field' => 'items',
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
             ],
         ],
         'member' => [
@@ -125,11 +123,11 @@ defined('TYPO3') or die();
 // Add type 'similarityRelation' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_relation']['types'] += ['similarityRelation' => [
     'showitem' => 'type,record,related_record,description,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_resource,--palette--;;iriUuid,',
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,parent_resource,--palette--;;iriUuid,',
 ]];
 
 // Add type 'lexicographicRelation' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_relation']['types'] += ['lexicographicRelation' => [
     'showitem' => 'type,--palette--;;lexicographicRelationTypeMember,description,
-    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_resource,--palette--;;iriUuid,',
+    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,parent_resource,--palette--;;iriUuid,',
 ]];

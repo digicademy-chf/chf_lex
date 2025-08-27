@@ -43,113 +43,6 @@ return [
         ],
     ],
     'columns' => [
-        'fe_group' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'size' => 5,
-                'maxitems' => 20,
-                'items' => [
-                    [
-                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
-                        'value' => -1,
-                    ],
-                    [
-                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.any_login',
-                        'value' => -2,
-                    ],
-                    [
-                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.usergroups',
-                        'value' => '--div--',
-                    ],
-                ],
-                'exclusiveKeys' => '-1,-2',
-                'foreign_table' => 'fe_groups',
-                'foreign_table_where' => 'ORDER BY fe_groups.title',
-            ],
-        ],
-        'sys_language_uid' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-            'config' => [
-                'type' => 'language',
-            ],
-        ],
-        'l10n_parent' => [
-            'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l10n_parent',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [
-                        'label' => '',
-                        'value' => 0,
-                    ],
-                ],
-                'foreign_table' => 'tx_chflex_domain_model_member',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_member}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chflex_domain_model_member}.{#sys_language_uid} IN (-1,0)',
-                'default' => 0,
-            ],
-        ],
-        'l10n_source' => [
-            'config' => [
-                'type' => 'passthrough',
-            ],
-        ],
-        'l10n_diffsource' => [
-            'config' => [
-                'type' => 'passthrough',
-                'default' => '',
-            ],
-        ],
-        'hidden' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.hidden.description',
-            'config' => [
-                'type' => 'check',
-                'renderType' => 'checkboxToggle',
-                'items' => [
-                    [
-                        'label' => '',
-                        'invertStateDisplay' => true,
-                    ]
-                ],
-            ]
-        ],
-        'starttime' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.starttime.description',
-            'config' => [
-                'type' => 'datetime',
-                'format' => 'datetime',
-                'eval' => 'int',
-                'default' => 0,
-            ],
-        ],
-        'endtime' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.endtime.description',
-            'config' => [
-                'type' => 'datetime',
-                'format' => 'datetime',
-                'eval' => 'int',
-                'default' => 0,
-                'range' => [
-                    'upper' => mktime(0, 0, 0, 1, 1, 2106),
-                ],
-            ],
-        ],
         'ref' => [ # TODO enforce min/max values based on role and type restrictions based on parent relation
             'exclude' => true,
             'l10n_mode' => 'exclude',
@@ -158,17 +51,6 @@ return [
             'config' => [
                 'type' => 'group',
                 'allowed' => 'tx_chflex_domain_model_dictionaryentry,tx_chflex_domain_model_sense,',
-                'foreign_table' => 'tx_chflex_domain_model_dictionaryentry', // Needed by Extbase as of TYPO3 12, remove when possible
-                'MM' => 'tx_chflex_domain_model_any_member_ref_mm',
-                'MM_oppositeUsage' => [
-                    'tx_chflex_domain_model_dictionaryentry' => [
-                        'as_ref_of_member',
-                    ],
-                    'tx_chflex_domain_model_sense' => [
-                        'as_ref_of_member',
-                    ],
-                ],
-                'multiple' => 1,
                 'elementBrowserEntryPoints' => [
                     '_default' => '###CURRENT_PID###',
                 ],
@@ -190,9 +72,18 @@ return [
                     ],
                 ],
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#type}=\'memberRoleTag\'',
-                'MM' => 'tx_chflex_domain_model_member_tag_role_mm',
-                'multiple' => 1,
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#pid} IN (###CURRENT_PID###, ###SITE:settings.chf.data.page###)'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'memberRoleTag\'',
+                'MM' => 'tx_chfbase_domain_model_tag_record_mm',
+                'MM_match_fields' => [
+                    'fieldname' => 'role',
+                    'tablenames' => 'tx_chflex_domain_model_member',
+                ],
+                'MM_opposite_field' => 'items',
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
             ],
         ],
         'parent_relation' => [
@@ -204,7 +95,9 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_chfbase_domain_model_relation',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_relation}.{#type}=\'lexicographicRelation\'',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#pid} IN (###CURRENT_PID###, ###SITE:settings.chf.data.page###)'
+                    . ' AND {#tx_chfbase_domain_model_relation}.{#type}=\'lexicographicRelation\'',
                 'sortItems' => [
                     'label' => 'asc',
                 ],
@@ -220,7 +113,7 @@ return [
     'types' => [
         '0' => [
             'showitem' => '--palette--;;refRole,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,parent_relation,',
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,parentRelation,',
         ],
     ],
 ];

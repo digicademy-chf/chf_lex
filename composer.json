@@ -1,5 +1,6 @@
 {
     "name": "digicademy/chf_lex",
+    "version": "2.0.0",
     "type": "typo3-cms-extension",
     "description": "Create and manage lexicographic data in TYPO3 as part of the CHF",
     "authors": [
@@ -32,9 +33,17 @@
     ],
     "require": {
         "typo3/cms-core": "^13",
+        "typo3/cms-extbase": "^13",
+        "typo3/cms-fluid": "^13",
         "typo3/cms-fluid-styled-content": "^13",
         "typo3/cms-rte-ckeditor": "^13",
-        "digicademy/chf_base": "@dev"
+        "digicademy/chf_base": "^2"
+    },
+    "suggest": {
+        "digicademy/chf_bib": "Adds source relations",
+        "digicademy/chf_gloss": "Provides a glossary component",
+        "digicademy/chf_map": "Contains geodata and maps",
+        "digicademy/chf_pub": "Provides publication relations"
     },
     "autoload": {
         "psr-4": {

@@ -9,8 +9,6 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Domain\Model;
 
-use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Digicademy\CHFBase\Domain\Model\AbstractTag;
 
 defined('TYPO3') or die();
@@ -21,82 +19,15 @@ defined('TYPO3') or die();
 class PartOfSpeechTag extends AbstractTag
 {
     /**
-     * List of dictionary entries that use this part of speech
-     * 
-     * @var ?ObjectStorage<DictionaryEntry>
-     */
-    #[Lazy()]
-    protected ?ObjectStorage $asPartOfSpeechOfDictionaryEntry;
-
-    /**
      * Construct object
      *
-     * @param LexicographicResource $parentResource
      * @param string $text
      * @return PartOfSpeechTag
      */
-    public function __construct(string $text, LexicographicResource $parentResource)
+    public function __construct(string $text)
     {
-        parent::__construct($text, $parentResource);
-        $this->initializeObject();
+        parent::__construct($text);
 
         $this->setType('partOfSpeechTag');
-    }
-
-    /**
-     * Initialize object
-     */
-    public function initializeObject(): void
-    {
-        $this->asPartOfSpeechOfDictionaryEntry ??= new ObjectStorage();
-    }
-
-    /**
-     * Get as part of speech of dictionary entry
-     *
-     * @return ObjectStorage<DictionaryEntry>
-     */
-    public function getAsPartOfSpeechOfDictionaryEntry(): ?ObjectStorage
-    {
-        return $this->asPartOfSpeechOfDictionaryEntry;
-    }
-
-    /**
-     * Set as part of speech of dictionary entry
-     *
-     * @param ObjectStorage<DictionaryEntry> $asPartOfSpeechOfDictionaryEntry
-     */
-    public function setAsPartOfSpeechOfDictionaryEntry(ObjectStorage $asPartOfSpeechOfDictionaryEntry): void
-    {
-        $this->asPartOfSpeechOfDictionaryEntry = $asPartOfSpeechOfDictionaryEntry;
-    }
-
-    /**
-     * Add as part of speech of dictionary entry
-     *
-     * @param DictionaryEntry $asPartOfSpeechOfDictionaryEntry
-     */
-    public function addAsPartOfSpeechOfDictionaryEntry(DictionaryEntry $asPartOfSpeechOfDictionaryEntry): void
-    {
-        $this->asPartOfSpeechOfDictionaryEntry?->attach($asPartOfSpeechOfDictionaryEntry);
-    }
-
-    /**
-     * Remove as part of speech of dictionary entry
-     *
-     * @param DictionaryEntry $asPartOfSpeechOfDictionaryEntry
-     */
-    public function removeAsPartOfSpeechOfDictionaryEntry(DictionaryEntry $asPartOfSpeechOfDictionaryEntry): void
-    {
-        $this->asPartOfSpeechOfDictionaryEntry?->detach($asPartOfSpeechOfDictionaryEntry);
-    }
-
-    /**
-     * Remove all as part of speech of dictionary entries
-     */
-    public function removeAllAsPartOfSpeechOfDictionaryEntry(): void
-    {
-        $asPartOfSpeechOfDictionaryEntry = clone $this->asPartOfSpeechOfDictionaryEntry;
-        $this->asPartOfSpeechOfDictionaryEntry->removeAll($asPartOfSpeechOfDictionaryEntry);
     }
 }

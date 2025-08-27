@@ -30,6 +30,8 @@ defined('TYPO3') or die();
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_chflex_domain_model_frequency',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_frequency}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chflex_domain_model_frequency}.{#pid} IN (###CURRENT_PID###, ###SITE:settings.chf.data.page###)',
                 'sortItems' => [
                     'label' => 'asc',
                 ],

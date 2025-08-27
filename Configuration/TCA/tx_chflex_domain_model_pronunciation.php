@@ -43,113 +43,6 @@ return [
         ],
     ],
     'columns' => [
-        'fe_group' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.fe_group',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'size' => 5,
-                'maxitems' => 20,
-                'items' => [
-                    [
-                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hide_at_login',
-                        'value' => -1,
-                    ],
-                    [
-                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.any_login',
-                        'value' => -2,
-                    ],
-                    [
-                        'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.usergroups',
-                        'value' => '--div--',
-                    ],
-                ],
-                'exclusiveKeys' => '-1,-2',
-                'foreign_table' => 'fe_groups',
-                'foreign_table_where' => 'ORDER BY fe_groups.title',
-            ],
-        ],
-        'sys_language_uid' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-            'config' => [
-                'type' => 'language',
-            ],
-        ],
-        'l10n_parent' => [
-            'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l10n_parent',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [
-                        'label' => '',
-                        'value' => 0,
-                    ],
-                ],
-                'foreign_table' => 'tx_chflex_domain_model_pronunciation',
-                'foreign_table_where' => 'AND {#tx_chflex_domain_model_pronunciation}.{#pid}=###CURRENT_PID###'
-                    . ' AND {#tx_chflex_domain_model_pronunciation}.{#sys_language_uid} IN (-1,0)',
-                'default' => 0,
-            ],
-        ],
-        'l10n_source' => [
-            'config' => [
-                'type' => 'passthrough',
-            ],
-        ],
-        'l10n_diffsource' => [
-            'config' => [
-                'type' => 'passthrough',
-                'default' => '',
-            ],
-        ],
-        'hidden' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.hidden.description',
-            'config' => [
-                'type' => 'check',
-                'renderType' => 'checkboxToggle',
-                'items' => [
-                    [
-                        'label' => '',
-                        'invertStateDisplay' => true,
-                    ]
-                ],
-            ]
-        ],
-        'starttime' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.starttime.description',
-            'config' => [
-                'type' => 'datetime',
-                'format' => 'datetime',
-                'eval' => 'int',
-                'default' => 0,
-            ],
-        ],
-        'endtime' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
-            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.endtime.description',
-            'config' => [
-                'type' => 'datetime',
-                'format' => 'datetime',
-                'eval' => 'int',
-                'default' => 0,
-                'range' => [
-                    'upper' => mktime(0, 0, 0, 1, 1, 2106),
-                ],
-            ],
-        ],
         'transcription' => [
             'exclude' => true,
             'l10n_mode' => 'exclude',
@@ -190,9 +83,15 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectTree',
                 'foreign_table' => 'tx_chfbase_domain_model_tag',
-                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
-                'MM' => 'tx_chflex_domain_model_pronunciation_tag_label_mm',
-                'multiple' => 1,
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_tag}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#pid} IN (###CURRENT_PID###, ###SITE:settings.chf.data.page###)'
+                    . ' AND {#tx_chfbase_domain_model_tag}.{#type}=\'labelTag\'',
+                'MM' => 'tx_chfbase_domain_model_tag_record_mm',
+                'MM_match_fields' => [
+                    'fieldname' => 'label',
+                    'tablenames' => 'tx_chflex_domain_model_pronunciation',
+                ],
+                'MM_opposite_field' => 'items',
                 'treeConfig' => [
                     'parentField' => 'parent_label_tag',
                     'appearance' => [
@@ -218,6 +117,8 @@ return [
                     ],
                 ],
                 'foreign_table' => 'tx_chflex_domain_model_inflectedform',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_inflectedform}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chflex_domain_model_inflectedform}.{#pid} IN (###CURRENT_PID###, ###SITE:settings.chf.data.page###)',
                 'sortItems' => [
                     'label' => 'asc',
                 ],
@@ -238,6 +139,31 @@ return [
                     ],
                 ],
                 'foreign_table' => 'tx_chflex_domain_model_dictionaryentry',
+                'foreign_table_where' => 'AND {#tx_chflex_domain_model_dictionaryentry}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chflex_domain_model_dictionaryentry}.{#pid} IN (###CURRENT_PID###, ###SITE:settings.chf.data.page###)',
+                'sortItems' => [
+                    'label' => 'asc',
+                ],
+            ],
+        ],
+        'parent_resource' => [
+            'exclude' => true,
+            'l10n_mode' => 'exclude',
+            'label' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.parentResource',
+            'description' => 'LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.parentResource.description',
+            'onChange' => 'reload',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingleBox',
+                'foreign_table' => 'tx_chfbase_domain_model_resource',
+                'foreign_table_where' => 'AND {#tx_chfbase_domain_model_resource}.{#sys_language_uid} IN (-1, 0)'
+                    . ' AND {#tx_chfbase_domain_model_resource}.{#type}=\'lexicographicResource\'',
+                'MM' => 'tx_chfbase_domain_model_resource_record_mm',
+                'MM_match_fields' => [
+                    'fieldname' => 'parent_resource',
+                    'tablenames' => 'tx_chflex_domain_model_pronunciation',
+                ],
+                'MM_opposite_field' => 'items',
                 'sortItems' => [
                     'label' => 'asc',
                 ],
@@ -245,14 +171,14 @@ return [
         ],
     ],
     'palettes' => [
-        'parentInflectedFormParentEntry' => [
-            'showitem' => 'parent_inflected_form,parent_entry,',
+        'parentInflectedFormParentEntryParentResource' => [
+            'showitem' => 'parent_inflected_form,parent_entry,--linebreak--,parent_resource,',
         ],
     ],
     'types' => [
         '0' => [
             'showitem' => 'transcription,sound_file,label,
-            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;parentInflectedFormParentEntry,',
+            --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;parentInflectedFormParentEntryParentResource,',
         ],
     ],
 ];

@@ -9,12 +9,11 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Domain\Model;
 
+use Digicademy\CHFBase\Domain\Model\AbstractTag;
+use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use Digicademy\CHFBase\Domain\Model\AbstractTag;
-use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
 
 defined('TYPO3') or die();
 
@@ -93,36 +92,18 @@ class MemberRoleTag extends AbstractTag
     protected RelationTypeTag|LazyLoadingProxy|null $parentRelationTypeTag = null;
 
     /**
-     * List of relation members that use this role
-     * 
-     * @var ?ObjectStorage<Member>
-     */
-    #[Lazy()]
-    protected ?ObjectStorage $asRoleOfMember;
-
-    /**
      * Construct object
      *
      * @param string $text
-     * @param LexicographicResource $parentResource
      * @param string $memberType
      * @return MemberRoleTag
      */
-    public function __construct(string $text, LexicographicResource $parentResource, string $memberType)
+    public function __construct(string $text, string $memberType)
     {
-        parent::__construct($text, $parentResource);
-        $this->initializeObject();
+        parent::__construct($text);
 
         $this->setType('memberRoleTag');
         $this->setMemberType($memberType);
-    }
-
-    /**
-     * Initialize object
-     */
-    public function initializeObject(): void
-    {
-        $this->asRoleOfMember ??= new ObjectStorage();
     }
 
     /**
@@ -226,54 +207,5 @@ class MemberRoleTag extends AbstractTag
     public function setParentRelationTypeTag(RelationTypeTag $parentRelationTypeTag): void
     {
         $this->parentRelationTypeTag = $parentRelationTypeTag;
-    }
-
-    /**
-     * Get as role of member
-     *
-     * @return ObjectStorage<Member>
-     */
-    public function getAsRoleOfMember(): ?ObjectStorage
-    {
-        return $this->asRoleOfMember;
-    }
-
-    /**
-     * Set as role of member
-     *
-     * @param ObjectStorage<Member> $asRoleOfMember
-     */
-    public function setAsRoleOfMember(ObjectStorage $asRoleOfMember): void
-    {
-        $this->asRoleOfMember = $asRoleOfMember;
-    }
-
-    /**
-     * Add as role of member
-     *
-     * @param Member $asRoleOfMember
-     */
-    public function addAsRoleOfMember(Member $asRoleOfMember): void
-    {
-        $this->asRoleOfMember?->attach($asRoleOfMember);
-    }
-
-    /**
-     * Remove as role of member
-     *
-     * @param Member $asRoleOfMember
-     */
-    public function removeAsRoleOfMember(Member $asRoleOfMember): void
-    {
-        $this->asRoleOfMember?->detach($asRoleOfMember);
-    }
-
-    /**
-     * Remove all as role of members
-     */
-    public function removeAllAsRoleOfMember(): void
-    {
-        $asRoleOfMember = clone $this->asRoleOfMember;
-        $this->asRoleOfMember->removeAll($asRoleOfMember);
     }
 }

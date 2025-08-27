@@ -9,10 +9,13 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Domain\Model;
 
+use Digicademy\CHFBase\Domain\Model\Traits\HiddenTrait;
+use Digicademy\CHFBase\Domain\Model\Traits\ParentResourceTrait;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 defined('TYPO3') or die();
 
@@ -21,15 +24,8 @@ defined('TYPO3') or die();
  */
 class Definition extends AbstractEntity
 {
-    /**
-     * Record visible or not
-     * 
-     * @var bool
-     */
-    #[Validate([
-        'validator' => 'Boolean',
-    ])]
-    protected bool $hidden = true;
+    use HiddenTrait;
+    use ParentResourceTrait;
 
     /**
      * May be used to differentiate between different tiers of definitions
@@ -66,28 +62,18 @@ class Definition extends AbstractEntity
      */
     public function __construct(string $text, Sense $parentSense)
     {
+        $this->initializeObject();
+
         $this->setText($text);
         $this->setParentSense($parentSense);
     }
 
     /**
-     * Get hidden
-     *
-     * @return bool
+     * Initialize object
      */
-    public function getHidden(): bool
+    public function initializeObject(): void
     {
-        return $this->hidden;
-    }
-
-    /**
-     * Set hidden
-     *
-     * @param bool $hidden
-     */
-    public function setHidden(bool $hidden): void
-    {
-        $this->hidden = $hidden;
+        $this->parentResource ??= new ObjectStorage();
     }
 
     /**

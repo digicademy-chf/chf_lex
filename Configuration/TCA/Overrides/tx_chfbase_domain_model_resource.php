@@ -26,61 +26,22 @@ defined('TYPO3') or die();
     ]
 );
 
-// Add columns 'all_dictionary_entries' and 'all_encyclopedia_entries'
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_chfbase_domain_model_resource',
-    [
-        'all_dictionary_entries' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.lexicographicResource.allDictionaryEntries',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.lexicographicResource.allDictionaryEntries.description',
-            'config' => [
-                'type' => 'inline',
-                'foreign_table' => 'tx_chflex_domain_model_dictionaryentry',
-                'foreign_field' => 'parent_resource',
-                'foreign_sortby' => 'sorting',
-                'appearance' => [
-                    'collapseAll' => true,
-                    'expandSingle' => true,
-                    'newRecordLinkAddTitle' => true,
-                    'levelLinksPosition' => 'bottom',
-                    'useSortable' => false,
-                    'showPossibleLocalizationRecords' => true,
-                    'showAllLocalizationLink' => true,
-                    'showSynchronizationLink' => true,
-                ],
-            ],
-        ],
-        'all_encyclopedia_entries' => [
-            'exclude' => true,
-            'l10n_mode' => 'exclude',
-            'label' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.lexicographicResource.allEncyclopediaEntries',
-            'description' => 'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:object.lexicographicResource.allEncyclopediaEntries.description',
-            'config' => [
-                'type' => 'inline',
-                'foreign_table' => 'tx_chflex_domain_model_encyclopediaentry',
-                'foreign_field' => 'parent_resource',
-                'foreign_sortby' => 'sorting',
-                'appearance' => [
-                    'collapseAll' => true,
-                    'expandSingle' => true,
-                    'newRecordLinkAddTitle' => true,
-                    'levelLinksPosition' => 'bottom',
-                    'useSortable' => false,
-                    'showPossibleLocalizationRecords' => true,
-                    'showAllLocalizationLink' => true,
-                    'showSynchronizationLink' => true,
-                ],
-            ],
-        ],
-    ]
-);
-
 // Add type 'lexicographicResource' and its 'showitem' list
 $GLOBALS['TCA']['tx_chfbase_domain_model_resource']['types'] += ['lexicographicResource' => [
    'showitem' => 'type,--palette--;;titleLangCode,description,glossary,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,all_dictionary_entries,all_encyclopedia_entries,all_agents,all_locations,all_periods,all_tags,all_keywords,all_relations,all_file_groups,
-   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.placement,--palette--;;iriUuid,same_as,
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.structured,items,
+   --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.management,--palette--;;iriUuid,same_as,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.editorial,--palette--;;publicationDateRevisionDateRevisionNumber,editorial_note,authorship_relation,licence_relation,
    --div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:object.generic.import,import_origin,import_state,',
 ]];
+
+// Add opposite usage info to 'items' column
+$GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_definition'] = ['parent_resource'];
+$GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_dictionaryentry'] = ['parent_resource'];
+$GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_encyclopediaentry'] = ['parent_resource'];
+$GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_example'] = ['parent_resource'];
+$GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_frequency'] = ['parent_resource'];
+$GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_inflectedform'] = ['parent_resource'];
+$GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_pronunciation'] = ['parent_resource'];
+$GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_sense'] = ['parent_resource'];
+$GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_transcription'] = ['parent_resource'];

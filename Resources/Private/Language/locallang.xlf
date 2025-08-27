@@ -3,58 +3,9 @@
     <file source-language="en" datatype="plaintext" original="EXT:chf_lex/Resources/Private/Language/locallang.xlf" date="2023-09-25T10:48:43Z" product-name="chf_lex">
         <header/>
         <body>
-            <!-- Object: LabelTag -->
-            <trans-unit id="object.labelTag.asLabelOfDictionaryEntry" resname="object.labelTag.asLabelOfDictionaryEntry">
-                <source>Usage as label of a dictionary entry</source>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfDictionaryEntry.description" resname="object.labelTag.asLabelOfDictionaryEntry.description">
-                <source>List of dictionary entries that use this label</source>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfEncyclopediaEntry" resname="object.labelTag.asLabelOfEncyclopediaEntry">
-                <source>Usage as label of a encyclopedia entry</source>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfEncyclopediaEntry.description" resname="object.labelTag.asLabelOfEncyclopediaEntry.description">
-                <source>List of encyclopedia entries that use this label</source>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfInflectedForm" resname="object.labelTag.asLabelOfInflectedForm">
-                <source>Usage as label of an inflected form</source>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfInflectedForm.description" resname="object.labelTag.asLabelOfInflectedForm.description">
-                <source>List of inflected forms that use this label</source>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfSense" resname="object.labelTag.asLabelOfSense">
-                <source>Usage as label of a sense</source>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfSense.description" resname="object.labelTag.asLabelOfSense.description">
-                <source>List of senses that use this label</source>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfPronunciation" resname="object.labelTag.asLabelOfPronunciation">
-                <source>Usage as label of a pronunciation</source>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfPronunciation.description" resname="object.labelTag.asLabelOfPronunciation.description">
-                <source>List of pronunciations that use this label</source>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfExample" resname="object.labelTag.asLabelOfExample">
-                <source>Usage as label of an example</source>
-            </trans-unit>
-            <trans-unit id="object.labelTag.asLabelOfExample.description" resname="object.labelTag.asLabelOfExample.description">
-                <source>List of examples that use this label</source>
-            </trans-unit>
             <!-- Object: LexicographicResource -->
             <trans-unit id="object.lexicographicResource.type.lexicographicResource" resname="object.lexicographicResource.type.lexicographicResource">
                 <source>Lexicographic resource</source>
-            </trans-unit>
-            <trans-unit id="object.lexicographicResource.allDictionaryEntries" resname="object.lexicographicResource.allDictionaryEntries">
-                <source>All dictionary entries</source>
-            </trans-unit>
-            <trans-unit id="object.lexicographicResource.allDictionaryEntries.description" resname="object.lexicographicResource.allDictionaryEntries.description">
-                <source>List of all dictionary entries compiled in this resource</source>
-            </trans-unit>
-            <trans-unit id="object.lexicographicResource.allEncyclopediaEntries" resname="object.lexicographicResource.allEncyclopediaEntries">
-                <source>All encyclopedia entries</source>
-            </trans-unit>
-            <trans-unit id="object.lexicographicResource.allEncyclopediaEntries.description" resname="object.lexicographicResource.allEncyclopediaEntries.description">
-                <source>List of all encyclopedia entries compiled in this resource</source>
             </trans-unit>
             <!-- Object: SimilarityRelation -->
             <trans-unit id="object.similarityRelation.type.similarityRelation" resname="object.similarityRelation.type.similarityRelation">
@@ -86,12 +37,6 @@
             <trans-unit id="object.partOfSpeechTag.type.partOfSpeechTag" resname="object.partOfSpeechTag.type.partOfSpeechTag">
                 <source>Part of speech</source>
             </trans-unit>
-            <trans-unit id="object.partOfSpeechTag.asPartOfSpeechOfDictionaryEntry" resname="object.partOfSpeechTag.asPartOfSpeechOfDictionaryEntry">
-                <source>Usage as part of speech of a dictionary entry</source>
-            </trans-unit>
-            <trans-unit id="object.partOfSpeechTag.asPartOfSpeechOfDictionaryEntry.description" resname="object.partOfSpeechTag.asPartOfSpeechOfDictionaryEntry.description">
-                <source>List of dictionary entries that use this part of speech</source>
-            </trans-unit>
             <!-- Object: InflectionTypeTag -->
             <trans-unit id="object.inflectionTypeTag.type.inflectionTypeTag" resname="object.inflectionTypeTag.type.inflectionTypeTag">
                 <source>Inflection type</source>
@@ -102,31 +47,13 @@
             <trans-unit id="object.inflectionTypeTag.for.description" resname="object.inflectionTypeTag.for.description">
                 <source>Constraints and recommendations on where this inflection type may apply</source>
             </trans-unit>
-            <trans-unit id="object.inflectionTypeTag.asInflectionTypeOfInflectedForm" resname="object.inflectionTypeTag.asInflectionTypeOfInflectedForm">
-                <source>Usage as inflection type of an inflected form</source>
-            </trans-unit>
-            <trans-unit id="object.inflectionTypeTag.asInflectionTypeOfInflectedForm.description" resname="object.inflectionTypeTag.asInflectionTypeOfInflectedForm.description">
-                <source>List of inflected forms that use this inflection type</source>
-            </trans-unit>
             <!-- Object: DefinitionTypeTag -->
             <trans-unit id="object.definitionTypeTag.type.definitionTypeTag" resname="object.definitionTypeTag.type.definitionTypeTag">
                 <source>Definition type</source>
             </trans-unit>
-            <trans-unit id="object.definitionTypeTag.asDefinitionTypeOfDefinition" resname="object.definitionTypeTag.asDefinitionTypeOfDefinition">
-                <source>Usage as definition type of a definition</source>
-            </trans-unit>
-            <trans-unit id="object.definitionTypeTag.asDefinitionTypeOfDefinition.description" resname="object.definitionTypeTag.asDefinitionTypeOfDefinition.description">
-                <source>List of definitions that use this definition type</source>
-            </trans-unit>
             <!-- Object: TranscriptionSchemeTag -->
             <trans-unit id="object.transcriptionSchemeTag.type.transcriptionSchemeTag" resname="object.transcriptionSchemeTag.type.transcriptionSchemeTag">
                 <source>Transcription scheme</source>
-            </trans-unit>
-            <trans-unit id="object.transcriptionSchemeTag.asSchemeOfTranscription" resname="object.transcriptionSchemeTag.asSchemeOfTranscription">
-                <source>Usage as scheme of a transcription</source>
-            </trans-unit>
-            <trans-unit id="object.transcriptionSchemeTag.asSchemeOfTranscription.description" resname="object.transcriptionSchemeTag.asSchemeOfTranscription.description">
-                <source>List of transcriptions that use this scheme</source>
             </trans-unit>
             <!-- Object: RelationTypeTag -->
             <trans-unit id="object.relationTypeTag.type.relationTypeTag" resname="object.relationTypeTag.type.relationTypeTag">
@@ -152,12 +79,6 @@
             </trans-unit>
             <trans-unit id="object.relationTypeTag.memberRole.description" resname="object.relationTypeTag.memberRole.description">
                 <source>Defines which roles members of this relation may have</source>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.asLexicographicRelationTypeOfLexicographicRelation" resname="object.relationTypeTag.asLexicographicRelationTypeOfLexicographicRelation">
-                <source>Usage as type of a lexicographic relation</source>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.asLexicographicRelationTypeOfLexicographicRelation.description" resname="object.relationTypeTag.asLexicographicRelationTypeOfLexicographicRelation.description">
-                <source>List of lexicographic relations of this type</source>
             </trans-unit>
             <!-- Object: MemberRoleTag -->
             <trans-unit id="object.memberRoleTag.type.memberRoleTag" resname="object.memberRoleTag.type.memberRoleTag">
@@ -211,24 +132,12 @@
             <trans-unit id="object.memberRoleTag.hint.none" resname="object.memberRoleTag.hint.none">
                 <source>Do not display</source>
             </trans-unit>
-            <trans-unit id="object.memberRoleTag.asRoleOfMember" resname="object.memberRoleTag.asRoleOfMember">
-                <source>Usage as role of a relation member</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.asRoleOfMember.description" resname="object.memberRoleTag.asRoleOfMember.description">
-                <source>List of relation members that use this role</source>
-            </trans-unit>
             <!-- Object: AbstractEntry -->
             <trans-unit id="object.abstractEntry.similarityRelation" resname="object.abstractEntry.similarityRelation">
                 <source>Similarity relation</source>
             </trans-unit>
             <trans-unit id="object.abstractEntry.similarityRelation.description" resname="object.abstractEntry.similarityRelation.description">
                 <source>Similar lexicographic entries related to this record</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.asRelatedRecordOfSimilarityRelation" resname="object.abstractEntry.asRelatedRecordOfSimilarityRelation">
-                <source>Usage as related database record of a similarity relation</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.asRelatedRecordOfSimilarityRelation.description" resname="object.abstractEntry.asRelatedRecordOfSimilarityRelation.description">
-                <source>List of similarity relations that use this entry as a related record</source>
             </trans-unit>
             <!-- Object: DictionaryEntry -->
             <trans-unit id="object.dictionaryEntry" resname="object.dictionaryEntry">
@@ -287,12 +196,6 @@
             </trans-unit>
             <trans-unit id="object.dictionaryEntry.inflectedForm.description" resname="object.dictionaryEntry.inflectedForm.description">
                 <source>List of the headword's inflected forms</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.asRefOfMember" resname="object.dictionaryEntry.asRefOfMember">
-                <source>As reference of a relation member</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.asRefOfMember.description" resname="object.dictionaryEntry.asRefOfMember.description">
-                <source>List of memberships in a lexicographic relation</source>
             </trans-unit>
             <!-- Object: EncyclopediaEntry -->
             <trans-unit id="object.encyclopediaEntry" resname="object.encyclopediaEntry">
@@ -387,12 +290,6 @@
             </trans-unit>
             <trans-unit id="object.sense.frequency.description" resname="object.sense.frequency.description">
                 <source>List of domestic and foreign frequency data</source>
-            </trans-unit>
-            <trans-unit id="object.sense.asRefOfMember" resname="object.sense.asRefOfMember">
-                <source>As reference of a relation member</source>
-            </trans-unit>
-            <trans-unit id="object.sense.asRefOfMember.description" resname="object.sense.asRefOfMember.description">
-                <source>List of memberships in a lexicographic relation</source>
             </trans-unit>
             <!-- Object: Pronunciation -->
             <trans-unit id="object.pronunciation" resname="object.pronunciation">

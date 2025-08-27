@@ -41,7 +41,8 @@ class EncyclopediaController extends ActionController
         $this->view->assign('resource', $this->abstractResourceRepository->findByIdentifier($resourceIdentifier));
 
         // Set cache tag
-        $this->request->getAttribute('frontend.cache.collector')->addCacheTags(
+        $cacheDataCollector = $this->request->getAttribute('frontend.cache.collector');
+        $cacheDataCollector->addCacheTags(
             new CacheTag('chf')
         );
 
@@ -61,7 +62,8 @@ class EncyclopediaController extends ActionController
         $this->view->assign('encyclopediaEntry', $encyclopediaEntry);
 
         // Set cache tag
-        $this->request->getAttribute('frontend.cache.collector')->addCacheTags(
+        $cacheDataCollector = $this->request->getAttribute('frontend.cache.collector');
+        $cacheDataCollector->addCacheTags(
             new CacheTag('chf')
         );
 

@@ -9,13 +9,15 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Domain\Model;
 
+use Digicademy\CHFBase\Domain\Model\Traits\HiddenTrait;
+use Digicademy\CHFBase\Domain\Model\Traits\LabelTrait;
+use Digicademy\CHFBase\Domain\Model\Traits\ParentResourceTrait;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use Digicademy\CHFBase\Domain\Model\LabelTag;
 
 defined('TYPO3') or die();
 
@@ -24,15 +26,9 @@ defined('TYPO3') or die();
  */
 class InflectedForm extends AbstractEntity
 {
-    /**
-     * Record visible or not
-     * 
-     * @var bool
-     */
-    #[Validate([
-        'validator' => 'Boolean',
-    ])]
-    protected bool $hidden = true;
+    use HiddenTrait;
+    use LabelTrait;
+    use ParentResourceTrait;
 
     /**
      * String of the inflected form
@@ -67,14 +63,6 @@ class InflectedForm extends AbstractEntity
     protected ?ObjectStorage $pronunciation = null;
 
     /**
-     * Label to group the database record into
-     * 
-     * @var ?ObjectStorage<LabelTag>
-     */
-    #[Lazy()]
-    protected ?ObjectStorage $label = null;
-
-    /**
      * Dictionary entry that this inflected form is part of
      * 
      * @var DictionaryEntry|LazyLoadingProxy|null
@@ -104,26 +92,7 @@ class InflectedForm extends AbstractEntity
     {
         $this->pronunciation ??= new ObjectStorage();
         $this->label ??= new ObjectStorage();
-    }
-
-    /**
-     * Get hidden
-     *
-     * @return bool
-     */
-    public function getHidden(): bool
-    {
-        return $this->hidden;
-    }
-
-    /**
-     * Set hidden
-     *
-     * @param bool $hidden
-     */
-    public function setHidden(bool $hidden): void
-    {
-        $this->hidden = $hidden;
+        $this->parentResource ??= new ObjectStorage();
     }
 
     /**
@@ -216,55 +185,6 @@ class InflectedForm extends AbstractEntity
     {
         $pronunciation = clone $this->pronunciation;
         $this->pronunciation->removeAll($pronunciation);
-    }
-
-    /**
-     * Get label
-     *
-     * @return ObjectStorage<LabelTag>
-     */
-    public function getLabel(): ?ObjectStorage
-    {
-        return $this->label;
-    }
-
-    /**
-     * Set label
-     *
-     * @param ObjectStorage<LabelTag> $label
-     */
-    public function setLabel(ObjectStorage $label): void
-    {
-        $this->label = $label;
-    }
-
-    /**
-     * Add label
-     *
-     * @param LabelTag $label
-     */
-    public function addLabel(LabelTag $label): void
-    {
-        $this->label?->attach($label);
-    }
-
-    /**
-     * Remove label
-     *
-     * @param LabelTag $label
-     */
-    public function removeLabel(LabelTag $label): void
-    {
-        $this->label?->detach($label);
-    }
-
-    /**
-     * Remove all labels
-     */
-    public function removeAllLabel(): void
-    {
-        $label = clone $this->label;
-        $this->label->removeAll($label);
     }
 
     /**

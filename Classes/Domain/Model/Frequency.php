@@ -9,33 +9,29 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Domain\Model;
 
+use Digicademy\CHFBase\Domain\Model\Traits\HiddenTrait;
+use Digicademy\CHFBase\Domain\Model\Traits\LocationRelationTrait;
+use Digicademy\CHFBase\Domain\Model\Traits\ParentResourceTrait;
+use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
+use Digicademy\CHFBib\Domain\Model\Traits\SourceRelationTrait;
+use Digicademy\CHFMap\Domain\Model\Traits\DistributionTrait;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
-use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
 use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use Digicademy\CHFBase\Domain\Model\LocationRelation;
-use Digicademy\CHFBase\Domain\Validator\StringOptionsValidator;
-use Digicademy\CHFBib\Domain\Model\SourceRelation;
-use Digicademy\CHFMap\Domain\Model\Distribution;
 
 defined('TYPO3') or die();
 
 /**
- * Model for Frequency
+ * Model for AbstractFrequency
  */
-class Frequency extends AbstractEntity
+class AbstractFrequency extends AbstractEntity
 {
-    /**
-     * Record visible or not
-     * 
-     * @var bool
-     */
-    #[Validate([
-        'validator' => 'Boolean',
-    ])]
-    protected bool $hidden = true;
+    use HiddenTrait;
+    use LocationRelationTrait;
+    use ParentResourceTrait;
 
     /**
      * Number of occurrences
@@ -103,39 +99,6 @@ class Frequency extends AbstractEntity
     protected string $dateText = '';
 
     /**
-     * Geographic distribution of this frequency
-     * 
-     * @var ?ObjectStorage<Distribution>
-     */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected ?ObjectStorage $distribution = null;
-
-    /**
-     * Location related to this record
-     * 
-     * @var ?ObjectStorage<LocationRelation>
-     */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected ?ObjectStorage $locationRelation = null;
-
-    /**
-     * Sources of this database record
-     * 
-     * @var ?ObjectStorage<SourceRelation>
-     */
-    #[Lazy()]
-    #[Cascade([
-        'value' => 'remove',
-    ])]
-    protected ?ObjectStorage $sourceRelation = null;
-
-    /**
      * Sense that this frequency is part of
      * 
      * @var Sense|LazyLoadingProxy|null
@@ -169,29 +132,8 @@ class Frequency extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->distribution ??= new ObjectStorage();
         $this->locationRelation ??= new ObjectStorage();
-        $this->sourceRelation ??= new ObjectStorage();
-    }
-
-    /**
-     * Get hidden
-     *
-     * @return bool
-     */
-    public function getHidden(): bool
-    {
-        return $this->hidden;
-    }
-
-    /**
-     * Set hidden
-     *
-     * @param bool $hidden
-     */
-    public function setHidden(bool $hidden): void
-    {
-        $this->hidden = $hidden;
+        $this->parentResource ??= new ObjectStorage();
     }
 
     /**
@@ -295,153 +237,6 @@ class Frequency extends AbstractEntity
     }
 
     /**
-     * Get distribution
-     *
-     * @return ObjectStorage<Distribution>
-     */
-    public function getDistribution(): ?ObjectStorage
-    {
-        return $this->distribution;
-    }
-
-    /**
-     * Set distribution
-     *
-     * @param ObjectStorage<Distribution> $distribution
-     */
-    public function setDistribution(ObjectStorage $distribution): void
-    {
-        $this->distribution = $distribution;
-    }
-
-    /**
-     * Add distribution
-     *
-     * @param Distribution $distribution
-     */
-    public function addDistribution(Distribution $distribution): void
-    {
-        $this->distribution?->attach($distribution);
-    }
-
-    /**
-     * Remove distribution
-     *
-     * @param Distribution $distribution
-     */
-    public function removeDistribution(Distribution $distribution): void
-    {
-        $this->distribution?->detach($distribution);
-    }
-
-    /**
-     * Remove all distributions
-     */
-    public function removeAllDistribution(): void
-    {
-        $distribution = clone $this->distribution;
-        $this->distribution->removeAll($distribution);
-    }
-
-    /**
-     * Get location relation
-     *
-     * @return ObjectStorage<LocationRelation>
-     */
-    public function getLocationRelation(): ?ObjectStorage
-    {
-        return $this->locationRelation;
-    }
-
-    /**
-     * Set location relation
-     *
-     * @param ObjectStorage<LocationRelation> $locationRelation
-     */
-    public function setLocationRelation(ObjectStorage $locationRelation): void
-    {
-        $this->locationRelation = $locationRelation;
-    }
-
-    /**
-     * Add location relation
-     *
-     * @param LocationRelation $locationRelation
-     */
-    public function addLocationRelation(LocationRelation $locationRelation): void
-    {
-        $this->locationRelation?->attach($locationRelation);
-    }
-
-    /**
-     * Remove location relation
-     *
-     * @param LocationRelation $locationRelation
-     */
-    public function removeLocationRelation(LocationRelation $locationRelation): void
-    {
-        $this->locationRelation?->detach($locationRelation);
-    }
-
-    /**
-     * Remove all location relations
-     */
-    public function removeAllLocationRelation(): void
-    {
-        $locationRelation = clone $this->locationRelation;
-        $this->locationRelation->removeAll($locationRelation);
-    }
-
-    /**
-     * Get source relation
-     *
-     * @return ObjectStorage<SourceRelation>
-     */
-    public function getSourceRelation(): ?ObjectStorage
-    {
-        return $this->sourceRelation;
-    }
-
-    /**
-     * Set source relation
-     *
-     * @param ObjectStorage<SourceRelation> $sourceRelation
-     */
-    public function setSourceRelation(ObjectStorage $sourceRelation): void
-    {
-        $this->sourceRelation = $sourceRelation;
-    }
-
-    /**
-     * Add source relation
-     *
-     * @param SourceRelation $sourceRelation
-     */
-    public function addSourceRelation(SourceRelation $sourceRelation): void
-    {
-        $this->sourceRelation?->attach($sourceRelation);
-    }
-
-    /**
-     * Remove source relation
-     *
-     * @param SourceRelation $sourceRelation
-     */
-    public function removeSourceRelation(SourceRelation $sourceRelation): void
-    {
-        $this->sourceRelation?->detach($sourceRelation);
-    }
-
-    /**
-     * Remove all source relations
-     */
-    public function removeAllSourceRelation(): void
-    {
-        $sourceRelation = clone $this->sourceRelation;
-        $this->sourceRelation->removeAll($sourceRelation);
-    }
-
-    /**
      * Get parent sense
      * 
      * @return Sense
@@ -486,4 +281,76 @@ class Frequency extends AbstractEntity
     {
         $this->parentEntry = $parentEntry;
     }
+}
+
+# If CHF Bib and CHF Map are available
+if (ExtensionManagementUtility::isLoaded('chf_bib') && ExtensionManagementUtility::isLoaded('chf_map')) {
+
+    /**
+     * Model for Frequency (with source-relation and distribution properties)
+     */
+    class Frequency extends AbstractFrequency
+    {
+        use DistributionTrait;
+        use SourceRelationTrait;
+
+        /**
+         * Initialize object
+         */
+        public function initializeObject(): void
+        {
+            $this->distribution ??= new ObjectStorage();
+            $this->locationRelation ??= new ObjectStorage();
+            $this->sourceRelation ??= new ObjectStorage();
+        }
+    }
+
+# If only CHF Bib is available
+} elseif (ExtensionManagementUtility::isLoaded('chf_bib')) {
+
+    /**
+     * Model for Frequency (with source-relation property)
+     */
+    class Frequency extends AbstractFrequency
+    {
+        use SourceRelationTrait;
+
+        /**
+         * Initialize object
+         */
+        public function initializeObject(): void
+        {
+            $this->locationRelation ??= new ObjectStorage();
+            $this->sourceRelation ??= new ObjectStorage();
+        }
+    }
+
+# If only CHF Map is available
+} elseif (ExtensionManagementUtility::isLoaded('chf_map')) {
+
+    /**
+     * Model for Frequency (with distribution property)
+     */
+    class Frequency extends AbstractFrequency
+    {
+        use DistributionTrait;
+
+        /**
+         * Initialize object
+         */
+        public function initializeObject(): void
+        {
+            $this->distribution ??= new ObjectStorage();
+            $this->locationRelation ??= new ObjectStorage();
+        }
+    }
+
+# If no relevant extensions are available
+} else {
+
+    /**
+     * Model for Frequency
+     */
+    class Frequency extends AbstractFrequency
+    {}
 }
