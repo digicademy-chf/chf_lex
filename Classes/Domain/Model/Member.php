@@ -27,10 +27,10 @@ class Member extends AbstractEntity
     /**
      * List of dictionary entries or senses
      * 
-     * @var ?ObjectStorage<DictionaryEntry|Sense>
+     * @var ObjectStorage<DictionaryEntry|Sense>
      */
     #[Lazy()]
-    protected ?ObjectStorage $ref = null;
+    protected ObjectStorage $ref;
 
     /**
      * Role in the relation
@@ -68,7 +68,7 @@ class Member extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->ref ??= new ObjectStorage();
+        $this->ref = new ObjectStorage();
     }
 
     /**
@@ -76,7 +76,7 @@ class Member extends AbstractEntity
      *
      * @return ObjectStorage<DictionaryEntry|Sense>
      */
-    public function getRef(): ?ObjectStorage
+    public function getRef(): ObjectStorage
     {
         return $this->ref;
     }
@@ -98,7 +98,7 @@ class Member extends AbstractEntity
      */
     public function addRef(DictionaryEntry|Sense $ref): void
     {
-        $this->ref?->attach($ref);
+        $this->ref->attach($ref);
     }
 
     /**
@@ -108,7 +108,7 @@ class Member extends AbstractEntity
      */
     public function removeRef(DictionaryEntry|Sense $ref): void
     {
-        $this->ref?->detach($ref);
+        $this->ref->detach($ref);
     }
 
     /**

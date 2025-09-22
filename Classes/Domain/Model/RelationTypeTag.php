@@ -43,10 +43,10 @@ class RelationTypeTag extends AbstractTag
     /**
      * Defines which roles members of this relation may have
      * 
-     * @var ?ObjectStorage<MemberRoleTag>
+     * @var ObjectStorage<MemberRoleTag>
      */
     #[Lazy()]
-    protected ?ObjectStorage $memberRole;
+    protected ObjectStorage $memberRole;
 
     /**
      * Construct object
@@ -67,7 +67,7 @@ class RelationTypeTag extends AbstractTag
      */
     public function initializeObject(): void
     {
-        $this->memberRole ??= new ObjectStorage();
+        $this->memberRole = new ObjectStorage();
     }
 
     /**
@@ -95,7 +95,7 @@ class RelationTypeTag extends AbstractTag
      *
      * @return ObjectStorage<MemberRoleTag>
      */
-    public function getMemberRole(): ?ObjectStorage
+    public function getMemberRole(): ObjectStorage
     {
         return $this->memberRole;
     }
@@ -117,7 +117,7 @@ class RelationTypeTag extends AbstractTag
      */
     public function addMemberRole(MemberRoleTag $memberRole): void
     {
-        $this->memberRole?->attach($memberRole);
+        $this->memberRole->attach($memberRole);
     }
 
     /**
@@ -127,7 +127,7 @@ class RelationTypeTag extends AbstractTag
      */
     public function removeMemberRole(MemberRoleTag $memberRole): void
     {
-        $this->memberRole?->detach($memberRole);
+        $this->memberRole->detach($memberRole);
     }
 
     /**

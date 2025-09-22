@@ -33,13 +33,13 @@ class LexicographicRelation extends AbstractRelation
     /**
      * List of members of this lexicographic relation
      * 
-     * @var ?ObjectStorage<Member>
+     * @var ObjectStorage<Member>
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected ?ObjectStorage $member = null;
+    protected ObjectStorage $member;
 
     /**
      * Construct object
@@ -63,8 +63,8 @@ class LexicographicRelation extends AbstractRelation
      */
     public function initializeObject(): void
     {
-        $this->lexicographicRelationType ??= new ObjectStorage();
-        $this->member ??= new ObjectStorage();
+        $this->lexicographicRelationType = new ObjectStorage();
+        $this->member = new ObjectStorage();
     }
 
     /**
@@ -95,7 +95,7 @@ class LexicographicRelation extends AbstractRelation
      *
      * @return ObjectStorage<Member>
      */
-    public function getMember(): ?ObjectStorage
+    public function getMember(): ObjectStorage
     {
         return $this->member;
     }
@@ -117,7 +117,7 @@ class LexicographicRelation extends AbstractRelation
      */
     public function addMember(Member $member): void
     {
-        $this->member?->attach($member);
+        $this->member->attach($member);
     }
 
     /**
@@ -127,7 +127,7 @@ class LexicographicRelation extends AbstractRelation
      */
     public function removeMember(Member $member): void
     {
-        $this->member?->detach($member);
+        $this->member->detach($member);
     }
 
     /**

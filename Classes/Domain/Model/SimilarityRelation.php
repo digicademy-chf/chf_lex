@@ -26,10 +26,10 @@ class SimilarityRelation extends AbstractRelation
     /**
      * Similar record to connect the previous record to
      * 
-     * @var ?ObjectStorage<DictionaryEntry|EncyclopediaEntry>
+     * @var ObjectStorage<DictionaryEntry|EncyclopediaEntry>
      */
     #[Lazy()]
-    protected ?ObjectStorage $relatedRecord;
+    protected ObjectStorage $relatedRecord;
 
     /**
      * Construct object
@@ -53,7 +53,7 @@ class SimilarityRelation extends AbstractRelation
      */
     public function initializeObject(): void
     {
-        $this->relatedRecord ??= new ObjectStorage();
+        $this->relatedRecord = new ObjectStorage();
     }
 
     /**
@@ -61,7 +61,7 @@ class SimilarityRelation extends AbstractRelation
      *
      * @return ObjectStorage<DictionaryEntry|EncyclopediaEntry>
      */
-    public function getRelatedRecord(): ?ObjectStorage
+    public function getRelatedRecord(): ObjectStorage
     {
         return $this->relatedRecord;
     }
@@ -83,7 +83,7 @@ class SimilarityRelation extends AbstractRelation
      */
     public function addRelatedRecord(DictionaryEntry|EncyclopediaEntry $relatedRecord): void
     {
-        $this->relatedRecord?->attach($relatedRecord);
+        $this->relatedRecord->attach($relatedRecord);
     }
 
     /**
@@ -93,7 +93,7 @@ class SimilarityRelation extends AbstractRelation
      */
     public function removeRelatedRecord(DictionaryEntry|EncyclopediaEntry $relatedRecord): void
     {
-        $this->relatedRecord?->detach($relatedRecord);
+        $this->relatedRecord->detach($relatedRecord);
     }
 
     /**

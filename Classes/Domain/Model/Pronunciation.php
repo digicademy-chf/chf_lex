@@ -33,13 +33,13 @@ class Pronunciation extends AbstractEntity
     /**
      * List of possible transcriptions of the pronuncation
      * 
-     * @var ?ObjectStorage<Transcription>
+     * @var ObjectStorage<Transcription>
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected ?ObjectStorage $transcription = null;
+    protected ObjectStorage $transcription;
 
     /**
      * File that reads out the pronunciation
@@ -83,8 +83,8 @@ class Pronunciation extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->label ??= new ObjectStorage();
-        $this->parentResource ??= new ObjectStorage();
+        $this->label = new ObjectStorage();
+        $this->parentResource = new ObjectStorage();
     }
 
     /**
@@ -92,7 +92,7 @@ class Pronunciation extends AbstractEntity
      *
      * @return ObjectStorage<Transcription>
      */
-    public function getTranscription(): ?ObjectStorage
+    public function getTranscription(): ObjectStorage
     {
         return $this->transcription;
     }
@@ -114,7 +114,7 @@ class Pronunciation extends AbstractEntity
      */
     public function addTranscription(Transcription $transcription): void
     {
-        $this->transcription?->attach($transcription);
+        $this->transcription->attach($transcription);
     }
 
     /**
@@ -124,7 +124,7 @@ class Pronunciation extends AbstractEntity
      */
     public function removeTranscription(Transcription $transcription): void
     {
-        $this->transcription?->detach($transcription);
+        $this->transcription->detach($transcription);
     }
 
     /**

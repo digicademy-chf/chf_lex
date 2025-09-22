@@ -38,6 +38,6 @@ class AbstractEntry extends AbstractHeritage
      */
     public function initializeObject(): void
     {
-        $this->similarityRelation ??= new ObjectStorage();
+        $this->similarityRelation = new ObjectStorage();
     }
 }

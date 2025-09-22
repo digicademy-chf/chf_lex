@@ -132,8 +132,8 @@ class AbstractFrequency extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->locationRelation ??= new ObjectStorage();
-        $this->parentResource ??= new ObjectStorage();
+        $this->locationRelation = new ObjectStorage();
+        $this->parentResource = new ObjectStorage();
     }
 
     /**
@@ -299,9 +299,9 @@ if (ExtensionManagementUtility::isLoaded('chf_bib') && ExtensionManagementUtilit
          */
         public function initializeObject(): void
         {
-            $this->distribution ??= new ObjectStorage();
-            $this->locationRelation ??= new ObjectStorage();
-            $this->sourceRelation ??= new ObjectStorage();
+            $this->distribution = new ObjectStorage();
+            $this->locationRelation = new ObjectStorage();
+            $this->sourceRelation = new ObjectStorage();
         }
     }
 
@@ -320,8 +320,8 @@ if (ExtensionManagementUtility::isLoaded('chf_bib') && ExtensionManagementUtilit
          */
         public function initializeObject(): void
         {
-            $this->locationRelation ??= new ObjectStorage();
-            $this->sourceRelation ??= new ObjectStorage();
+            $this->locationRelation = new ObjectStorage();
+            $this->sourceRelation = new ObjectStorage();
         }
     }
 
@@ -340,8 +340,8 @@ if (ExtensionManagementUtility::isLoaded('chf_bib') && ExtensionManagementUtilit
          */
         public function initializeObject(): void
         {
-            $this->distribution ??= new ObjectStorage();
-            $this->locationRelation ??= new ObjectStorage();
+            $this->distribution = new ObjectStorage();
+            $this->locationRelation = new ObjectStorage();
         }
     }
 

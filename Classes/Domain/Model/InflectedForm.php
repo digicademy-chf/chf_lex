@@ -54,13 +54,13 @@ class InflectedForm extends AbstractEntity
     /**
      * Pronunciation of the inflected form
      * 
-     * @var ?ObjectStorage<Pronunciation>
+     * @var ObjectStorage<Pronunciation>
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected ?ObjectStorage $pronunciation = null;
+    protected ObjectStorage $pronunciation;
 
     /**
      * Dictionary entry that this inflected form is part of
@@ -90,9 +90,9 @@ class InflectedForm extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->pronunciation ??= new ObjectStorage();
-        $this->label ??= new ObjectStorage();
-        $this->parentResource ??= new ObjectStorage();
+        $this->pronunciation = new ObjectStorage();
+        $this->label = new ObjectStorage();
+        $this->parentResource = new ObjectStorage();
     }
 
     /**
@@ -143,7 +143,7 @@ class InflectedForm extends AbstractEntity
      *
      * @return ObjectStorage<Pronunciation>
      */
-    public function getPronunciation(): ?ObjectStorage
+    public function getPronunciation(): ObjectStorage
     {
         return $this->pronunciation;
     }
@@ -165,7 +165,7 @@ class InflectedForm extends AbstractEntity
      */
     public function addPronunciation(Pronunciation $pronunciation): void
     {
-        $this->pronunciation?->attach($pronunciation);
+        $this->pronunciation->attach($pronunciation);
     }
 
     /**
@@ -175,7 +175,7 @@ class InflectedForm extends AbstractEntity
      */
     public function removePronunciation(Pronunciation $pronunciation): void
     {
-        $this->pronunciation?->detach($pronunciation);
+        $this->pronunciation->detach($pronunciation);
     }
 
     /**

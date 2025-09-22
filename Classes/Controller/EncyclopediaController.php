@@ -12,7 +12,6 @@ namespace Digicademy\CHFLex\Controller;
 use Digicademy\CHFBase\Domain\Repository\AbstractResourceRepository;
 use Digicademy\CHFLex\Domain\Model\EncyclopediaEntry;
 use Psr\Http\Message\ResponseInterface;
-use TYPO3\CMS\Core\Cache\CacheTag;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 defined('TYPO3') or die();
@@ -22,12 +21,12 @@ defined('TYPO3') or die();
  */
 class EncyclopediaController extends ActionController
 {
-    private AbstractResourceRepository $abstractResourceRepository;
-
-    public function injectAbstractResourceRepository(AbstractResourceRepository $abstractResourceRepository): void
-    {
-        $this->abstractResourceRepository = $abstractResourceRepository;
-    }
+    /**
+     * Constructor takes care of dependency injection
+     */
+    public function __construct(
+        protected readonly AbstractResourceRepository $abstractResourceRepository,
+    ) {}
 
     /**
      * Show encyclopedia entry list
@@ -39,12 +38,6 @@ class EncyclopediaController extends ActionController
         // Get resource
         $resourceIdentifier = $this->settings['resource'];
         $this->view->assign('resource', $this->abstractResourceRepository->findByIdentifier($resourceIdentifier));
-
-        // Set cache tag
-        $cacheDataCollector = $this->request->getAttribute('frontend.cache.collector');
-        $cacheDataCollector->addCacheTags(
-            new CacheTag('chf')
-        );
 
         // Create response
         return $this->htmlResponse();
@@ -60,12 +53,6 @@ class EncyclopediaController extends ActionController
     {
         // Get encyclopedia entry
         $this->view->assign('encyclopediaEntry', $encyclopediaEntry);
-
-        // Set cache tag
-        $cacheDataCollector = $this->request->getAttribute('frontend.cache.collector');
-        $cacheDataCollector->addCacheTags(
-            new CacheTag('chf')
-        );
 
         // Create response
         return $this->htmlResponse();

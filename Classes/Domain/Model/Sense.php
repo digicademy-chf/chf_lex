@@ -39,13 +39,13 @@ class Sense extends AbstractEntity
     /**
      * Specific description of the sense
      * 
-     * @var ?ObjectStorage<Definition>
+     * @var ObjectStorage<Definition>
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected ?ObjectStorage $definition = null;
+    protected ObjectStorage $definition;
 
     /**
      * Brief note differentiating this sense from the others
@@ -63,24 +63,24 @@ class Sense extends AbstractEntity
     /**
      * List of contemporary or historical examples of this sense
      * 
-     * @var ?ObjectStorage<Example>
+     * @var ObjectStorage<Example>
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected ?ObjectStorage $example = null;
+    protected ObjectStorage $example;
 
     /**
      * List of domestic and foreign frequency data
      * 
-     * @var ?ObjectStorage<Frequency>
+     * @var ObjectStorage<Frequency>
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected ?ObjectStorage $frequency = null;
+    protected ObjectStorage $frequency;
 
     /**
      * Dictionary entry that this sense belongs to
@@ -109,12 +109,12 @@ class Sense extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->definition ??= new ObjectStorage();
-        $this->label ??= new ObjectStorage();
-        $this->example ??= new ObjectStorage();
-        $this->frequency ??= new ObjectStorage();
-        $this->parentResource ??= new ObjectStorage();
-        $this->sameAs ??= new ObjectStorage();
+        $this->definition = new ObjectStorage();
+        $this->label = new ObjectStorage();
+        $this->example = new ObjectStorage();
+        $this->frequency = new ObjectStorage();
+        $this->parentResource = new ObjectStorage();
+        $this->sameAs = new ObjectStorage();
     }
 
     /**
@@ -122,7 +122,7 @@ class Sense extends AbstractEntity
      *
      * @return ObjectStorage<Definition>
      */
-    public function getDefinition(): ?ObjectStorage
+    public function getDefinition(): ObjectStorage
     {
         return $this->definition;
     }
@@ -144,7 +144,7 @@ class Sense extends AbstractEntity
      */
     public function addDefinition(Definition $definition): void
     {
-        $this->definition?->attach($definition);
+        $this->definition->attach($definition);
     }
 
     /**
@@ -154,7 +154,7 @@ class Sense extends AbstractEntity
      */
     public function removeDefinition(Definition $definition): void
     {
-        $this->definition?->detach($definition);
+        $this->definition->detach($definition);
     }
 
     /**
@@ -191,7 +191,7 @@ class Sense extends AbstractEntity
      *
      * @return ObjectStorage<Example>
      */
-    public function getExample(): ?ObjectStorage
+    public function getExample(): ObjectStorage
     {
         return $this->example;
     }
@@ -213,7 +213,7 @@ class Sense extends AbstractEntity
      */
     public function addExample(Example $example): void
     {
-        $this->example?->attach($example);
+        $this->example->attach($example);
     }
 
     /**
@@ -223,7 +223,7 @@ class Sense extends AbstractEntity
      */
     public function removeExample(Example $example): void
     {
-        $this->example?->detach($example);
+        $this->example->detach($example);
     }
 
     /**
@@ -240,7 +240,7 @@ class Sense extends AbstractEntity
      *
      * @return ObjectStorage<Frequency>
      */
-    public function getFrequency(): ?ObjectStorage
+    public function getFrequency(): ObjectStorage
     {
         return $this->frequency;
     }
@@ -262,7 +262,7 @@ class Sense extends AbstractEntity
      */
     public function addFrequency(Frequency $frequency): void
     {
-        $this->frequency?->attach($frequency);
+        $this->frequency->attach($frequency);
     }
 
     /**
@@ -272,7 +272,7 @@ class Sense extends AbstractEntity
      */
     public function removeFrequency(Frequency $frequency): void
     {
-        $this->frequency?->detach($frequency);
+        $this->frequency->detach($frequency);
     }
 
     /**

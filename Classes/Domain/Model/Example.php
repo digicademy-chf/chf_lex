@@ -84,18 +84,18 @@ class AbstractExample extends AbstractEntity
     /**
      * Sense that this example is part of
      * 
-     * @var ?ObjectStorage<Sense>
+     * @var ObjectStorage<Sense>
      */
     #[Lazy()]
-    protected ?ObjectStorage $parentSense = null;
+    protected ObjectStorage $parentSense;
 
     /**
      * Dictionary entry that this example is part of
      * 
-     * @var ?ObjectStorage<DictionaryEntry>
+     * @var ObjectStorage<DictionaryEntry>
      */
     #[Lazy()]
-    protected ?ObjectStorage $parentEntry = null;
+    protected ObjectStorage $parentEntry;
 
     /**
      * Construct object
@@ -115,12 +115,12 @@ class AbstractExample extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->label ??= new ObjectStorage();
-        $this->agentRelation ??= new ObjectStorage();
-        $this->locationRelation ??= new ObjectStorage();
-        $this->parentSense ??= new ObjectStorage();
-        $this->parentEntry ??= new ObjectStorage();
-        $this->parentResource ??= new ObjectStorage();
+        $this->label = new ObjectStorage();
+        $this->agentRelation = new ObjectStorage();
+        $this->locationRelation = new ObjectStorage();
+        $this->parentSense = new ObjectStorage();
+        $this->parentEntry = new ObjectStorage();
+        $this->parentResource = new ObjectStorage();
     }
 
     /**
@@ -211,7 +211,7 @@ class AbstractExample extends AbstractEntity
      *
      * @return ObjectStorage<Sense>
      */
-    public function getParentSense(): ?ObjectStorage
+    public function getParentSense(): ObjectStorage
     {
         return $this->parentSense;
     }
@@ -233,7 +233,7 @@ class AbstractExample extends AbstractEntity
      */
     public function addParentSense(Sense $parentSense): void
     {
-        $this->parentSense?->attach($parentSense);
+        $this->parentSense->attach($parentSense);
     }
 
     /**
@@ -243,7 +243,7 @@ class AbstractExample extends AbstractEntity
      */
     public function removeParentSense(Sense $parentSense): void
     {
-        $this->parentSense?->detach($parentSense);
+        $this->parentSense->detach($parentSense);
     }
 
     /**
@@ -260,7 +260,7 @@ class AbstractExample extends AbstractEntity
      *
      * @return ObjectStorage<DictionaryEntry>
      */
-    public function getParentEntry(): ?ObjectStorage
+    public function getParentEntry(): ObjectStorage
     {
         return $this->parentEntry;
     }
@@ -282,7 +282,7 @@ class AbstractExample extends AbstractEntity
      */
     public function addParentEntry(DictionaryEntry $parentEntry): void
     {
-        $this->parentEntry?->attach($parentEntry);
+        $this->parentEntry->attach($parentEntry);
     }
 
     /**
@@ -292,7 +292,7 @@ class AbstractExample extends AbstractEntity
      */
     public function removeParentEntry(DictionaryEntry $parentEntry): void
     {
-        $this->parentEntry?->detach($parentEntry);
+        $this->parentEntry->detach($parentEntry);
     }
 
     /**
@@ -320,12 +320,12 @@ if (ExtensionManagementUtility::isLoaded('chf_bib')) {
          */
         public function initializeObject(): void
         {
-            $this->label ??= new ObjectStorage();
-            $this->agentRelation ??= new ObjectStorage();
-            $this->locationRelation ??= new ObjectStorage();
-            $this->sourceRelation ??= new ObjectStorage();
-            $this->parentSense ??= new ObjectStorage();
-            $this->parentEntry ??= new ObjectStorage();
+            $this->label = new ObjectStorage();
+            $this->agentRelation = new ObjectStorage();
+            $this->locationRelation = new ObjectStorage();
+            $this->sourceRelation = new ObjectStorage();
+            $this->parentSense = new ObjectStorage();
+            $this->parentEntry = new ObjectStorage();
         }
     }
 

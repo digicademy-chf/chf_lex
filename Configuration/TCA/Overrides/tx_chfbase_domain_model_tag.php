@@ -337,6 +337,7 @@ $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['types'] += ['memberRoleTag' => [
 ]];
 
 // Add opposite usage info to 'items' column
+$GLOBALS['TCA']['tx_chfbase_domain_model_tag']['columns']['items']['config']['allowed'] .= ',tx_chflex_domain_model_definition,tx_chflex_domain_model_dictionaryentry,tx_chflex_domain_model_example,tx_chflex_domain_model_inflectedform,tx_chflex_domain_model_member,tx_chflex_domain_model_pronunciation,tx_chflex_domain_model_sense,tx_chflex_domain_model_transcription';
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_definition'] = ['definition_type'];
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_dictionaryentry'] = ['part_of_speech', 'label'];
 $GLOBALS['TCA']['tx_chfbase_domain_model_tag']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_example'] = ['label'];

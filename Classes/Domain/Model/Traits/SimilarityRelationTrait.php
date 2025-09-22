@@ -24,20 +24,20 @@ trait SimilarityRelationTrait
     /**
      * Similar lexicographic entries related to this record
      * 
-     * @var ?ObjectStorage<SimilarityRelation>
+     * @var ObjectStorage<SimilarityRelation>
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected ?ObjectStorage $similarityRelation = null;
+    protected ObjectStorage $similarityRelation;
 
     /**
      * Get similarity relation
      *
      * @return ObjectStorage<SimilarityRelation>
      */
-    public function getSimilarityRelation(): ?ObjectStorage
+    public function getSimilarityRelation(): ObjectStorage
     {
         return $this->similarityRelation;
     }
@@ -59,7 +59,7 @@ trait SimilarityRelationTrait
      */
     public function addSimilarityRelation(SimilarityRelation $similarityRelation): void
     {
-        $this->similarityRelation?->attach($similarityRelation);
+        $this->similarityRelation->attach($similarityRelation);
     }
 
     /**
@@ -69,7 +69,7 @@ trait SimilarityRelationTrait
      */
     public function removeSimilarityRelation(SimilarityRelation $similarityRelation): void
     {
-        $this->similarityRelation?->detach($similarityRelation);
+        $this->similarityRelation->detach($similarityRelation);
     }
 
     /**

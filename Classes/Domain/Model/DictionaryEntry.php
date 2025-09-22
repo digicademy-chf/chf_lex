@@ -59,57 +59,57 @@ class DictionaryEntry extends AbstractEntry
     /**
      * List of senses for this entry
      * 
-     * @var ?ObjectStorage<Sense>
+     * @var ObjectStorage<Sense>
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected ?ObjectStorage $sense = null;
+    protected ObjectStorage $sense;
 
     /**
      * List of contemporary or historical examples of this dictionary entry
      * 
-     * @var ?ObjectStorage<Example>
+     * @var ObjectStorage<Example>
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected ?ObjectStorage $example = null;
+    protected ObjectStorage $example;
 
     /**
      * List of domestic and foreign frequency data
      * 
-     * @var ?ObjectStorage<Frequency>
+     * @var ObjectStorage<Frequency>
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected ?ObjectStorage $frequency = null;
+    protected ObjectStorage $frequency;
 
     /**
      * List of possible pronunciations of the headword
      * 
-     * @var ?ObjectStorage<Pronunciation>
+     * @var ObjectStorage<Pronunciation>
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected ?ObjectStorage $pronunciation = null;
+    protected ObjectStorage $pronunciation;
 
     /**
      * List of the headword's inflected forms
      * 
-     * @var ?ObjectStorage<InflectedForm>
+     * @var ObjectStorage<InflectedForm>
      */
     #[Lazy()]
     #[Cascade([
         'value' => 'remove',
     ])]
-    protected ?ObjectStorage $inflectedForm = null;
+    protected ObjectStorage $inflectedForm;
 
     /**
      * Database query that identifies entries edited in a single run
@@ -144,11 +144,11 @@ class DictionaryEntry extends AbstractEntry
      */
     public function initializeObject(): void
     {
-        $this->sense ??= new ObjectStorage();
-        $this->example ??= new ObjectStorage();
-        $this->frequency ??= new ObjectStorage();
-        $this->pronunciation ??= new ObjectStorage();
-        $this->inflectedForm ??= new ObjectStorage();
+        $this->sense = new ObjectStorage();
+        $this->example = new ObjectStorage();
+        $this->frequency = new ObjectStorage();
+        $this->pronunciation = new ObjectStorage();
+        $this->inflectedForm = new ObjectStorage();
     }
 
     /**
@@ -219,7 +219,7 @@ class DictionaryEntry extends AbstractEntry
      *
      * @return ObjectStorage<Sense>
      */
-    public function getSense(): ?ObjectStorage
+    public function getSense(): ObjectStorage
     {
         return $this->sense;
     }
@@ -241,7 +241,7 @@ class DictionaryEntry extends AbstractEntry
      */
     public function addSense(Sense $sense): void
     {
-        $this->sense?->attach($sense);
+        $this->sense->attach($sense);
     }
 
     /**
@@ -251,7 +251,7 @@ class DictionaryEntry extends AbstractEntry
      */
     public function removeSense(Sense $sense): void
     {
-        $this->sense?->detach($sense);
+        $this->sense->detach($sense);
     }
 
     /**
@@ -268,7 +268,7 @@ class DictionaryEntry extends AbstractEntry
      *
      * @return ObjectStorage<Example>
      */
-    public function getExample(): ?ObjectStorage
+    public function getExample(): ObjectStorage
     {
         return $this->example;
     }
@@ -290,7 +290,7 @@ class DictionaryEntry extends AbstractEntry
      */
     public function addExample(Example $example): void
     {
-        $this->example?->attach($example);
+        $this->example->attach($example);
     }
 
     /**
@@ -300,7 +300,7 @@ class DictionaryEntry extends AbstractEntry
      */
     public function removeExample(Example $example): void
     {
-        $this->example?->detach($example);
+        $this->example->detach($example);
     }
 
     /**
@@ -317,7 +317,7 @@ class DictionaryEntry extends AbstractEntry
      *
      * @return ObjectStorage<Frequency>
      */
-    public function getFrequency(): ?ObjectStorage
+    public function getFrequency(): ObjectStorage
     {
         return $this->frequency;
     }
@@ -339,7 +339,7 @@ class DictionaryEntry extends AbstractEntry
      */
     public function addFrequency(Frequency $frequency): void
     {
-        $this->frequency?->attach($frequency);
+        $this->frequency->attach($frequency);
     }
 
     /**
@@ -349,7 +349,7 @@ class DictionaryEntry extends AbstractEntry
      */
     public function removeFrequency(Frequency $frequency): void
     {
-        $this->frequency?->detach($frequency);
+        $this->frequency->detach($frequency);
     }
 
     /**
@@ -366,7 +366,7 @@ class DictionaryEntry extends AbstractEntry
      *
      * @return ObjectStorage<Pronunciation>
      */
-    public function getPronunciation(): ?ObjectStorage
+    public function getPronunciation(): ObjectStorage
     {
         return $this->pronunciation;
     }
@@ -388,7 +388,7 @@ class DictionaryEntry extends AbstractEntry
      */
     public function addPronunciation(Pronunciation $pronunciation): void
     {
-        $this->pronunciation?->attach($pronunciation);
+        $this->pronunciation->attach($pronunciation);
     }
 
     /**
@@ -398,7 +398,7 @@ class DictionaryEntry extends AbstractEntry
      */
     public function removePronunciation(Pronunciation $pronunciation): void
     {
-        $this->pronunciation?->detach($pronunciation);
+        $this->pronunciation->detach($pronunciation);
     }
 
     /**
@@ -415,7 +415,7 @@ class DictionaryEntry extends AbstractEntry
      *
      * @return ObjectStorage<InflectedForm>
      */
-    public function getInflectedForm(): ?ObjectStorage
+    public function getInflectedForm(): ObjectStorage
     {
         return $this->inflectedForm;
     }
@@ -437,7 +437,7 @@ class DictionaryEntry extends AbstractEntry
      */
     public function addInflectedForm(InflectedForm $inflectedForm): void
     {
-        $this->inflectedForm?->attach($inflectedForm);
+        $this->inflectedForm->attach($inflectedForm);
     }
 
     /**
@@ -447,7 +447,7 @@ class DictionaryEntry extends AbstractEntry
      */
     public function removeInflectedForm(InflectedForm $inflectedForm): void
     {
-        $this->inflectedForm?->detach($inflectedForm);
+        $this->inflectedForm->detach($inflectedForm);
     }
 
     /**

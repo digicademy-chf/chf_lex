@@ -36,6 +36,7 @@ $GLOBALS['TCA']['tx_chfbase_domain_model_resource']['types'] += ['lexicographicR
 ]];
 
 // Add opposite usage info to 'items' column
+$GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['allowed'] .= ',tx_chflex_domain_model_definition,tx_chflex_domain_model_dictionaryentry,tx_chflex_domain_model_encyclopediaentry,tx_chflex_domain_model_example,tx_chflex_domain_model_frequency,tx_chflex_domain_model_inflectedform,tx_chflex_domain_model_pronunciation,tx_chflex_domain_model_sense,tx_chflex_domain_model_transcription';
 $GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_definition'] = ['parent_resource'];
 $GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_dictionaryentry'] = ['parent_resource'];
 $GLOBALS['TCA']['tx_chfbase_domain_model_resource']['columns']['items']['config']['MM_oppositeUsage']['tx_chflex_domain_model_encyclopediaentry'] = ['parent_resource'];
