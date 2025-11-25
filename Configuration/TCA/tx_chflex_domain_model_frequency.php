@@ -160,6 +160,7 @@ return [
                     'columns' => [
                         'type' => [
                             'config' => [
+                                'default' => 'locationRelation',
                                 'readOnly' => true,
                             ],
                         ],

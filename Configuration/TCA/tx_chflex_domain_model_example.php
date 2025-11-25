@@ -147,6 +147,7 @@ return [
                     'columns' => [
                         'type' => [
                             'config' => [
+                                'default' => 'agentRelation',
                                 'readOnly' => true,
                             ],
                         ],
@@ -185,6 +186,7 @@ return [
                     'columns' => [
                         'type' => [
                             'config' => [
+                                'default' => 'locationRelation',
                                 'readOnly' => true,
                             ],
                         ],
