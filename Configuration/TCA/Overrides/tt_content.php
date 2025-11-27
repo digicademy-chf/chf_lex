@@ -29,6 +29,7 @@ ExtensionUtility::registerPlugin(
     'tx-chflex-plugin-dictionary',
     'heritage',
     'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:plugin.dictionary.description',
+    'FILE:EXT:chf_lex/Configuration/FlexForms/PluginData.xml',
 );
 
 // Add plugin 'Encyclopedia'
@@ -39,6 +40,7 @@ ExtensionUtility::registerPlugin(
     'tx-chflex-plugin-encyclopedia',
     'heritage',
     'LLL:EXT:chf_lex/Resources/Private/Language/locallang.xlf:plugin.encyclopedia.description',
+    'FILE:EXT:chf_lex/Configuration/FlexForms/PluginData.xml',
 );
 
 // Add data tab to plugin form
@@ -47,18 +49,4 @@ ExtensionManagementUtility::addToAllTCAtypes(
     '--div--;LLL:EXT:chf_base/Resources/Private/Language/locallang.xlf:plugin.generic.data,pi_flexform',
     'chflex_dictionary,chflex_encyclopedia',
     'after:subheader',
-);
-
-// Add form for plugin 'Dictionary'
-ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:chf_lex/Configuration/FlexForms/PluginData.xml',
-    'chflex_dictionary',
-);
-
-// Add form for plugin 'Encyclopedia'
-ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:chf_lex/Configuration/FlexForms/PluginData.xml',
-    'chflex_encyclopedia',
 );

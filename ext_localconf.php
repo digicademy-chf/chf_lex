@@ -26,7 +26,6 @@ ExtensionUtility::configurePlugin(
         DictionaryController::class => 'index, show',
     ],
     [], // None of the actions are non-cacheable
-    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
 // Register 'Encyclopedia' content element
@@ -37,5 +36,4 @@ ExtensionUtility::configurePlugin(
         EncyclopediaController::class => 'index, show',
     ],
     [], // None of the actions are non-cacheable
-    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
