@@ -11,8 +11,8 @@ namespace Digicademy\CHFLex\Domain\Model;
 
 use Digicademy\CHFBase\Domain\Model\Traits\HiddenTrait;
 use Digicademy\CHFBase\Domain\Model\Traits\ParentResourceTrait;
-use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
-use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
+use TYPO3\CMS\Extbase\Attribute\Validate;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;

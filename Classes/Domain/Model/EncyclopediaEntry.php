@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Digicademy\CHFLex\Domain\Model;
 
-use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Attribute\Validate;
 
 defined('TYPO3') or die();
 

@@ -11,7 +11,7 @@ namespace Digicademy\CHFLex\Domain\Model;
 
 use Digicademy\CHFBase\Domain\Model\AbstractRelation;
 use Digicademy\CHFBase\Domain\Model\Traits\RecordTrait;
-use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
+use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 defined('TYPO3') or die();
