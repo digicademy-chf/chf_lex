@@ -1,490 +1,793 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en" datatype="plaintext" original="EXT:chf_lex/Resources/Private/Language/locallang.xlf" date="2023-09-25T10:48:43Z" product-name="chf_lex">
-        <header/>
-        <body>
-            <!-- Object: LexicographicResource -->
-            <trans-unit id="object.lexicographicResource.type.lexicographicResource" resname="object.lexicographicResource.type.lexicographicResource">
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
+    <file id="chf_lex">
+        <!-- Object: LexicographicResource -->
+        <unit id="object.lexicographicResource.type.lexicographicResource">
+            <segment>
                 <source>Lexicographic resource</source>
-            </trans-unit>
-            <!-- Object: SimilarityRelation -->
-            <trans-unit id="object.similarityRelation.type.similarityRelation" resname="object.similarityRelation.type.similarityRelation">
+            </segment>
+        </unit>
+        <!-- Object: SimilarityRelation -->
+        <unit id="object.similarityRelation.type.similarityRelation">
+            <segment>
                 <source>Similarity relation</source>
-            </trans-unit>
-            <trans-unit id="object.similarityRelation.relatedRecord" resname="object.similarityRelation.relatedRecord">
+            </segment>
+        </unit>
+        <unit id="object.similarityRelation.relatedRecord">
+            <segment>
                 <source>Related database record</source>
-            </trans-unit>
-            <trans-unit id="object.similarityRelation.relatedRecord.description" resname="object.similarityRelation.relatedRecord.description">
+            </segment>
+        </unit>
+        <unit id="object.similarityRelation.relatedRecord.description">
+            <segment>
                 <source>Similar record to connect the previous record to</source>
-            </trans-unit>
-            <!-- Object: LexicographicRelation -->
-            <trans-unit id="object.lexicographicRelation.type.lexicographicRelation" resname="object.lexicographicRelation.type.lexicographicRelation">
+            </segment>
+        </unit>
+        <!-- Object: LexicographicRelation -->
+        <unit id="object.lexicographicRelation.type.lexicographicRelation">
+            <segment>
                 <source>Lexicographic relation</source>
-            </trans-unit>
-            <trans-unit id="object.lexicographicRelation.lexicographicRelationType" resname="object.lexicographicRelation.lexicographicRelationType">
+            </segment>
+        </unit>
+        <unit id="object.lexicographicRelation.lexicographicRelationType">
+            <segment>
                 <source>Lexicographic relation type</source>
-            </trans-unit>
-            <trans-unit id="object.lexicographicRelation.lexicographicRelationType.description" resname="object.lexicographicRelation.lexicographicRelationType.description">
+            </segment>
+        </unit>
+        <unit id="object.lexicographicRelation.lexicographicRelationType.description">
+            <segment>
                 <source>Specifies the type of lexicographic relation</source>
-            </trans-unit>
-            <trans-unit id="object.lexicographicRelation.member" resname="object.lexicographicRelation.member">
+            </segment>
+        </unit>
+        <unit id="object.lexicographicRelation.member">
+            <segment>
                 <source>Relation member</source>
-            </trans-unit>
-            <trans-unit id="object.lexicographicRelation.member.description" resname="object.lexicographicRelation.member.description">
+            </segment>
+        </unit>
+        <unit id="object.lexicographicRelation.member.description">
+            <segment>
                 <source>List of members of this lexicographic relation</source>
-            </trans-unit>
-            <!-- Object: PartOfSpeechTag -->
-            <trans-unit id="object.partOfSpeechTag.type.partOfSpeechTag" resname="object.partOfSpeechTag.type.partOfSpeechTag">
+            </segment>
+        </unit>
+        <!-- Object: PartOfSpeechTag -->
+        <unit id="object.partOfSpeechTag.type.partOfSpeechTag">
+            <segment>
                 <source>Part of speech</source>
-            </trans-unit>
-            <!-- Object: InflectionTypeTag -->
-            <trans-unit id="object.inflectionTypeTag.type.inflectionTypeTag" resname="object.inflectionTypeTag.type.inflectionTypeTag">
+            </segment>
+        </unit>
+        <!-- Object: InflectionTypeTag -->
+        <unit id="object.inflectionTypeTag.type.inflectionTypeTag">
+            <segment>
                 <source>Inflection type</source>
-            </trans-unit>
-            <trans-unit id="object.inflectionTypeTag.for" resname="object.inflectionTypeTag.for">
+            </segment>
+        </unit>
+        <unit id="object.inflectionTypeTag.for">
+            <segment>
                 <source>Intended for</source>
-            </trans-unit>
-            <trans-unit id="object.inflectionTypeTag.for.description" resname="object.inflectionTypeTag.for.description">
+            </segment>
+        </unit>
+        <unit id="object.inflectionTypeTag.for.description">
+            <segment>
                 <source>Constraints and recommendations on where this inflection type may apply</source>
-            </trans-unit>
-            <!-- Object: DefinitionTypeTag -->
-            <trans-unit id="object.definitionTypeTag.type.definitionTypeTag" resname="object.definitionTypeTag.type.definitionTypeTag">
+            </segment>
+        </unit>
+        <!-- Object: DefinitionTypeTag -->
+        <unit id="object.definitionTypeTag.type.definitionTypeTag">
+            <segment>
                 <source>Definition type</source>
-            </trans-unit>
-            <!-- Object: TranscriptionSchemeTag -->
-            <trans-unit id="object.transcriptionSchemeTag.type.transcriptionSchemeTag" resname="object.transcriptionSchemeTag.type.transcriptionSchemeTag">
+            </segment>
+        </unit>
+        <!-- Object: TranscriptionSchemeTag -->
+        <unit id="object.transcriptionSchemeTag.type.transcriptionSchemeTag">
+            <segment>
                 <source>Transcription scheme</source>
-            </trans-unit>
-            <!-- Object: RelationTypeTag -->
-            <trans-unit id="object.relationTypeTag.type.relationTypeTag" resname="object.relationTypeTag.type.relationTypeTag">
+            </segment>
+        </unit>
+        <!-- Object: RelationTypeTag -->
+        <unit id="object.relationTypeTag.type.relationTypeTag">
+            <segment>
                 <source>Relation type</source>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.scopeRestriction" resname="object.relationTypeTag.scopeRestriction">
+            </segment>
+        </unit>
+        <unit id="object.relationTypeTag.scopeRestriction">
+            <segment>
                 <source>Scope restriction</source>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.scopeRestriction.description" resname="object.relationTypeTag.scopeRestriction.description">
+            </segment>
+        </unit>
+        <unit id="object.relationTypeTag.scopeRestriction.description">
+            <segment>
                 <source>How close members of this type of relation need to be</source>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.scopeRestriction.any" resname="object.relationTypeTag.scopeRestriction.any">
+            </segment>
+        </unit>
+        <unit id="object.relationTypeTag.scopeRestriction.any">
+            <segment>
                 <source>Any</source>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.scopeRestriction.sameResource" resname="object.relationTypeTag.scopeRestriction.sameResource">
+            </segment>
+        </unit>
+        <unit id="object.relationTypeTag.scopeRestriction.sameResource">
+            <segment>
                 <source>Part of the same lexicographic resource</source>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.scopeRestriction.sameEntry" resname="object.relationTypeTag.scopeRestriction.sameEntry">
+            </segment>
+        </unit>
+        <unit id="object.relationTypeTag.scopeRestriction.sameEntry">
+            <segment>
                 <source>Part of the same entry</source>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.memberRole" resname="object.relationTypeTag.memberRole">
+            </segment>
+        </unit>
+        <unit id="object.relationTypeTag.memberRole">
+            <segment>
                 <source>Member role</source>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.memberRole.description" resname="object.relationTypeTag.memberRole.description">
+            </segment>
+        </unit>
+        <unit id="object.relationTypeTag.memberRole.description">
+            <segment>
                 <source>Defines which roles members of this relation may have</source>
-            </trans-unit>
-            <!-- Object: MemberRoleTag -->
-            <trans-unit id="object.memberRoleTag.type.memberRoleTag" resname="object.memberRoleTag.type.memberRoleTag">
+            </segment>
+        </unit>
+        <!-- Object: MemberRoleTag -->
+        <unit id="object.memberRoleTag.type.memberRoleTag">
+            <segment>
                 <source>Member role</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.parentRelationTypeTag" resname="object.memberRoleTag.parentRelationTypeTag">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.parentRelationTypeTag">
+            <segment>
                 <source>Parent relation type</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.parentRelationTypeTag.description" resname="object.memberRoleTag.parentRelationTypeTag.description">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.parentRelationTypeTag.description">
+            <segment>
                 <source>Relation type that this member role is part of</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.memberType" resname="object.memberRoleTag.memberType">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.memberType">
+            <segment>
                 <source>Member type</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.memberType.description" resname="object.memberRoleTag.memberType.description">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.memberType.description">
+            <segment>
                 <source>Defines which types of members may be part of this relation</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.memberType.entry" resname="object.memberRoleTag.memberType.entry">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.memberType.entry">
+            <segment>
                 <source>Dictionary entry</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.memberType.encyclopediaEntry" resname="object.memberRoleTag.memberType.encyclopediaEntry">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.memberType.encyclopediaEntry">
+            <segment>
                 <source>Encyclopedia entry</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.memberType.sense" resname="object.memberRoleTag.memberType.sense">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.memberType.sense">
+            <segment>
                 <source>Sense</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.min" resname="object.memberRoleTag.min">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.min">
+            <segment>
                 <source>Minimum number</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.min.description" resname="object.memberRoleTag.min.description">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.min.description">
+            <segment>
                 <source>Minimum number of members in this relation (leave empty to not set a limit)</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.max" resname="object.memberRoleTag.max">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.max">
+            <segment>
                 <source>Maximum number</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.max.description" resname="object.memberRoleTag.max.description">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.max.description">
+            <segment>
                 <source>Maximum number of members in this relation (leave empty to not set a limit)</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.hint" resname="object.memberRoleTag.hint">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.hint">
+            <segment>
                 <source>Display hint</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.hint.description" resname="object.memberRoleTag.hint.description">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.hint.description">
+            <segment>
                 <source>Instruction what to do with members of this role</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.hint.embed" resname="object.memberRoleTag.hint.embed">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.hint.embed">
+            <segment>
                 <source>Embed (e.g., entries and subentries)</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.hint.navigate" resname="object.memberRoleTag.hint.navigate">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.hint.navigate">
+            <segment>
                 <source>Display link (e.g., synonyms, antonyms, etc.)</source>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.hint.none" resname="object.memberRoleTag.hint.none">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.hint.none">
+            <segment>
                 <source>Do not display</source>
-            </trans-unit>
-            <!-- Object: AbstractEntry -->
-            <trans-unit id="object.abstractEntry.similarityRelation" resname="object.abstractEntry.similarityRelation">
+            </segment>
+        </unit>
+        <!-- Object: AbstractEntry -->
+        <unit id="object.abstractEntry.similarityRelation">
+            <segment>
                 <source>Similarity relation</source>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.similarityRelation.description" resname="object.abstractEntry.similarityRelation.description">
+            </segment>
+        </unit>
+        <unit id="object.abstractEntry.similarityRelation.description">
+            <segment>
                 <source>Similar lexicographic entries related to this record</source>
-            </trans-unit>
-            <!-- Object: DictionaryEntry -->
-            <trans-unit id="object.dictionaryEntry" resname="object.dictionaryEntry">
+            </segment>
+        </unit>
+        <!-- Object: DictionaryEntry -->
+        <unit id="object.dictionaryEntry">
+            <segment>
                 <source>Dictionary entry</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.headword" resname="object.dictionaryEntry.headword">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.headword">
+            <segment>
                 <source>Headword</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.headword.description" resname="object.dictionaryEntry.headword.description">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.headword.description">
+            <segment>
                 <source>Lemma identifying the word discussed in the entry</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.homographNumber" resname="object.dictionaryEntry.homographNumber">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.homographNumber">
+            <segment>
                 <source>Homograph number</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.homographNumber.description" resname="object.dictionaryEntry.homographNumber.description">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.homographNumber.description">
+            <segment>
                 <source>Optional number to distinguish homographs</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.partOfSpeech" resname="object.dictionaryEntry.partOfSpeech">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.partOfSpeech">
+            <segment>
                 <source>Part of speech</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.partOfSpeech.description" resname="object.dictionaryEntry.partOfSpeech.description">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.partOfSpeech.description">
+            <segment>
                 <source>Define the headword's part of speech</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.editorialQuery" resname="object.dictionaryEntry.editorialQuery">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.editorialQuery">
+            <segment>
                 <source>Editorial query</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.editorialQuery.description" resname="object.dictionaryEntry.editorialQuery.description">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.editorialQuery.description">
+            <segment>
                 <source>Database query that identifies entries edited in a single run</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.sense" resname="object.dictionaryEntry.sense">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.sense">
+            <segment>
                 <source>Sense</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.sense.description" resname="object.dictionaryEntry.sense.description">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.sense.description">
+            <segment>
                 <source>List of senses for this entry</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.example" resname="object.dictionaryEntry.example">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.example">
+            <segment>
                 <source>Example</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.example.description" resname="object.dictionaryEntry.example.description">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.example.description">
+            <segment>
                 <source>List of contemporary or historical examples of this dictionary entry</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.frequency" resname="object.dictionaryEntry.frequency">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.frequency">
+            <segment>
                 <source>Frequency</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.frequency.description" resname="object.dictionaryEntry.frequency.description">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.frequency.description">
+            <segment>
                 <source>List of domestic and foreign frequency data</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.pronunciation" resname="object.dictionaryEntry.pronunciation">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.pronunciation">
+            <segment>
                 <source>Pronunciation</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.pronunciation.description" resname="object.dictionaryEntry.pronunciation.description">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.pronunciation.description">
+            <segment>
                 <source>List of possible pronunciations of the headword</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.inflectedForm" resname="object.dictionaryEntry.inflectedForm">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.inflectedForm">
+            <segment>
                 <source>Inflected form</source>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.inflectedForm.description" resname="object.dictionaryEntry.inflectedForm.description">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.inflectedForm.description">
+            <segment>
                 <source>List of the headword's inflected forms</source>
-            </trans-unit>
-            <!-- Object: EncyclopediaEntry -->
-            <trans-unit id="object.encyclopediaEntry" resname="object.encyclopediaEntry">
+            </segment>
+        </unit>
+        <!-- Object: EncyclopediaEntry -->
+        <unit id="object.encyclopediaEntry">
+            <segment>
                 <source>Encyclopedia entry</source>
-            </trans-unit>
-            <trans-unit id="object.encyclopediaEntry.title" resname="object.encyclopediaEntry.title">
+            </segment>
+        </unit>
+        <unit id="object.encyclopediaEntry.title">
+            <segment>
                 <source>Title</source>
-            </trans-unit>
-            <trans-unit id="object.encyclopediaEntry.title.description" resname="object.encyclopediaEntry.title.description">
+            </segment>
+        </unit>
+        <unit id="object.encyclopediaEntry.title.description">
+            <segment>
                 <source>Heading of the encyclopedia entry</source>
-            </trans-unit>
-            <!-- Object: Member -->
-            <trans-unit id="object.member" resname="object.member">
+            </segment>
+        </unit>
+        <!-- Object: Member -->
+        <unit id="object.member">
+            <segment>
                 <source>Relation member</source>
-            </trans-unit>
-            <trans-unit id="object.member.parentRelation" resname="object.member.parentRelation">
+            </segment>
+        </unit>
+        <unit id="object.member.parentRelation">
+            <segment>
                 <source>Parent relation</source>
-            </trans-unit>
-            <trans-unit id="object.member.parentRelation.description" resname="object.member.parentRelation.description">
+            </segment>
+        </unit>
+        <unit id="object.member.parentRelation.description">
+            <segment>
                 <source>Lexicographic relation that this record is a member of</source>
-            </trans-unit>
-            <trans-unit id="object.member.role" resname="object.member.role">
+            </segment>
+        </unit>
+        <unit id="object.member.role">
+            <segment>
                 <source>Role</source>
-            </trans-unit>
-            <trans-unit id="object.member.role.description" resname="object.member.role.description">
+            </segment>
+        </unit>
+        <unit id="object.member.role.description">
+            <segment>
                 <source>Role in the relation</source>
-            </trans-unit>
-            <trans-unit id="object.member.ref" resname="object.member.ref">
+            </segment>
+        </unit>
+        <unit id="object.member.ref">
+            <segment>
                 <source>Reference</source>
-            </trans-unit>
-            <trans-unit id="object.member.ref.description" resname="object.member.ref.description">
+            </segment>
+        </unit>
+        <unit id="object.member.ref.description">
+            <segment>
                 <source>List of dictionary entries or senses</source>
-            </trans-unit>
-            <!-- Object: InflectedForm -->
-            <trans-unit id="object.inflectedForm" resname="object.inflectedForm">
+            </segment>
+        </unit>
+        <!-- Object: InflectedForm -->
+        <unit id="object.inflectedForm">
+            <segment>
                 <source>Inflected form</source>
-            </trans-unit>
-            <trans-unit id="object.inflectedForm.parentEntry" resname="object.inflectedForm.parentEntry">
+            </segment>
+        </unit>
+        <unit id="object.inflectedForm.parentEntry">
+            <segment>
                 <source>Parent entry</source>
-            </trans-unit>
-            <trans-unit id="object.inflectedForm.parentEntry.description" resname="object.inflectedForm.parentEntry.description">
+            </segment>
+        </unit>
+        <unit id="object.inflectedForm.parentEntry.description">
+            <segment>
                 <source>Dictionary entry that this inflected form is part of</source>
-            </trans-unit>
-            <trans-unit id="object.inflectedForm.text" resname="object.inflectedForm.text">
+            </segment>
+        </unit>
+        <unit id="object.inflectedForm.text">
+            <segment>
                 <source>Text</source>
-            </trans-unit>
-            <trans-unit id="object.inflectedForm.text.description" resname="object.inflectedForm.text.description">
+            </segment>
+        </unit>
+        <unit id="object.inflectedForm.text.description">
+            <segment>
                 <source>String of the inflected form</source>
-            </trans-unit>
-            <trans-unit id="object.inflectedForm.inflectionType" resname="object.inflectedForm.inflectionType">
+            </segment>
+        </unit>
+        <unit id="object.inflectedForm.inflectionType">
+            <segment>
                 <source>Inflection type</source>
-            </trans-unit>
-            <trans-unit id="object.inflectedForm.inflectionType.description" resname="object.inflectedForm.inflectionType.description">
+            </segment>
+        </unit>
+        <unit id="object.inflectedForm.inflectionType.description">
+            <segment>
                 <source>Type of inflection provided here</source>
-            </trans-unit>
-            <trans-unit id="object.inflectedForm.pronunciation" resname="object.inflectedForm.pronunciation">
+            </segment>
+        </unit>
+        <unit id="object.inflectedForm.pronunciation">
+            <segment>
                 <source>Pronunciation</source>
-            </trans-unit>
-            <trans-unit id="object.inflectedForm.pronunciation.description" resname="object.inflectedForm.pronunciation.description">
+            </segment>
+        </unit>
+        <unit id="object.inflectedForm.pronunciation.description">
+            <segment>
                 <source>Pronunciation of the inflected form</source>
-            </trans-unit>
-            <!-- Object: Sense -->
-            <trans-unit id="object.sense" resname="object.sense">
+            </segment>
+        </unit>
+        <!-- Object: Sense -->
+        <unit id="object.sense">
+            <segment>
                 <source>Sense</source>
-            </trans-unit>
-            <trans-unit id="object.sense.parentEntry" resname="object.sense.parentEntry">
+            </segment>
+        </unit>
+        <unit id="object.sense.parentEntry">
+            <segment>
                 <source>Parent entry</source>
-            </trans-unit>
-            <trans-unit id="object.sense.parentEntry.description" resname="object.sense.parentEntry.description">
+            </segment>
+        </unit>
+        <unit id="object.sense.parentEntry.description">
+            <segment>
                 <source>Dictionary entry that this sense belongs to</source>
-            </trans-unit>
-            <trans-unit id="object.sense.indicator" resname="object.sense.indicator">
+            </segment>
+        </unit>
+        <unit id="object.sense.indicator">
+            <segment>
                 <source>Indicator</source>
-            </trans-unit>
-            <trans-unit id="object.sense.indicator.description" resname="object.sense.indicator.description">
+            </segment>
+        </unit>
+        <unit id="object.sense.indicator.description">
+            <segment>
                 <source>Brief note differentiating this sense from the others</source>
-            </trans-unit>
-            <trans-unit id="object.sense.definition" resname="object.sense.definition">
+            </segment>
+        </unit>
+        <unit id="object.sense.definition">
+            <segment>
                 <source>Definition</source>
-            </trans-unit>
-            <trans-unit id="object.sense.definition.description" resname="object.sense.definition.description">
+            </segment>
+        </unit>
+        <unit id="object.sense.definition.description">
+            <segment>
                 <source>Specific description of the sense</source>
-            </trans-unit>
-            <trans-unit id="object.sense.example" resname="object.sense.example">
+            </segment>
+        </unit>
+        <unit id="object.sense.example">
+            <segment>
                 <source>Example</source>
-            </trans-unit>
-            <trans-unit id="object.sense.example.description" resname="object.sense.example.description">
+            </segment>
+        </unit>
+        <unit id="object.sense.example.description">
+            <segment>
                 <source>List of contemporary or historical examples of this sense</source>
-            </trans-unit>
-            <trans-unit id="object.sense.frequency" resname="object.sense.frequency">
+            </segment>
+        </unit>
+        <unit id="object.sense.frequency">
+            <segment>
                 <source>Frequency</source>
-            </trans-unit>
-            <trans-unit id="object.sense.frequency.description" resname="object.sense.frequency.description">
+            </segment>
+        </unit>
+        <unit id="object.sense.frequency.description">
+            <segment>
                 <source>List of domestic and foreign frequency data</source>
-            </trans-unit>
-            <!-- Object: Pronunciation -->
-            <trans-unit id="object.pronunciation" resname="object.pronunciation">
+            </segment>
+        </unit>
+        <!-- Object: Pronunciation -->
+        <unit id="object.pronunciation">
+            <segment>
                 <source>Pronunciation</source>
-            </trans-unit>
-            <trans-unit id="object.pronunciation.parentEntry" resname="object.pronunciation.parentEntry">
+            </segment>
+        </unit>
+        <unit id="object.pronunciation.parentEntry">
+            <segment>
                 <source>Parent entry</source>
-            </trans-unit>
-            <trans-unit id="object.pronunciation.parentEntry.description" resname="object.pronunciation.parentEntry.description">
+            </segment>
+        </unit>
+        <unit id="object.pronunciation.parentEntry.description">
+            <segment>
                 <source>Dictionary entry that this pronunciation belongs to</source>
-            </trans-unit>
-            <trans-unit id="object.pronunciation.parentInflectedForm" resname="object.pronunciation.parentInflectedForm">
+            </segment>
+        </unit>
+        <unit id="object.pronunciation.parentInflectedForm">
+            <segment>
                 <source>Parent inflected form</source>
-            </trans-unit>
-            <trans-unit id="object.pronunciation.parentInflectedForm.description" resname="object.pronunciation.parentInflectedForm.description">
+            </segment>
+        </unit>
+        <unit id="object.pronunciation.parentInflectedForm.description">
+            <segment>
                 <source>Inflected form that this pronunciation belongs to</source>
-            </trans-unit>
-            <trans-unit id="object.pronunciation.soundFile" resname="object.pronunciation.soundFile">
+            </segment>
+        </unit>
+        <unit id="object.pronunciation.soundFile">
+            <segment>
                 <source>Sound file</source>
-            </trans-unit>
-            <trans-unit id="object.pronunciation.soundFile.description" resname="object.pronunciation.soundFile.description">
+            </segment>
+        </unit>
+        <unit id="object.pronunciation.soundFile.description">
+            <segment>
                 <source>File that reads out the pronunciation</source>
-            </trans-unit>
-            <trans-unit id="object.pronunciation.transcription" resname="object.pronunciation.transcription">
+            </segment>
+        </unit>
+        <unit id="object.pronunciation.transcription">
+            <segment>
                 <source>Transcription</source>
-            </trans-unit>
-            <trans-unit id="object.pronunciation.transcription.description" resname="object.pronunciation.transcription.description">
+            </segment>
+        </unit>
+        <unit id="object.pronunciation.transcription.description">
+            <segment>
                 <source>List of possible transcriptions of the pronuncation</source>
-            </trans-unit>
-            <!-- Object: Definition -->
-            <trans-unit id="object.definition" resname="object.definition">
+            </segment>
+        </unit>
+        <!-- Object: Definition -->
+        <unit id="object.definition">
+            <segment>
                 <source>Definition</source>
-            </trans-unit>
-            <trans-unit id="object.definition.parentSense" resname="object.definition.parentSense">
+            </segment>
+        </unit>
+        <unit id="object.definition.parentSense">
+            <segment>
                 <source>Parent sense</source>
-            </trans-unit>
-            <trans-unit id="object.definition.parentSense.description" resname="object.definition.parentSense.description">
+            </segment>
+        </unit>
+        <unit id="object.definition.parentSense.description">
+            <segment>
                 <source>Sense that this definition belongs to</source>
-            </trans-unit>
-            <trans-unit id="object.definition.text" resname="object.definition.text">
+            </segment>
+        </unit>
+        <unit id="object.definition.text">
+            <segment>
                 <source>Text</source>
-            </trans-unit>
-            <trans-unit id="object.definition.text.description" resname="object.definition.text.description">
+            </segment>
+        </unit>
+        <unit id="object.definition.text.description">
+            <segment>
                 <source>Definition of the sense</source>
-            </trans-unit>
-            <trans-unit id="object.definition.definitionType" resname="object.definition.definitionType">
+            </segment>
+        </unit>
+        <unit id="object.definition.definitionType">
+            <segment>
                 <source>Definition type</source>
-            </trans-unit>
-            <trans-unit id="object.definition.definitionType.description" resname="object.definition.definitionType.description">
+            </segment>
+        </unit>
+        <unit id="object.definition.definitionType.description">
+            <segment>
                 <source>May be used to differentiate between different tiers of definitions</source>
-            </trans-unit>
-            <!-- Object: Transcription -->
-            <trans-unit id="object.transcription" resname="object.transcription">
+            </segment>
+        </unit>
+        <!-- Object: Transcription -->
+        <unit id="object.transcription">
+            <segment>
                 <source>Transcription</source>
-            </trans-unit>
-            <trans-unit id="object.transcription.parentPronunciation" resname="object.transcription.parentPronunciation">
+            </segment>
+        </unit>
+        <unit id="object.transcription.parentPronunciation">
+            <segment>
                 <source>Parent pronunciation</source>
-            </trans-unit>
-            <trans-unit id="object.transcription.parentPronunciation.description" resname="object.transcription.parentPronunciation.description">
+            </segment>
+        </unit>
+        <unit id="object.transcription.parentPronunciation.description">
+            <segment>
                 <source>Pronunciation that this transcription belongs to</source>
-            </trans-unit>
-            <trans-unit id="object.transcription.text" resname="object.transcription.text">
+            </segment>
+        </unit>
+        <unit id="object.transcription.text">
+            <segment>
                 <source>Text</source>
-            </trans-unit>
-            <trans-unit id="object.transcription.text.description" resname="object.transcription.text.description">
+            </segment>
+        </unit>
+        <unit id="object.transcription.text.description">
+            <segment>
                 <source>Transcribed version of the pronunciation</source>
-            </trans-unit>
-            <trans-unit id="object.transcription.scheme" resname="object.transcription.scheme">
+            </segment>
+        </unit>
+        <unit id="object.transcription.scheme">
+            <segment>
                 <source>Scheme</source>
-            </trans-unit>
-            <trans-unit id="object.transcription.scheme.description" resname="object.transcription.scheme.description">
+            </segment>
+        </unit>
+        <unit id="object.transcription.scheme.description">
+            <segment>
                 <source>Transcription scheme used here</source>
-            </trans-unit>
-            <!-- Object: Example -->
-            <trans-unit id="object.example" resname="object.example">
+            </segment>
+        </unit>
+        <!-- Object: Example -->
+        <unit id="object.example">
+            <segment>
                 <source>Example</source>
-            </trans-unit>
-            <trans-unit id="object.example.parentEntry" resname="object.example.parentEntry">
+            </segment>
+        </unit>
+        <unit id="object.example.parentEntry">
+            <segment>
                 <source>Parent entry</source>
-            </trans-unit>
-            <trans-unit id="object.example.parentEntry.description" resname="object.example.parentEntry.description">
+            </segment>
+        </unit>
+        <unit id="object.example.parentEntry.description">
+            <segment>
                 <source>Dictionary entry that this example is part of</source>
-            </trans-unit>
-            <trans-unit id="object.example.parentSense" resname="object.example.parentSense">
+            </segment>
+        </unit>
+        <unit id="object.example.parentSense">
+            <segment>
                 <source>Parent sense</source>
-            </trans-unit>
-            <trans-unit id="object.example.parentSense.description" resname="object.example.parentSense.description">
+            </segment>
+        </unit>
+        <unit id="object.example.parentSense.description">
+            <segment>
                 <source>Sense that this example is part of</source>
-            </trans-unit>
-            <trans-unit id="object.example.text" resname="object.example.text">
+            </segment>
+        </unit>
+        <unit id="object.example.text">
+            <segment>
                 <source>Text</source>
-            </trans-unit>
-            <trans-unit id="object.example.text.description" resname="object.example.text.description">
+            </segment>
+        </unit>
+        <unit id="object.example.text.description">
+            <segment>
                 <source>String that exemplifies the headword or the sense</source>
-            </trans-unit>
-            <trans-unit id="object.example.date" resname="object.example.date">
+            </segment>
+        </unit>
+        <unit id="object.example.date">
+            <segment>
                 <source>Date</source>
-            </trans-unit>
-            <trans-unit id="object.example.date.description" resname="object.example.date.description">
+            </segment>
+        </unit>
+        <unit id="object.example.date.description">
+            <segment>
                 <source>Date when this example was in use</source>
-            </trans-unit>
-            <trans-unit id="object.example.dateText" resname="object.example.dateText">
+            </segment>
+        </unit>
+        <unit id="object.example.dateText">
+            <segment>
                 <source>Date (text)</source>
-            </trans-unit>
-            <trans-unit id="object.example.dateText.description" resname="object.example.dateText.description">
+            </segment>
+        </unit>
+        <unit id="object.example.dateText.description">
+            <segment>
                 <source>Non-standard date of the example</source>
-            </trans-unit>
-            <trans-unit id="object.example.soundFile" resname="object.example.soundFile">
+            </segment>
+        </unit>
+        <unit id="object.example.soundFile">
+            <segment>
                 <source>Sound file</source>
-            </trans-unit>
-            <trans-unit id="object.example.soundFile.description" resname="object.example.soundFile.description">
+            </segment>
+        </unit>
+        <unit id="object.example.soundFile.description">
+            <segment>
                 <source>File that reads out the example</source>
-            </trans-unit>
-            <!-- Object: Frequency -->
-            <trans-unit id="object.frequency" resname="object.frequency">
+            </segment>
+        </unit>
+        <!-- Object: Frequency -->
+        <unit id="object.frequency">
+            <segment>
                 <source>Frequency</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.parentEntry" resname="object.frequency.parentEntry">
+            </segment>
+        </unit>
+        <unit id="object.frequency.parentEntry">
+            <segment>
                 <source>Parent entry</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.parentEntry.description" resname="object.frequency.parentEntry.description">
+            </segment>
+        </unit>
+        <unit id="object.frequency.parentEntry.description">
+            <segment>
                 <source>Dictionary entry that this frequency is part of</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.parentSense" resname="object.frequency.parentSense">
+            </segment>
+        </unit>
+        <unit id="object.frequency.parentSense">
+            <segment>
                 <source>Parent sense</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.parentSense.description" resname="object.frequency.parentSense.description">
+            </segment>
+        </unit>
+        <unit id="object.frequency.parentSense.description">
+            <segment>
                 <source>Sense that this frequency is part of</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokens" resname="object.frequency.tokens">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokens">
+            <segment>
                 <source>Tokens</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokens.description" resname="object.frequency.tokens.description">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokens.description">
+            <segment>
                 <source>Number of occurrences</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokenType" resname="object.frequency.tokenType">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokenType">
+            <segment>
                 <source>Token type</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokenType.description" resname="object.frequency.tokenType.description">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokenType.description">
+            <segment>
                 <source>Type of occurrences</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokenType.unknown" resname="object.frequency.tokenType.unknown">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokenType.unknown">
+            <segment>
                 <source>Unknown</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokenType.population" resname="object.frequency.tokenType.population">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokenType.population">
+            <segment>
                 <source>Population</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokenType.families" resname="object.frequency.tokenType.families">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokenType.families">
+            <segment>
                 <source>Families</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokenType.births" resname="object.frequency.tokenType.births">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokenType.births">
+            <segment>
                 <source>Births</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokenType.landlines" resname="object.frequency.tokenType.landlines">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokenType.landlines">
+            <segment>
                 <source>Landlines</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokensSecondary" resname="object.frequency.tokensSecondary">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokensSecondary">
+            <segment>
                 <source>Secondary tokens</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokensSecondary.description" resname="object.frequency.tokensSecondary.description">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokensSecondary.description">
+            <segment>
                 <source>Occurrences in second position</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.date" resname="object.frequency.date">
+            </segment>
+        </unit>
+        <unit id="object.frequency.date">
+            <segment>
                 <source>Date</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.date.description" resname="object.frequency.date.description">
+            </segment>
+        </unit>
+        <unit id="object.frequency.date.description">
+            <segment>
                 <source>Date when this frequency applied</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.dateText" resname="object.frequency.dateText">
+            </segment>
+        </unit>
+        <unit id="object.frequency.dateText">
+            <segment>
                 <source>Date (text)</source>
-            </trans-unit>
-            <trans-unit id="object.frequency.dateText.description" resname="object.frequency.dateText.description">
+            </segment>
+        </unit>
+        <unit id="object.frequency.dateText.description">
+            <segment>
                 <source>Non-standard date of the frequency</source>
-            </trans-unit>
-            <!-- Object: Distribution -->
-            <trans-unit id="object.distribution.parentFrequency" resname="object.distribution.parentFrequency">
+            </segment>
+        </unit>
+        <!-- Object: Distribution -->
+        <unit id="object.distribution.parentFrequency">
+            <segment>
                 <source>Parent frequency</source>
-            </trans-unit>
-            <trans-unit id="object.distribution.parentFrequency.description" resname="object.distribution.parentFrequency.description">
+            </segment>
+        </unit>
+        <unit id="object.distribution.parentFrequency.description">
+            <segment>
                 <source>Frequency that this distribution is part of</source>
-            </trans-unit>
-            <!-- Plugin: Dictionary -->
-            <trans-unit id="plugin.dictionary" resname="plugin.dictionary">
+            </segment>
+        </unit>
+        <!-- Plugin: Dictionary -->
+        <unit id="plugin.dictionary">
+            <segment>
                 <source>Dictionary</source>
-            </trans-unit>
-            <trans-unit id="plugin.dictionary.description" resname="plugin.dictionary.description">
+            </segment>
+        </unit>
+        <unit id="plugin.dictionary.description">
+            <segment>
                 <source>List and show dictionary entries</source>
-            </trans-unit>
-            <!-- Plugin: Encyclopedia -->
-            <trans-unit id="plugin.encyclopedia" resname="plugin.encyclopedia">
+            </segment>
+        </unit>
+        <!-- Plugin: Encyclopedia -->
+        <unit id="plugin.encyclopedia">
+            <segment>
                 <source>Encyclopedia</source>
-            </trans-unit>
-            <trans-unit id="plugin.encyclopedia.description" resname="plugin.encyclopedia.description">
+            </segment>
+        </unit>
+        <unit id="plugin.encyclopedia.description">
+            <segment>
                 <source>List and show encyclopedia entries</source>
-            </trans-unit>
-        </body>
+            </segment>
+        </unit>
     </file>
 </xliff>

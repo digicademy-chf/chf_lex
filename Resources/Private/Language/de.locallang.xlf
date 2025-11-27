@@ -1,643 +1,946 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en" target-language="de" datatype="plaintext" original="EXT:chf_lex/Resources/Private/Language/de.locallang.xlf" date="2023-09-25T10:48:43Z" product-name="chf_lex">
-        <header/>
-        <body>
-            <!-- Object: LexicographicResource -->
-            <trans-unit id="object.lexicographicResource.type.lexicographicResource" resname="object.lexicographicResource.type.lexicographicResource" approved="yes">
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
+    <file id="chf_lex">
+        <!-- Object: LexicographicResource -->
+        <unit id="object.lexicographicResource.type.lexicographicResource">
+            <segment state="final">
                 <source>Lexicographic resource</source>
                 <target>Lexikografische Ressource</target>
-            </trans-unit>
-            <!-- Object: SimilarityRelation -->
-            <trans-unit id="object.similarityRelation.type.similarityRelation" resname="object.similarityRelation.type.similarityRelation" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: SimilarityRelation -->
+        <unit id="object.similarityRelation.type.similarityRelation">
+            <segment state="final">
                 <source>Similarity relation</source>
                 <target>Ähnlichkeitsrelation</target>
-            </trans-unit>
-            <trans-unit id="object.similarityRelation.relatedRecord" resname="object.similarityRelation.relatedRecord" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.similarityRelation.relatedRecord">
+            <segment state="final">
                 <source>Related database record</source>
                 <target>Ähnlicher Datenbankeintrag</target>
-            </trans-unit>
-            <trans-unit id="object.similarityRelation.relatedRecord.description" resname="object.similarityRelation.relatedRecord.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.similarityRelation.relatedRecord.description">
+            <segment state="final">
                 <source>Similar record to connect the previous record to</source>
                 <target>Ähnlicher Eintrag, mit dem der vorgenannte Eintrag verbunden sein soll</target>
-            </trans-unit>
-            <!-- Object: LexicographicRelation -->
-            <trans-unit id="object.lexicographicRelation.type.lexicographicRelation" resname="object.lexicographicRelation.type.lexicographicRelation" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: LexicographicRelation -->
+        <unit id="object.lexicographicRelation.type.lexicographicRelation">
+            <segment state="final">
                 <source>Lexicographic relation</source>
                 <target>Lexikografische Relation</target>
-            </trans-unit>
-            <trans-unit id="object.lexicographicRelation.lexicographicRelationType" resname="object.lexicographicRelation.lexicographicRelationType" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.lexicographicRelation.lexicographicRelationType">
+            <segment state="final">
                 <source>Lexicographic relation type</source>
                 <target>Lexikografische Relationsart</target>
-            </trans-unit>
-            <trans-unit id="object.lexicographicRelation.lexicographicRelationType.description" resname="object.lexicographicRelation.lexicographicRelationType.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.lexicographicRelation.lexicographicRelationType.description">
+            <segment state="final">
                 <source>Specifies the type of lexicographic relation</source>
                 <target>Angabe der Art der lexikografischen Relation</target>
-            </trans-unit>
-            <trans-unit id="object.lexicographicRelation.member" resname="object.lexicographicRelation.member" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.lexicographicRelation.member">
+            <segment state="final">
                 <source>Relation member</source>
                 <target>Relationsmitglied</target>
-            </trans-unit>
-            <trans-unit id="object.lexicographicRelation.member.description" resname="object.lexicographicRelation.member.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.lexicographicRelation.member.description">
+            <segment state="final">
                 <source>List of members of this lexicographic relation</source>
                 <target>Liste der Mitglieder dieser lexikografischen Relation</target>
-            </trans-unit>
-            <!-- Object: PartOfSpeechTag -->
-            <trans-unit id="object.partOfSpeechTag.type.partOfSpeechTag" resname="object.partOfSpeechTag.type.partOfSpeechTag" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: PartOfSpeechTag -->
+        <unit id="object.partOfSpeechTag.type.partOfSpeechTag">
+            <segment state="final">
                 <source>Part of speech</source>
                 <target>Wortart</target>
-            </trans-unit>
-            <!-- Object: InflectionTypeTag -->
-            <trans-unit id="object.inflectionTypeTag.type.inflectionTypeTag" resname="object.inflectionTypeTag.type.inflectionTypeTag" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: InflectionTypeTag -->
+        <unit id="object.inflectionTypeTag.type.inflectionTypeTag">
+            <segment state="final">
                 <source>Inflection type</source>
                 <target>Beugungsart</target>
-            </trans-unit>
-            <trans-unit id="object.inflectionTypeTag.for" resname="object.inflectionTypeTag.for" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.inflectionTypeTag.for">
+            <segment state="final">
                 <source>Application hint</source>
                 <target>Nutzungshinweis</target>
-            </trans-unit>
-            <trans-unit id="object.inflectionTypeTag.for.description" resname="object.inflectionTypeTag.for.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.inflectionTypeTag.for.description">
+            <segment state="final">
                 <source>Constraints and recommendations on where this inflection type may apply</source>
                 <target>Einschränkungen und Empfehlungen zur Nutzung dieser Beugungsart</target>
-            </trans-unit>
-            <!-- Object: DefinitionTypeTag -->
-            <trans-unit id="object.definitionTypeTag.type.definitionTypeTag" resname="object.definitionTypeTag.type.definitionTypeTag" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: DefinitionTypeTag -->
+        <unit id="object.definitionTypeTag.type.definitionTypeTag">
+            <segment state="final">
                 <source>Definition type</source>
                 <target>Definitionsart</target>
-            </trans-unit>
-            <!-- Object: TranscriptionSchemeTag -->
-            <trans-unit id="object.transcriptionSchemeTag.type.transcriptionSchemeTag" resname="object.transcriptionSchemeTag.type.transcriptionSchemeTag" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: TranscriptionSchemeTag -->
+        <unit id="object.transcriptionSchemeTag.type.transcriptionSchemeTag">
+            <segment state="final">
                 <source>Transcription scheme</source>
                 <target>Transkriptionsschema</target>
-            </trans-unit>
-            <!-- Object: RelationTypeTag -->
-            <trans-unit id="object.relationTypeTag.type.relationTypeTag" resname="object.relationTypeTag.type.relationTypeTag" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: RelationTypeTag -->
+        <unit id="object.relationTypeTag.type.relationTypeTag">
+            <segment state="final">
                 <source>Relation type</source>
                 <target>Relationsart</target>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.scopeRestriction" resname="object.relationTypeTag.scopeRestriction" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.relationTypeTag.scopeRestriction">
+            <segment state="final">
                 <source>Scope restriction</source>
                 <target>Anwendungsfeld</target>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.scopeRestriction.description" resname="object.relationTypeTag.scopeRestriction.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.relationTypeTag.scopeRestriction.description">
+            <segment state="final">
                 <source>How close members of this type of relation need to be</source>
                 <target>Wie ähnlich Mitglieder einer Relation dieser Art sein sollen</target>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.scopeRestriction.any" resname="object.relationTypeTag.scopeRestriction.any" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.relationTypeTag.scopeRestriction.any">
+            <segment state="final">
                 <source>Any</source>
                 <target>Beliebig</target>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.scopeRestriction.sameResource" resname="object.relationTypeTag.scopeRestriction.sameResource" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.relationTypeTag.scopeRestriction.sameResource">
+            <segment state="final">
                 <source>Part of the same lexicographic resource</source>
                 <target>Teil derselben lexikografischen Ressource</target>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.scopeRestriction.sameEntry" resname="object.relationTypeTag.scopeRestriction.sameEntry" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.relationTypeTag.scopeRestriction.sameEntry">
+            <segment state="final">
                 <source>Part of the same entry</source>
                 <target>Teil desselben Eintrags</target>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.memberRole" resname="object.relationTypeTag.memberRole" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.relationTypeTag.memberRole">
+            <segment state="final">
                 <source>Member role</source>
                 <target>Mitgliedsrolle</target>
-            </trans-unit>
-            <trans-unit id="object.relationTypeTag.memberRole.description" resname="object.relationTypeTag.memberRole.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.relationTypeTag.memberRole.description">
+            <segment state="final">
                 <source>Defines which roles members of this relation may have</source>
                 <target>Legt fest, welche Rollen Mitglieder dieser Relation haben können</target>
-            </trans-unit>
-            <!-- Object: MemberRoleTag -->
-            <trans-unit id="object.memberRoleTag.type.memberRoleTag" resname="object.memberRoleTag.type.memberRoleTag" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: MemberRoleTag -->
+        <unit id="object.memberRoleTag.type.memberRoleTag">
+            <segment state="final">
                 <source>Member role</source>
                 <target>Mitgliedsrolle</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.parentRelationTypeTag" resname="object.memberRoleTag.parentRelationTypeTag" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.parentRelationTypeTag">
+            <segment state="final">
                 <source>Parent relation type</source>
                 <target>Übergeordnete Relationsart</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.parentRelationTypeTag.description" resname="object.memberRoleTag.parentRelationTypeTag.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.parentRelationTypeTag.description">
+            <segment state="final">
                 <source>Relation type that this member role is part of</source>
                 <target>Relationsart, zu der diese Mitgliedsrolle gehört</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.memberType" resname="object.memberRoleTag.memberType" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.memberType">
+            <segment state="final">
                 <source>Member type</source>
                 <target>Mitgliedsart</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.memberType.description" resname="object.memberRoleTag.memberType.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.memberType.description">
+            <segment state="final">
                 <source>Defines which types of members may be part of this relation</source>
                 <target>Schränkt ein, welche Art Mitglieder Teil dieser Relation sein dürfen</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.memberType.entry" resname="object.memberRoleTag.memberType.entry" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.memberType.entry">
+            <segment state="final">
                 <source>Dictionary entry</source>
                 <target>Wörterbucheintrag</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.memberType.encyclopediaEntry" resname="object.memberRoleTag.memberType.encyclopediaEntry" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.memberType.encyclopediaEntry">
+            <segment state="final">
                 <source>Encyclopedia entry</source>
                 <target>Lexikoneintrag</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.memberType.sense" resname="object.memberRoleTag.memberType.sense" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.memberType.sense">
+            <segment state="final">
                 <source>Sense</source>
                 <target>Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.min" resname="object.memberRoleTag.min" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.min">
+            <segment state="final">
                 <source>Minimum number</source>
                 <target>Mindestanzahl</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.min.description" resname="object.memberRoleTag.min.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.min.description">
+            <segment state="final">
                 <source>Minimum number of members in this relation</source>
                 <target>Mindestanzahl an Mitgliedern für diese Relation</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.max" resname="object.memberRoleTag.max" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.max">
+            <segment state="final">
                 <source>Maximum number</source>
                 <target>Höchstanzahl</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.max.description" resname="object.memberRoleTag.max.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.max.description">
+            <segment state="final">
                 <source>Maximum number of members in this relation</source>
                 <target>Höchstanzahl an Mitgliedern für diese Relation</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.hint" resname="object.memberRoleTag.hint" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.hint">
+            <segment state="final">
                 <source>Display hint</source>
                 <target>Hinweis zur Anzeige</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.hint.description" resname="object.memberRoleTag.hint.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.hint.description">
+            <segment state="final">
                 <source>Instruction what to do with members of this role</source>
                 <target>Angabe, was mit Mitgliedern in dieser Rolle geschehen soll</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.hint.embed" resname="object.memberRoleTag.hint.embed" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.hint.embed">
+            <segment state="final">
                 <source>Embed (e.g., entries and subentries)</source>
                 <target>Einbetten (z.B. Einträge und Untereinträge)</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.hint.navigate" resname="object.memberRoleTag.hint.navigate" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.hint.navigate">
+            <segment state="final">
                 <source>Display link (e.g., synonyms, antonyms, etc.)</source>
                 <target>Link anzeigen (z.B. Synonyme, Antonyme, etc.)</target>
-            </trans-unit>
-            <trans-unit id="object.memberRoleTag.hint.none" resname="object.memberRoleTag.hint.none" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.memberRoleTag.hint.none">
+            <segment state="final">
                 <source>Do not display</source>
                 <target>Nicht anzeigen</target>
-            </trans-unit>
-            <!-- Object: AbstractEntry -->
-            <trans-unit id="object.abstractEntry.similarityRelation" resname="object.abstractEntry.similarityRelation" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: AbstractEntry -->
+        <unit id="object.abstractEntry.similarityRelation">
+            <segment state="final">
                 <source>Similarity relation</source>
                 <target>Ähnlichkeitsrelation</target>
-            </trans-unit>
-            <trans-unit id="object.abstractEntry.similarityRelation.description" resname="object.abstractEntry.similarityRelation.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.abstractEntry.similarityRelation.description">
+            <segment state="final">
                 <source>Similar lexicographic entries related to this record</source>
                 <target>Ähnliche lexikografische Einträge, die für diesen Eintrag relevant sind</target>
-            </trans-unit>
-            <!-- Object: DictionaryEntry -->
-            <trans-unit id="object.dictionaryEntry" resname="object.dictionaryEntry" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: DictionaryEntry -->
+        <unit id="object.dictionaryEntry">
+            <segment state="final">
                 <source>Dictionary entry</source>
                 <target>Wörterbucheintrag</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.headword" resname="object.dictionaryEntry.headword" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.headword">
+            <segment state="final">
                 <source>Headword</source>
                 <target>Lemma</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.headword.description" resname="object.dictionaryEntry.headword.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.headword.description">
+            <segment state="final">
                 <source>Lemma identifying the word discussed in the entry</source>
                 <target>Zeichenkette des Wortes, das im Eintrag diskutiert wird</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.homographNumber" resname="object.dictionaryEntry.homographNumber" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.homographNumber">
+            <segment state="final">
                 <source>Homograph number</source>
                 <target>Homographnummer</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.homographNumber.description" resname="object.dictionaryEntry.homographNumber.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.homographNumber.description">
+            <segment state="final">
                 <source>Optional number to distinguish homographs</source>
                 <target>Optionale Nummer zur Unterscheidung von Homographen</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.partOfSpeech" resname="object.dictionaryEntry.partOfSpeech" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.partOfSpeech">
+            <segment state="final">
                 <source>Part of speech</source>
                 <target>Wortart</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.partOfSpeech.description" resname="object.dictionaryEntry.partOfSpeech.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.partOfSpeech.description">
+            <segment state="final">
                 <source>Define the headword's part of speech</source>
                 <target>Angabe der Wortart des Lemmas</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.editorialQuery" resname="object.dictionaryEntry.editorialQuery" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.editorialQuery">
+            <segment state="final">
                 <source>Editorial query</source>
                 <target>Datenbankabfrage</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.editorialQuery.description" resname="object.dictionaryEntry.editorialQuery.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.editorialQuery.description">
+            <segment state="final">
                 <source>Database query that identifies entries edited in a single run</source>
                 <target>Abfrage zur Identifikation von Einträgen, die gemeinsam bearbeitet wurden</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.sense" resname="object.dictionaryEntry.sense" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.sense">
+            <segment state="final">
                 <source>Sense</source>
                 <target>Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.sense.description" resname="object.dictionaryEntry.sense.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.sense.description">
+            <segment state="final">
                 <source>List of senses for this entry</source>
                 <target>Angabe von Bedeutungen dieses Eintrags</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.example" resname="object.dictionaryEntry.example" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.example">
+            <segment state="final">
                 <source>Example</source>
                 <target>Beispiel</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.example.description" resname="object.dictionaryEntry.example.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.example.description">
+            <segment state="final">
                 <source>List of contemporary or historical examples of this dictionary entry</source>
                 <target>Liste mit zeitgenössischen oder historischen Beispielen dieses Wörterbucheintrags</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.frequency" resname="object.dictionaryEntry.frequency" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.frequency">
+            <segment state="final">
                 <source>Frequency</source>
                 <target>Häufigkeit</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.frequency.description" resname="object.dictionaryEntry.frequency.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.frequency.description">
+            <segment state="final">
                 <source>List of domestic and foreign frequency data</source>
                 <target>Liste mit Angaben zur Häufigkeit im In- und Ausland</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.pronunciation" resname="object.dictionaryEntry.pronunciation" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.pronunciation">
+            <segment state="final">
                 <source>Pronunciation</source>
                 <target>Aussprache</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.pronunciation.description" resname="object.dictionaryEntry.pronunciation.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.pronunciation.description">
+            <segment state="final">
                 <source>List of possible pronunciations of the headword</source>
                 <target>Liste der möglichen Aussprachen des Lemmas</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.inflectedForm" resname="object.dictionaryEntry.inflectedForm" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.inflectedForm">
+            <segment state="final">
                 <source>Inflected form</source>
                 <target>Gebeugte Form</target>
-            </trans-unit>
-            <trans-unit id="object.dictionaryEntry.inflectedForm.description" resname="object.dictionaryEntry.inflectedForm.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.dictionaryEntry.inflectedForm.description">
+            <segment state="final">
                 <source>List of the headword's inflected forms</source>
                 <target>Liste der gebeugten Formen des Lemmas</target>
-            </trans-unit>
-            <!-- Object: EncyclopediaEntry -->
-            <trans-unit id="object.encyclopediaEntry" resname="object.encyclopediaEntry" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: EncyclopediaEntry -->
+        <unit id="object.encyclopediaEntry">
+            <segment state="final">
                 <source>Encyclopedia entry</source>
                 <target>Lexikoneintrag</target>
-            </trans-unit>
-            <trans-unit id="object.encyclopediaEntry.title" resname="object.encyclopediaEntry.title" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.encyclopediaEntry.title">
+            <segment state="final">
                 <source>Title</source>
                 <target>Titel</target>
-            </trans-unit>
-            <trans-unit id="object.encyclopediaEntry.title.description" resname="object.encyclopediaEntry.title.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.encyclopediaEntry.title.description">
+            <segment state="final">
                 <source>Heading of the encyclopedia entry</source>
                 <target>Überschrift des Lexikoneintrags</target>
-            </trans-unit>
-            <!-- Object: Member -->
-            <trans-unit id="object.member" resname="object.member" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: Member -->
+        <unit id="object.member">
+            <segment state="final">
                 <source>Relation member</source>
                 <target>Mitgliedsangabe</target>
-            </trans-unit>
-            <trans-unit id="object.member.parentRelation" resname="object.member.parentRelation" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.member.parentRelation">
+            <segment state="final">
                 <source>Parent relation</source>
                 <target>Übergeordnete Relation</target>
-            </trans-unit>
-            <trans-unit id="object.member.parentRelation.description" resname="object.member.parentRelation.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.member.parentRelation.description">
+            <segment state="final">
                 <source>Lexicographic relation that this record is a member of</source>
                 <target>Lexikografische Relation, in der dieser Eintrag Mitglied ist</target>
-            </trans-unit>
-            <trans-unit id="object.member.role" resname="object.member.role" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.member.role">
+            <segment state="final">
                 <source>Role</source>
                 <target>Rolle</target>
-            </trans-unit>
-            <trans-unit id="object.member.role.description" resname="object.member.role.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.member.role.description">
+            <segment state="final">
                 <source>Role in the relation</source>
                 <target>Rolle in der Relation</target>
-            </trans-unit>
-            <trans-unit id="object.member.ref" resname="object.member.ref" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.member.ref">
+            <segment state="final">
                 <source>Reference</source>
                 <target>Bezugspunkt</target>
-            </trans-unit>
-            <trans-unit id="object.member.ref.description" resname="object.member.ref.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.member.ref.description">
+            <segment state="final">
                 <source>List of dictionary entries or senses</source>
                 <target>Liste der Wörterbucheinträge oder Bedeutungen</target>
-            </trans-unit>
-            <!-- Object: InflectedForm -->
-            <trans-unit id="object.inflectedForm" resname="object.inflectedForm" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: InflectedForm -->
+        <unit id="object.inflectedForm">
+            <segment state="final">
                 <source>Inflected form</source>
                 <target>Gebeugte Form</target>
-            </trans-unit>
-            <trans-unit id="object.inflectedForm.parentEntry" resname="object.inflectedForm.parentEntry" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.inflectedForm.parentEntry">
+            <segment state="final">
                 <source>Parent entry</source>
                 <target>Übergeordneter Eintrag</target>
-            </trans-unit>
-            <trans-unit id="object.inflectedForm.parentEntry.description" resname="object.inflectedForm.parentEntry.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.inflectedForm.parentEntry.description">
+            <segment state="final">
                 <source>Dictionary entry that this inflected form is part of</source>
                 <target>Wörterbucheintrag, zu dem diese gebeugte Form gehört</target>
-            </trans-unit>
-            <trans-unit id="object.inflectedForm.text" resname="object.inflectedForm.text" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.inflectedForm.text">
+            <segment state="final">
                 <source>Text</source>
                 <target>Text</target>
-            </trans-unit>
-            <trans-unit id="object.inflectedForm.text.description" resname="object.inflectedForm.text.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.inflectedForm.text.description">
+            <segment state="final">
                 <source>String of the inflected form</source>
                 <target>Zeichenkette der gebeugten Form</target>
-            </trans-unit>
-            <trans-unit id="object.inflectedForm.inflectionType" resname="object.inflectedForm.inflectionType" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.inflectedForm.inflectionType">
+            <segment state="final">
                 <source>Inflection type</source>
                 <target>Beugungsart</target>
-            </trans-unit>
-            <trans-unit id="object.inflectedForm.inflectionType.description" resname="object.inflectedForm.inflectionType.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.inflectedForm.inflectionType.description">
+            <segment state="final">
                 <source>Type of inflection provided here</source>
                 <target>Spezifische Art der hier angegebenen Beugung</target>
-            </trans-unit>
-            <trans-unit id="object.inflectedForm.pronunciation" resname="object.inflectedForm.pronunciation" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.inflectedForm.pronunciation">
+            <segment state="final">
                 <source>Pronunciation</source>
                 <target>Aussprache</target>
-            </trans-unit>
-            <trans-unit id="object.inflectedForm.pronunciation.description" resname="object.inflectedForm.pronunciation.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.inflectedForm.pronunciation.description">
+            <segment state="final">
                 <source>Pronunciation of the inflected form</source>
                 <target>Aussprache der gebeugten Form</target>
-            </trans-unit>
-            <!-- Object: Sense -->
-            <trans-unit id="object.sense" resname="object.sense" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: Sense -->
+        <unit id="object.sense">
+            <segment state="final">
                 <source>Sense</source>
                 <target>Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="object.sense.parentEntry" resname="object.sense.parentEntry" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sense.parentEntry">
+            <segment state="final">
                 <source>Parent entry</source>
                 <target>Übergeordneter Eintrag</target>
-            </trans-unit>
-            <trans-unit id="object.sense.parentEntry.description" resname="object.sense.parentEntry.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sense.parentEntry.description">
+            <segment state="final">
                 <source>Dictionary entry that this sense belongs to</source>
                 <target>Wörterbucheintrag, zu dem diese Bedeutung gehört</target>
-            </trans-unit>
-            <trans-unit id="object.sense.indicator" resname="object.sense.indicator" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sense.indicator">
+            <segment state="final">
                 <source>Indicator</source>
                 <target>Indikator</target>
-            </trans-unit>
-            <trans-unit id="object.sense.indicator.description" resname="object.sense.indicator.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sense.indicator.description">
+            <segment state="final">
                 <source>Brief note differentiating this sense from the others</source>
                 <target>Kurze Angabe, wie sich diese Bedeutung von den anderen unterscheidet</target>
-            </trans-unit>
-            <trans-unit id="object.sense.definition" resname="object.sense.definition" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sense.definition">
+            <segment state="final">
                 <source>Definition</source>
                 <target>Definition</target>
-            </trans-unit>
-            <trans-unit id="object.sense.definition.description" resname="object.sense.definition.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sense.definition.description">
+            <segment state="final">
                 <source>Specific description of the sense</source>
                 <target>Genauere Beschreibung der Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="object.sense.example" resname="object.sense.example" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sense.example">
+            <segment state="final">
                 <source>Example</source>
                 <target>Beispiel</target>
-            </trans-unit>
-            <trans-unit id="object.sense.example.description" resname="object.sense.example.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sense.example.description">
+            <segment state="final">
                 <source>List of contemporary or historical examples of this sense</source>
                 <target>Liste mit zeitgenössischen oder historischen Beispielen dieser Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="object.sense.frequency" resname="object.sense.frequency" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sense.frequency">
+            <segment state="final">
                 <source>Frequency</source>
                 <target>Häufigkeit</target>
-            </trans-unit>
-            <trans-unit id="object.sense.frequency.description" resname="object.sense.frequency.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.sense.frequency.description">
+            <segment state="final">
                 <source>List of domestic and foreign frequency data</source>
                 <target>Liste mit Angaben zur Häufigkeit im In- und Ausland</target>
-            </trans-unit>
-            <!-- Object: Pronunciation -->
-            <trans-unit id="object.pronunciation" resname="object.pronunciation" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: Pronunciation -->
+        <unit id="object.pronunciation">
+            <segment state="final">
                 <source>Pronunciation</source>
                 <target>Aussprache</target>
-            </trans-unit>
-            <trans-unit id="object.pronunciation.parentEntry" resname="object.pronunciation.parentEntry" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.pronunciation.parentEntry">
+            <segment state="final">
                 <source>Parent entry</source>
                 <target>Übergeordneter Eintrag</target>
-            </trans-unit>
-            <trans-unit id="object.pronunciation.parentEntry.description" resname="object.pronunciation.parentEntry.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.pronunciation.parentEntry.description">
+            <segment state="final">
                 <source>Dictionary entry that this pronunciation belongs to</source>
                 <target>Wörterbucheintrag, zu dem diese Aussprache gehört</target>
-            </trans-unit>
-            <trans-unit id="object.pronunciation.parentInflectedForm" resname="object.pronunciation.parentInflectedForm" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.pronunciation.parentInflectedForm">
+            <segment state="final">
                 <source>Parent inflected form</source>
                 <target>Übergeordnete gebeugte Form</target>
-            </trans-unit>
-            <trans-unit id="object.pronunciation.parentInflectedForm.description" resname="object.pronunciation.parentInflectedForm.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.pronunciation.parentInflectedForm.description">
+            <segment state="final">
                 <source>Inflected form that this pronunciation belongs to</source>
                 <target>Gebeugte Form, zu der diese Aussprache gehört</target>
-            </trans-unit>
-            <trans-unit id="object.pronunciation.soundFile" resname="object.pronunciation.soundFile" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.pronunciation.soundFile">
+            <segment state="final">
                 <source>Sound file</source>
                 <target>Audiodatei</target>
-            </trans-unit>
-            <trans-unit id="object.pronunciation.soundFile.description" resname="object.pronunciation.soundFile.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.pronunciation.soundFile.description">
+            <segment state="final">
                 <source>File that reads out the pronunciation</source>
                 <target>Datei, in der die Aussprache vorgelesen wird</target>
-            </trans-unit>
-            <trans-unit id="object.pronunciation.transcription" resname="object.pronunciation.transcription" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.pronunciation.transcription">
+            <segment state="final">
                 <source>Transcription</source>
                 <target>Transkription</target>
-            </trans-unit>
-            <trans-unit id="object.pronunciation.transcription.description" resname="object.pronunciation.transcription.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.pronunciation.transcription.description">
+            <segment state="final">
                 <source>List of possible transcriptions of the pronuncation</source>
                 <target>Liste möglicher Transkriptionen der Aussprache</target>
-            </trans-unit>
-            <!-- Object: Definition -->
-            <trans-unit id="object.definition" resname="object.definition" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: Definition -->
+        <unit id="object.definition">
+            <segment state="final">
                 <source>Definition</source>
                 <target>Definition</target>
-            </trans-unit>
-            <trans-unit id="object.definition.parentSense" resname="object.definition.parentSense" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.definition.parentSense">
+            <segment state="final">
                 <source>Parent sense</source>
                 <target>Übergeordnete Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="object.definition.parentSense.description" resname="object.definition.parentSense.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.definition.parentSense.description">
+            <segment state="final">
                 <source>Sense that this definition belongs to</source>
                 <target>Bedeutung, zu der diese Definition gehört</target>
-            </trans-unit>
-            <trans-unit id="object.definition.text" resname="object.definition.text" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.definition.text">
+            <segment state="final">
                 <source>Text</source>
                 <target>Text</target>
-            </trans-unit>
-            <trans-unit id="object.definition.text.description" resname="object.definition.text.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.definition.text.description">
+            <segment state="final">
                 <source>Definition of the sense</source>
                 <target>Definition der Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="object.definition.definitionType" resname="object.definition.definitionType" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.definition.definitionType">
+            <segment state="final">
                 <source>Definition type</source>
                 <target>Definitionsart</target>
-            </trans-unit>
-            <trans-unit id="object.definition.definitionType.description" resname="object.definition.definitionType.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.definition.definitionType.description">
+            <segment state="final">
                 <source>May be used to differentiate between different tiers of definitions</source>
                 <target>Kann zur Differenzierung verschiedener Definitionsstufen genutzt werden</target>
-            </trans-unit>
-            <!-- Object: Transcription -->
-            <trans-unit id="object.transcription" resname="object.transcription" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: Transcription -->
+        <unit id="object.transcription">
+            <segment state="final">
                 <source>Transcription</source>
                 <target>Transkription</target>
-            </trans-unit>
-            <trans-unit id="object.transcription.parentPronunciation" resname="object.transcription.parentPronunciation" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.transcription.parentPronunciation">
+            <segment state="final">
                 <source>Parent pronunciation</source>
                 <target>Übergeordnete Aussprache</target>
-            </trans-unit>
-            <trans-unit id="object.transcription.parentPronunciation.description" resname="object.transcription.parentPronunciation.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.transcription.parentPronunciation.description">
+            <segment state="final">
                 <source>Pronunciation that this transcription belongs to</source>
                 <target>Aussprache, zu der diese Transkription gehört</target>
-            </trans-unit>
-            <trans-unit id="object.transcription.text" resname="object.transcription.text" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.transcription.text">
+            <segment state="final">
                 <source>Text</source>
                 <target>Text</target>
-            </trans-unit>
-            <trans-unit id="object.transcription.text.description" resname="object.transcription.text.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.transcription.text.description">
+            <segment state="final">
                 <source>Transcribed version of the pronunciation</source>
                 <target>Transkribierte Version der Aussprache</target>
-            </trans-unit>
-            <trans-unit id="object.transcription.scheme" resname="object.transcription.scheme" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.transcription.scheme">
+            <segment state="final">
                 <source>Scheme</source>
                 <target>Schema</target>
-            </trans-unit>
-            <trans-unit id="object.transcription.scheme.description" resname="object.transcription.scheme.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.transcription.scheme.description">
+            <segment state="final">
                 <source>Transcription scheme used here</source>
                 <target>Verwendetes Transkriptionsschema</target>
-            </trans-unit>
-            <!-- Object: Example -->
-            <trans-unit id="object.example" resname="object.example" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: Example -->
+        <unit id="object.example">
+            <segment state="final">
                 <source>Example</source>
                 <target>Beispiel</target>
-            </trans-unit>
-            <trans-unit id="object.example.parentEntry" resname="object.example.parentEntry" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.example.parentEntry">
+            <segment state="final">
                 <source>Parent entry</source>
                 <target>Übergeordneter Eintrag</target>
-            </trans-unit>
-            <trans-unit id="object.example.parentEntry.description" resname="object.example.parentEntry.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.example.parentEntry.description">
+            <segment state="final">
                 <source>Dictionary entry that this example is part of</source>
                 <target>Wörterbucheintrag, zu dem dieses Beispiel gehört</target>
-            </trans-unit>
-            <trans-unit id="object.example.parentSense" resname="object.example.parentSense" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.example.parentSense">
+            <segment state="final">
                 <source>Parent sense</source>
                 <target>Übergeordnete Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="object.example.parentSense.description" resname="object.example.parentSense.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.example.parentSense.description">
+            <segment state="final">
                 <source>Sense that this example is part of</source>
                 <target>Bedeutung, zu der dieses Beispiel gehört</target>
-            </trans-unit>
-            <trans-unit id="object.example.text" resname="object.example.text" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.example.text">
+            <segment state="final">
                 <source>Text</source>
                 <target>Text</target>
-            </trans-unit>
-            <trans-unit id="object.example.text.description" resname="object.example.text.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.example.text.description">
+            <segment state="final">
                 <source>String that exemplifies the headword or the sense</source>
                 <target>Zeichenkette, die das zu definierende Wort oder die Bedeutung illustriert</target>
-            </trans-unit>
-            <trans-unit id="object.example.date" resname="object.example.date" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.example.date">
+            <segment state="final">
                 <source>Date</source>
                 <target>Datum</target>
-            </trans-unit>
-            <trans-unit id="object.example.date.description" resname="object.example.date.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.example.date.description">
+            <segment state="final">
                 <source>Date when this example was in use</source>
                 <target>Zeitpunkt, zu dem das Beispiel in Gebrauch war</target>
-            </trans-unit>
-            <trans-unit id="object.example.dateText" resname="object.example.dateText" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.example.dateText">
+            <segment state="final">
                 <source>Date (text)</source>
                 <target>Datum (Text)</target>
-            </trans-unit>
-            <trans-unit id="object.example.dateText.description" resname="object.example.dateText.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.example.dateText.description">
+            <segment state="final">
                 <source>Non-standard date of the example</source>
                 <target>Nicht standardiesiertes Datum des Beispiels</target>
-            </trans-unit>
-            <trans-unit id="object.example.soundFile" resname="object.example.soundFile" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.example.soundFile">
+            <segment state="final">
                 <source>Sound file</source>
                 <target>Audiodatei</target>
-            </trans-unit>
-            <trans-unit id="object.example.soundFile.description" resname="object.example.soundFile.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.example.soundFile.description">
+            <segment state="final">
                 <source>File that reads out the example</source>
                 <target>Datei, in der das Beispiel vorgelesen wird</target>
-            </trans-unit>
-            <!-- Object: Frequency -->
-            <trans-unit id="object.frequency" resname="object.frequency" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: Frequency -->
+        <unit id="object.frequency">
+            <segment state="final">
                 <source>Frequency</source>
                 <target>Häufigkeit</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.parentEntry" resname="object.frequency.parentEntry" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.parentEntry">
+            <segment state="final">
                 <source>Parent entry</source>
                 <target>Übergeordneter Eintrag</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.parentEntry.description" resname="object.frequency.parentEntry.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.parentEntry.description">
+            <segment state="final">
                 <source>Dictionary entry that this frequency is part of</source>
                 <target>Wörterbucheintrag, zu dem diese Häufigkeit gehört</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.parentSense" resname="object.frequency.parentSense" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.parentSense">
+            <segment state="final">
                 <source>Parent sense</source>
                 <target>Übergeordnete Bedeutung</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.parentSense.description" resname="object.frequency.parentSense.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.parentSense.description">
+            <segment state="final">
                 <source>Sense that this frequency is part of</source>
                 <target>Bedeutung, zu der diese Häufigkeit gehört</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokens" resname="object.frequency.tokens" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokens">
+            <segment state="final">
                 <source>Tokens</source>
                 <target>Tokens</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokens.description" resname="object.frequency.tokens.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokens.description">
+            <segment state="final">
                 <source>Number of occurrences</source>
                 <target>Anzahl der Vorkommen</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokenType" resname="object.frequency.tokenType" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokenType">
+            <segment state="final">
                 <source>Token type</source>
                 <target>Tokenart</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokenType.description" resname="object.frequency.tokenType.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokenType.description">
+            <segment state="final">
                 <source>Type of occurrences</source>
                 <target>Art der Vorkommen</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokenType.unknown" resname="object.frequency.tokenType.unknown" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokenType.unknown">
+            <segment state="final">
                 <source>Unknown</source>
                 <target>Unbekannt</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokenType.population" resname="object.frequency.tokenType.population" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokenType.population">
+            <segment state="final">
                 <source>Population</source>
                 <target>Einwohnende</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokenType.families" resname="object.frequency.tokenType.families" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokenType.families">
+            <segment state="final">
                 <source>Families</source>
                 <target>Familien</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokenType.births" resname="object.frequency.tokenType.births" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokenType.births">
+            <segment state="final">
                 <source>Births</source>
                 <target>Geburten</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokenType.landlines" resname="object.frequency.tokenType.landlines" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokenType.landlines">
+            <segment state="final">
                 <source>Landlines</source>
                 <target>Festnetzanschlüsse</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokensSecondary" resname="object.frequency.tokensSecondary" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokensSecondary">
+            <segment state="final">
                 <source>Secondary tokens</source>
                 <target>Sekundäre Tokens</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.tokensSecondary.description" resname="object.frequency.tokensSecondary.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.tokensSecondary.description">
+            <segment state="final">
                 <source>Occurrences in second position</source>
                 <target>Vorkommen an zweiter Stelle</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.date" resname="object.frequency.date" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.date">
+            <segment state="final">
                 <source>Date</source>
                 <target>Datum</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.date.description" resname="object.frequency.date.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.date.description">
+            <segment state="final">
                 <source>Date when this frequency applied</source>
                 <target>Zeitpunkt, zu dem die Häufigkeitsangabe zutraf</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.dateText" resname="object.frequency.dateText" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.dateText">
+            <segment state="final">
                 <source>Date (text)</source>
                 <target>Datum (Text)</target>
-            </trans-unit>
-            <trans-unit id="object.frequency.dateText.description" resname="object.frequency.dateText.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.frequency.dateText.description">
+            <segment state="final">
                 <source>Non-standard date of the frequency</source>
                 <target>Nicht standardiesierter Zeitpunkt der Häufigkeit</target>
-            </trans-unit>
-            <!-- Object: Distribution -->
-            <trans-unit id="object.distribution.parentFrequency" resname="object.distribution.parentFrequency" approved="yes">
+            </segment>
+        </unit>
+        <!-- Object: Distribution -->
+        <unit id="object.distribution.parentFrequency">
+            <segment state="final">
                 <source>Parent frequency</source>
                 <target>Übergeordnete Häufigkeit</target>
-            </trans-unit>
-            <trans-unit id="object.distribution.parentFrequency.description" resname="object.distribution.parentFrequency.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="object.distribution.parentFrequency.description">
+            <segment state="final">
                 <source>Frequency that this distribution is part of</source>
                 <target>Häufigkeit, zu der diese Verteilung gehört</target>
-            </trans-unit>
-            <!-- Plugin: Dictionary -->
-            <trans-unit id="plugin.dictionary" resname="plugin.dictionary" approved="yes">
+            </segment>
+        </unit>
+        <!-- Plugin: Dictionary -->
+        <unit id="plugin.dictionary">
+            <segment state="final">
                 <source>Dictionary</source>
                 <target>Wörterbuch</target>
-            </trans-unit>
-            <trans-unit id="plugin.dictionary.description" resname="plugin.dictionary.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="plugin.dictionary.description">
+            <segment state="final">
                 <source>List and show dictionary entries</source>
                 <target>Wörterbucheinträge auflisten und anzeigen</target>
-            </trans-unit>
-            <!-- Plugin: Encyclopedia -->
-            <trans-unit id="plugin.encyclopedia" resname="plugin.encyclopedia" approved="yes">
+            </segment>
+        </unit>
+        <!-- Plugin: Encyclopedia -->
+        <unit id="plugin.encyclopedia">
+            <segment state="final">
                 <source>Encyclopedia</source>
                 <target>Lexikon</target>
-            </trans-unit>
-            <trans-unit id="plugin.encyclopedia.description" resname="plugin.encyclopedia.description" approved="yes">
+            </segment>
+        </unit>
+        <unit id="plugin.encyclopedia.description">
+            <segment state="final">
                 <source>List and show encyclopedia entries</source>
                 <target>Lexikoneinträge auflisten und anzeigen</target>
-            </trans-unit>
-        </body>
+            </segment>
+        </unit>
     </file>
 </xliff>
